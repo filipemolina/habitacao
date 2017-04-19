@@ -18,7 +18,7 @@
         <!-- Custom Theme Style -->
         <link href="{{ asset("css/gentelella.min.css") }}" rel="stylesheet">
 
-        @stack('stylesheets')
+        @stack('css')
 
     </head>
 
@@ -30,7 +30,7 @@
 
                 @include('includes/topbar')
 
-                @yield('main_container')
+                @yield('conteudo')
 
             </div>
         </div>
@@ -42,7 +42,7 @@
         <!-- Custom Theme Scripts -->
         <script src="{{ asset("js/gentelella.min.js") }}"></script>
 
-        @stack('scripts')
+        @stack('javascript')
 
     </body>
 </html>
