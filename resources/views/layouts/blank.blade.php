@@ -17,7 +17,9 @@
         <link href="{{ asset("css/font-awesome.min.css") }}" rel="stylesheet">
         <!-- Custom Theme Style -->
         <link href="{{ asset("css/gentelella.min.css") }}" rel="stylesheet">
-
+        <!-- css do projeto -->
+        <link href="{{ asset("css/styles.css") }}" rel="stylesheet"> 
+        
         @stack('stylesheets')
 
     </head>
