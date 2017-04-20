@@ -36,7 +36,7 @@
 
 <div class="form-group">
   <label class="col-md-2 control-label" for="nome">Nome</label>  
-  <div class="col-md-6">
+  <div class="col-md-8">
   	<input id="nome" name="nome" type="text" placeholder="Nome" class="form-control input-md" required="">
     
   </div>
@@ -44,93 +44,115 @@
 
 
 
-{{-- Sexo e Data de Nascimento --}}
+{{-- Data de Nascimento, Sexo, Deficiente --}}
 
 <div class="form-group">
 
+{{-- Data de Nascimento --}}
+
+  <label class="col-md-2 control-label" for="data_nascimento">Nascimento</label>  
+  <div class="col-md-2">
+  <input id="data_nascimento" name="data_nascimento" type="text" placeholder="01/01/2000" class="form-control input-md" required="">
+
+
+  
+    
+  </div>
+
 {{-- Sexo   --}}
-  <label class="col-md-2 control-label" for="sexo">Sexo</label>
+  <label class="col-md-1 control-label" for="sexo">Sexo</label>
 	<div class="col-md-2">
     	<select id="sexo" name="sexo" type="text" placeholder="sexo" class="form-control input-md" required="">
-    		<option value="">Sexo</option>
+    		<option value="">   </option>
       		<option value="m">Masculino</option>
       		<option value="f">Femino</option>
   		</select>
 	
 	</div>
 
-{{-- Data de Nascimento --}}
+{{-- Deficiente --}}
 
-  <label class="col-md-1 control-label" for="data_nascimento">Nascimento</label>  
-  <div class="col-md-2">
-  <input id="data_nascimento" name="data_nascimento" type="text" placeholder="01/01/2000" class="form-control input-md" required="">
-    
-  </div>
-
+  <label class="col-md-1 control-label" for="deficiente">Deficiente</label>
+	<div class="col-md-2">
+    	<select id="deficiente" name="deficiente" type="text" placeholder="deficiente" class="form-control input-md" required="">
+    		<option value="">   </option>
+      		<option value="s">Sim</option>
+      		<option value="n">Não</option>
+  		
+  		</select>	
+	</div>
 </div>
+
+
+{{-- RG, Data de Emissão do RG, Orgão Emissor do RG --}}
 
 <!-- RG-->
 <div class="form-group">
-  <label class="col-md-2 control-label" for="RG">RG</label>  
+
+  <label class="col-md-2 control-label" for="RG">RG</label>
+
   <div class="col-md-2">
-  <input id="RG" name="RG" type="text" placeholder="RG" class="form-control input-md" required="">
+  	<input id="RG" name="RG" type="text" placeholder="RG" class="form-control input-md" required="">
     
   </div>
-</div>
 
 <!-- Data de Emissão do RG-->
-<div class="form-group">
-  <label class="col-md-2 control-label" for="data_emissao">Data de emissão</label>  
-  <div class="col-md-6">
-  <input id="data_emissao" name="data_emissao" type="text" placeholder="Data de Emissão" class="form-control input-md" required="">
+	<label class="col-md-1 control-label" for="data_emissao">Emissão</label>  
+  	<div class="col-md-2">
+  	<input id="data_emissao" name="data_emissao" type="text" placeholder="Data de Emissão" class="form-control input-md" required="">
     
-  </div>
-</div>
+  	</div>
 
 <!-- Orgão Emissor do RG-->
-<div class="form-group">
-  <label class="col-md-2 control-label" for="orgao_emissor">Orgão Emissor</label>  
-  <div class="col-md-6">
-  <input id="orgao_emissor" name="orgao_emissor" type="text" placeholder="orgao_emissor" class="form-control input-md" required="">
+<label class="col-md-1 control-label" for="orgao_emissor">Orgão</label>  
+  <div class="col-md-2">
+  <input id="orgao_emissor" name="orgao_emissor" type="text" placeholder="Orgão Emissor" class="form-control input-md" required="">
     
   </div>
 </div>
 
-<!-- CEP-->
+{{-- Logradouro, Número --}}
+
+<!-- Logradouro ...Av...Rua....etc-->
 <div class="form-group">
-  <label class="col-md-2 control-label" for="cep">CEP</label>  
+
+  <label class="col-md-2 control-label" for="logradouro">Logradouro</label>  
+  
+  <div class="col-md-5">
+  	<input id="logradouro" name="logradouro" type="text" placeholder="Logradouro ...Av...Rua....etc" class="form-control input-md">
+    
+  
+  </div>
+
+<!-- Número da residência-->
+  <label class="col-md-1 control-label" for="numero">Numero</label>  
+  
   <div class="col-md-2">
-  <input id="cep" name="cep" type="text" placeholder="CEP" class="form-control input-md" required="">
+  	<input id="numero" name="numero" type="text" placeholder="Numero" class="form-control input-md">
     
   </div>
 </div>
+
+{{-- Munícipio e CEP --}}
+
 
 <!-- Município-->
 <div class="form-group">
   
   <label class="col-md-2 control-label" for="municipio">Município</label>
   
-  <div class="col-md-2">
+  <div class="col-md-5">
     
     <input id="municipio" name="municipio" type="text" placeholder="Município" class="form-control input-md" required="">
 
   </div>
-</div>
 
-<!-- Logradouro ...Av...Rua....etc-->
-<div class="form-group">
-  <label class="col-md-2 control-label" for="logradouro">Logradouro</label>  
-  <div class="col-md-8">
-  <input id="logradouro" name="logradouro" type="text" placeholder="Logradouro ...Av...Rua....etc" class="form-control input-md">
-    
-  </div>
-</div>
-
-<!-- Número da residência-->
-<div class="form-group">
-  <label class="col-md-2 control-label" for="numero">Numero</label>  
+<!-- CEP-->
+  
+  <label class="col-md-1 control-label" for="cep">CEP</label>  
+  
   <div class="col-md-2">
-  <input id="numero" name="numero" type="text" placeholder="Numero" class="form-control input-md">
+  	<input id="cep" name="cep" type="text" placeholder="CEP" class="form-control input-md" required="">
     
   </div>
 </div>
@@ -197,12 +219,6 @@
 		</div>
 
 			<form class="form-horizontal">
-
-				<!-- CPF-->
-<div class="form-group">
-  <label class="col-md-2 control-label" for="CPF">CPF</label>  
-  <div class="col-md-6">
-  <input name="CPF" type="text" placeholder="CPF" class="form-control input-md" required="">
     
   </div>
 </div>
@@ -224,7 +240,7 @@
 
 			$("#CPF").inputmask("999.999.999-99");
 			$("#RG").inputmask("99.999.999-9");
-
+			$("#cep").inputmask("99-999.999");
 		});
 
 	</script>
