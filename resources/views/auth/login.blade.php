@@ -22,34 +22,41 @@
 
 <body class="login">
 <div>
+<div style="background-color: #3D276B; width:100%; height:150px;">
+<img class="logo_topo" src="{{ asset("img/logoretangular.jpg") }}">
+
+</div>
     <div class="login_wrapper">
+    	<div class="topo"></div>
         <div class="animate form login_form">
             <section class="login_content">
-				{!! BootForm::open(['url' => url('/login'), 'method' => 'post']) !!}
+            	
+            	{!! BootForm::open(['url' => url('/login'), 'method' => 'post']) !!}
                     
-				<h1 style="color:#BFA15F">Login</h1>
-			
-				{!! BootForm::email('email', 'Email', old('email'), ['placeholder' => 'Email', 'afterInput' => '<span>test</span>'] ) !!}
-			
-				{!! BootForm::password('password', 'Senha', ['placeholder' => 'Senha']) !!}
 				
-				<div style="text-align: center;">
+				<h1 style="color:#3D276B">Cadastro de Habitação</h1>
+
+			<div style="color:#000">
+				{!! BootForm::email('email', 'Email', old('email'), ['placeholder' => 'Email', 'afterInput' => '<span>test</span>'] ) !!}
+			</div>
+			
+			<div style="color:#000">
+				{!! BootForm::password('password', 'Senha', ['placeholder' => 'Senha']) !!}
+			</div>
+
+				<div style="text-align: center; color:#000">
 					{!! BootForm::submit('Entrar', ['class' => 'btn btn-default btn-entrar submit']) !!}
-					<!-- <a class="reset_pass" href="{{  url('/password/reset') }}">Lost your password ?</a> -->
+					
 				</div>
                     
 				<div class="clearfix"></div>
                     
 				<div class="separator">
-					<!-- <p class="change_link">New to site? -->
-						<!-- <a href="{{ url('/register') }}" class="to_register"> Create Account </a> -->
-					</p>
-                        
+					                        
 					<div class="clearfix"></div>
 					<br />
                         
 					<div>
-						<h1 style="color:#BFA15F"> Prefeitura Municipal de Mesquita </h1>
 						<p style="color:#3D276B">©2017 Subsecretaria da Tecnologia da Informação</p>
 					</div>
 				</div>

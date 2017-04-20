@@ -1,3 +1,39 @@
 .btn-entrar{
 	float:none !important; 
+	margin-left: 0px !important;
 }
+.login_content h1:after, 
+.login_content h1:before{
+
+	background: none;
+}
+body.login{
+	background-color: rgba(191, 161, 95, 0.4);
+}
+
+
+input[type=submit]{
+	color:black;
+}
+
+.topo{
+	background-color:#3D276B;
+}
+
+.logo_topo{
+	width: 315px;
+	margin-left: 520px;
+	margin-top: 20px;
+    border: 4px solid #BFA15F;
+    border-radius: 15px;
+    border-bottom-left-radius: 0px;
+}
+
+.login_content {
+    margin-top: -50px;
+    padding: 25px 0 0;
+    position: relative;
+    text-align: center;
+    text-shadow: 0 1px 0 #fff;
+    min-width: 280px;
+   }
