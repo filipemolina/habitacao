@@ -30,17 +30,32 @@
 
                 @include('includes/topbar')
 
-                @yield('main_container')
+
+                <!-- page content -->
+                <div class="right_col" role="main">
+                    @yield('main_container')
+                </div>
+                <!-- /page content -->
+
+                <!-- footer content -->
+                <footer>
+                    <div class="pull-right">
+                        Gentelella - Bootstrap Admin Template by <a href="https://colorlib.com">Colorlib</a>
+                    </div>
+                    <div class="clearfix"></div>
+                </footer>
+                <!-- /footer content -->
+
 
             </div>
         </div>
 
         <!-- jQuery -->
-        <script src="{{ asset("js/jquery.min.js") }}"></script>
+        <script src="{{ asset("/js/jquery.min.js") }}"></script>
         <!-- Bootstrap -->
-        <script src="{{ asset("js/bootstrap.min.js") }}"></script>
+        <script src="{{ asset("/js/bootstrap.min.js") }}"></script>
         <!-- Custom Theme Scripts -->
-        <script src="{{ asset("js/gentelella.min.js") }}"></script>
+        <script src="{{ asset("/js/gentelella.min.js") }}"></script>
 
         @stack('scripts')
 
