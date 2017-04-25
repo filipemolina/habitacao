@@ -19,8 +19,9 @@
 		  <form id="Cadastro_pessoa" class="form-horizontal">
 
 			
-{{------------------------------------ Participante ------------------------------------}}
-			   <div class="x_panel">
+{{------------------------------------ Participante --------------------------------------------}}
+			   
+         <div class="x_panel">
             <div class="x_title"> Participante </div>
 
             <div class="form-group" id="participante">
@@ -38,17 +39,17 @@
               {{-- Email --}}
               <label class="col-md-1 control-label" for="pa-email">Email</label>  
               <div class="col-md-5">
-                <input id="pa-email" name="pa-email" type="text" placeholder="email@servidor.com.br" class="form-control input-md">
+                <input id="pa-email" name="pa-email" type="text" placeholder="email@servidor.com.br" class="form-control input-md email">
               </div>
-            
-            </div> {{-- FIM CPF e Email --}}
+
+          </div> {{-- FIM CPF e Email --}}
 
             {{-- Nome --}}
 
             <div class="form-group">
               <label class="col-md-1 control-label" for="pa-nome">Nome</label>
               <div class="col-md-8">
-                <input id="pa-nome" name="pa-nome" type="text" placeholder="Informe o nome" class="form-control input-md" required="">
+                <input id="pa-nome" name="pa-nome" type="text" placeholder="Informe o nome" class="form-control input-md nome" required="">
               </div>
             </div>
 
@@ -95,8 +96,8 @@
               {{-- Sexo   --}}
               <label class="col-md-1 control-label" for="pa-sexo">Sexo</label>
               <div class="col-md-2">
-                <select id="pa-sexo" name="pa-sexo" type="text" placeholder="sexo" class="form-control input-md" required="">
-    		          <option value="">   </option>
+                <select id="pa-sexo" name="pa-sexo" type="text" class="form-control input-md" required="">
+    		          <option value="" disabled selected style="display: none;">Teste</option>
       		        <option value="m">Masculino</option>
       		        <option value="f">Femino</option>
   		          </select>
@@ -106,7 +107,7 @@
               <label class="col-md-1 control-label" for="deficiente">Deficiente</label>
               <div class="col-md-2">
                 <select id="pa-deficiente" name="pa-deficiente" type="text" class="form-control input-md" required="">
-                  <option value="">   </option>
+                  <option value="" disabled selected style="display: none;">   </option>
                   <option value="s">Sim</option>
                   <option value="n">Não</option>
                 </select>
@@ -275,7 +276,7 @@
               <label class="col-md-1 control-label" for="co-sexo">Sexo</label>
               <div class="col-md-2">
                 <select id="co-sexo" name="co-sexo" type="text" class="form-control input-md" required="">
-                  <option value="">   </option>
+                  <option value="" disabled selected style="display: none;">   </option>
                   <option value="m">Masculino</option>
                   <option value="f">Femino</option>
                 </select>
@@ -285,7 +286,7 @@
               <label class="col-md-1 control-label" for="co-deficiente">Deficiente</label>
               <div class="col-md-2">
                 <select id="co-deficiente" name="co-deficiente" type="text" placeholder="deficiente" class="form-control input-md" required="">
-                  <option value="">   </option>
+                  <option value="" disabled selected style="display: none;">   </option>
                   <option value="s">Sim</option>
                   <option value="n">Não</option>
                 </select>
@@ -409,7 +410,7 @@
               <label class="col-md-1 control-label" for="de-sexo">Sexo</label>
               <div class="col-md-2">
                 <select name="de-sexo" type="text" placeholder="Sexo" class="form-control input-md" required="">
-                  <option value="">   </option>
+                  <option value=""disabled selected style="display: none;">   </option>
                   <option value="m">Masculino</option>
                   <option value="f">Femino</option>
                 </select>
@@ -419,7 +420,7 @@
               <label class="col-md-1 control-label" for="de-deficiente">Deficiente</label>
               <div class="col-md-2">
                 <select name="de-deficiente" type="text" placeholder="de-deficiente" class="form-control input-md" required="">
-                  <option value="">   </option>
+                  <option value=""disabled selected style="display: none;">   </option>
                   <option value="s">Sim</option>
                   <option value="n">Não</option>
                 </select>
@@ -457,7 +458,7 @@
 
 @push('stylesheets')
 
-<link href="{{ asset("css/pessoas.css") }}" rel="stylesheets">
+<link href="{{ asset("css/pessoas.css") }}" rel="stylesheet">
 
 @endpush
 
@@ -479,6 +480,6 @@
         $(".telefone").inputmask("(99)9999-9999");
         });
 
-  </script>
+    </script>
 
 @endpush
