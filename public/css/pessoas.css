@@ -1,0 +1,20 @@
+/*CSS Pessoas*/
+input {
+	text-align: center;
+}
+
+#pa-nome, #pa-email, #pa-logradouro, #pa-bairro, #pa-municipio, #pa-complemento, #co-nome, #co-email, #co-logradouro, #co-bairro, #co-municipio, #co-complemento, #de-nome {
+	text-align: left;
+}
+
+#pa-sexo {
+	color: gray;
+}
+
+option {
+	color: black;
+}
+
+.placeholder {
+	color: gray;
+}

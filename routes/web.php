@@ -14,6 +14,8 @@
 Auth::routes();
 Route::get('/logout', 'Auth\LoginController@logout');
 Route::get('/', 'HomeController@index');
-Route::get('/users/create', function(){
-	return view('users.index');
-});
+
+// Rotas dos Resourceful Controllers
+
+Route::resource('users', 'UsersController');
+Route::resource('pessoas', 'PessoasController');
