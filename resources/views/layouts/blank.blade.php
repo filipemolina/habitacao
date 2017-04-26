@@ -18,6 +18,9 @@
         <!-- Custom Theme Style -->
         <link href="{{ asset("css/gentelella.min.css") }}" rel="stylesheet">
 
+        <!-- css do projeto -->
+        <link href="{{ asset("css/styles.css") }}" rel="stylesheet"> 
+        
         @stack('stylesheets')
 
     </head>
@@ -33,7 +36,9 @@
 
                 <!-- page content -->
                 <div class="right_col" role="main">
+
                     @yield('main_container')
+
                 </div>
                 <!-- /page content -->
 
@@ -46,16 +51,15 @@
                 </footer>
                 <!-- /footer content -->
 
-
             </div>
         </div>
 
         <!-- jQuery -->
-        <script src="{{ asset("/js/jquery.min.js") }}"></script>
+        <script src="{{ asset("js/jquery.min.js") }}"></script>
         <!-- Bootstrap -->
-        <script src="{{ asset("/js/bootstrap.min.js") }}"></script>
+        <script src="{{ asset("js/bootstrap.min.js") }}"></script>
         <!-- Custom Theme Scripts -->
-        <script src="{{ asset("/js/gentelella.min.js") }}"></script>
+        <script src="{{ asset("js/gentelella.min.js") }}"></script>
 
         @stack('scripts')
 
