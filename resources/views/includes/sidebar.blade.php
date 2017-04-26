@@ -1,7 +1,7 @@
 <div class="col-md-3 left_col">
-    <div class="left_col scroll-view">
-        <div class="navbar nav_title" style="border: 0;">
-            <a href="{{ url('/') }}" class="site_title"><i class="fa fa-paw"></i> <span>Gentellela Alela!</span></a>
+    <div class="left_col scroll-view colormenu">
+        <div class="navbar nav_title colormenu" style="border: 0;">
+            {{-- <a href="{{ url('/') }}" class="site_title"><i class="fa fa-paw"></i> <span>Gentellela Alela!</span></a> --}}
         </div>
         
         <div class="clearfix"></div>
@@ -9,10 +9,10 @@
         <!-- menu profile quick info -->
         <div class="profile">
             <div class="profile_pic">
-                <img src="{{ Gravatar::src(Auth::user()->email) }}" alt="Avatar of {{ Auth::user()->name }}" class="img-circle profile_img">
+                {{-- <img src="{{ Gravatar::src(Auth::user()->email) }}" alt="Avatar of {{ Auth::user()->name }}" class="img-circle profile_img"> --}}
             </div>
             <div class="profile_info">
-                <span>Welcome,</span>
+                <span>Bem Vindo!</span>
                 <h2>{{ Auth::user()->name }}</h2>
             </div>
         </div>
@@ -23,13 +23,13 @@
         <!-- sidebar menu -->
         <div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
             <div class="menu_section">
-                <h3>Group 1</h3>
+                <h3 class="home">Home</h3>
                 <ul class="nav side-menu">
-                    <li><a><i class="fa fa-home"></i> Multiple link <span class="fa fa-chevron-down"></span></a>
+                    <li><a><i class=""></i>Usuário<span class="fa fa-chevron-down"></span></a>
                         <ul class="nav child_menu">
-                            <li><a href="#">Link 1</a></li>
-                            <li><a href="#">Link 2</a></li>
-                            <li><a href="#">Link 3</a></li>
+                            <li><a href="#">Cadastro de Usuário</a></li>
+                            <li><a href="#">Lista de Usuário</a></li>
+                            <li><a href="#">Alteração de Usuário</a></li>
                         </ul>
                     </li>
                     <li>
@@ -75,7 +75,7 @@
         <!-- /sidebar menu -->
         
         <!-- /menu footer buttons -->
-        <div class="sidebar-footer hidden-small">
+        <div class="sidebar-footer hidden-small colormenu">
             <a data-toggle="tooltip" data-placement="top" title="Settings">
                 <span class="glyphicon glyphicon-cog" aria-hidden="true"></span>
             </a>
