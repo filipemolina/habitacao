@@ -7,51 +7,56 @@
 @endsection
 
 @section('main_container')
-
-<div class="row">
-	
-  <div class="x_panel">
 		
-    <div class="x_title"> Cadastro de Pessoa </div>
-		
-    <div class="x_content">
+    <div class="x_title"><h2> Cadastro de Pessoa </h2></div>
 			
 		  <form id="Cadastro_pessoa" class="form-horizontal">
 
 			
 {{------------------------------------ Participante --------------------------------------------}}
 			   
-         <div class="x_panel">
+         <div class="x_panel" id="participante">
             <div class="x_title"> Participante </div>
 
-            <div class="form-group" id="participante">
-
-
-{{-- CPF e Email --}}
-
-
-              {{-- CPF --}}            
-              <label class="col-md-1 control-label" for="pa-cpf">CPF</label>  
-              <div class="col-md-2">
-                <input id="pa-cpf" name="pa-cpf" type="text" placeholder="999.999.999-99" class="form-control input-md cpf" required="">
-              </div>
-
-              {{-- Email --}}
-              <label class="col-md-1 control-label" for="pa-email">Email</label>  
-              <div class="col-md-5">
-                <input id="pa-email" name="pa-email" type="text" placeholder="email@servidor.com.br" class="form-control input-md email">
-              </div>
-
-          </div> {{-- FIM CPF e Email --}}
 
             {{-- Nome --}}
 
             <div class="form-group">
               <label class="col-md-1 control-label" for="pa-nome">Nome</label>
-              <div class="col-md-8">
+              <div class="col-md-11">
                 <input id="pa-nome" name="pa-nome" type="text" placeholder="Informe o nome" class="form-control input-md nome" required="">
               </div>
             </div>
+
+{{-- CPF, NIS/PIS, Bolsa Família e Carteira de trabalho --}}
+
+
+              {{-- CPF --}}
+          <div class="form-group">
+              <label class="col-md-1 control-label" for="pa-cpf">CPF</label>  
+              <div class="col-md-2">
+                <input id="pa-cpf" name="pa-cpf" type="text" placeholder="999.999.999-99" class="form-control input-md cpf" required="">
+              </div>
+
+              {{-- NIS/PIS --}}            
+              <label class="col-md-1 control-label" for="pa-pis">NIS/PIS</label>  
+              <div class="col-md-2">
+                <input id="pa-nis" name="pa-nis" type="text" placeholder="999.999.999-99" class="form-control input-md nis" required="">
+              </div>
+
+              {{-- Bolsa Família --}}            
+              <label class="col-md-1 control-label" for="pa-bolsa">Bolsa F.</label>  
+              <div class="col-md-2">
+                <input id="pa-bolsa" name="pa-bolsa" type="text" placeholder="Bolsa Família" class="form-control input-md bolsa" required="">
+              </div>
+
+              {{-- Carteira de Trabalho --}}            
+              <label class="col-md-1 control-label" for="pa-carteira">Carteira T.</label>  
+              <div class="col-md-2">
+                <input id="pa-carteira" name="pa-carteira" type="text" placeholder="Cart. de Trabalho" class="form-control input-md carteira" required="">
+              </div>
+
+          </div> {{-- FIM CPF, NIS/PIS e Bolsa Família --}}
 
 
 {{-- RG, Data de Emissão do RG, Orgão Emissor do RG --}}
@@ -89,7 +94,7 @@
 
               <label class="col-md-1 control-label" for="pa-nascimento">Nascimento</label>  
               <div class="col-md-2">
-                <input id="pa-nascimento" name="pa-nascimento" type="text" placeholder="01/01/2000" class="form-control input-md data" required="">
+                <input id="pa-nascimento" name="pa-nascimento" type="text" placeholder="01 / 01 / 2000" class="form-control input-md data" required="">
 
               </div>
 
@@ -97,7 +102,7 @@
               <label class="col-md-1 control-label" for="pa-sexo">Sexo</label>
               <div class="col-md-2">
                 <select id="pa-sexo" name="pa-sexo" type="text" class="form-control input-md" required="">
-    		          <option value="" disabled selected style="display: none;">Teste</option>
+    		          <option value="" disabled selected style="display: none;"></option>
       		        <option value="m">Masculino</option>
       		        <option value="f">Femino</option>
   		          </select>
@@ -112,17 +117,18 @@
                   <option value="n">Não</option>
                 </select>
               </div>
-            </div>
+
+            </div> {{-- Fim Data de Nascimento, Sexo, Deficiente --}}
 
 
-{{-- Logradouro, Número --}}
+{{-- Logradouro, Número, Complemento --}}
 
 
             <div class="form-group">
 
               <!-- Logradouro ...Av...Rua....etc-->
               <label class="col-md-1 control-label" for="pa-logradouro">Logradouro</label>
-              <div class="col-md-5">
+              <div class="col-md-3">
                 <input id="pa-logradouro" name="pa-logradouro" type="text" placeholder="Av, Rua, Travessa..." class="form-control input-md">
               </div>
               <!-- Número da residência-->
@@ -131,34 +137,29 @@
                 <input id="pa-numero" name="pa-numero" type="text" placeholder="999" class="form-control input-md">
               </div>
 
-            </div> {{-- FIM Logradouro, Número --}}            
-
-
-{{-- Bairro e Complemento --}}
-
-            <div class="form-group">
-              {{-- Bairro --}}
-              <label class="col-md-1 control-label" for="pa-bairro">Bairro</label>
-              <div class="col-md-3">
-                <input id="pa-bairro" name="pa-bairro" type="text" placeholder="Centro" class="form-control input-md">
-              </div>
-
               {{-- Complemento --}}
               <label class="col-md-2 control-label" for="pa-complemento">Complemento</label>
               <div class="col-md-3">
                 <input id="pa-complemento" name="pa-complemento" type="text" placeholder="Ap., Fundos,..." class="form-control input-md">
               </div>
 
-            </div>
+            </div> {{-- FIM Logradouro, Número, complemento --}}            
 
 
-{{-- Munícipio e CEP --}}
+{{-- Bairro, Munícipio e CEP --}}
 
+            
             <div class="form-group">
+              
+              {{-- Bairro --}}
+              <label class="col-md-1 control-label" for="pa-bairro">Bairro</label>
+              <div class="col-md-3">
+                <input id="pa-bairro" name="pa-bairro" type="text" placeholder="Centro" class="form-control input-md">
+              </div>
             
               <!-- Município-->
               <label class="col-md-1 control-label" for="pa-municipio">Município</label>
-              <div class="col-md-5">
+              <div class="col-md-4">
                 <input id="pa-municipio" name="pa-municipio" type="text" placeholder="Mesquita" class="form-control input-md" required="">
               </div>
 
@@ -168,12 +169,16 @@
                 <input id="pa-cep" name="cep" type="text" placeholder="99999-999" class="form-control input-md cep" required="">
               </div>
 
-            </div> {{-- FIM Munícipio e CEP --}}
+            </div> {{-- FIM Bairoo, Munícipio e CEP --}}
 
+{{-- Email , elular e Telefone --}}
 
-{{-- Celular, Telefone 1 e Telefone 2 --}}
-
+            {{-- Email --}}
             <div class="form-group">
+              <label class="col-md-1 control-label" for="pa-email">Email</label>  
+              <div class="col-md-5">
+                <input id="pa-email" name="pa-email" type="text" placeholder="email@servidor.com.br" class="form-control input-md email">
+              </div>
 
               {{-- Celular --}}
               <label class="col-md-1 control-label" for="pa-celular">Celular</label>
@@ -181,56 +186,69 @@
                 <input id="pa-celular" name="pa-celular" type="text" placeholder="(99) 9 9999-9999" class="form-control input-md celular">
               </div>
 
-              {{-- Telefone 1 --}}
-              <label class="col-md-1 control-label" for="pa-telefone1">Tel.1</label>
+              {{-- Telefone --}}
+              <label class="col-md-1 control-label" for="pa-telefone1">Tel.</label>
               <div class="col-md-2">
                 <input id="pa-telefone1" name="pa-telefone1" type="text" placeholder="(99) 9999-9999" class="form-control input-md telefone">
               </div>
 
-              {{-- Telefone 2 --}}
-              <label class="col-md-1 control-label" for="pa-telefone2">Tel.2</label>
-              <div class="col-md-2">
-                <input id="pa-telefone2" name="pa-telefone2" type="text" placeholder="(99) 9999-9999" class="form-control input-md telefone">
-              </div>
-
-            </div> {{-- FIM Celular, Telefone 1 e Telefone 2 --}}
-
+            </div> {{-- FIM Email, Celular e Telefone --}}
 
           </div> {{-- fim Participante --}}
 
 
+
+
+
+
+
+
+
+
 {{------------------------------------ CO-Participante ------------------------------------}}
-         <div class="x_panel">
+         <div class="x_panel" id="co-participante">
             <div class="x_title"> Co-Participante </div>
 
-            <div class="form-group" id="co-participante">
-
-
-{{-- CPF e Email --}}
-
-
-              {{-- CPF --}}            
-              <label class="col-md-1 control-label" for="co-cpf">CPF</label>  
-              <div class="col-md-2">
-                <input id="co-cpf" name="co-cpf" type="text" placeholder="999.999.999-99" class="form-control input-md cpf" required="">
-              </div>
-
-              {{-- Email --}}
-              <label class="col-md-1 control-label" for="co-email">Email</label>  
-              <div class="col-md-5">
-                <input id="co-email" name="co-email" type="text" placeholder="email@servidor.com.br" class="form-control input-md">
-              </div>
-            
-            </div> {{-- FIM CPF e Email --}}
 
             {{-- Nome --}}
 
             <div class="form-group">
               <label class="col-md-1 control-label" for="co-nome">Nome</label>
-              <div class="col-md-8">
-                <input id="co-nome" name="co-nome" type="text" placeholder="Informe o nome" class="form-control input-md" required="">
+              <div class="col-md-11">
+                <input id="co-nome" name="co-nome" type="text" placeholder="Informe o nome" class="form-control input-md nome" required="">
               </div>
             </div>
+
+
+{{-- CPF, NIS/PIS, Bolsa Família e Carteira de trabalho --}}
+
+
+            {{-- CPF --}}
+            <div class="form-group">
+              <label class="col-md-1 control-label" for="co-cpf">CPF</label>  
+              <div class="col-md-2">
+                <input id="co-cpf" name="co-cpf" type="text" placeholder="999.999.999-99" class="form-control input-md cpf" required="">
+              </div>
+
+              {{-- NIS/PIS --}}            
+              <label class="col-md-1 control-label" for="co-pis">NIS/PIS</label>  
+              <div class="col-md-2">
+                <input id="co-nis" name="co-nis" type="text" placeholder="999.999.999-99" class="form-control input-md nis" required="">
+              </div>
+
+              {{-- Bolsa Família --}}            
+              <label class="col-md-1 control-label" for="co-bolsa">Bolsa F.</label>  
+              <div class="col-md-2">
+                <input id="co-bolsa" name="co-bolsa" type="text" placeholder="Bolsa Família" class="form-control input-md bolsa" required="">
+              </div>
+
+              {{-- Carteira de Trabalho --}}            
+              <label class="col-md-1 control-label" for="co-carteira">Carteira T.</label>  
+              <div class="col-md-2">
+                <input id="co-carteira" name="co-carteira" type="text" placeholder="Cart. de Trabalho" class="form-control input-md carteira" required="">
+              </div>
+
+          </div> {{-- FIM CPF, NIS/PIS e Bolsa Família --}}
 
 
 {{-- RG, Data de Emissão do RG, Orgão Emissor do RG --}}
@@ -268,7 +286,7 @@
 
               <label class="col-md-1 control-label" for="co-nascimento">Nascimento</label>  
               <div class="col-md-2">
-                <input id="co-nascimento" name="co-nascimento" type="text" placeholder="01/01/2000" class="form-control input-md data" required="">
+                <input id="co-nascimento" name="co-nascimento" type="text" placeholder="01 / 01 / 2000" class="form-control input-md data" required="">
 
               </div>
 
@@ -276,32 +294,33 @@
               <label class="col-md-1 control-label" for="co-sexo">Sexo</label>
               <div class="col-md-2">
                 <select id="co-sexo" name="co-sexo" type="text" class="form-control input-md" required="">
-                  <option value="" disabled selected style="display: none;">   </option>
+                  <option value="" disabled selected style="display: none;"></option>
                   <option value="m">Masculino</option>
                   <option value="f">Femino</option>
                 </select>
               </div>
 
               {{-- Deficiente --}}
-              <label class="col-md-1 control-label" for="co-deficiente">Deficiente</label>
+              <label class="col-md-1 control-label" for="deficiente">Deficiente</label>
               <div class="col-md-2">
-                <select id="co-deficiente" name="co-deficiente" type="text" placeholder="deficiente" class="form-control input-md" required="">
+                <select id="co-deficiente" name="co-deficiente" type="text" class="form-control input-md" required="">
                   <option value="" disabled selected style="display: none;">   </option>
                   <option value="s">Sim</option>
                   <option value="n">Não</option>
                 </select>
               </div>
-            </div>
+
+            </div> {{-- Fim Data de Nascimento, Sexo, Deficiente --}}
 
 
-{{-- Logradouro, Número --}}
+{{-- Logradouro, Número, Complemento --}}
 
 
             <div class="form-group">
 
               <!-- Logradouro ...Av...Rua....etc-->
               <label class="col-md-1 control-label" for="co-logradouro">Logradouro</label>
-              <div class="col-md-5">
+              <div class="col-md-3">
                 <input id="co-logradouro" name="co-logradouro" type="text" placeholder="Av, Rua, Travessa..." class="form-control input-md">
               </div>
               <!-- Número da residência-->
@@ -310,49 +329,48 @@
                 <input id="co-numero" name="co-numero" type="text" placeholder="999" class="form-control input-md">
               </div>
 
-            </div> {{-- FIM Logradouro, Número --}}            
-
-
-{{-- Bairro e Complemento --}}
-
-            <div class="form-group">
-              {{-- Bairro --}}
-              <label class="col-md-1 control-label" for="co-bairro">Bairro</label>
-              <div class="col-md-3">
-                <input id="co-bairro" name="co-bairro" type="text" placeholder="Centro" class="form-control input-md">
-              </div>
-
               {{-- Complemento --}}
               <label class="col-md-2 control-label" for="co-complemento">Complemento</label>
               <div class="col-md-3">
                 <input id="co-complemento" name="co-complemento" type="text" placeholder="Ap., Fundos,..." class="form-control input-md">
               </div>
 
-            </div>
+            </div> {{-- FIM Logradouro, Número, complemento --}}            
 
 
-{{-- Munícipio e CEP --}}
+{{-- Bairro, Munícipio e CEP --}}
 
+            
             <div class="form-group">
+              
+              {{-- Bairro --}}
+              <label class="col-md-1 control-label" for="co-bairro">Bairro</label>
+              <div class="col-md-3">
+                <input id="co-bairro" name="co-bairro" type="text" placeholder="Centro" class="form-control input-md">
+              </div>
             
               <!-- Município-->
               <label class="col-md-1 control-label" for="co-municipio">Município</label>
-              <div class="col-md-5">
+              <div class="col-md-4">
                 <input id="co-municipio" name="co-municipio" type="text" placeholder="Mesquita" class="form-control input-md" required="">
               </div>
 
               <!-- CEP-->
               <label class="col-md-1 control-label" for="co-cep">CEP</label>
               <div class="col-md-2">
-                <input id="co-cep" name="co-cep" type="text" placeholder="99999-999" class="form-control input-md cep" required="">
+                <input id="co-cep" name="cep" type="text" placeholder="99999-999" class="form-control input-md cep" required="">
               </div>
 
-            </div> {{-- FIM Munícipio e CEP --}}
+            </div> {{-- FIM Bairoo, Munícipio e CEP --}}
 
+{{-- Email , elular e Telefone --}}
 
-{{-- Celular, Telefone 1 e Telefone 2 --}}
-
+            {{-- Email --}}
             <div class="form-group">
+              <label class="col-md-1 control-label" for="co-email">Email</label>  
+              <div class="col-md-5">
+                <input id="co-email" name="co-email" type="text" placeholder="email@servidor.com.br" class="form-control input-md email">
+              </div>
 
               {{-- Celular --}}
               <label class="col-md-1 control-label" for="co-celular">Celular</label>
@@ -360,35 +378,38 @@
                 <input id="co-celular" name="co-celular" type="text" placeholder="(99) 9 9999-9999" class="form-control input-md celular">
               </div>
 
-              {{-- Telefone 1 --}}
-              <label class="col-md-1 control-label" for="co-telefone1">Tel. 1</label>
+              {{-- Telefone --}}
+              <label class="col-md-1 control-label" for="co-telefone1">Tel.</label>
               <div class="col-md-2">
                 <input id="co-telefone1" name="co-telefone1" type="text" placeholder="(99) 9999-9999" class="form-control input-md telefone">
               </div>
 
-              {{-- Telefone 2 --}}
-              <label class="col-md-1 control-label" for="co-telefone2">Tel. 2</label>
-              <div class="col-md-2">
-                <input id="co-telefone2" name="co-telefone2" type="text" placeholder="(99) 9999-9999" class="form-control input-md telefone">
-              </div>
-
-            </div> {{-- FIM Celular, Telefone 1 e Telefone 2 --}}
+            </div> {{-- FIM Email, Celular e Telefone --}}
 
 
-          </div> {{-- fim Co-Participante --}}
+          </div> {{-- fim Co-participante --}}
+
+
+
+
+
+
+
+
+
+
 
 {{------------------------------------ Dependentes ------------------------------------}}
-         <div class="x_panel">
+         
+          <div class="x_panel" id="dependentes">
             <div class="x_title"> Dependentes </div>
-
-            <div class="form-group" id="dependentes">
 
             {{-- Nome --}}
 
             <div class="form-group">
               <label class="col-md-1 control-label" for="de-nome">Nome</label>
-              <div class="col-md-8">
-                <input id="de-nome" name="de-nome" type="text" placeholder="Informe o ome" class="form-control input-md" required="">
+              <div class="col-md-11">
+                <input id="de-nome" name="de-nome" type="text" placeholder="Informe o nome" class="form-control input-md" required="">
               </div>
             </div>
 
@@ -404,13 +425,13 @@
               <div class="col-md-2">
                 <input id="de-nascimento" name="de-nascimento" type="text" placeholder="01/01/2000" class="form-control input-md data" required="">
 
-              </div>
+              </div> {{-- FIM Data de Nascimento, Sexo, Deficiente --}}
 
               {{-- Sexo   --}}
               <label class="col-md-1 control-label" for="de-sexo">Sexo</label>
               <div class="col-md-2">
                 <select name="de-sexo" type="text" placeholder="Sexo" class="form-control input-md" required="">
-                  <option value=""disabled selected style="display: none;">   </option>
+                  <option value="" disabled selected style="display: none;">   </option>
                   <option value="m">Masculino</option>
                   <option value="f">Femino</option>
                 </select>
@@ -427,20 +448,57 @@
               </div>
             </div>
 
-
-
-
-            </div>
           </div> {{-- fim Dependente --}}
 
 
 
-          <!-- Button (Double) -->
+
+
+
+
+
+
+
+{{------------------------------------------ Renda ------------------------------------------}}
+
+        <div class="x_panel" id="renda-familiar">
+          <div class="x_title"> Renda familiar e tempo de residência em Mesquita </div>
+
+          {{-- Renda Familiar, Tempo de residência e Faixa --}}
+
           <div class="form-group">
-            <label class="col-md-0 control-label" for="button1id"></label>
+
+              {{-- Renda Familiar --}}
+              <label class="col-md-1 control-label" for="renda">Renda</label>
+              <div class="col-md-2">
+                <input id="renda" name="renda" type="text" placeholder="R$ 99999,99" class="form-control input-md cash" required="">
+              </div>
+
+              {{-- Tempo de residência --}}
+            
+              <label class="col-md-1 control-label" for="te-residencia">Tempo</label>
+              <div class="col-md-2">
+                <input id="te-residencia" name="te-residencia" type="text" placeholder="01 / 01 / 2000" class="form-control input-md data" required="">
+              </div>
+
+              {{-- Faixa--}}
+
+              <label class="col-md-1 control-label" for="faixa">Faixa</label>
+              <div class="col-md-3">
+                <input id="faixa" name="faixa" type="text" placeholder="Classificação" class="form-control input-md cash" disabled selected style>
+              </div>
+
+          </div>
+        </div>
+
+
+          <!-- Button (Double) -->
+        <br></br>
+        <div class="form-group">
+          <label class="col-md-0 control-label" for="button1id"></label>
             <div class="col-md-8">
               <button id="button1id" name="button1id" class="btn btn-success">Salvar</button>
-              <button id="Cancelar" name="Cancelar" class="btn btn-danger">Cancelar</button>
+              <button id="button2id" name="button2id" class="btn btn-danger">Cancelar</button>
             </div>
           </div>
 
@@ -450,10 +508,7 @@
 
       </form> {{-- FIM cadastro_pessoa --}}
 
-    </div> {{-- Fim x_content --}}
-	</div> {{-- FIM x_panel --}}
-</div> {{-- FIM class_row --}}
-
+    
 @endsection
 
 @push('stylesheets')
@@ -472,12 +527,13 @@
 
     {{-- Máscarasa dos campos CPF e RG --}}
 		  $(document).ready(function(){
-        $(".cpf").inputmask("999.999.999-99");
-        $(".rg").inputmask("99.999.999-9");
-        $(".cep").inputmask("99-999.999");
-        $(".data").inputmask("99/99/9999");
-        $(".celular").inputmask("(99)99999-9999");
-        $(".telefone").inputmask("(99)9999-9999");
+        $(".cpf").inputmask("999 . 999 . 999 - 99");
+        $(".rg").inputmask("99 . 999 . 999 - 9");
+        $(".cep").inputmask("99 - 999 . 999");
+        $(".data").inputmask("99 / 99 / 9999");
+        $(".celular").inputmask("(99) 9 9999 - 9999");
+        $(".telefone").inputmask("(99) 9999 - 9999");
+        $(".cash").inputmask("R$ 99999,99");
         });
 
     </script>

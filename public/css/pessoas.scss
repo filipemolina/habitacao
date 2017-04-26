@@ -6,15 +6,10 @@ input {
 }
 
 /*Esses inputs são muito grandes e manter seu texto centralizado não possui um bom visual*/
-#pa-nome, #pa-email, #pa-logradouro, #pa-bairro, #pa-municipio, #pa-complemento, #co-nome, #co-email, #co-logradouro, #co-bairro, #co-municipio, #co-complemento, #de-nome {
+#pa-nome, #pa-email, #pa-logradouro, #pa-bairro, #pa-municipio, #co-nome, #co-email, #co-logradouro, #co-bairro, #co-municipio, #co-complemento, #de-nome {
 	text-align: left;
 }
 
-
-a {
-	if #pa-sexo.value == masculino {
-		color: red;
-	} else {
-		color: black;
-	}
+#participante, #co-participante, #dependentes, #renda-familiar{
+	padding: 10px 15px;
 }
