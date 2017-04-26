@@ -79,15 +79,6 @@
 	},
 	"buffers":
 	[
-		{
-			"file": ".env",
-			"settings":
-			{
-				"buffer_size": 455,
-				"encoding": "UTF-8",
-				"line_ending": "Unix"
-			}
-		}
 	],
 	"build_system": "",
 	"build_system_choices":
@@ -145,7 +136,7 @@
 				"Package Control: Install Package"
 			]
 		],
-		"width": 431.0
+		"width": 467.0
 	},
 	"console":
 	{
@@ -165,10 +156,17 @@
 	},
 	"expanded_folders":
 	[
-		"/home/filipemolina/Documentos/Laravel/habitacao"
+		"/home/filipemolina/Documentos/Laravel/habitacao",
+		"/home/filipemolina/Documentos/Laravel/habitacao/vendor/bower_components",
+		"/home/filipemolina/Documentos/Laravel/habitacao/vendor/bower_components/gentelella"
 	],
 	"file_history":
 	[
+		"/home/filipemolina/Documentos/Laravel/habitacao/gulpfile.js",
+		"/home/filipemolina/Documentos/Laravel/habitacao/resources/views/layouts/blank.blade.php",
+		"/home/filipemolina/Documentos/Laravel/habitacao/resources/views/includes/topbar.blade.php",
+		"/home/filipemolina/Documentos/Laravel/habitacao/resources/views/home.blade.php",
+		"/home/filipemolina/Documentos/Laravel/habitacao/.env",
 		"/home/filipemolina/Documentos/Laravel/habitacao/.gitignore",
 		"/var/www/Laravel/fw_processo_seletivo/resources/lang/en/validation.php",
 		"/var/www/Laravel/fw_processo_seletivo/app/Http/Controllers/ProfessorController.php",
@@ -242,6 +240,7 @@
 		"height": 158.0,
 		"where_history":
 		[
+			"/home/filipemolina/Documentos/Laravel/habitacao",
 			"/var/www/Laravel/fw_trabalho",
 			"/var/www/Laravel/fw_trabalho/resources/views"
 		]
@@ -251,6 +250,7 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"vendors",
 			"value",
 			"experiencia",
 			"formacoes[][conclusao]",
@@ -313,37 +313,8 @@
 	"groups":
 	[
 		{
-			"selected": 0,
 			"sheets":
 			[
-				{
-					"buffer": 0,
-					"file": ".env",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 455,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								225,
-								225
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Text/Plain text.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 0,
-					"type": "text"
-				}
 			]
 		}
 	],
@@ -377,7 +348,7 @@
 			1.0
 		]
 	},
-	"menu_visible": true,
+	"menu_visible": false,
 	"output.find_results":
 	{
 		"height": 0.0
@@ -562,7 +533,7 @@
 		[
 			[
 				"",
-				"/var/www/html/trabalho/css/BalcaoDeEmpregos.sublime-project"
+				"/home/filipemolina/Documentos/Laravel/ProcessoSeletivo.sublime-project"
 			]
 		],
 		"width": 380.0
