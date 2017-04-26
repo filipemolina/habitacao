@@ -17,10 +17,13 @@
         <link href="{{ asset("css/font-awesome.min.css") }}" rel="stylesheet">
         <!-- Custom Theme Style -->
         <link href="{{ asset("css/gentelella.min.css") }}" rel="stylesheet">
+
         <!-- css do projeto -->
         <link href="{{ asset("css/styles.css") }}" rel="stylesheet"> 
         
         @stack('stylesheets')
+
+
 
     </head>
 
@@ -31,6 +34,7 @@
                 @include('includes/sidebar')
 
                 @include('includes/topbar')
+
 
                  <!-- page content -->
                 <div class="right_col" role="main">
@@ -51,6 +55,7 @@
 
                 
 
+
             </div>
         </div>
 
@@ -61,7 +66,7 @@
         <!-- Custom Theme Scripts -->
         <script src="{{ asset("js/gentelella.min.js") }}"></script>
 
-        @stack('scripts')
+        @stack('javascript')
 
     </body>
 </html>
