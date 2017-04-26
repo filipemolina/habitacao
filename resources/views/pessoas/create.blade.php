@@ -6,6 +6,12 @@
 
 @endsection
 
+@push('stylesheets')
+
+<link href="{{ asset("css/pessoas.css") }}" rel="stylesheet">
+
+@endpush
+
 @section('main_container')
 		
     <div class="x_title"><h2> Cadastro de Pessoa </h2></div>
@@ -41,19 +47,23 @@
               {{-- NIS/PIS --}}            
               <label class="col-md-1 control-label" for="pa-pis">NIS/PIS</label>  
               <div class="col-md-2">
-                <input id="pa-nis" name="pa-nis" type="text" placeholder="999.999.999-99" class="form-control input-md nis" required="">
-              </div>
-
-              {{-- Bolsa Família --}}            
-              <label class="col-md-1 control-label" for="pa-bolsa">Bolsa F.</label>  
-              <div class="col-md-2">
-                <input id="pa-bolsa" name="pa-bolsa" type="text" placeholder="Bolsa Família" class="form-control input-md bolsa" required="">
+                <input id="pa-nis" name="pa-nis" type="text" placeholder="999.999999.99-99" class="form-control input-md nis" required="">
               </div>
 
               {{-- Carteira de Trabalho --}}            
               <label class="col-md-1 control-label" for="pa-carteira">Carteira T.</label>  
               <div class="col-md-2">
                 <input id="pa-carteira" name="pa-carteira" type="text" placeholder="Cart. de Trabalho" class="form-control input-md carteira" required="">
+              </div>
+
+              {{-- Bolsa Família --}}            
+              <label class="col-md-1 control-label" for="pa-bolsa">Bolsa F.</label>  
+              <div class="col-md-2">
+                <select id="pa-bolsa" name="pa-bolsa" type="text" class="form-control input-md" required="">
+                  <option value="" disabled selected style="display: none;"></option>
+                  <option value="s">Possui</option>
+                  <option value="n">Não possui</option>
+                </select>
               </div>
 
           </div> {{-- FIM CPF, NIS/PIS e Bolsa Família --}}
@@ -233,19 +243,23 @@
               {{-- NIS/PIS --}}            
               <label class="col-md-1 control-label" for="co-pis">NIS/PIS</label>  
               <div class="col-md-2">
-                <input id="co-nis" name="co-nis" type="text" placeholder="999.999.999-99" class="form-control input-md nis" required="">
-              </div>
-
-              {{-- Bolsa Família --}}            
-              <label class="col-md-1 control-label" for="co-bolsa">Bolsa F.</label>  
-              <div class="col-md-2">
-                <input id="co-bolsa" name="co-bolsa" type="text" placeholder="Bolsa Família" class="form-control input-md bolsa" required="">
+                <input id="co-nis" name="co-nis" type="text" placeholder="999.999999.99-99" class="form-control input-md nis" required="">
               </div>
 
               {{-- Carteira de Trabalho --}}            
               <label class="col-md-1 control-label" for="co-carteira">Carteira T.</label>  
               <div class="col-md-2">
                 <input id="co-carteira" name="co-carteira" type="text" placeholder="Cart. de Trabalho" class="form-control input-md carteira" required="">
+              </div>
+
+              {{-- Bolsa Família --}}            
+              <label class="col-md-1 control-label" for="co-bolsa">Bolsa F.</label>  
+              <div class="col-md-2">
+                <select id="co-bolsa" name="co-bolsa" type="text" class="form-control input-md" required="">
+                  <option value="" disabled selected style="display: none;"></option>
+                  <option value="s">Possui</option>
+                  <option value="n">Não possui</option>
+                </select>
               </div>
 
           </div> {{-- FIM CPF, NIS/PIS e Bolsa Família --}}
@@ -511,12 +525,6 @@
     
 @endsection
 
-@push('stylesheets')
-
-<link href="{{ asset("css/pessoas.css") }}" rel="stylesheet">
-
-@endpush
-
 @push('scripts')
 
 		{{-- Script para máscara numérica. Ex.: CPF, RG --}}
@@ -527,13 +535,15 @@
 
     {{-- Máscarasa dos campos CPF e RG --}}
 		  $(document).ready(function(){
-        $(".cpf").inputmask("999 . 999 . 999 - 99");
-        $(".rg").inputmask("99 . 999 . 999 - 9");
-        $(".cep").inputmask("99 - 999 . 999");
+        $(".cpf").inputmask("999.999.999-99");
+        $(".rg").inputmask("99.999.999-9");
+        $(".cep").inputmask("99-999.999");
         $(".data").inputmask("99 / 99 / 9999");
         $(".celular").inputmask("(99) 9 9999 - 9999");
         $(".telefone").inputmask("(99) 9999 - 9999");
         $(".cash").inputmask("R$ 99999,99");
+        $(".nis").inputmask("999.999999.99-99");
+        $(".carteira").inputmask("9999999 999-9");
         });
 
     </script>
