@@ -51,9 +51,6 @@
                 </footer>
                 <!-- /footer content -->
 
-                
-
-
             </div>
         </div>
 
