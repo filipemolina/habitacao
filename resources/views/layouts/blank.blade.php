@@ -9,7 +9,7 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>Gentellela Alela! | </title>
+        <title>@section('titulo') @show</title>
 
         <!-- Bootstrap -->
         <link href="{{ asset("css/bootstrap.min.css") }}" rel="stylesheet">
@@ -23,8 +23,6 @@
         
         @stack('stylesheets')
 
-
-
     </head>
 
     <body class="nav-md">
@@ -36,7 +34,7 @@
                 @include('includes/topbar')
 
 
-                 <!-- page content -->
+                <!-- page content -->
                 <div class="right_col" role="main">
 
                     @yield('main_container')
@@ -66,7 +64,7 @@
         <!-- Custom Theme Scripts -->
         <script src="{{ asset("js/gentelella.min.js") }}"></script>
 
-        @stack('javascript')
+        @stack('scripts')
 
     </body>
 </html>
