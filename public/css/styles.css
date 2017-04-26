@@ -41,13 +41,13 @@ input[type=submit]{
 .colormenu{
 	background-color:#3D276B;
 }
-h3.home{
+h3.home {
 	text-align: left;
 	margin-top: -30px;
 	text-transform: capitalize;
     letter-spacing: .5px;
     font-weight: 700;
-    font-size: 13px;
+    
 
 }
 
