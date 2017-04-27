@@ -89,7 +89,7 @@
               <!-- Data de Emissão do RG-->
               <label class="col-md-1 control-label" for="pa-emissao">Emissão</label>  
               <div class="col-md-2">
-                <input id="pa-emissao" name="pa-emissao" type="text" placeholder="Data de Emissão" class="form-control input-md data" required="">
+                <input id="pa-emissao" name="pa-emissao" type="date" class="form-control input-md data" required="">
               </div>
 
             
@@ -105,7 +105,7 @@
 
               <label class="col-md-1 control-label" for="pa-nascimento">Nascimento</label>  
               <div class="col-md-2">
-                <input id="pa-nascimento" name="pa-nascimento" type="text" placeholder="01 / 01 / 2000" class="form-control input-md data" required="">
+                <input id="pa-nascimento" name="pa-nascimento" type="date" class="form-control input-md" required="">
 
               </div>
 
@@ -419,14 +419,26 @@
 {{------------------------------------ Dependentes ------------------------------------}}
          
           <div class="x_panel" id="dependentes">
-            <div class="x_title"> Dependentes </div>
+        
 
+            <div class="x_title"> 
+
+              <div class="form-group">
+                <div class="col-md-11"> Dependentes </div>
+
+                  <button name="submit" value="clonar" class="btn btn-xs btn-primary clonar"> Adicionar</button>
+
+
+                </div>
+            </div>
+        
+        <div class="x_panel panel_dependentes">
             {{-- Nome --}}
 
             <div class="form-group">
               <label class="col-md-1 control-label" for="de-nome">Nome</label>
               <div class="col-md-11">
-                <input id="de-nome" name="de-nome" type="text" placeholder="Informe o nome" class="form-control input-md" required="">
+                <input {{-- id="de-nome" --}} name="de-nome" type="text" placeholder="Informe o nome" class="form-control input-md" required="">
               </div>
             </div>
 
@@ -440,7 +452,7 @@
 
               <label class="col-md-1 control-label" for="de-nascimento">Nascimento</label>  
               <div class="col-md-2">
-                <input id="de-nascimento" name="de-nascimento" type="text" placeholder="01/01/2000" class="form-control input-md data" required="">
+                <input {{-- id="de-nascimento" --}} name="de-nascimento" type="text" placeholder="01/01/2000" class="form-control input-md data" required="">
 
               </div> {{-- FIM Data de Nascimento, Sexo, Deficiente --}}
 
@@ -464,11 +476,15 @@
                 </select>
               </div>
             </div>
+          
+          <div class="col-md-11"></div>
+            <button value="remover" class="btn btn-xs btn-danger remover" selected style="display:none;"> Remover</button>
 
-          </div> {{-- fim Dependente --}}
+      </div> {{-- FIM panel_dependentes --}}
 
+        <div class="div-clone"></div>
 
-
+          </div>
 
 
 
@@ -543,13 +559,28 @@
         $(".cpf").inputmask("999.999.999-99");
         $(".rg").inputmask("99.999.999-9");
         $(".cep").inputmask("99-999.999");
-        $(".data").inputmask("99 / 99 / 9999");
-        $(".celular").inputmask("(99) 9 9999 - 9999");
-        $(".telefone").inputmask("(99) 9999 - 9999");
+        $(".celular").inputmask("(99)99999-9999");
+        $(".telefone").inputmask("(99)9999-9999");
         $(".cash").inputmask("R$ 99999,99");
         $(".nis").inputmask("999.999999.99-99");
         $(".carteira").inputmask("9999999 999-9");
         });
+
+      $(".clonar").click(function(evento){
+
+          evento.preventDefault();
+
+          $(".panel_dependentes").clone().addClass("clone_dependentes").removeClass("panel_dependentes").find("button.remover").css("display","block").parent().appendTo(".div-clone");
+
+      });
+
+      $(".remover").click(function(evento){
+        
+        evento.preventDefault;
+
+        $.remove(.parente());
+
+      });
 
     </script>
 
