@@ -46,6 +46,14 @@
                            
                         </ul>
                     </li>
+
+                    <li><a><i class=" fa fa-cog"></i>Opções<span class="fa fa-chevron-down"></span></a>
+                        <ul class="nav child_menu">
+                            <li><a href="{{ url('') }}">Alterar Senha</a></li>
+                            <li><a href="{{ url('/logout') }}">Sair</a></li>
+                           
+                        </ul>
+                    </li>
                     
                 </ul>
             </div>
