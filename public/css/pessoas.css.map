@@ -1,0 +1,7 @@
+{
+"version": 3,
+"mappings": "AAGA,KAAM,CACL,UAAU,CAAE,MAAM,CAInB,8IAA0J,CACzJ,UAAU,CAAE,IAAI,CAGjB,2DAA8D,CAC7D,OAAO,CAAE,SAAS",
+"sources": ["pessoas.scss"],
+"names": [],
+"file": "pessoas.css"
+}

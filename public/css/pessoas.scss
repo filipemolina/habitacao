@@ -1,0 +1,15 @@
+/*CSS Pessoas*/
+
+
+input {
+	text-align: center;
+}
+
+/*Esses inputs são muito grandes e manter seu texto centralizado não possui um bom visual*/
+#pa-nome, #pa-email, #pa-logradouro, #pa-bairro, #pa-municipio, #co-nome, #co-email, #co-logradouro, #co-bairro, #co-municipio, #co-complemento, #de-nome {
+	text-align: left;
+}
+
+#participante, #co-participante, #dependentes, #renda-familiar{
+	padding: 10px 15px;
+}
