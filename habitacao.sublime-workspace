@@ -79,6 +79,32 @@
 	},
 	"buffers":
 	[
+		{
+			"file": "app/Http/Controllers/PessoasController.php",
+			"settings":
+			{
+				"buffer_size": 1586,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "app/Http/Controllers/UsersController.php",
+			"settings":
+			{
+				"buffer_size": 1641,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "gulpfile.js",
+			"settings":
+			{
+				"buffer_size": 1824,
+				"line_ending": "Unix"
+			}
+		}
 	],
 	"build_system": "",
 	"build_system_choices":
@@ -157,13 +183,16 @@
 	"expanded_folders":
 	[
 		"/home/filipemolina/Documentos/Laravel/habitacao",
-		"/home/filipemolina/Documentos/Laravel/habitacao/vendor/bower_components",
-		"/home/filipemolina/Documentos/Laravel/habitacao/vendor/bower_components/gentelella"
+		"/home/filipemolina/Documentos/Laravel/habitacao/app/Http/Controllers",
+		"/home/filipemolina/Documentos/Laravel/habitacao/vendor/bower_components"
 	],
 	"file_history":
 	[
-		"/home/filipemolina/Documentos/Laravel/habitacao/gulpfile.js",
+		"/home/filipemolina/Documentos/Laravel/habitacao/resources/views/pessoas/create.blade.php",
+		"/home/filipemolina/Documentos/Laravel/habitacao/routes/web.php",
 		"/home/filipemolina/Documentos/Laravel/habitacao/resources/views/layouts/blank.blade.php",
+		"/home/filipemolina/Documentos/Laravel/habitacao/.git/config",
+		"/home/filipemolina/Documentos/Laravel/habitacao/gulpfile.js",
 		"/home/filipemolina/Documentos/Laravel/habitacao/resources/views/includes/topbar.blade.php",
 		"/home/filipemolina/Documentos/Laravel/habitacao/resources/views/home.blade.php",
 		"/home/filipemolina/Documentos/Laravel/habitacao/.env",
@@ -313,8 +342,99 @@
 	"groups":
 	[
 		{
+			"selected": 2,
 			"sheets":
 			[
+				{
+					"buffer": 0,
+					"file": "app/Http/Controllers/PessoasController.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1586,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								508,
+								508
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 195.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "app/Http/Controllers/UsersController.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1641,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								328,
+								328
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "gulpfile.js",
+					"semi_transient": true,
+					"settings":
+					{
+						"buffer_size": 1824,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": -0.0,
+						"translation.y": 195.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				}
 			]
 		}
 	],
@@ -533,7 +653,7 @@
 		[
 			[
 				"",
-				"/home/filipemolina/Documentos/Laravel/ProcessoSeletivo.sublime-project"
+				"/var/www/html/trabalho/css/BalcaoDeEmpregos.sublime-project"
 			]
 		],
 		"width": 380.0
