@@ -17,7 +17,7 @@
 	
 	<div class="x_panel">
 		
-		<div class="x_title"> Informe os dados </div>
+		<div class="x_title"> Dados </div>
 		
 		<div class="x_content">
 
