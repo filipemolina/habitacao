@@ -2,7 +2,7 @@
 
 @section('titulo')
 
-	Cadastro de Pessoas
+	Alteração do cadastro de pessoas
 
 @endsection
 
@@ -14,7 +14,7 @@
 
 @section('main_container')
 		
-    <div class="x_title"><h2> Cadastro de Pessoa </h2></div>
+    <div class="x_title"><h2> Alteração do cadastro de pessoas </h2></div>
 			
 		  <form id="Cadastro_pessoa" class="form-horizontal">
 
@@ -80,18 +80,17 @@
                 <input id="pa-rg" name="pa-rg" type="text" placeholder="99.999.999-9" class="form-control input-md rg" required="">
               </div>
 
-              <!-- Orgão Emissor do RG-->
-              <label class="col-md-1 control-label" for="pa-orgao_emissor">Orgão</label>  
-              <div class="col-md-2">
-                <input id="pa-orgao_emissor" name="pa-orgao_emissor" type="text" placeholder="Orgão Emissor" class="form-control input-md" required="">
-              </div>
-
               <!-- Data de Emissão do RG-->
               <label class="col-md-1 control-label" for="pa-emissao">Emissão</label>  
               <div class="col-md-2">
                 <input id="pa-emissao" name="pa-emissao" type="text" placeholder="Data de Emissão" class="form-control input-md data" required="">
               </div>
 
+              <!-- Orgão Emissor do RG-->
+              <label class="col-md-1 control-label" for="pa-orgao_emissor">Orgão</label>  
+              <div class="col-md-2">
+                <input id="pa-orgao_emissor" name="pa-orgao_emissor" type="text" placeholder="Orgão Emissor" class="form-control input-md" required="">
+              </div>
             
             </div> {{-- FIM RG, Data de Emissão do RG, Orgão Emissor do RG --}}
 
@@ -204,8 +203,6 @@
               </div>
 
             </div> {{-- FIM Email, Celular e Telefone --}}
-
-
 
           </div> {{-- fim Participante --}}
 
@@ -502,7 +499,7 @@
 
               <label class="col-md-1 control-label" for="faixa">Faixa</label>
               <div class="col-md-3">
-                <input id="faixa" name="faixa" type="text" placeholder="Classificação" class="form-control input-md" disabled selected style>
+                <input id="faixa" name="faixa" type="text" placeholder="Classificação" class="form-control input-md cash" disabled selected style>
               </div>
 
           </div>
@@ -512,13 +509,11 @@
           <!-- Button (Double) -->
         <br></br>
         <div class="form-group">
-          <label class="col-md-1 control-label" for="button1id">
-            <button id="button1id" type="submit" value="submit" name="button1id" class="btn btn-primary">Enviar</button>
-          </label>
-
-          <label class="col-md-11 control-label" for="button1id">
-              <button id="button2id" type="reset" value="reset" name="button2id" class="btn btn-danger">Limpar</button>
-          </label>
+          <label class="col-md-0 control-label" for="button1id"></label>
+            <div class="col-md-8">
+              <button id="button1id" type="submit" value="submit" name="button1id" class="btn btn-success">Salvar</button>
+              <button id="button2id" type="submit" value="submit" name="button2id" class="btn btn-danger">Cancelar</button>
+            </div>
           </div>
 
     

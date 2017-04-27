@@ -13,7 +13,7 @@ class PessoasController extends Controller
      */
     public function index()
     {
-        //
+        return view('pessoas.index');
     }
 
     /**

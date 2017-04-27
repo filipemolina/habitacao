@@ -2,7 +2,7 @@
 
 @section('titulo')
 
-	Cadastro de Pessoas
+	Lista de pessoas
 
 @endsection
 
@@ -14,22 +14,62 @@
 
 @section('main_container')
 
-<div class="x_title"><h2> Lista de Pessoas </h2></div>
+<div class="col-md-12 col-sm-12 col-xs-12">
+  <div class="x_title">
+    <h2>Lista de pessoas</h2>
+  <div class="clearfix"></div>
+            </div>
+        <div class="x_panel">
+            
+            <div class="x_content">
+               
+        <table class="table table-striped">
 
-<div id="main" class="container-fluid">
-     
-     <div id="top" class="row">
+          <tr>
+            <th>ID</th>
+            <th>Nome</th> 
+            <th>CPF</th> 
+            <th>RG</th> 
+            <th>NIS/PIS</th> 
+            <th>Telefone</th>
+            <th>E-mail</th>
+            <th>Bolsa família?</th>
+            <th>Ações</th>
+
+          </tr>
+          
+          <tr>
+              <td>01</td>
+              <td>Teste Teste Teste</td> 
+              <td>99999999999999</td>
+              <td>99999999999999</td>
+              <td>99999999999999</td>
+              <td>99999999999999</td>
+              <td>teste@teste.com.br</td>
+              <td>Não</td>
+          </tr>
+
+        </table>
+
+
+            </div>
+        </div>
+    </div>
+
+{{-- <div class="x_title"><h2> Lista de Pessoas </h2></div>
 
 
 {{--------------------------------------- TOPO ----------------------------------------------}}
 
+    {{-- <div id="top" class="row"> --}}
+
 {{-- Título a ser definido --}}
-      <div class="col-md-3">
+{{--       <div class="col-md-3">
         <h2>Título</h2>
-      </div>
+      </div> --}}
 
  {{-- Pesquisa --}}
-    <div class="col-md-6">
+{{--     <div class="col-md-6">
         <div class="input-group h2">
             <input name="data[search]" class="form-control" id="search" type="text" placeholder="Pesquisar Itens">
             <span class="input-group-btn">
@@ -38,13 +78,14 @@
                 </button>
             </span>
         </div>
+    </div> --}}
 
 {{-- Botão a ser definido --}}
-    <div class="col-md-3">
+{{--     <div class="col-md-2">
     	<a href="add.html" class="btn btn-primary pull-right h2">Novo Item</a>
-	</div>
+    </div> --}}
  
-     </div> {{-- FIM TOPO --}}
+ {{--     </div> FIM TOPO --}}
 
 
 
@@ -52,7 +93,7 @@
 
 
 {{-- -------------------------------------------LISTA ----------------------------------------}}
-     
+{{--      
      <div id="list" class="row">
  
     <div class="table-responsive col-md-12">
@@ -86,9 +127,8 @@
      </div>
  </div> {{-- FIM LISTA --}}
 
-
  {{------------------------------------------- PAGINAÇÂO ------------------------------------}}
-
+{{-- 
  <div id="bottom" class="row">
     <div class="col-md-12">
          
@@ -101,7 +141,7 @@
         </ul><!-- /.pagination -->
  
     </div>
-{{-- </div> FIM PAGINAÇÂO --}}
+</div> {{-- FIM PAGINAÇÂO
 
 
  
@@ -113,6 +153,6 @@
      <div id="bottom" class="row">
      
      </div> <!-- /#bottom -->
- </div>  <!-- /#main -->
+  --}}
 
  @endsection

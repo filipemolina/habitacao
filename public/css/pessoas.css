@@ -1,2 +1,2 @@
-input{text-align:center}#pa-nome,#pa-email,#pa-logradouro,#pa-bairro,#pa-municipio,#co-nome,#co-email,#co-logradouro,#co-bairro,#co-municipio,#co-complemento,#de-nome{text-align:left}#participante,#co-participante,#dependentes,#renda-familiar{padding:10px 15px}
+#pa-cpf,#pa-nis,#pa-carteira,#pa-rg,.data,#pa-orgao_emissor,#pa-numero,#pa-cep,#pa-celular,#pa-telefone1,#co-cpf,#co-nis,#co-carteira,#co-rg,.data,#co-orgao_emissor,#co-numero,#co-cep,#co-celular,#co-telefone1,.cash,#faixa{text-align:center}#participante,#co-participante,#dependentes,#renda-familiar{padding:10px 15px}
 /*# sourceMappingURL=pessoas.css.map */
