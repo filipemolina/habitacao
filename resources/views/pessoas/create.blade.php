@@ -69,7 +69,7 @@
           </div> {{-- FIM CPF, NIS/PIS e Bolsa Família --}}
 
 
-{{-- RG, Data de Emissão do RG, Orgão Emissor do RG --}}
+{{-- RG, Orgão Emissor do RG e Data de Emissão do RG--}}
 
 
             <div class="form-group">
@@ -89,11 +89,11 @@
               <!-- Data de Emissão do RG-->
               <label class="col-md-1 control-label" for="pa-emissao">Emissão</label>  
               <div class="col-md-2">
-                <input id="pa-emissao" name="pa-emissao" type="date" class="form-control input-md data" required="">
+                <input id="pa-emissao" name="pa-emissao" type="date" class="form-control input-md global-data" required="">
               </div>
 
             
-            </div> {{-- FIM RG, Data de Emissão do RG, Orgão Emissor do RG --}}
+            </div> {{-- FIM RG, Orgão Emissor do RG e Data de Emissão do RG --}}
 
 
 {{-- Data de Nascimento, Sexo, Deficiente --}}
@@ -105,7 +105,7 @@
 
               <label class="col-md-1 control-label" for="pa-nascimento">Nascimento</label>  
               <div class="col-md-2">
-                <input id="pa-nascimento" name="pa-nascimento" type="date" class="form-control input-md" required="">
+                <input id="pa-nascimento" name="pa-nascimento" type="date" class="form-control input-md global-data" required="">
 
               </div>
 
@@ -279,19 +279,19 @@
                 <input id="co-rg" name="co-rg" type="text" placeholder="99.999.999-9" class="form-control input-md rg" required="">
               </div>
 
-              <!-- Data de Emissão do RG-->
-              <label class="col-md-1 control-label" for="co-emissao">Emissão</label>  
-              <div class="col-md-2">
-                <input id="co-emissao" name="co-emissao" type="text" placeholder="Data de Emissão" class="form-control input-md data" required="">
-              </div>
-
               <!-- Orgão Emissor do RG-->
               <label class="col-md-1 control-label" for="co-orgao_emissor">Orgão</label>  
               <div class="col-md-2">
                 <input id="co-orgao_emissor" name="co-orgao_emissor" type="text" placeholder="Orgão Emissor" class="form-control input-md" required="">
               </div>
+
+              <!-- Data de Emissão do RG-->
+              <label class="col-md-1 control-label" for="co-emissao">Emissão</label>  
+              <div class="col-md-2">
+                <input id="co-emissao" name="co-emissao" type="date" placeholder="Data de Emissão" class="form-control input-md global-data" required="">
+              </div>
             
-            </div> {{-- FIM RG, Data de Emissão do RG, Orgão Emissor do RG --}}
+            </div> {{-- FIM RG, Orgão Emissor do RG e Data de Emissão do RG --}}
 
 
 {{-- Data de Nascimento, Sexo, Deficiente --}}
@@ -303,7 +303,7 @@
 
               <label class="col-md-1 control-label" for="co-nascimento">Nascimento</label>  
               <div class="col-md-2">
-                <input id="co-nascimento" name="co-nascimento" type="text" placeholder="01 / 01 / 2000" class="form-control input-md data" required="">
+                <input id="co-nascimento" name="co-nascimento" type="date" placeholder="01 / 01 / 2000" class="form-control input-md global-data" required="">
 
               </div>
 
@@ -452,7 +452,7 @@
 
               <label class="col-md-1 control-label" for="de-nascimento">Nascimento</label>  
               <div class="col-md-2">
-                <input {{-- id="de-nascimento" --}} name="de-nascimento" type="text" placeholder="01/01/2000" class="form-control input-md data" required="">
+                <input {{-- id="de-nascimento" --}} name="de-nascimento" type="date" placeholder="01/01/2000" class="form-control input-md global-data" required="">
 
               </div> {{-- FIM Data de Nascimento, Sexo, Deficiente --}}
 
@@ -478,7 +478,7 @@
             </div>
           
           <div class="col-md-11"></div>
-            <button value="remover" class="btn btn-xs btn-danger remover" selected style="display:none;"> Remover</button>
+            <button name="submit" value="excluir" class="btn btn-xs btn-danger excluir" selected style="display:none;"> Remover</button>
 
       </div> {{-- FIM panel_dependentes --}}
 
@@ -511,7 +511,7 @@
             
               <label class="col-md-1 control-label" for="te-residencia">Tempo</label>
               <div class="col-md-2">
-                <input id="te-residencia" name="te-residencia" type="text" placeholder="01 / 01 / 2000" class="form-control input-md data" required="">
+                <input id="te-residencia" name="te-residencia" type="date" placeholder="01 / 01 / 2000" class="form-control input-md global-data" required="">
               </div>
 
               {{-- Faixa--}}
@@ -555,7 +555,7 @@
     <script type="text/javascript">
 
     {{-- Máscarasa dos campos CPF e RG --}}
-		  $(document).ready(function(){
+		  $(function(){
         $(".cpf").inputmask("999.999.999-99");
         $(".rg").inputmask("99.999.999-9");
         $(".cep").inputmask("99-999.999");
@@ -570,15 +570,15 @@
 
           evento.preventDefault();
 
-          $(".panel_dependentes").clone().addClass("clone_dependentes").removeClass("panel_dependentes").find("button.remover").css("display","block").parent().appendTo(".div-clone");
+          $(".panel_dependentes").clone().addClass("clone_dependentes").removeClass("panel_dependentes").find("button.excluir").css("display","block").parent().appendTo(".div-clone");
 
       });
+      
+      $("#dependentes").on("click", "button.excluir", function(e){
 
-      $(".remover").click(function(evento){
-        
-        evento.preventDefault;
+        e.preventDefault();
 
-        $.remove(.parente());
+        $(this).parent().remove();
 
       });
 
