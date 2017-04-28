@@ -79,3 +79,11 @@ a {
 .nav.side-menu>li.active, .nav.side-menu>li.current-page {
     border-right: none;
 }
+
+.left_col {
+ 	background: none;
+}
+
+.nav-sm .nav.child_menu li.active, .nav-sm .nav.side-menu li.active-sm {
+    border-right: none;
+}
