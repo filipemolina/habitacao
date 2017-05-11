@@ -13,7 +13,7 @@
 @endpush
 
 @section('main_container')
-
+		
   <div class="col-md-12">
     
       <h2> Cadastro de Pessoas </h2>
@@ -26,6 +26,7 @@
         <div class="x_panel" id="participante">
           <div class="x_title"> Participante </div>
 
+            {{-- Nome --}}
 
           {{-- Nome --}}
 
