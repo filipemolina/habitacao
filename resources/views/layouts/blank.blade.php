@@ -18,10 +18,10 @@
         <!-- Custom Theme Style -->
         <link href="{{ asset("css/gentelella.min.css") }}" rel="stylesheet">
 
+        @stack('css')
+
         <!-- css do projeto -->
         <link href="{{ asset("css/styles.css") }}" rel="stylesheet"> 
-        
-        @stack('stylesheets')
 
     </head>
 
@@ -45,7 +45,7 @@
                 <!-- footer content -->
                 <footer>
                     <div class="pull-right">
-                        Gentelella - Bootstrap Admin Template by <a href="https://colorlib.com">Colorlib</a>
+                        Subsecretaria da Tecnologia da Informação - Equipe de Desenvolvimento - 2017
                     </div>
                     <div class="clearfix"></div>
                 </footer>
@@ -58,10 +58,11 @@
         <script src="{{ asset("js/jquery.min.js") }}"></script>
         <!-- Bootstrap -->
         <script src="{{ asset("js/bootstrap.min.js") }}"></script>
-        <!-- Custom Theme Scripts -->
-        <script src="{{ asset("js/gentelella.min.js") }}"></script>
 
         @stack('scripts')
+
+        <!-- Custom Theme Scripts -->
+        <script src="{{ asset("js/gentelella.min.js") }}"></script>
 
     </body>
 </html>

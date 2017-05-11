@@ -1,5 +1,11 @@
 @extends("layouts.blank")
 
+@section('titulo')
+
+	Cadastro de Usuários
+
+@endsection
+
 @section("main_container")
 
 <div class="col-md-12 col-sm-12 col-xs-12">

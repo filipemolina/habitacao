@@ -6,6 +6,13 @@ use Illuminate\Http\Request;
 
 class PessoasController extends Controller
 {
+    // Exigir que o usuário esteja logado para acessar essa view
+
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
      /**
      * Display a listing of the resource.
      *
@@ -13,7 +20,7 @@ class PessoasController extends Controller
      */
     public function index()
     {
-        //
+        return view('pessoas.index');
     }
 
     /**

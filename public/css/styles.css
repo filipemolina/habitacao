@@ -11,6 +11,10 @@ body.login{
 	background-color: rgba(191, 161, 95, 0.4);
 }
 
+.dourado
+{
+    color: #d0c1a1;
+}
 
 input[type=submit]{
 	color:black;
@@ -22,7 +26,6 @@ input[type=submit]{
 
 .logo_topo{
 	width: 315px;
-	margin-left: 520px;
 	margin-top: 20px;
     border: 4px solid #BFA15F;
     border-radius: 15px;
@@ -53,7 +56,7 @@ h3.home {
 }
 
 .profile_info {
-    padding: 30px 80px 50px;
+    text-align: center;
     width: 100%;
     float: left;
 }
@@ -78,4 +81,36 @@ a {
 }
 .nav.side-menu>li.active, .nav.side-menu>li.current-page {
     border-right: none;
+}
+
+.col-md-3.left_col {
+    background-color: #3d276b;
+}
+
+.nav-sm .nav.child_menu li.active, .nav-sm .nav.side-menu li.active-sm {
+    border-right: 5px solid rgb(189, 172, 133);
+}
+
+.nav-sm ul.nav.child_menu {
+    background: #3d276b;
+}
+
+.top_nav .nav .open>a, .top_nav .nav .open>a:focus, .top_nav .nav .open>a:hover, .top_nav .nav>li>a:focus, .top_nav .nav>li>a:hover {
+    background: #cab994;
+}
+
+.bg-padrao
+{
+    background-color: #947fc1 !important;
+    border: 1px solid #3D276B !important;
+}
+
+.nav-md ul.nav.child_menu li:before 
+{
+    background: #dbccaa;
+}
+
+.nav-md ul.nav.child_menu li:after 
+{
+    border-left: 1px solid #dbccaa;
 }

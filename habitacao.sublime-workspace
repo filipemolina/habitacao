@@ -80,28 +80,11 @@
 	"buffers":
 	[
 		{
-			"file": "app/Http/Controllers/PessoasController.php",
+			"file": "resources/views/users/index.blade.php",
 			"settings":
 			{
-				"buffer_size": 1586,
+				"buffer_size": 3492,
 				"encoding": "UTF-8",
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "app/Http/Controllers/UsersController.php",
-			"settings":
-			{
-				"buffer_size": 1641,
-				"encoding": "UTF-8",
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "gulpfile.js",
-			"settings":
-			{
-				"buffer_size": 1824,
 				"line_ending": "Unix"
 			}
 		}
@@ -114,9 +97,33 @@
 	"command_palette":
 	{
 		"height": 354.0,
-		"last_filter": "toggle",
+		"last_filter": "inde",
 		"selected_items":
 		[
+			[
+				"inde",
+				"Indentation: Reindent Lines"
+			],
+			[
+				"close ",
+				"Project: Close"
+			],
+			[
+				"install",
+				"Package Control: Install Package"
+			],
+			[
+				"to",
+				"View: Toggle Menu"
+			],
+			[
+				"togg",
+				"View: Toggle Menu"
+			],
+			[
+				"inden",
+				"Indentation: Reindent Lines"
+			],
 			[
 				"toggle",
 				"View: Toggle Menu"
@@ -127,10 +134,6 @@
 			],
 			[
 				"instal",
-				"Package Control: Install Package"
-			],
-			[
-				"install",
 				"Package Control: Install Package"
 			],
 			[
@@ -162,7 +165,7 @@
 				"Package Control: Install Package"
 			]
 		],
-		"width": 467.0
+		"width": 431.0
 	},
 	"console":
 	{
@@ -183,18 +186,44 @@
 	"expanded_folders":
 	[
 		"/home/filipemolina/Documentos/Laravel/habitacao",
-		"/home/filipemolina/Documentos/Laravel/habitacao/app/Http/Controllers",
-		"/home/filipemolina/Documentos/Laravel/habitacao/vendor/bower_components"
+		"/home/filipemolina/Documentos/Laravel/habitacao/public/vendors/datatables.net-scroller/js",
+		"/home/filipemolina/Documentos/Laravel/habitacao/resources",
+		"/home/filipemolina/Documentos/Laravel/habitacao/resources/views",
+		"/home/filipemolina/Documentos/Laravel/habitacao/resources/views/includes",
+		"/home/filipemolina/Documentos/Laravel/habitacao/resources/views/includes/users"
 	],
 	"file_history":
 	[
-		"/home/filipemolina/Documentos/Laravel/habitacao/resources/views/pessoas/create.blade.php",
-		"/home/filipemolina/Documentos/Laravel/habitacao/routes/web.php",
+		"/home/filipemolina/Documentos/Laravel/habitacao/resources/views/includes/users/scripts.blade.php",
+		"/home/filipemolina/Documentos/Utilidades/gentelella/production/tables_dynamic.html",
 		"/home/filipemolina/Documentos/Laravel/habitacao/resources/views/layouts/blank.blade.php",
+		"/home/filipemolina/Documentos/Utilidades/gentelella/production/tables.html",
+		"/home/filipemolina/Documentos/Laravel/habitacao/public/js/portugues.json",
+		"/home/filipemolina/Documentos/Utilidades/awesomplete-gh-pages/awesomplete.css",
+		"/home/filipemolina/Documentos/Laravel/habitacao/public/css/awesomplete.css",
+		"/home/filipemolina/Documentos/Utilidades/awesomplete-gh-pages/awesomplete.min.js",
+		"/home/filipemolina/Documentos/Laravel/habitacao/public/js/awesomeplete.min.js",
+		"/home/filipemolina/Documentos/Laravel/habitacao/public/css/styles.css",
+		"/home/filipemolina/Documentos/Laravel/habitacao/resources/views/includes/topbar.blade.php",
+		"/home/filipemolina/Documentos/Laravel/habitacao/resources/views/includes/sidebar.blade.php",
+		"/home/filipemolina/Documentos/Laravel/habitacao/resources/views/includes/home/scripts.blade.php",
+		"/home/filipemolina/Documentos/Laravel/habitacao/resources/views/home.blade.php",
+		"/home/filipemolina/Documentos/Utilidades/gentelella/production/index.html",
+		"/home/filipemolina/Documentos/Laravel/Cronograma - Habitação.txt",
+		"/home/filipemolina/Documentos/Laravel/habitacao/resources/views/includes/home/topo.blade.php",
+		"/home/filipemolina/Documentos/Laravel/habitacao/resources/views/includes/home/grafico_principal.blade.php",
+		"/home/filipemolina/Documentos/Laravel/habitacao/resources/views/includes/home/dependentes.blade.php",
+		"/home/filipemolina/Documentos/Laravel/habitacao/resources/views/includes/home/bairros.blade.php",
+		"/home/filipemolina/Documentos/Laravel/habitacao/app/Http/Controllers/UsersController.php",
+		"/home/filipemolina/Documentos/Laravel/habitacao/app/Http/Controllers/HomeController.php",
+		"/home/filipemolina/Documentos/Laravel/habitacao/routes/web.php",
+		"/home/filipemolina/Documentos/Laravel/habitacao/resources/views/users/index.blade.php",
+		"/home/filipemolina/Documentos/Laravel/habitacao/resources/views/users/create.blade.php",
+		"/home/filipemolina/Documentos/Laravel/habitacao/resources/views/pessoas/create.blade.php",
+		"/home/filipemolina/Documentos/Laravel/habitacao/resources/views/pessoas/index.blade.php",
+		"/home/filipemolina/Documentos/Laravel/habitacao/app/Http/Controllers/PessoasController.php",
 		"/home/filipemolina/Documentos/Laravel/habitacao/.git/config",
 		"/home/filipemolina/Documentos/Laravel/habitacao/gulpfile.js",
-		"/home/filipemolina/Documentos/Laravel/habitacao/resources/views/includes/topbar.blade.php",
-		"/home/filipemolina/Documentos/Laravel/habitacao/resources/views/home.blade.php",
 		"/home/filipemolina/Documentos/Laravel/habitacao/.env",
 		"/home/filipemolina/Documentos/Laravel/habitacao/.gitignore",
 		"/var/www/Laravel/fw_processo_seletivo/resources/lang/en/validation.php",
@@ -269,6 +298,7 @@
 		"height": 158.0,
 		"where_history":
 		[
+			"/home/filipemolina/Documentos/Laravel/habitacao/node_modules",
 			"/home/filipemolina/Documentos/Laravel/habitacao",
 			"/var/www/Laravel/fw_trabalho",
 			"/var/www/Laravel/fw_trabalho/resources/views"
@@ -279,6 +309,25 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"../vendors",
+			"----------------------------------",
+			"---------------------------------",
+			"--------------------------------",
+			"----------------------------------}}\n",
+			" ----------------------------------}}",
+			"--------------------------------",
+			"green",
+			"fa-eye",
+			"fa-wrench",
+			"recent ac",
+			"bg-green",
+			"#flot-placeholder",
+			"lines",
+			"world-map-gdp",
+			"../vendors/",
+			"../vendors",
+			"fastclick",
+			"co-seco",
 			"vendors",
 			"value",
 			"experiencia",
@@ -331,6 +380,8 @@
 		"regex": false,
 		"replace_history":
 		[
+			"dourado",
+			"fa-eye",
 			"{{ asset('/js/portugues.json') }}"
 		],
 		"reverse": false,
@@ -342,94 +393,32 @@
 	"groups":
 	[
 		{
-			"selected": 2,
+			"selected": 0,
 			"sheets":
 			[
 				{
 					"buffer": 0,
-					"file": "app/Http/Controllers/PessoasController.php",
+					"file": "resources/views/users/index.blade.php",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 1586,
+						"buffer_size": 3492,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								508,
-								508
+								3492,
+								3492
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/PHP/PHP.sublime-syntax",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
+							"syntax": "Packages/Laravel Blade Highlighter/blade.sublime-syntax"
 						},
 						"translation.x": 0.0,
-						"translation.y": 195.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 2,
-					"type": "text"
-				},
-				{
-					"buffer": 1,
-					"file": "app/Http/Controllers/UsersController.php",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 1641,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								328,
-								328
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/PHP/PHP.sublime-syntax",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 1,
-					"type": "text"
-				},
-				{
-					"buffer": 2,
-					"file": "gulpfile.js",
-					"semi_transient": true,
-					"settings":
-					{
-						"buffer_size": 1824,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								0,
-								0
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": -0.0,
-						"translation.y": 195.0,
+						"translation.y": 864.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 0,
@@ -486,6 +475,18 @@
 		"last_filter": "",
 		"selected_items":
 		[
+			[
+				"styles",
+				"public/css/styles.css"
+			],
+			[
+				"homecontro",
+				"app/Http/Controllers/HomeController.php"
+			],
+			[
+				"web.ph",
+				"routes/web.php"
+			],
 			[
 				"web.",
 				"fw_processo_seletivo/routes/web.php"

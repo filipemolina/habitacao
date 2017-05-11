@@ -6,6 +6,13 @@ use Illuminate\Http\Request;
 
 class UsersController extends Controller
 {
+    // Exigir que o usuário esteja logado ao acessar esse controller
+
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     /**
      * Display a listing of the resource.
      *

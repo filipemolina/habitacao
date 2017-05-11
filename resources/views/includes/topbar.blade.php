@@ -14,7 +14,7 @@
                         <span class=" fa fa-angle-down"></span>
                     </a>
                     <ul class="dropdown-menu dropdown-usermenu pull-right">
-                        
+                        <li><a href="{{ url('/alterar-senha') }}"><i class="fa fa-lock pull-right"></i>Alterar Senha</a></li>
                         <li><a href="{{ url('/logout') }}"><i class="fa fa-sign-out pull-right"></i>Sair</a></li>
                     </ul>
                 </li>
@@ -23,5 +23,6 @@
             </ul>
         </nav>
     </div>
+    {{-- <div class="clearfix"></div> --}}
 </div>
 <!-- /top navigation -->

@@ -1,7 +1,7 @@
 <div class="col-md-3 left_col">
     <div class="left_col scroll-view colormenu">
         <div class="navbar nav_title colormenu" style="border: 0;">
-            {{-- <a href="{{ url('/') }}" class="site_title"><i class="fa fa-paw"></i> <span>Gentellela Alela!</span></a> --}}
+            <a href="{{ url('/') }}" class="site_title"><i class="fa fa-home"></i> <span>Habitação</span></a>
         </div>
         
         <div class="clearfix"></div>
@@ -10,7 +10,7 @@
         <div class="profile">
             
             <div class="profile_info">
-                <span>Bem Vindo!</span>
+                <span>Bem-Vindo!</span>
                 <h2>{{ Auth::user()->name }}</h2>
             </div>
             <div class="clearfix"></div>
@@ -28,10 +28,10 @@
                     <li>
                         <a href="{{ url("/") }}">
                             <i class="fa fa-home"></i>
-                            Pagina Inicial
+                            Página Inicial
                         </a>
                     </li>
-                    <li><a><i class=" fa fa-male"></i>Pesoas<span class="fa fa-chevron-down"></span></a>
+                    <li><a><i class=" fa fa-users"></i>Pessoas<span class="fa fa-chevron-down"></span></a>
                         <ul class="nav child_menu">
                             <li><a href="{{ url('pessoas/create') }}">Cadastro de Pessoas</a></li>
                             <li><a href="{{ url('pessoas') }}">Lista de Pessoas</a></li>
@@ -39,7 +39,7 @@
                         </ul>
                     </li>
                     
-                    <li><a><i class=" fa fa-user"></i>Usuário<span class="fa fa-chevron-down"></span></a>
+                    <li><a><i class=" fa fa-user"></i>Usuários<span class="fa fa-chevron-down"></span></a>
                         <ul class="nav child_menu">
                             <li><a href="{{ url('users/create') }}">Cadastro de Usuário</a></li>
                             <li><a href="{{ url('users') }}">Lista de Usuário</a></li>
@@ -47,9 +47,18 @@
                         </ul>
                     </li>
 
+                    <li><a><i class=" fa fa-clipboard"></i>Relatórios<span class="fa fa-chevron-down"></span></a>
+                        <ul class="nav child_menu">
+                            <li><a href="{{ url('relatorios') }}"> Por Faixa</a></li>
+                            <li><a href="{{ url('relatorios') }}"> Por Dependentes</a></li>
+                            <li><a href="{{ url('relatorios') }}"> Por Bairro</a></li>
+                            <li><a href="{{ url('relatorios') }}"> Por Deficiência</a></li>
+                        </ul>
+                    </li>
+
                     <li><a><i class=" fa fa-cog"></i>Opções<span class="fa fa-chevron-down"></span></a>
                         <ul class="nav child_menu">
-                            <li><a href="{{ url('') }}">Alterar Senha</a></li>
+                            <li><a href="{{ url('/alterar-senha') }}">Alterar Senha</a></li>
                             <li><a href="{{ url('/logout') }}">Sair</a></li>
                            
                         </ul>
