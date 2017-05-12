@@ -83,6 +83,7 @@ a {
     border-right: none;
 }
 
+<<<<<<< HEAD
 .col-md-3.left_col {
     background-color: #3d276b;
 }
@@ -113,4 +114,12 @@ a {
 .nav-md ul.nav.child_menu li:after 
 {
     border-left: 1px solid #dbccaa;
+}
+
+.left_col {
+ 	background: none;
+}
+
+.nav-sm .nav.child_menu li.active, .nav-sm .nav.side-menu li.active-sm {
+    border-right: none;
 }
