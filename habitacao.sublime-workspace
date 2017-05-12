@@ -80,12 +80,12 @@
 	"buffers":
 	[
 		{
-			"file": "resources/views/users/index.blade.php",
+			"file": "resources/views/pessoas/create.blade.php",
 			"settings":
 			{
-				"buffer_size": 3492,
+				"buffer_size": 21244,
 				"encoding": "UTF-8",
-				"line_ending": "Unix"
+				"line_ending": "Windows"
 			}
 		}
 	],
@@ -185,15 +185,19 @@
 	},
 	"expanded_folders":
 	[
-		"/home/filipemolina/Documentos/Laravel/habitacao",
-		"/home/filipemolina/Documentos/Laravel/habitacao/public/vendors/datatables.net-scroller/js",
-		"/home/filipemolina/Documentos/Laravel/habitacao/resources",
-		"/home/filipemolina/Documentos/Laravel/habitacao/resources/views",
-		"/home/filipemolina/Documentos/Laravel/habitacao/resources/views/includes",
-		"/home/filipemolina/Documentos/Laravel/habitacao/resources/views/includes/users"
+		"/C/wamp64/www/me-ajuda-ai",
+		"/C/wamp64/www/me-ajuda-ai/resources",
+		"/C/wamp64/www/me-ajuda-ai/resources/views",
+		"/C/wamp64/www/me-ajuda-ai/resources/views/pessoas"
 	],
 	"file_history":
 	[
+		"/C/wamp64/www/me-ajuda-ai/resources/views/pessoas/create.blade.php",
+		"/C/wamp64/www/me-ajuda-ai/resources/views/pessoas/index.blade.php",
+		"/C/wamp64/www/me-ajuda-ai/.env",
+		"/C/wamp64/www/me-ajuda-ai/public/css/pessoas.scss",
+		"/C/wamp64/www/me-ajuda-ai/public/css/pessoas.css",
+		"/C/wamp64/www/me-ajuda-ai/resources/views/users/index.blade.php",
 		"/home/filipemolina/Documentos/Laravel/habitacao/resources/views/includes/users/scripts.blade.php",
 		"/home/filipemolina/Documentos/Utilidades/gentelella/production/tables_dynamic.html",
 		"/home/filipemolina/Documentos/Laravel/habitacao/resources/views/layouts/blank.blade.php",
@@ -398,27 +402,29 @@
 			[
 				{
 					"buffer": 0,
-					"file": "resources/views/users/index.blade.php",
-					"semi_transient": false,
+					"file": "resources/views/pessoas/create.blade.php",
+					"semi_transient": true,
 					"settings":
 					{
-						"buffer_size": 3492,
+						"buffer_size": 21244,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								3492,
-								3492
+								380,
+								380
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/Laravel Blade Highlighter/blade.sublime-syntax"
+							"syntax": "Packages/PHP/PHP.sublime-syntax",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 864.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 0,
