@@ -80,10 +80,10 @@
 	"buffers":
 	[
 		{
-			"file": "resources/views/users/index.blade.php",
+			"file": "app/Participante.php",
 			"settings":
 			{
-				"buffer_size": 3492,
+				"buffer_size": 801,
 				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
@@ -186,15 +186,27 @@
 	"expanded_folders":
 	[
 		"/home/filipemolina/Documentos/Laravel/habitacao",
-		"/home/filipemolina/Documentos/Laravel/habitacao/public/vendors/datatables.net-scroller/js",
-		"/home/filipemolina/Documentos/Laravel/habitacao/resources",
-		"/home/filipemolina/Documentos/Laravel/habitacao/resources/views",
-		"/home/filipemolina/Documentos/Laravel/habitacao/resources/views/includes",
-		"/home/filipemolina/Documentos/Laravel/habitacao/resources/views/includes/users"
+		"/home/filipemolina/Documentos/Laravel/habitacao/public/css"
 	],
 	"file_history":
 	[
+		"/home/filipemolina/Documentos/Laravel/habitacao/app/Telefone.php",
+		"/home/filipemolina/Documentos/Laravel/habitacao/app/Dependente.php",
+		"/home/filipemolina/Documentos/Laravel/habitacao/app/Endereco.php",
+		"/home/filipemolina/Documentos/Laravel/habitacao/app/Coparticipante.php",
+		"/home/filipemolina/Documentos/Laravel/habitacao/database/migrations/2017_05_10_182634_create_enderecos_table.php",
+		"/home/filipemolina/Documentos/Laravel/habitacao/database/migrations/2017_05_10_182612_create_coparticipantes_table.php",
+		"/home/filipemolina/Documentos/Laravel/habitacao/database/migrations/2017_05_10_182622_create_telefones_table.php",
+		"/home/filipemolina/Documentos/Laravel/habitacao/config/app.php",
 		"/home/filipemolina/Documentos/Laravel/habitacao/resources/views/includes/users/scripts.blade.php",
+		"/home/filipemolina/Documentos/Laravel/habitacao/resources/views/users/create.blade.php",
+		"/home/filipemolina/Documentos/Laravel/habitacao/resources/views/pessoas/create.blade.php",
+		"/home/filipemolina/Documentos/Laravel/habitacao/resources/views/pessoas/index.blade.php",
+		"/home/filipemolina/Documentos/Laravel/habitacao/resources/views/auth/login.blade.php",
+		"/home/filipemolina/Documentos/Laravel/habitacao/resources/views/includes/sidebar.blade.php",
+		"/home/filipemolina/Documentos/Laravel/habitacao/public/css/styles.css",
+		"/home/filipemolina/Documentos/Laravel/habitacao/resources/views/users/index.blade.php",
+		"/home/filipemolina/Documentos/Laravel/habitacao/resources/views/pessoas/index.blade_bs.php",
 		"/home/filipemolina/Documentos/Utilidades/gentelella/production/tables_dynamic.html",
 		"/home/filipemolina/Documentos/Laravel/habitacao/resources/views/layouts/blank.blade.php",
 		"/home/filipemolina/Documentos/Utilidades/gentelella/production/tables.html",
@@ -203,9 +215,7 @@
 		"/home/filipemolina/Documentos/Laravel/habitacao/public/css/awesomplete.css",
 		"/home/filipemolina/Documentos/Utilidades/awesomplete-gh-pages/awesomplete.min.js",
 		"/home/filipemolina/Documentos/Laravel/habitacao/public/js/awesomeplete.min.js",
-		"/home/filipemolina/Documentos/Laravel/habitacao/public/css/styles.css",
 		"/home/filipemolina/Documentos/Laravel/habitacao/resources/views/includes/topbar.blade.php",
-		"/home/filipemolina/Documentos/Laravel/habitacao/resources/views/includes/sidebar.blade.php",
 		"/home/filipemolina/Documentos/Laravel/habitacao/resources/views/includes/home/scripts.blade.php",
 		"/home/filipemolina/Documentos/Laravel/habitacao/resources/views/home.blade.php",
 		"/home/filipemolina/Documentos/Utilidades/gentelella/production/index.html",
@@ -217,10 +227,6 @@
 		"/home/filipemolina/Documentos/Laravel/habitacao/app/Http/Controllers/UsersController.php",
 		"/home/filipemolina/Documentos/Laravel/habitacao/app/Http/Controllers/HomeController.php",
 		"/home/filipemolina/Documentos/Laravel/habitacao/routes/web.php",
-		"/home/filipemolina/Documentos/Laravel/habitacao/resources/views/users/index.blade.php",
-		"/home/filipemolina/Documentos/Laravel/habitacao/resources/views/users/create.blade.php",
-		"/home/filipemolina/Documentos/Laravel/habitacao/resources/views/pessoas/create.blade.php",
-		"/home/filipemolina/Documentos/Laravel/habitacao/resources/views/pessoas/index.blade.php",
 		"/home/filipemolina/Documentos/Laravel/habitacao/app/Http/Controllers/PessoasController.php",
 		"/home/filipemolina/Documentos/Laravel/habitacao/.git/config",
 		"/home/filipemolina/Documentos/Laravel/habitacao/gulpfile.js",
@@ -309,6 +315,14 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"<td class=\"actions\">",
+			"href=\"\"",
+			"view.html",
+			"bin",
+			"close",
+			"<a class=\"btn btn-danger btn-xs\"  href=\"#\" data-toggle=\"modal\" data-target=\"#delete-modal\">",
+			"<a class=\"btn btn-warning btn-xs\" href=\"edit.html\">Editar</a>",
+			"<a class=\"btn btn-success btn-xs\" href=\"view.html\">Visualizar</a>",
 			"../vendors",
 			"----------------------------------",
 			"---------------------------------",
@@ -398,27 +412,27 @@
 			[
 				{
 					"buffer": 0,
-					"file": "resources/views/users/index.blade.php",
+					"file": "app/Participante.php",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 3492,
+						"buffer_size": 801,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								3492,
-								3492
+								201,
+								201
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/Laravel Blade Highlighter/blade.sublime-syntax"
+							"syntax": "Packages/PHP/PHP.sublime-syntax"
 						},
 						"translation.x": 0.0,
-						"translation.y": 864.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 0,
@@ -676,7 +690,7 @@
 	"show_open_files": true,
 	"show_tabs": true,
 	"side_bar_visible": true,
-	"side_bar_width": 270.0,
+	"side_bar_width": 272.0,
 	"status_bar_visible": true,
 	"template_settings":
 	{
