@@ -2,7 +2,7 @@
 
 @section('titulo')
 
-  Cadastro de Pessoas
+	Alteração do cadastro de pessoas
 
 @endsection
 
@@ -13,12 +13,12 @@
 @endpush
 
 @section('main_container')
+		
+  <div class="x_title"><h2> Alteração do cadastro de pessoas </h2></div>
+			
+  <form id="Cadastro_pessoa" class="form-horizontal">
 
-  <h2> Cadastro de Pessoa </h2>
-
-    <form id="Cadastro_pessoa" class="form-horizontal">
-
-
+			
 {{------------------------------------ Participante --------------------------------------------}}
 
       <div class="x_panel" id="participante">
@@ -473,10 +473,10 @@
           <input id="te-residencia" name="te-residencia" type="date" placeholder="01 / 01 / 2000" class="form-control input-md global-data" required="">
         </div>
 
-        {{-- Faixa--}}
-        <label class="col-md-1 control-label" for="faixa">Período</label>
+        {{-- Período--}}
+        <label class="col-md-1 control-label" for="periodo-moradia">Período</label>
         <div class="col-md-3">
-          <input id="faixa" name="faixa" type="text" placeholder="Classificação" class="form-control input-md" disabled selected style>
+          <input id="periodo-moradia" name="periodo-moradia" type="text" placeholder="Período de moradia" class="form-control input-md" disabled selected style>
         </div>
 
       </div> {{-- Tempo de residência --}}
