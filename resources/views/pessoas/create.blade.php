@@ -14,7 +14,7 @@
 
 @section('main_container')
 
-  <div class="x_title"><h2> Cadastro de Pessoa </h2></div>
+  <h2> Cadastro de Pessoa </h2>
 
     <form id="Cadastro_pessoa" class="form-horizontal">
 
