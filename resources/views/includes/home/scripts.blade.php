@@ -5,33 +5,72 @@
         /////////////////////////// Flot
 
         //******* 2012 Average Temperature - BAR CHART
-        var data = [[0, 11],[1, 15],[2, 25],[3, 24],[4, 13],[5, 18]];
-        var data2 = [[0, 6],[1, 25],[2, 10],[3, 30],[4, 2],[5, 38]];
+        var data = [
+            @foreach($grafico as $indice => $posicao)
+                [{{ $indice }}, {{ $posicao['Masculinos'][0] }}],
+            @endforeach
+        ];
+        var data2 = [
+            @foreach($grafico as $indice => $posicao)
+                [{{ $indice }}, {{ $posicao['Femininos'][0] }}],
+            @endforeach
+        ];
+        var data3 = [
+            @foreach($grafico as $indice => $posicao)
+                [{{ $indice }}, {{ $posicao['Outros'][0] }}],
+            @endforeach
+        ];
         var dataset = [
             { 
                 data: data, 
-                color: "#3D276B" 
+                label: "&nbsp;Homens&nbsp;&nbsp;&nbsp;&nbsp;",
+                color: "#3498DB",
+                bars : {
+                    order: 1,
+                    barWidth: 0.25,
+                    align: "left",
+                }
             },
             {
                 data: data2,
-                color: "#DBCCAA"
-            }
+                label: "&nbsp;Mulheres&nbsp;&nbsp;&nbsp;&nbsp;",
+                color: "#DBCCAA",
+                bars : {
+                    order: 2,
+                    barWidth: 0.25,
+                    align: "left",
+                }
+            },
+            { 
+                data: data3, 
+                label: "&nbsp;Outros&nbsp;&nbsp;&nbsp;&nbsp;",
+                color: "#CCCCCC",
+                bars : {
+                    order: 3,
+                    barWidth: 0.25,
+                    align: "left",
+                }
+            },
         ];
-        var ticks = [[0, "01 de Maio"], [1, "29 de Abril"], [2, "22 de Abril"], [3, "15 de Abril"],[4, "08 de Abril"], [5, "01 de Abril"]];
+        var ticks = [
+            @foreach($grafico as $indice => $posicao)
+                [{{ $indice }}, "{{ $posicao['Masculinos'][1]->format('d/m/Y') }}"], 
+            @endforeach
+        ];
 
         var options = {
             series: {
                 bars: {
-                    show: false
+                    show: true
                 }, 
                 lines: {
                     fill: true,
                     show: false
                 },
                 splines: {
-                    show: true,
+                    show: false,
                     fill: true,
-                    tension: 0.4
+                    tension: 0,
                 }
             },
             bars: {
@@ -135,28 +174,27 @@
           tooltipFillColor: "rgba(51, 51, 51, 0.55)",
           data: {
             labels: [
-              "Santa Terezinha",
-              "Chatuba",
-              "Jacutinga",
-              "Juscelino",
-              "Centro"
+              @foreach($bairros as $bairro => $value)
+
+                "{{ $bairro }}",
+
+              @endforeach
             ],
             datasets: [{
-              data: [15, 20, 30, 10, 30],
+              data: [
+                @foreach($bairros as $bairro)
+
+                    "{{ $bairro[0] }}",
+
+                @endforeach
+                ],
               backgroundColor: [
-                "#BDC3C7",
-                "#9B59B6",
-                "#E74C3C",
-                "#26B99A",
-                "#3498DB"
+                @foreach($bairros as $bairro => $valores)
+
+                    "{{ $valores[2] }}",
+
+                @endforeach
               ],
-              hoverBackgroundColor: [
-                "#CFD4D8",
-                "#B370CF",
-                "#E95E4F",
-                "#36CAAB",
-                "#49A9EA"
-              ]
             }]
           },
           options: options

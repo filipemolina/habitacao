@@ -2,19 +2,34 @@
 
 namespace App\Http\Controllers;
 
-use App\Participante;
 use Illuminate\Http\Request;
+use App\Participante;
 
-class ParticipanteController extends Controller
+class ParticipantesController extends Controller
 {
-    /**
+    // Exigir que o usuário esteja logado para acessar essa view
+
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
+     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
     public function index()
     {
-        //
+        // Vetor com todos os participantes
+
+        $participantes = Participante::all();
+
+        // Vetor com as idades dos participantes
+
+        $idades = $this->calculaIdades($participantes);
+
+        return view('pessoas.index', compact('participantes', 'idades'));
     }
 
     /**
@@ -24,7 +39,9 @@ class ParticipanteController extends Controller
      */
     public function create()
     {
-        //
+        // Mostrar tela de cadastro de Pessoas
+
+        return view('pessoas.create');
     }
 
     /**
@@ -41,10 +58,10 @@ class ParticipanteController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Participante  $participante
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(Participante $participante)
+    public function show($id)
     {
         //
     }
@@ -52,10 +69,10 @@ class ParticipanteController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Participante  $participante
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Participante $participante)
+    public function edit($id)
     {
         //
     }
@@ -64,10 +81,10 @@ class ParticipanteController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Participante  $participante
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Participante $participante)
+    public function update(Request $request, $id)
     {
         //
     }
@@ -75,11 +92,28 @@ class ParticipanteController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Participante  $participante
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Participante $participante)
+    public function destroy($id)
     {
         //
     }
+
+    /**
+     * Função que retorna a idade do participante
+     */
+
+    protected function calculaIdades($items)
+    {
+        $idades = [];
+
+        foreach($items as $item)
+        {
+            $idades[$item->id] = date('Y') - date('Y', strtotime($item->nascimento));
+        }
+
+        return $idades;
+    }
+
 }

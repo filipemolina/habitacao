@@ -16,7 +16,7 @@ class CreateTelefonesTable extends Migration
         Schema::create('telefones', function (Blueprint $table) {
             $table->increments('id');
 
-            $table->char('ddd',2);
+            $table->char('numero', 15);
             
             $table->enum('tipo_telefone',['Fixo','Celular']);
 

@@ -18,4 +18,4 @@ Route::get('/', 'HomeController@index');
 // Rotas dos Resourceful Controllers
 
 Route::resource('users', 'UsersController');
-Route::resource('pessoas', 'PessoasController');
+Route::resource('pessoas', 'ParticipantesController');
