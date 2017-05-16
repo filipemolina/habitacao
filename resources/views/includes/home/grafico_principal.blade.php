@@ -5,7 +5,7 @@
 
         <div class="row x_title">
             <div class="col-md-6">
-                <h3>Inscrições Semanais<small> Separadas por homens e mulheres</small></h3>
+                <h3>Inscrições <small> Separadas por gênero</small></h3>
             </div>
             {{-- <div class="col-md-6">
                 <div id="reportrange" class="pull-right" style="background: #fff; cursor: pointer; padding: 5px 10px; border: 1px solid #ccc">
@@ -14,12 +14,8 @@
                 </div>
             </div> --}}
             <ul class="nav navbar-right panel_toolbox">
-                <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
-                </li>
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-eye"></i></a>
-                </li>
-                <li><a class="close-link"><i class="fa fa-close"></i></a>
                 </li>
             </ul>
             <div class="clearfix"></div>
@@ -42,36 +38,36 @@
 
             <div class="col-md-12 col-sm-12 col-xs-6">
                 <div>
-                    <p>Faixa 1</p>
+                    <p>Faixa 1 <span class="pequeno">(Até R$ 1.800,00)</span></p>
                     <div class="">
-                        <div class="progress progress_sm" style="width: 76%;">
-                            <div class="progress-bar bg-padrao" role="progressbar" data-transitiongoal="80"></div>
+                        <div class="progress progress_sm" style="width: 100%;">
+                            <div class="progress-bar bg-padrao" role="progressbar" data-transitiongoal="{{ $faixas["1"] }}"></div>
                         </div>
                     </div>
                 </div>
                 <div>
-                    <p>Faixa 2</p>
+                    <p>Faixa 1,5 <span class="pequeno">(De R$ 1.800,01 até R$ 2.600,00)</span></p>
                     <div class="">
-                        <div class="progress progress_sm" style="width: 76%;">
-                            <div class="progress-bar bg-padrao" role="progressbar" data-transitiongoal="60"></div>
+                        <div class="progress progress_sm" style="width: 100%;">
+                            <div class="progress-bar bg-padrao" role="progressbar" data-transitiongoal="{{ $faixas["15"] }}"></div>
                         </div>
                     </div>
                 </div>
             </div>
             <div class="col-md-12 col-sm-12 col-xs-6">
                 <div>
-                    <p>Faixa 3</p>
+                    <p>Faixa 2 <span class="pequeno">(De R$ 2.600,01 até R$ 4.000,00)</span></p>
                     <div class="">
-                        <div class="progress progress_sm" style="width: 76%;">
-                            <div class="progress-bar bg-padrao" role="progressbar" data-transitiongoal="40"></div>
+                        <div class="progress progress_sm" style="width: 100%;">
+                            <div class="progress-bar bg-padrao" role="progressbar" data-transitiongoal="{{ $faixas["2"] }}"></div>
                         </div>
                     </div>
                 </div>
                 <div>
-                    <p>Faixa 4</p>
+                    <p>Faixa 3 <span class="pequeno">(De R$ 4.000,01 até R$ 9.000,00)</span></p>
                     <div class="">
-                        <div class="progress progress_sm" style="width: 76%;">
-                            <div class="progress-bar bg-padrao" role="progressbar" data-transitiongoal="50"></div>
+                        <div class="progress progress_sm" style="width: 100%;">
+                            <div class="progress-bar bg-padrao" role="progressbar" data-transitiongoal="{{ $faixas["3"] }}"></div>
                         </div>
                     </div>
                 </div>

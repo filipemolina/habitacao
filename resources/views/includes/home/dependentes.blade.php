@@ -3,12 +3,8 @@
         <div class="x_title">
             <h2>Dependentes</h2>
             <ul class="nav navbar-right panel_toolbox">
-                <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
-                </li>
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-eye"></i></a>
-                </li>
-                <li><a class="close-link"><i class="fa fa-close"></i></a>
                 </li>
             </ul>
             <div class="clearfix"></div>
@@ -21,13 +17,13 @@
                 </div>
                 <div class="w_center w_55">
                     <div class="progress">
-                        <div class="progress-bar bg-padrao" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 66%;">
+                        <div class="progress-bar bg-padrao" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: {{ $dependentes[0][0] }}%;">
                             <span class="sr-only">60% Complete</span>
                         </div>
                     </div>
                 </div>
                 <div class="w_right w_20">
-                    <span>123k</span>
+                    <span>{{ $dependentes[0][1] }}</span>
                 </div>
                 <div class="clearfix"></div>
             </div>
@@ -38,13 +34,13 @@
                 </div>
                 <div class="w_center w_55">
                     <div class="progress">
-                        <div class="progress-bar bg-padrao" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 45%;">
+                        <div class="progress-bar bg-padrao" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: {{ $dependentes[1][0] }}%;">
                             <span class="sr-only">60% Complete</span>
                         </div>
                     </div>
                 </div>
                 <div class="w_right w_20">
-                    <span>53k</span>
+                    <span>{{ $dependentes[1][1] }}</span>
                 </div>
                 <div class="clearfix"></div>
             </div>
@@ -54,13 +50,13 @@
                 </div>
                 <div class="w_center w_55">
                     <div class="progress">
-                        <div class="progress-bar bg-padrao" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 25%;">
+                        <div class="progress-bar bg-padrao" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: {{ $dependentes[2][0] }}%;">
                             <span class="sr-only">60% Complete</span>
                         </div>
                     </div>
                 </div>
                 <div class="w_right w_20">
-                    <span>23k</span>
+                    <span>{{ $dependentes[2][1] }}</span>
                 </div>
                 <div class="clearfix"></div>
             </div>
@@ -70,13 +66,13 @@
                 </div>
                 <div class="w_center w_55">
                     <div class="progress">
-                        <div class="progress-bar bg-padrao" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 5%;">
+                        <div class="progress-bar bg-padrao" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: {{ $dependentes[3][0] }}%;">
                             <span class="sr-only">60% Complete</span>
                         </div>
                     </div>
                 </div>
                 <div class="w_right w_20">
-                    <span>3k</span>
+                    <span>{{ $dependentes[3][1] }}</span>
                 </div>
                 <div class="clearfix"></div>
             </div>
@@ -86,13 +82,13 @@
                 </div>
                 <div class="w_center w_55">
                     <div class="progress">
-                        <div class="progress-bar bg-padrao" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 2%;">
+                        <div class="progress-bar bg-padrao" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: {{ $dependentes[4][0] }}%;">
                             <span class="sr-only">60% Complete</span>
                         </div>
                     </div>
                 </div>
                 <div class="w_right w_20">
-                    <span>1k</span>
+                    <span>{{ $dependentes[4][1] }}</span>
                 </div>
                 <div class="clearfix"></div>
             </div>

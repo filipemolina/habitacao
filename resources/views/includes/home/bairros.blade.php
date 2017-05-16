@@ -3,12 +3,8 @@
         <div class="x_title">
             <h2>Inscrições por Bairro</h2>
             <ul class="nav navbar-right panel_toolbox">
-                <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
-                </li>
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-eye"></i></a>
-                </li>
-                <li><a class="close-link"><i class="fa fa-close"></i></a>
                 </li>
             </ul>
             <div class="clearfix"></div>
@@ -33,37 +29,16 @@
                         <canvas id="canvas1" height="140" width="140" style="margin: 15px 10px 10px 0"></canvas>
                     </td>
                     <td>
-                        <table class="tile_info">
-                            <tr>
-                                <td>
-                                    <p><i class="fa fa-square blue"></i>Centro </p>
-                                </td>
-                                <td>30%</td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <p><i class="fa fa-square green"></i>Juscelino </p>
-                                </td>
-                                <td>10%</td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <p><i class="fa fa-square purple"></i>Chatuba </p>
-                                </td>
-                                <td>20%</td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <p><i class="fa fa-square aero"></i>Santa Terezinha </p>
-                                </td>
-                                <td>15%</td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <p><i class="fa fa-square red"></i>Jacutinga </p>
-                                </td>
-                                <td>30%</td>
-                            </tr>
+                        <table class="tile_info bairros">
+
+                            @foreach($bairros as $bairro => $qtd)
+                                <tr>
+                                    <td>
+                                        <p><i class="fa fa-square" style="color: {{ $qtd[2] }}"></i>{{ $bairro }}</p>
+                                    </td>
+                                    <td>{{ number_format($qtd[0], 1) }}%</td>
+                                </tr>
+                            @endforeach
                         </table>
                     </td>
                 </tr>
