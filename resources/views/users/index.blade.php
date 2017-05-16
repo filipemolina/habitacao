@@ -45,54 +45,22 @@
 					</thead>
 
 					<tbody>
+
+						@foreach($usuarios as $usuario)
 							
-						<tr>
-						    <td>01</td>
-						    <td>Leandro Accioly</td> 
-						    <td>Leandro.accioly@hotmail.com</td>
-						    <td>Sim</td>
-						    <td class="actions">
-			                  <a class="btn btn-success btn-xs" href="#"><i class="fa fa-eye"></i></a>
-			                  <a class="btn btn-warning btn-xs" href="#"><i class="fa fa-pencil"></i></a>
-			                  <a class="btn btn-danger btn-xs"  href="#" data-toggle="modal" data-target=""><i class="fa fa-trash"></i></a>
-			                </td>
-						</tr>
+							<tr>
+							    <td>{{ $usuario->id }}</td>
+							    <td>{{ $usuario->name }}</td> 
+							    <td>{{ $usuario->email }}</td>
+							    <td>Sim</td>
+							    <td class="actions">
+				                  <a class="btn btn-success btn-xs" href="#"><i class="fa fa-eye"></i></a>
+				                  <a class="btn btn-warning btn-xs" href="{{ url("users/$usuario->id/edit") }}"><i class="fa fa-pencil"></i></a>
+				                  <a class="btn btn-danger btn-xs"  href="#" data-toggle="modal" data-target=""><i class="fa fa-trash"></i></a>
+				                </td>
+							</tr>
 
-						<tr>
-						    <td>02</td>
-						    <td>Filipe Molina</td> 
-						    <td>filipemolina@hotmail.com</td>
-						    <td>Não</td>
-						    <td class="actions">
-			                  <a class="btn btn-success btn-xs" href="#"><i class="fa fa-eye"></i></a>
-			                  <a class="btn btn-warning btn-xs" href="#"><i class="fa fa-pencil"></i></a>
-			                  <a class="btn btn-danger btn-xs"  href="#" data-toggle="modal" data-target="#delete-modal"><i class="fa fa-trash"></i></a>
-			                </td>
-						</tr>
-
-						<tr>
-						    <td>03</td>
-						    <td>Marcelo Miranda</td> 
-						    <td>marcelo.miranda@hotmail.com</td>
-						    <td>Sim</td>
-						    <td class="actions">
-			                  <a class="btn btn-success btn-xs" href="#"><i class="fa fa-eye"></i></a>
-			                  <a class="btn btn-warning btn-xs" href="#"><i class="fa fa-pencil"></i></a>
-			                  <a class="btn btn-danger btn-xs"  href="#" data-toggle="modal" data-target="#delete-modal"><i class="fa fa-trash"></i></a>
-			                </td>
-						</tr>
-
-						<tr>
-						    <td>04</td>
-						    <td>Luciano Júnior</td> 
-						    <td>luciano.junior@hotmail.com</td>
-						    <td>Não</td>
-						    <td class="actions">
-			                  <a class="btn btn-success btn-xs" href="#"><i class="fa fa-eye"></i></a>
-			                  <a class="btn btn-warning btn-xs" href="#"><i class="fa fa-pencil"></i></a>
-			                  <a class="btn btn-danger btn-xs"  href="#" data-toggle="modal" data-target="#delete-modal"><i class="fa fa-trash"></i></a>
-			                </td>
-						</tr>
+						@endforeach
 
 					</tbody>
 
