@@ -1,2 +1,23 @@
-#pa-cpf,#pa-nis,#pa-carteira,#pa-rg,.data,#pa-orgao_emissor,#pa-numero,#pa-cep,#pa-celular,#pa-telefone1,#co-cpf,#co-nis,#co-carteira,#co-rg,.data,#co-orgao_emissor,#co-numero,#co-cep,#co-celular,#co-telefone1,.cash,#faixa{text-align:center}#participante,#co-participante,#dependentes,#renda-familiar{padding:10px 15px}.global-data{padding-right:0}
-/*# sourceMappingURL=pessoas.css.map */
+/*CSS Pessoas*/
+
+
+/* Centralização do texto para inputs menores*/
+
+#participante, #co-participante, #dependentes, #renda-familiar {
+	padding: 10px 15px;
+}
+
+
+input, select{
+border-radius: 15px !important;
+
+
+
+/*Possível Gradiente*/
+
+/* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#3d276b+1,3f2c68+13,3f2c68+20,4d2a7a+53,63318e+73,63318e+87,6b36a0+96 */
+background: #3d276b; /* Old browsers */
+background: -moz-linear-gradient(left,  #3d276b 1%, #3f2c68 13%, #3f2c68 20%, #4d2a7a 53%, #63318e 73%, #63318e 87%, #6b36a0 96%); /* FF3.6-15 */
+background: -webkit-linear-gradient(left,  #3d276b 1%,#3f2c68 13%,#3f2c68 20%,#4d2a7a 53%,#63318e 73%,#63318e 87%,#6b36a0 96%); /* Chrome10-25,Safari5.1-6 */
+background: linear-gradient(to right,  #3d276b 1%,#3f2c68 13%,#3f2c68 20%,#4d2a7a 53%,#63318e 73%,#63318e 87%,#6b36a0 96%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#3d276b', endColorstr='#6b36a0',GradientType=1 ); /* IE6-9 */

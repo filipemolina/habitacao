@@ -138,3 +138,7 @@ table.tile_info.bairros
 }
 
 .panel_toolbox { min-width: auto !important; }
+
+input, select{
+    border-radius: 10px !important;
+}
