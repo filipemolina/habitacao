@@ -27,6 +27,22 @@ class Participante extends Model
 		'ctps',
 		'bolsa_familia',
 	];
+
+	/**
+	 * Calcular a faixa em que o participante se enquadra
+	 */
+
+	public function calculaFaixa()
+	{
+		if($this->renda_familiar <= 1800)
+			return "1";
+		elseif($this->renda_familiar > 1800 && $this->renda_familiar <= 2600)
+			return "1,5";
+		elseif($this->renda_familiar > 2600 && $this->renda_familiar <= 4000)
+			return "2";
+		elseif($this->renda_familiar > 4000 && $this->renda_familiar <= 9000)
+			return "3";
+	}
     
     /**
      * Relacionamentos
@@ -39,12 +55,12 @@ class Participante extends Model
 
     public function coparticipante()
     {
-    	return $this->hasOne('App\coparticipante');
+    	return $this->hasOne('App\Coparticipante');
     }
 
-    public function dependetes()
+    public function dependentes()
     {
-    	return $this->hasMany('App\Dependentes');
+    	return $this->hasMany('App\Dependente');
     }
 
     public function telefones()

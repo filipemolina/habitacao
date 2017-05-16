@@ -123,3 +123,22 @@ a {
 .nav-sm .nav.child_menu li.active, .nav-sm .nav.side-menu li.active-sm {
     border-right: none;
 }
+
+span.pequeno 
+{
+    font-size: 10px;
+    color: #afafaf;
+}
+
+table.tile_info.bairros
+{
+    display: block;
+    height: 210px;
+    overflow-y: scroll;
+}
+
+.panel_toolbox { min-width: auto !important; }
+
+input, select{
+    border-radius: 10px !important;
+}
