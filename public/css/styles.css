@@ -123,3 +123,7 @@ a {
 .nav-sm .nav.child_menu li.active, .nav-sm .nav.side-menu li.active-sm {
     border-right: none;
 }
+
+input, select{
+border-radius: 10px !important;
+}
