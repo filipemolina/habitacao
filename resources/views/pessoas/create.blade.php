@@ -1,3 +1,4 @@
+
 @extends("layouts.blank")
 
 @section('titulo')
@@ -123,9 +124,14 @@
         
         </div> {{-- Fim Data de Nascimento, Sexo, Deficiente --}}
 
-
-        {{-- Logradouro, Número, Complemento --}}
+        {{-- CEP, Logradouro e Número --}}
         <div class="form-group">
+
+          <!-- CEP-->
+          <label class="col-md-1 control-label" for="pa-cep">CEP</label>
+          <div class="col-md-2">
+            <input id="pa-cep" name="cep" type="text" placeholder="99999-999" class="form-control input-md cep" required="">
+          </div>
 
           <!-- Logradouro ...Av...Rua....etc-->
           <label class="col-md-1 control-label" for="pa-logradouro">Logradouro</label>
@@ -139,17 +145,11 @@
             <input id="pa-numero" name="pa-numero" type="text" placeholder="999" class="form-control input-md">
           </div>
 
-          {{-- Complemento --}}
-          <label class="col-md-2 control-label" for="pa-complemento">Complemento</label>
-          <div class="col-md-3">
-            <input id="pa-complemento" name="pa-complemento" type="text" placeholder="Ap., Fundos,..." class="form-control input-md">
-          </div>
+        </div> {{-- FIM CEP, Logradouro e Número--}}
 
-        </div> {{-- FIM Logradouro, Número, complemento --}}
-        
-        {{-- Bairro, Munícipio e CEP --}}
+        {{-- Complemento, Bairro e Munícipio --}}
         <div class="form-group">
-              
+
           {{-- Bairro --}}
           <label class="col-md-1 control-label" for="pa-bairro">Bairro</label>
           <div class="col-md-3">
@@ -158,17 +158,17 @@
             
           <!-- Município-->
           <label class="col-md-1 control-label" for="pa-municipio">Município</label>
-          <div class="col-md-4">
+          <div class="col-md-2">
             <input id="pa-municipio" name="pa-municipio" type="text" placeholder="Mesquita" class="form-control input-md" required="">
           </div>
 
-          <!-- CEP-->
-          <label class="col-md-1 control-label" for="pa-cep">CEP</label>
-          <div class="col-md-2">
-            <input id="pa-cep" name="cep" type="text" placeholder="99999-999" class="form-control input-md cep" required="">
+          {{-- Complemento --}}
+          <label class="col-md-2 control-label" for="pa-complemento">Complemento</label>
+          <div class="col-md-3">
+            <input id="pa-complemento" name="pa-complemento" type="text" placeholder="Ap., Fundos,..." class="form-control input-md">
           </div>
 
-        </div> {{-- FIM Bairoo, Munícipio e CEP --}}
+        </div> {{-- FIM Complemento, Bairro e Munícipio --}}
 
         {{-- Email , elular e Telefone --}}
         <div class="form-group">
