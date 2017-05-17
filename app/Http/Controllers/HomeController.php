@@ -77,6 +77,12 @@ class HomeController extends Controller
         );
     }
 
+    public function mudarsenha()
+    {
+        return view( "users.password" );
+    }    
+
+
     /**
      * Calcular a porcentagem de inscrições por faixa
      */
