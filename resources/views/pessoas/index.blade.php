@@ -74,6 +74,8 @@ Lista de Pessoas
 </div>
 </div>
 
+<div class="clearfix"></div>
+
 @endsection
 
 @push('scripts')
