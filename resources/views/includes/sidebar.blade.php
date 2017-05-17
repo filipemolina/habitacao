@@ -58,7 +58,7 @@
 
                     <li><a><i class=" fa fa-cog"></i>Opções<span class="fa fa-chevron-down"></span></a>
                         <ul class="nav child_menu">
-                            <li><a href="{{ url('/alterar-senha') }}">Alterar Senha</a></li>
+                            <li><a href="{{ url('mudarsenha') }}">Alterar Senha</a></li>
                             <li><a href="{{ url('/logout') }}">Sair</a></li>
                            
                         </ul>
@@ -66,7 +66,7 @@
                     
                 </ul>
             </div>
-          
+                      
         
         </div>
         <!-- /sidebar menu -->

@@ -19,3 +19,4 @@ Route::get('/', 'HomeController@index');
 
 Route::resource('users', 'UsersController');
 Route::resource('pessoas', 'ParticipantesController');
+Route::get("mudarsenha", "HomeController@mudarsenha");
