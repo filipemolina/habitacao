@@ -10,14 +10,3 @@
 
 input, select{
 border-radius: 15px !important;
-
-
-
-/*Possível Gradiente*/
-
-/* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#3d276b+1,3f2c68+13,3f2c68+20,4d2a7a+53,63318e+73,63318e+87,6b36a0+96 */
-background: #3d276b; /* Old browsers */
-background: -moz-linear-gradient(left,  #3d276b 1%, #3f2c68 13%, #3f2c68 20%, #4d2a7a 53%, #63318e 73%, #63318e 87%, #6b36a0 96%); /* FF3.6-15 */
-background: -webkit-linear-gradient(left,  #3d276b 1%,#3f2c68 13%,#3f2c68 20%,#4d2a7a 53%,#63318e 73%,#63318e 87%,#6b36a0 96%); /* Chrome10-25,Safari5.1-6 */
-background: linear-gradient(to right,  #3d276b 1%,#3f2c68 13%,#3f2c68 20%,#4d2a7a 53%,#63318e 73%,#63318e 87%,#6b36a0 96%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#3d276b', endColorstr='#6b36a0',GradientType=1 ); /* IE6-9 */

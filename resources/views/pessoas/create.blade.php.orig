@@ -1,3 +1,4 @@
+
 @extends("layouts.blank")
 
 @section('titulo')
@@ -125,14 +126,13 @@
         
         </div> {{-- Fim Data de Nascimento, Sexo, Deficiente --}}
 
-
-        {{-- Logradouro, Número, Complemento --}}
+        {{-- CEP, Logradouro e Número --}}
         <div class="form-group">
 
           <!-- CEP-->
-          <label class="col-md-1 control-label" for="cep">CEP</label>
+          <label class="col-md-1 control-label" for="pa-cep">CEP</label>
           <div class="col-md-2">
-            <input id="cep" name="cep" type="text" placeholder="99999-999" class="form-control input-md cep" required="">
+            <input id="pa-cep" name="cep" type="text" placeholder="99999-999" class="form-control input-md cep" required="">
           </div>
 
           <!-- Logradouro ...Av...Rua....etc-->
@@ -147,7 +147,15 @@
             <input id="numero" name="numero" type="text" placeholder="999" class="form-control input-md">
           </div>
 
+<<<<<<< HEAD
+          {{-- Complemento --}}
+          <label class="col-md-2 control-label" for="complemento">Complemento</label>
+          <div class="col-md-3">
+            <input id="complemento" name="complemento" type="text" placeholder="Ap., Fundos,..." class="form-control input-md">
+          </div>
+=======
         </div> {{-- FIM CEP, Logradouro e Número--}}
+>>>>>>> 0f4707ccf88effb2f6eb9dc0be55f351302b8004
 
         {{-- Complemento, Bairro e Munícipio --}}
         <div class="form-group">
@@ -159,20 +167,32 @@
           </div>
             
           <!-- Município-->
+<<<<<<< HEAD
           <label class="col-md-1 control-label" for="municipio">Município</label>
           <div class="col-md-4">
             <input disabled="disabled" id="municipio" name="municipio" type="text" placeholder="Mesquita" value="Mesquita" class="form-control input-md" required="">
           </div>
 
-          {{-- Complemento --}}
-          <label class="col-md-2 control-label" for="complemento">Complemento</label>
-          <div class="col-md-3">
-            <input id="complemento" name="complemento" type="text" placeholder="Ap., Fundos,..." class="form-control input-md">
+          <!-- CEP-->
+          <label class="col-md-1 control-label" for="cep">CEP</label>
+          <div class="col-md-2">
+            <input id="cep" name="cep" type="text" placeholder="99999-999" class="form-control input-md cep" required="">
+=======
+          <label class="col-md-1 control-label" for="pa-municipio">Município</label>
+          <div class="col-md-2">
+            <input id="pa-municipio" name="pa-municipio" type="text" placeholder="Mesquita" class="form-control input-md" required="">
           </div>
 
-        </div> {{-- FIM Bairro, Munícipio e CEP --}}
+          {{-- Complemento --}}
+          <label class="col-md-2 control-label" for="pa-complemento">Complemento</label>
+          <div class="col-md-3">
+            <input id="pa-complemento" name="pa-complemento" type="text" placeholder="Ap., Fundos,..." class="form-control input-md">
+>>>>>>> 0f4707ccf88effb2f6eb9dc0be55f351302b8004
+          </div>
 
-        {{-- Email , Celular e Telefone --}}
+        </div> {{-- FIM Complemento, Bairro e Munícipio --}}
+
+        {{-- Email , elular e Telefone --}}
         <div class="form-group">
 
           {{-- Email --}}
