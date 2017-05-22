@@ -166,3 +166,31 @@ table.tile_info.bairros
 input, select{
     border-radius: 10px !important;
 }
+
+.alert-branco
+{
+    color: #ea6153;
+    background-color: rgb(255, 255, 255);
+    border-color: rgba(231,76,60,.88);
+}
+
+.alert-roxo
+{
+    color: #fff;
+    background-color: #583A78;
+    border-color: #3D276B;
+}
+
+.alert-dourado
+{
+    color: #fff;
+    background-color: #d7c190;
+    border-color: #c9ab6d;
+}
+
+
+.alert-dismissable .close, .alert-dismissible .close {
+    opacity: 1 !important;
+}
+
+.x_title button { float: right; }

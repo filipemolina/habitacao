@@ -15,7 +15,37 @@
 
 @section('main_container')
 
-  <h2> Cadastro de Pessoa </h2>
+    {{-- Mostrar os erros de validação --}}
+
+    @if( count($errors) > 0)
+
+        <div class="alert alert-roxo alert-dismissible" style="margin-top: 70px;" role="alert">
+          <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+
+          <strong>Atenção!</strong><br>
+
+          @foreach($errors->all() as $erro)
+
+            {{ $erro }} <br>
+
+          @endforeach
+
+        </div>
+
+    @endif
+
+    {{-- Mostrar mensagem de sucesso --}}
+
+    @if(isset($sucesso) && $sucesso)
+
+        <div class="alert alert-dourado alert-dismissible" style="margin-top: 70px;" role="alert">
+          <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <strong>Parabéns!</strong> Participante cadastrado com sucesso!
+        </div>
+
+    @endif
+
+    <h2> Cadastro de Pessoa </h2>
 
     <form id="cadastro_pessoa" class="form-horizontal" method="post" action="{{ url("/pessoas") }}">
 
@@ -32,7 +62,7 @@
         <div class="form-group">
           <label class="col-md-1 control-label" for="nome">Nome</label>
           <div class="col-md-11">
-            <input id="nome" name="nome" type="text" placeholder="Informe o nome" class="form-control input-md nome" required="">
+            <input value="{{ old('nome') }}" id="nome" name="nome" value="{{ old('nome') }}" type="text" placeholder="Informe o nome" class="form-control input-md nome" >
           </div>
         </div>
 
@@ -42,28 +72,28 @@
           {{-- CPF --}}      
           <label class="col-md-1 control-label" for="cpf">CPF</label>  
             <div class="col-md-2">
-              <input id="cpf" name="cpf" type="text" placeholder="999.999.999-99" class="form-control input-md cpf" required="">
+              <input value="{{ old('cpf') }}" id="cpf" name="cpf" type="text" placeholder="999.999.999-99" data-inputmask="'mask': '999.999.999-99'" class="form-control input-md cpf" >
             </div>
 
           {{-- NIS/PIS --}}            
           <label class="col-md-1 control-label" for="nis">NIS/PIS</label>  
           <div class="col-md-2">
-            <input id="nis" name="nis" type="text" placeholder="999.999999.99-99" class="form-control input-md nis" required="">
+            <input value="{{ old('nis') }}" id="nis" name="nis" type="text" placeholder="999.999999.99-99" class="form-control input-md nis" >
           </div>
 
           {{-- Carteira de Trabalho --}}            
           <label class="col-md-1 control-label" for="ctps">CTPS</label>  
           <div class="col-md-2">
-            <input id="ctps" name="ctps" type="text" placeholder="Cart. de Trabalho" class="form-control input-md carteira" required="">
+            <input value="{{ old('ctps') }}" id="ctps" name="ctps" type="text" placeholder="Cart. de Trabalho" class="form-control input-md carteira" >
           </div>
 
           {{-- Bolsa Família --}}            
           <label class="col-md-1 control-label" for="bolsa_familia">Bolsa F.</label>  
           <div class="col-md-2">
-            <select id="bolsa_familia" name="bolsa_familia" type="text" class="form-control input-md" required="">
-              <option value="" disabled selected style="display: none;"></option>
-              <option value="s">Possui</option>
-              <option value="n">Não possui</option>
+            <select id="bolsa_familia" name="bolsa_familia" type="text" class="form-control input-md" >
+              <option value="" disabled selected style="display: none;">Selecione...</option>
+              <option value="1" @if(old('bolsa_familia') == "1") selected="selected" @endif >Possui</option>
+              <option value="0" @if(old('bolsa_familia') == "0") selected="selected" @endif >Não possui</option>
             </select>
           </div>
 
@@ -76,19 +106,19 @@
           <!-- RG-->            
           <label class="col-md-1 control-label" for="rg">RG</label>
           <div class="col-md-2">
-            <input id="rg" name="rg" type="text" placeholder="99.999.999-9" class="form-control input-md rg" required="">
+            <input value="{{ old('rg') }}" id="rg" name="rg" data-inputmask="'mask' : '99.999.999-9'" type="text" placeholder="99.999.999-9" class="form-control input-md rg" >
           </div>
 
           <!-- Orgão Emissor do RG-->
           <label class="col-md-1 control-label" for="orgao_emissor_rg">Orgão</label>  
           <div class="col-md-2">
-            <input id="orgao_emissor_rg" name="orgao_emissor_rg" type="text" placeholder="Orgão Emissor" class="form-control input-md" required="">
+            <input value="{{ old('orgao_emissor_rg') }}" id="orgao_emissor_rg" name="orgao_emissor_rg" type="text" placeholder="Orgão Emissor" class="form-control input-md" >
           </div>
 
           <!-- Data de Emissão do RG-->
           <label class="col-md-1 control-label" for="emissao_rg">Emissão</label>  
           <div class="col-md-3">
-            <input id="emissao_rg" name="emissao_rg" type="date" class="form-control input-md global-data" required="">
+            <input value="{{ old('emissao_rg') }}" id="emissao_rg" name="emissao_rg" type="date" class="form-control input-md global-data" >
           </div>
 
         </div> {{-- FIM RG, Orgão Emissor do RG e Data de Emissão do RG --}}
@@ -100,26 +130,26 @@
           {{-- Data de Nascimento --}}
           <label class="col-md-1 control-label" for="nascimento">Nascimento</label>  
           <div class="col-md-3">
-            <input id="nascimento" name="nascimento" type="date" class="form-control input-md global-data" required="">
+            <input value="{{ old('nascimento') }}" id="nascimento" name="nascimento" type="date" class="form-control input-md global-data" >
           </div>
 
           {{-- Sexo   --}}
           <label class="col-md-1 control-label" for="sexo">Sexo</label>
           <div class="col-md-2">
-            <select id="sexo" name="sexo" type="text" class="form-control input-md" required="">
-              <option value="" disabled selected style="display: none;"></option>
-              <option value="m">Masculino</option>
-              <option value="f">Femino</option>
+            <select id="sexo" name="sexo" type="text" class="form-control input-md" >
+              <option value="" disabled selected style="display: none;">Selecione...</option>
+              <option value="m" @if(old('sexo') == "m") selected="selected" @endif>Masculino</option>
+              <option value="f" @if(old('sexo') == "f") selected="selected" @endif>Femino</option>
             </select>
           </div>
 
           {{-- Deficiente --}}
           <label class="col-md-1 control-label" for="necessidades_especiais">Deficiente</label>
           <div class="col-md-2">
-            <select id="necessidades_especiais" name="necessidades_especiais" type="text" class="form-control input-md" required="">
-              <option value="" disabled selected style="display: none;">   </option>
-              <option value="s">Sim</option>
-              <option value="n">Não</option>
+            <select id="necessidades_especiais" name="necessidades_especiais" type="text" class="form-control input-md" >
+              <option value="" disabled @if(!old('necessidades_especiais')) selected @endif style="display: none;">Selecione...</option>
+              <option value="1" @if(old('necessidades_especiais') == "1") selected="selected" @endif>Sim</option>
+              <option value="0" @if(old('necessidades_especiais') == "0") selected="selected" @endif>Não</option>
             </select>
           </div>
         
@@ -132,19 +162,19 @@
           <!-- CEP-->
           <label class="col-md-1 control-label" for="cep">CEP</label>
           <div class="col-md-2">
-            <input id="cep" name="cep" type="text" placeholder="99999-999" class="form-control input-md cep" required="">
+            <input value="{{ old('cep') }}" id="cep" name="cep" type="text" data-inputmask="'mask' : '99.999-999'" placeholder="99999-999" class="form-control input-md cep" >
           </div>
 
           <!-- Logradouro ...Av...Rua....etc-->
           <label class="col-md-1 control-label" for="logradouro">Logradouro</label>
           <div class="col-md-3">
-            <input id="logradouro" name="logradouro" type="text" placeholder="Av, Rua, Travessa..." class="form-control input-md">
+            <input value="{{ old('logradouro') }}" id="logradouro" name="logradouro" type="text" placeholder="Av, Rua, Travessa..." class="form-control input-md">
           </div>
           
           <!-- Número da residência-->
           <label class="col-md-1 control-label" for="numero">Numero</label>
           <div class="col-md-2">
-            <input id="numero" name="numero" type="text" placeholder="999" class="form-control input-md">
+            <input value="{{ old('numero') }}" id="numero" name="numero" type="text" placeholder="999" class="form-control input-md">
           </div>
 
         </div> {{-- FIM CEP, Logradouro e Número--}}
@@ -155,19 +185,19 @@
           {{-- Bairro --}}
           <label class="col-md-1 control-label" for="bairro">Bairro</label>
           <div class="col-md-3">
-            <input id="bairro" name="bairro" type="text" placeholder="Centro" class="form-control input-md">
+            <input value="{{ old('bairro') }}" id="bairro" name="bairro" type="text" placeholder="Centro" class="form-control input-md">
           </div>
             
           <!-- Município-->
           <label class="col-md-1 control-label" for="municipio">Município</label>
-          <div class="col-md-4">
-            <input disabled="disabled" id="municipio" name="municipio" type="text" placeholder="Mesquita" value="Mesquita" class="form-control input-md" required="">
+          <div class="col-md-3">
+            <input value="{{ old('municipio') }}" disabled="disabled" id="municipio" name="municipio" type="text" placeholder="Mesquita" value="Mesquita" class="form-control input-md" >
           </div>
 
           {{-- Complemento --}}
           <label class="col-md-2 control-label" for="complemento">Complemento</label>
-          <div class="col-md-3">
-            <input id="complemento" name="complemento" type="text" placeholder="Ap., Fundos,..." class="form-control input-md">
+          <div class="col-md-2">
+            <input value="{{ old('complemento') }}" id="complemento" name="complemento" type="text" placeholder="Ap., Fundos,..." class="form-control input-md">
           </div>
 
         </div> {{-- FIM Bairro, Munícipio e CEP --}}
@@ -178,20 +208,20 @@
           {{-- Email --}}
           <label class="col-md-1 control-label" for="email">Email</label>  
           <div class="col-md-5">
-            <input id="email" name="email" type="text" placeholder="email@servidor.com.br" class="form-control input-md email">
+            <input value="{{ old('email') }}" id="email" name="email" type="text" placeholder="email@servidor.com.br" class="form-control input-md email">
           </div>
 
           {{-- Celular --}}
           <label class="col-md-1 control-label" for="telefones[0][numero]">Celular</label>
           <div class="col-md-2">
-            <input id="telefones[0][numero]" name="telefones[0][numero]" type="text" placeholder="(99) 9 9999-9999" class="form-control input-md celular">
+            <input value="{{ old('telefones.0.numero') }}" id="telefones[0][numero]" data-inputmask="'mask' : '(99) 99999-9999'" name="telefones[0][numero]" type="text" placeholder="(99) 9 9999-9999" class="form-control input-md celular">
             <input type="hidden" name="telefones[0][tipo_telefone]" value="Celular">
           </div>
 
           {{-- Telefone --}}
           <label class="col-md-1 control-label" for="telefones[1][numero]">Tel.</label>
           <div class="col-md-2">
-            <input id="telefones[1][numero]" name="telefones[1][numero]" type="text" placeholder="(99) 9999-9999" class="form-control input-md telefone">
+            <input value="{{ old('telefones.1.numero') }}" id="telefones[1][numero]" data-inputmask="'mask' : '(99) 9999-9999'" name="telefones[1][numero]" type="text" placeholder="(99) 9999-9999" class="form-control input-md telefone">
             <input type="hidden" name="telefones[1][tipo_telefone]" value="Fixo">
           </div>
 
@@ -212,7 +242,7 @@
         <div class="form-group">
         <label class="col-md-1 control-label" for="coparticipante[nome]">Nome</label>
           <div class="col-md-11">
-            <input id="coparticipante[nome]" name="coparticipante[nome]" type="text" placeholder="Informe o nome" class="form-control input-md nome" required="">
+            <input value="{{ old('coparticipante.nome') }}" id="coparticipante[nome]" name="coparticipante[nome]" type="text" placeholder="Informe o nome" class="form-control input-md nome" >
           </div>
         </div>
         
@@ -222,28 +252,28 @@
         {{-- CPF --}}
         <label class="col-md-1 control-label" for="coparticipante[cpf]">CPF</label>  
         <div class="col-md-2">
-          <input id="coparticipante[cpf]" name="coparticipante[cpf]" type="text" placeholder="999.999.999-99" class="form-control input-md cpf" required="">
+          <input value="{{ old('coparticipante.cpf') }}" id="coparticipante[cpf]" data-inputmask="'mask' : '999.999.999-99'" name="coparticipante[cpf]" type="text" placeholder="999.999.999-99" class="form-control input-md cpf" >
         </div>
 
         {{-- NIS/PIS --}}            
         <label class="col-md-1 control-label" for="coparticipante[nis]">NIS/PIS</label>  
         <div class="col-md-2">
-          <input id="coparticipante[nis]" name="coparticipante[nis]" type="text" placeholder="999.999999.99-99" class="form-control input-md nis" required="">
+          <input value="{{ old('coparticipante.nis') }}" id="coparticipante[nis]" name="coparticipante[nis]" type="text" placeholder="999.999999.99-99" class="form-control input-md nis" >
         </div>
 
         {{-- Carteira de Trabalho --}}            
         <label class="col-md-1 control-label" for="coparticipante[ctps]">CTPS</label>  
         <div class="col-md-2">
-          <input id="coparticipante[ctps]" name="coparticipante[ctps]" type="text" placeholder="Cart. de Trabalho" class="form-control input-md carteira" required="">
+          <input value="{{ old('coparticipante.ctps') }}" id="coparticipante[ctps]" name="coparticipante[ctps]" type="text" placeholder="Cart. de Trabalho" class="form-control input-md carteira" >
         </div>
 
         {{-- Bolsa Família --}}            
         <label class="col-md-1 control-label" for="coparticipante[bolsa_familia]">Bolsa F.</label>  
         <div class="col-md-2">
-          <select id="coparticipante[bolsa_familia]" name="coparticipante[bolsa_familia]" type="text" class="form-control input-md" required="">
-            <option value="" disabled selected style="display: none;"></option>
-            <option value="s">Possui</option>
-            <option value="n">Não possui</option>
+          <select id="coparticipante[bolsa_familia]" name="coparticipante[bolsa_familia]" type="text" class="form-control input-md" >
+            <option value="" disabled @if(!old('coparticipante.bolsa_familia')) selected @endif style="display: none;">Selectione...</option>
+            <option value="1" @if(old('coparticipante.bolsa_familia') == "1") selected="selected" @endif>Possui</option>
+            <option value="0" @if(old('coparticipante.bolsa_familia') == "0") selected="selected" @endif>Não possui</option>
           </select>
         </div>
 
@@ -256,19 +286,19 @@
         <!-- RG-->            
         <label class="col-md-1 control-label" for="coparticipante[rg]">RG</label>
         <div class="col-md-2">
-          <input id="coparticipante[rg]" name="coparticipante[rg]" type="text" placeholder="99.999.999-9" class="form-control input-md rg" required="">
+          <input value="{{ old('coparticipante.rg') }}" id="coparticipante[rg]" data-inputmask="'mask' : '99.999.999-9'" name="coparticipante[rg]" type="text" placeholder="99.999.999-9" class="form-control input-md rg" >
         </div>
 
         <!-- Orgão Emissor do RG-->
         <label class="col-md-1 control-label" for="coparticipante[orgao_emissor_rg]">Orgão</label>  
         <div class="col-md-2">
-          <input id="coparticipante[orgao_emissor_rg]" name="coparticipante[orgao_emissor_rg]" type="text" placeholder="Orgão Emissor" class="form-control input-md" required="">
+          <input value="{{ old('coparticipante.orgao_emissor_rg') }}" id="coparticipante[orgao_emissor_rg]" name="coparticipante[orgao_emissor_rg]" type="text" placeholder="Orgão Emissor" class="form-control input-md" >
         </div>
 
         <!-- Data de Emissão do RG-->
         <label class="col-md-1 control-label" for="coparticipante[emissao_rg]">Emissão</label>  
         <div class="col-md-3">
-          <input id="coparticipante[emissao_rg]" name="coparticipante[emissao_rg]" type="date" placeholder="Data de Emissão" class="form-control input-md global-data" required="">
+          <input value="{{ old('coparticipante.emissao_rg') }}" id="coparticipante[emissao_rg]" name="coparticipante[emissao_rg]" type="date" placeholder="Data de Emissão" class="form-control input-md global-data" >
         </div>
             
       </div> {{-- FIM RG, Orgão Emissor do RG e Data de Emissão do RG --}}
@@ -280,26 +310,26 @@
         {{-- Data de Nascimento --}}
         <label class="col-md-1 control-label" for="coparticipante[nascimento]">Nascimento</label>  
         <div class="col-md-3">
-          <input id="coparticipante[nascimento]" name="coparticipante[nascimento]" type="date" placeholder="01 / 01 / 2000" class="form-control input-md global-data" required="">
+          <input value="{{ old('coparticipante.nascimento') }}" id="coparticipante[nascimento]" name="coparticipante[nascimento]" type="date" placeholder="01 / 01 / 2000" class="form-control input-md global-data" >
         </div>
 
         {{-- Sexo   --}}
         <label class="col-md-1 control-label" for="coparticipante[sexo]">Sexo</label>
         <div class="col-md-2">
-          <select id="coparticipante[sexo]" name="coparticipante[sexo]" type="text" class="form-control input-md" required="">
-            <option value="" disabled selected style="display: none;"></option>
-            <option value="m">Masculino</option>
-            <option value="f">Femino</option>
+          <select id="coparticipante[sexo]" name="coparticipante[sexo]" type="text" class="form-control input-md" >
+            <option value="" disabled @if(!old('coparticipante.sexo')) selected @endif style="display: none;"></option>
+            <option value="m" @if(old('coparticipante.sexo') == "m") selected="selected" @endif>Masculino</option>
+            <option value="f" @if(old('coparticipante.sexo') == "f") selected="selected" @endif>Femino</option>
           </select>
         </div>
         
         {{-- Deficiente --}}
         <label class="col-md-1 control-label" for="coparticipante[necessidades_especiais]">Deficiente</label>
         <div class="col-md-2">
-          <select id="coparticipante[necessidades_especiais]" name="coparticipante[necessidades_especiais]" type="text" class="form-control input-md" required="">
-            <option value="" disabled selected style="display: none;">   </option>
-            <option value="s">Sim</option>
-            <option value="n">Não</option>
+          <select id="coparticipante[necessidades_especiais]" name="coparticipante[necessidades_especiais]" type="text" class="form-control input-md" >
+            <option value="" disabled @if(!old('coparticipante.necessidades_especiais')) selected @endif style="display: none;">   </option>
+            <option value="1" @if(old('coparticipante.necessidades_especiais') == "1") selected="selected" @endif>Sim</option>
+            <option value="0" @if(old('coparticipante.necessidades_especiais') == "0") selected="selected" @endif>Não</option>
           </select>
         </div>
 
@@ -312,19 +342,19 @@
         {{-- Logradouro ...Av...Rua....etc --}}
         <label class="col-md-1 control-label" for="coparticipante[logradouro]">Logradouro</label>
         <div class="col-md-3">
-          <input id="coparticipante[logradouro]" name="coparticipante[logradouro]" type="text" placeholder="Av, Rua, Travessa..." class="form-control input-md">
+          <input value="{{ old('coparticipante.logradouro') }}" id="coparticipante[logradouro]" name="coparticipante[logradouro]" type="text" placeholder="Av, Rua, Travessa..." class="form-control input-md">
         </div>
         
         <!-- Número da residência-->
         <label class="col-md-1 control-label" for="coparticipante[numero]">Numero</label>
         <div class="col-md-2">
-          <input id="coparticipante[numero]" name="coparticipante[numero]" type="text" placeholder="999" class="form-control input-md">
+          <input value="{{ old('coparticipante.numero') }}" id="coparticipante[numero]" name="coparticipante[numero]" type="text" placeholder="999" class="form-control input-md">
         </div>
 
         {{-- Complemento --}}
         <label class="col-md-2 control-label" for="coparticipante[complemento]">Complemento</label>
         <div class="col-md-3">
-          <input id="coparticipante[complemento]" name="coparticipante[complemento]" type="text" placeholder="Ap., Fundos,..." class="form-control input-md">
+          <input value="{{ old('coparticipante.complemento') }}" id="coparticipante[complemento]" name="coparticipante[complemento]" type="text" placeholder="Ap., Fundos,..." class="form-control input-md">
         </div>
 
       </div> {{-- FIM Logradouro, Número, complemento --}}            
@@ -336,19 +366,19 @@
         {{-- Bairro --}}
         <label class="col-md-1 control-label" for="coparticipante[bairro]">Bairro</label>
         <div class="col-md-3">
-          <input id="coparticipante[bairro]" name="coparticipante[bairro]" type="text" placeholder="Centro" class="form-control input-md">
+          <input value="{{ old('coparticipante.bairro') }}" id="coparticipante[bairro]" name="coparticipante[bairro]" type="text" placeholder="Centro" class="form-control input-md">
         </div>
             
         <!-- Município-->
         <label class="col-md-1 control-label" for="coparticipante[municipio]">Município</label>
         <div class="col-md-4">
-          <input id="coparticipante[municipio]" disabled="disabled" value="Mesquita" name="coparticipante[municipio]" type="text" placeholder="Mesquita" class="form-control input-md" required="">
+          <input value="{{ old('coparticipante.municipio') }}" id="coparticipante[municipio]" disabled="disabled" value="Mesquita" name="coparticipante[municipio]" type="text" placeholder="Mesquita" class="form-control input-md" >
         </div>
 
         <!-- CEP-->
         <label class="col-md-1 control-label" for="coparticipante[cep]">CEP</label>
         <div class="col-md-2">
-          <input id="coparticipante[cep]" name="coparticipante[cep]" type="text" placeholder="99999-999" class="form-control input-md cep" required="">
+          <input value="{{ old('coparticipante.cep') }}" id="coparticipante[cep]" data-inputmask="'mask' : '99.999-999'" name="coparticipante[cep]" type="text" placeholder="99999-999" class="form-control input-md cep" >
         </div>
 
       </div> {{-- FIM Bairoo, Munícipio e CEP --}}
@@ -359,20 +389,20 @@
         {{-- Email --}}
         <label class="col-md-1 control-label" for="coparticipante[email]">Email</label>  
         <div class="col-md-5">
-          <input id="coparticipante[email]" name="coparticipante[email]" type="text" placeholder="email@servidor.com.br" class="form-control input-md email">
+          <input value="{{ old('coparticipante.email') }}" id="coparticipante[email]" name="coparticipante[email]" type="text" placeholder="email@servidor.com.br" class="form-control input-md email">
         </div>
 
         {{-- Celular --}}
         <label class="col-md-1 control-label" for="coparticipante[telefones][0][numero]">Celular</label>
         <div class="col-md-2">
-          <input id="coparticipante[telefones][0][numero]" name="coparticipante[telefones][0][numero]" type="text" placeholder="(99) 9 9999-9999" class="form-control input-md celular">
+          <input value="{{ old('coparticipante.telefones.0.numero') }}" id="coparticipante[telefones][0][numero]" data-inputmask="'mask' : '(99) 99999-9999'" name="coparticipante[telefones][0][numero]" type="text" placeholder="(99) 9 9999-9999" class="form-control input-md celular">
           <input type="hidden" value="Celular" name="coparticipante[telefones][0][tipo_telefone]">
         </div>
 
         {{-- Telefone --}}
         <label class="col-md-1 control-label" for="coparticipante[telefones][1][numero]">Tel.</label>
         <div class="col-md-2">
-          <input id="coparticipante[telefones][1][numero]" name="coparticipante[telefones][1][numero]" type="text" placeholder="(99) 9999-9999" class="form-control input-md telefone">
+          <input value="{{ old('coparticipante.telefones.1.numero') }}" id="coparticipante[telefones][1][numero]" data-inputmask="'mask' : '(99) 9999-9999'" name="coparticipante[telefones][1][numero]" type="text" placeholder="(99) 9999-9999" class="form-control input-md telefone">
           <input type="hidden" value="Fixo" name="coparticipante[telefones][1][tipo_telefone]">
         </div>
 
@@ -400,8 +430,27 @@
         {{-- Nome --}}
         <div class="form-group">
           <label class="col-md-1 control-label" for="dependentes[0][nome]">Nome</label>
-          <div class="col-md-9">
-            <input name="dependentes[0][nome]" id="dependentes[0][nome]" type="text" placeholder="Informe o nome" class="form-control input-md" required="">
+          <div class="col-md-8">
+            <input value="{{ old('dependentes.0.nome') }}" name="dependentes[0][nome]" id="dependentes[0][nome]" type="text" placeholder="Informe o nome" class="form-control input-md" >
+          </div>
+
+          <label class="col-md-1 control-label" for="dependentes.0.parentesco">Parentesco</label>
+          <div class="col-md-2">
+            <select name="dependentes[0][parentesco]" id="dependentes[0][parentesco]" type="text" placeholder="Necessidades Especiais" class="form-control input-md" >
+              <option value="" disabled @if(!old('dependentes.0.parentesco')) selected @endif style="display: none;">Selecione...</option>
+            <option value="1" @if(old('dependentes.0.parentesco') == "1") selected="selected" @endif>Avô(ó)</option>
+            <option value="2" @if(old('dependentes.0.parentesco') == "2") selected="selected" @endif>Bisavô(ó)</option>
+            <option value="3" @if(old('dependentes.0.parentesco') == "3") selected="selected" @endif>Bisneto(a)</option>
+            <option value="4" @if(old('dependentes.0.parentesco') == "4") selected="selected" @endif>Companheiro(a)</option>
+            <option value="5" @if(old('dependentes.0.parentesco') == "5") selected="selected" @endif>Cônjuge</option>
+            <option value="6" @if(old('dependentes.0.parentesco') == "6") selected="selected" @endif>Enteado(a)</option>
+            <option value="7" @if(old('dependentes.0.parentesco') == "7") selected="selected" @endif>Ex-esposa</option>
+            <option value="8" @if(old('dependentes.0.parentesco') == "8") selected="selected" @endif>Filho(a)</option>
+            <option value="9" @if(old('dependentes.0.parentesco') == "9") selected="selected" @endif>Irmão(ã)</option>
+            <option value="10" @if(old('dependentes.0.parentesco') == "10") selected="selected" @endif>Neto(a)</option>
+            <option value="11" @if(old('dependentes.0.parentesco') == "11") selected="selected" @endif>Pais</option>
+            <option value="12" @if(old('dependentes.0.parentesco') == "12") selected="selected" @endif>Outras</option>
+            </select>
           </div>
         </div>
       
@@ -411,26 +460,27 @@
         {{-- Data de Nascimento --}}
         <label class="col-md-1 control-label" for="dependentes[0][nascimento]">Nascimento</label>  
         <div class="col-md-3">
-          <input name="dependentes[0][nascimento]" type="date" placeholder="01/01/2000" class="form-control input-md global-data" required="">
+          <input value="{{ old('dependentes.0.nascimento') }}" name="dependentes[0][nascimento]" type="date" placeholder="01/01/2000" class="form-control input-md global-data" >
         </div>
 
         {{-- Sexo   --}}
         <label class="col-md-1 control-label" for="dependentes[0][sexo]">Sexo</label>
-        <div class="col-md-2">
-          <select name="dependentes[0][sexo]" id="dependentes[0][sexo]" type="text" placeholder="Sexo" class="form-control input-md" required="">
-            <option value="" disabled selected style="display: none;">   </option>
-            <option value="m">Masculino</option>
-            <option value="f">Femino</option>
+        <div class="col-md-3">
+          <select name="dependentes[0][sexo]" id="dependentes[0][sexo]" type="text" placeholder="Sexo" class="form-control input-md" >
+            <option value="" disabled @if(!old('dependentes.0.sexo')) selected @endif style="display: none;">Selecione...</option>
+            <option value="1" @if(old('dependentes.0.sexo') == "Masculino") selected="selected" @endif>Masculino</option>
+            <option value="2" @if(old('dependentes.0.sexo') == "Feminino") selected="selected" @endif>Femino</option>
+            <option value="3" @if(old('dependentes.0.sexo') == "Outros") selected="selected" @endif>Outros</option>
           </select>
         </div>
 
         {{-- Deficiente --}}
         <label class="col-md-1 control-label" for="dependentes[0][necessidades_especiais]">Deficiente</label>
-        <div class="col-md-2">
-          <select name="dependentes[0][necessidades_especiais]" id="dependentes[0][necessidades_especiais]" type="text" placeholder="Necessidades Especiais" class="form-control input-md" required="">
-            <option value=""disabled selected style="display: none;">   </option>
-            <option value="s">Sim</option>
-            <option value="n">Não</option>
+        <div class="col-md-3">
+          <select name="dependentes[0][necessidades_especiais]" id="dependentes[0][necessidades_especiais]" type="text" placeholder="Necessidades Especiais" class="form-control input-md" >
+            <option value="" disabled @if(!old('dependentes.0.necessidades_especiais')) selected @endif style="display: none;">Selecione...</option>
+            <option value="1" @if(old('dependentes.0.necessidades_especiais') == "1") selected="selected" @endif>Sim</option>
+            <option value="0" @if(old('dependentes.0.necessidades_especiais') == "0") selected="selected" @endif>Não</option>
           </select>
         </div>
       
@@ -460,13 +510,13 @@
         {{-- Renda Familiar --}}
         <label class="col-md-1 control-label" for="renda_familiar">Renda</label>
         <div class="col-md-3">
-          <input id="renda_familiar" name="renda_familiar" type="text" placeholder="R$ 99999,99" class="form-control input-md cash" required="">
+          <input value="{{ old('renda_familiar') }}" id="renda_familiar" name="renda_familiar" type="text" placeholder="R$ 99999,99" class="form-control input-md cash" >
         </div>
 
         {{-- Faixa--}}
         <label class="col-md-1 control-label" for="faixa">Faixa</label>
         <div class="col-md-2">
-          <input id="faixa" name="faixa" type="text" placeholder="Classificação" class="form-control input-md" disabled selected style>
+          <input value="{{ old('') }}" id="faixa" name="faixa" type="text" placeholder="Classificação" class="form-control input-md" disabled selected style>
         </div>
 
       </div> {{-- FIM Renda Familiar e Faixa --}}
@@ -477,13 +527,13 @@
         {{-- Tempo de residência --}}
         <label class="col-md-1 control-label" for="inicio-residencia">Início</label>
         <div class="col-md-3">
-          <input id="inicio-residencia" name="inicio-residencia" type="date" placeholder="01 / 01 / 2000" class="form-control input-md global-data" required="">
+          <input value="{{ old('inicio-residencia') }}" id="inicio-residencia" name="inicio-residencia" type="date" placeholder="01 / 01 / 2000" class="form-control input-md global-data" >
         </div>
 
         {{-- Faixa--}}
         <label class="col-md-1 control-label" for="pariodo">Período</label>
         <div class="col-md-2">
-          <input id="pariodo" name="pariodo" type="text" placeholder="Classificação" class="form-control input-md" disabled selected style>
+          <input value="{{ old('') }}" id="pariodo" name="pariodo" type="text" placeholder="Classificação" class="form-control input-md" disabled selected style>
         </div>
 
       </div> {{-- Tempo de residência --}}
@@ -513,6 +563,6 @@
   {{-- Script para máscara numérica. Ex.: CPF, RG --}}
   <script src="{{ asset("js/jquery.inputmask.bundle.min.js") }}"></script>
   
-  @include('includes.pessoas.scripts')
+  @include('includes.pessoas.create.scripts')
 
 @endpush

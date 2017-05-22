@@ -42,7 +42,7 @@ class CreateCoparticipantesTable extends Migration
 
             $table->timestamps();
 
-            $table->foreign('participante_id')->references('id')->on('participantes');
+            $table->foreign('participante_id')->references('id')->on('participantes')->onDelete('cascade');
         });
     }
 

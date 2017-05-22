@@ -32,7 +32,7 @@ class CreateDependentesTable extends Migration
 
             $table->integer('participante_id')->unsigned();
 
-            $table->foreign('participante_id')->references('id')->on('participantes');
+            $table->foreign('participante_id')->references('id')->on('participantes')->onDelete('cascade');
 
             $table->timestamps();
         });

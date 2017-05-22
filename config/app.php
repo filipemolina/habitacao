@@ -65,7 +65,7 @@ return [
     |
     */
 
-    'locale' => 'en',
+    'locale' => 'pt_BR',
 
     /*
     |--------------------------------------------------------------------------
@@ -163,6 +163,7 @@ return [
 		Collective\Html\HtmlServiceProvider::class,
 		Watson\BootstrapForm\BootstrapFormServiceProvider::class,
         Laravel\Tinker\TinkerServiceProvider::class,
+        Yajra\Datatables\DatatablesServiceProvider::class,
     ],
 
     /*
@@ -213,6 +214,7 @@ return [
 		'Form' => Collective\Html\FormFacade::class,
 		'Html' => Collective\Html\HtmlFacade::class,
 		'BootForm' => Watson\BootstrapForm\Facades\BootstrapForm::class,
+        'Datatables' => Yajra\Datatables\Facades\Datatables::class,
     ],
 
 ];
