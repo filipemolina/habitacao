@@ -57,12 +57,6 @@ class ParticipantesController extends Controller
      */
     public function store(Request $request)
     {
-
-        // echo "<pre>";
-        // print_r($request->all());
-        // echo "</pre>";
-        // exit;
-
         ////////////////////////////////////////////////// Validação
 
         $this->validate($request, [
@@ -84,23 +78,33 @@ class ParticipantesController extends Controller
             'bairro'                                => 'required',
             'renda_familiar'                        => 'required',
             'tempo_residencia'                      => 'date',
+            'telefones.*.numero'                    => 'required',
+            'inicio-residencia'                     => 'required',
 
             // Coparticipante
+            // O campo nome é totalmente opcional. Entretanto, caso este seja preenchido
+            // todos os campos abaixo se tornam obrigatórios
 
-            'coparticipante.nome'                   => 'required',
-            'coparticipante.cpf'                    => 'required|unique:coparticipantes,cpf',
-            'coparticipante.bolsa_familia'          => 'required',
-            'coparticipante.rg'                     => 'required',
-            'coparticipante.orgao_emissor_rg'       => 'required',
-            'coparticipante.emissao_rg'             => 'date',
-            'coparticipante.nascimento'             => 'date',
-            'coparticipante.sexo'                   => 'required',
-            'coparticipante.necessidades_especiais' => 'required',
-            'coparticipante.cep'                    => 'required',
-            'coparticipante.logradouro'             => 'required',
-            'coparticipante.numero'                 => 'required',
-            'coparticipante.bairro'                 => 'required',
+            'coparticipante.nome'                   => 'required_with:coparticipante.cpf,coparticipante.bolsa_familia,coparticipante.rg,coparticipante.orgao_emissor_rg,coparticipante.emissao_rg,coparticipante.nascimento,coparticipante.sexo,coparticipante.necessidades_especiais,coparticipante.cep,coparticipante.logradouro,coparticipante.numero,coparticipante.bairro',
+            'coparticipante.cpf'                    => 'required_with:coparticipante.nome|unique:coparticipantes,cpf',
+            'coparticipante.bolsa_familia'          => 'required_with:coparticipante.nome',
+            'coparticipante.rg'                     => 'required_with:coparticipante.nome',
+            'coparticipante.orgao_emissor_rg'       => 'required_with:coparticipante.nome',
+            'coparticipante.emissao_rg'             => 'required_with:coparticipante.nome|date',
+            'coparticipante.nascimento'             => 'required_with:coparticipante.nome|date',
+            'coparticipante.sexo'                   => 'required_with:coparticipante.nome',
+            'coparticipante.necessidades_especiais' => 'required_with:coparticipante.nome',
+            'coparticipante.cep'                    => 'required_with:coparticipante.nome',
+            'coparticipante.logradouro'             => 'required_with:coparticipante.nome',
+            'coparticipante.numero'                 => 'required_with:coparticipante.nome',
+            'coparticipante.bairro'                 => 'required_with:coparticipante.nome',
 
+            // Dependentes
+            'dependentes.*.nome'                    => 'required_with:dependentes.*.parentesco,dependentes.*.nascimento,dependentes.*.nascimento,dependentes.*.sexo,dependentes.*.necessidades_especiais',
+            'dependentes.*.parentesco'              => 'required_with:dependentes.*.nome',
+            'dependentes.*.nascimento'              => 'required_with:dependentes.*.nome|date',
+            'dependentes.*.sexo'                    => 'required_with:dependentes.*.nome',
+            'dependentes.*.necessidades_especiais'  => 'required_with:dependentes.*.nome',
 
         ]);
 
@@ -125,37 +129,36 @@ class ParticipantesController extends Controller
 
         foreach($request->dependentes as $dependente)
         {
-            $participante->dependentes()->save(new Dependente($dependente));
+            // Dependentes vazios entram na conta. Para evitar problemas com isso
+            // o cadastro é feito apenas caso o dependente tenha um nome (o que por
+            // sua vez ativa a obrigatoriedade das outras propriedades)
+
+            if(isset($dependente['nome']) && $dependente['nome'] != '')
+                $participante->dependentes()->save(new Dependente($dependente));
         }
 
-        // Coparticipante
+        //////////////////////////////// Testar se os dados do Coparticipante foram digitados
+        //////////////////////////////// e só então cadastrá-lo
 
-        $coparticipante = $participante->coparticipante()->save(new Coparticipante($request->coparticipante));
-
-        // Endereço do Coparticipante
-
-        $coparticipante->endereco()->save(new Endereco($request->input('coparticipante')));
-
-        // Telefones do Coparticipante
-
-        foreach($request->input('coparticipante.telefones') as $telefone)
+        if($request->has('coparticipante.nome'))
         {
-            $coparticipante->telefones()->save(new Telefone($telefone));
+            // Coparticipante
+
+            $coparticipante = $participante->coparticipante()->save(new Coparticipante($request->coparticipante));
+
+            // Endereço do Coparticipante
+
+            $coparticipante->endereco()->save(new Endereco($request->input('coparticipante')));
+
+            // Telefones do Coparticipante
+
+            foreach($request->input('coparticipante.telefones') as $telefone)
+            {
+                $coparticipante->telefones()->save(new Telefone($telefone));
+            }
         }
 
-        // return redirect('/pessoas/create');
-
-        $pa = Participante::find($participante->id);
-
-        echo "<pre>";
-        print_r($pa->toArray());
-        print_r($pa->endereco->toArray());
-        print_r($pa->telefones->toArray());
-        print_r($pa->dependentes->toArray());
-        print_r($pa->coparticipante->toArray());
-        print_r($pa->coparticipante->endereco->toArray());
-        echo "</pre>";
-        exit;
+        return redirect('/pessoas/create')->with('sucesso', 'Usuário cadastrado com sucesso');
     }
 
     /**

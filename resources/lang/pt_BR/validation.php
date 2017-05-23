@@ -128,7 +128,13 @@ return [
         'coparticipante.cep'                    => 'CEP do Coparticipante',
         'coparticipante.logradouro'             => 'Logradouro do Coparticipante',
         'coparticipante.numero'                 => 'Número do Coparticipante',
-        'coparticipante.bairro'                 => 'Bairro do Coparticipante'
+        'coparticipante.bairro'                 => 'Bairro do Coparticipante',
+        'dependentes.*.nome'                    => 'Nome do Dependente',
+        'dependentes.*.parentesco'              => 'Parentesco do Dependente',
+        'dependentes.*.sexo'                    => 'Sexo do Dependente',
+        'dependentes.*.nascimento'              => 'Data de Nascimento do Dependente',
+        'dependentes.*.necessidades_especiais'  => 'Necessidades Especiais do Dependente',
+        'inicio-residencia'                     => 'Início da Resiência em Mesquita'
 
     ],
 

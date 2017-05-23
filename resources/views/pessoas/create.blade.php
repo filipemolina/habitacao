@@ -24,11 +24,15 @@
 
           <strong>Atenção!</strong><br>
 
-          @foreach($errors->all() as $erro)
+          <ul>
 
-            {{ $erro }} <br>
+            @foreach($errors->all() as $erro)
 
-          @endforeach
+              <li>{{ $erro }}</li>
+
+            @endforeach
+
+          </ul>
 
         </div>
 
@@ -36,11 +40,11 @@
 
     {{-- Mostrar mensagem de sucesso --}}
 
-    @if(isset($sucesso) && $sucesso)
+    @if(session('sucesso'))
 
         <div class="alert alert-dourado alert-dismissible" style="margin-top: 70px;" role="alert">
           <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-          <strong>Parabéns!</strong> Participante cadastrado com sucesso!
+          <strong>Parabéns!</strong> {{ session('sucesso') }}
         </div>
 
     @endif
