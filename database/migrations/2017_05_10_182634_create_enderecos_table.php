@@ -25,8 +25,8 @@ class CreateEnderecosTable extends Migration
             $table->integer('participante_id')->unsigned()->nullable();
             $table->integer('coparticipante_id')->unsigned()->nullable();
 
-            $table->foreign('participante_id')->references('id')->on('participantes');
-            $table->foreign('coparticipante_id')->references('id')->on('coparticipantes');
+            $table->foreign('participante_id')->references('id')->on('participantes')->onDelete('cascade');
+            $table->foreign('coparticipante_id')->references('id')->on('coparticipantes')->onDelete('cascade');
 
 
 

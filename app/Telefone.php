@@ -13,6 +13,7 @@ class Telefone extends Model
 	protected $fillable = [
 		'ddd',
 		'tipo_telefone',
+        'numero'
 	];
 
     /**

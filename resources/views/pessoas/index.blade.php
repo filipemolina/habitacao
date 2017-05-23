@@ -44,7 +44,7 @@ Lista de Pessoas
 
             </thead>
 
-            <tbody>
+            {{-- <tbody>
 
                 @foreach($participantes as $participante)
 
@@ -65,7 +65,7 @@ Lista de Pessoas
 
                 @endforeach
 
-            </tbody>
+            </tbody> --}}
 
         </table>
 
@@ -73,6 +73,8 @@ Lista de Pessoas
     </div>
 </div>
 </div>
+
+<div class="clearfix"></div>
 
 @endsection
 
@@ -95,6 +97,6 @@ Lista de Pessoas
 <script src="{{ asset('vendors/pdfmake/build/pdfmake.min.js') }}"></script>
 <script src="{{ asset('vendors/pdfmake/build/vfs_fonts.js') }}"></script>
 
-@include('includes.users.scripts')
+@include('includes.pessoas.index.scripts')
 
 @endpush

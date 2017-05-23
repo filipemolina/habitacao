@@ -15,6 +15,10 @@ Auth::routes();
 Route::get('/logout', 'Auth\LoginController@logout');
 Route::get('/', 'HomeController@index');
 
+// Rota para o dataTables
+
+Route::get('pessoas/dados', 'ParticipantesController@dados');
+
 // Rotas dos Resourceful Controllers
 
 Route::resource('users', 'UsersController');

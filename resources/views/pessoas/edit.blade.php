@@ -1,24 +1,26 @@
+
 @extends("layouts.blank")
 
 @section('titulo')
 
-	Alteração do cadastro de pessoas
+  Cadastro de Pessoas
 
 @endsection
 
-@push('stylesheets')
-
+@push('css')
+  
+  <!-- CSS views Pessoas-->
   <link href="{{ asset("css/pessoas.css") }}" rel="stylesheet">
 
 @endpush
 
 @section('main_container')
-		
-  <div class="x_title"><h2> Alteração do cadastro de pessoas </h2></div>
-			
-  <form id="Cadastro_pessoa" class="form-horizontal">
 
-			
+  <h2> Cadastro de Pessoa </h2>
+
+    <form id="cadastro_pessoa" class="form-horizontal">
+
+
 {{------------------------------------ Participante --------------------------------------------}}
 
       <div class="x_panel" id="participante">
@@ -49,7 +51,7 @@
           </div>
 
           {{-- Carteira de Trabalho --}}            
-          <label class="col-md-1 control-label" for="pa-carteira">Carteira T.</label>  
+          <label class="col-md-1 control-label" for="pa-carteira">CTPS</label>  
           <div class="col-md-2">
             <input id="pa-carteira" name="pa-carteira" type="text" placeholder="Cart. de Trabalho" class="form-control input-md carteira" required="">
           </div>
@@ -84,7 +86,7 @@
 
           <!-- Data de Emissão do RG-->
           <label class="col-md-1 control-label" for="pa-emissao">Emissão</label>  
-          <div class="col-md-2">
+          <div class="col-md-3">
             <input id="pa-emissao" name="pa-emissao" type="date" class="form-control input-md global-data" required="">
           </div>
 
@@ -96,7 +98,7 @@
 
           {{-- Data de Nascimento --}}
           <label class="col-md-1 control-label" for="pa-nascimento">Nascimento</label>  
-          <div class="col-md-2">
+          <div class="col-md-3">
             <input id="pa-nascimento" name="pa-nascimento" type="date" class="form-control input-md global-data" required="">
           </div>
 
@@ -227,7 +229,7 @@
         </div>
 
         {{-- Carteira de Trabalho --}}            
-        <label class="col-md-1 control-label" for="co-carteira">Carteira T.</label>  
+        <label class="col-md-1 control-label" for="co-carteira">CTPS</label>  
         <div class="col-md-2">
           <input id="co-carteira" name="co-carteira" type="text" placeholder="Cart. de Trabalho" class="form-control input-md carteira" required="">
         </div>
@@ -262,7 +264,7 @@
 
         <!-- Data de Emissão do RG-->
         <label class="col-md-1 control-label" for="co-emissao">Emissão</label>  
-        <div class="col-md-2">
+        <div class="col-md-3">
           <input id="co-emissao" name="co-emissao" type="date" placeholder="Data de Emissão" class="form-control input-md global-data" required="">
         </div>
             
@@ -274,7 +276,7 @@
 
         {{-- Data de Nascimento --}}
         <label class="col-md-1 control-label" for="co-nascimento">Nascimento</label>  
-        <div class="col-md-2">
+        <div class="col-md-3">
           <input id="co-nascimento" name="co-nascimento" type="date" placeholder="01 / 01 / 2000" class="form-control input-md global-data" required="">
         </div>
 
@@ -384,7 +386,7 @@
       <div class="x_title"> 
         <div class="form-group">
           <div class="col-md-11"> Dependentes </div>
-            <button name="submit" value="clonar" class="btn btn-xs btn-primary clonar"> Adicionar</button>
+            <button name="submit" value="clonar" class="btn btn-xs btn-primary glyphicon glyphicon-plus-sign clonar"></button>
         </div>
       </div>
         
@@ -393,8 +395,8 @@
         {{-- Nome --}}
         <div class="form-group">
           <label class="col-md-1 control-label" for="de-nome">Nome</label>
-          <div class="col-md-11">
-            <input {{-- id="de-nome" --}} name="de-nome" type="text" placeholder="Informe o nome" class="form-control input-md" required="">
+          <div class="col-md-9">
+            <input name="de-nome" type="text" placeholder="Informe o nome" class="form-control input-md" required="">
           </div>
         </div>
       
@@ -403,8 +405,8 @@
 
         {{-- Data de Nascimento --}}
         <label class="col-md-1 control-label" for="de-nascimento">Nascimento</label>  
-        <div class="col-md-2">
-          <input {{-- id="de-nascimento" --}} name="de-nascimento" type="date" placeholder="01/01/2000" class="form-control input-md global-data" required="">
+        <div class="col-md-3">
+          <input name="de-nascimento" type="date" placeholder="01/01/2000" class="form-control input-md global-data" required="">
         </div>
 
         {{-- Sexo   --}}
@@ -430,7 +432,7 @@
       </div>  {{-- FIM Data de Nascimento, Sexo, Deficiente --}}
           
       <div class="col-md-11"></div>
-      <button name="submit" value="excluir" class="btn btn-xs btn-danger excluir" selected style="display:none;"> Remover</button>
+      <button name="submit" value="excluir" class="btn btn-xs btn-danger glyphicon glyphicon-trash excluir" selected style="display:none;"></button>
 
       </div> {{-- FIM panel_dependentes --}}
 
@@ -452,13 +454,13 @@
 
         {{-- Renda Familiar --}}
         <label class="col-md-1 control-label" for="renda">Renda</label>
-        <div class="col-md-2">
+        <div class="col-md-3">
           <input id="renda" name="renda" type="text" placeholder="R$ 99999,99" class="form-control input-md cash" required="">
         </div>
 
         {{-- Faixa--}}
         <label class="col-md-1 control-label" for="faixa">Faixa</label>
-        <div class="col-md-3">
+        <div class="col-md-2">
           <input id="faixa" name="faixa" type="text" placeholder="Classificação" class="form-control input-md" disabled selected style>
         </div>
 
@@ -469,14 +471,14 @@
 
         {{-- Tempo de residência --}}
         <label class="col-md-1 control-label" for="te-residencia">Início</label>
-        <div class="col-md-2">
+        <div class="col-md-3">
           <input id="te-residencia" name="te-residencia" type="date" placeholder="01 / 01 / 2000" class="form-control input-md global-data" required="">
         </div>
 
-        {{-- Período--}}
-        <label class="col-md-1 control-label" for="periodo-moradia">Período</label>
-        <div class="col-md-3">
-          <input id="periodo-moradia" name="periodo-moradia" type="text" placeholder="Período de moradia" class="form-control input-md" disabled selected style>
+        {{-- Faixa--}}
+        <label class="col-md-1 control-label" for="faixa">Período</label>
+        <div class="col-md-2">
+          <input id="faixa" name="faixa" type="text" placeholder="Classificação" class="form-control input-md" disabled selected style>
         </div>
 
       </div> {{-- Tempo de residência --}}
