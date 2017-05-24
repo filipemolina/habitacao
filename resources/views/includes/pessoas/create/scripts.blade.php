@@ -67,6 +67,94 @@
           $(this).parent().remove();
 
         });
+
+        ////////////////////////////////////// Fazer a busca por CEP
+
+        // Utilizo aqui o webservice viacep.com.br
+
+        $("input#cep, input#coparticipante\\[cep\\]").blur(function(){
+
+            var cep = $(this).val().replace('.', '').replace('-', '');
+
+            // Obter o id do objeto aqui, fora da chamada AJAX, antes
+            // que o escopo seja mudado
+
+            var id = $(this).attr('id') == "cep";
+
+            $.get('https://viacep.com.br/ws/'+cep+"/json", function(data){
+
+                if(id)
+                {
+                    $("input#logradouro").val(data.logradouro);
+                    $("input#bairro").val(data.bairro);
+                    $("input#municipio").val(data.localidade);
+                }
+                else
+                {
+                    $("input#coparticipante\\[logradouro\\]").val(data.logradouro);
+                    $("input#coparticipante\\[bairro\\]").val(data.bairro);
+                    $("input#coparticipante\\[municipio\\]").val(data.localidade);
+                }
+
+            });
+
+        });
+
+        ////////////////////////////////////// Duplicar o endereço do participante no coparticipante
+
+        $("button.duplicar-endereco").click(function(e){
+
+            e.preventDefault();
+
+            // Pegar as informações do participante e duplicar no coparticipante
+
+            $("input#coparticipante\\[cep\\]").val($("input#cep").val());
+            $("input#coparticipante\\[logradouro\\]").val($("input#logradouro").val());
+            $("input#coparticipante\\[numero\\]").val($("input#numero").val());
+            $("input#coparticipante\\[municipio\\]").val($("input#municipio").val());
+            $("input#coparticipante\\[bairro\\]").val($("input#bairro").val());
+            $("input#coparticipante\\[complemento\\]").val($("input#complemento").val());
+
+        });
+
+        ////////////////////////////////////// Calcular as faixas de classifiação
+
+        $("input#renda_familiar").blur(function(){
+
+            var valor = parseFloat($(this).val().replace('R$ ', '').replace(',', '.'));
+            console.log(valor);
+            var faixa = 0;
+
+            if(valor <= 1800)
+                faixa = 1;
+            else if(valor > 1800 && valor <= 2600)
+                faixa = "1,5";
+            else if(valor > 2600 && valor <= 4000)
+                faixa = 2;
+            else if(valor > 4000 && valor <= 9000)
+                faixa = 3;
+            else
+                faixa = "Sem Classificação";
+
+            // Sem comentários
+
+            $("input#faixa").val(faixa);
+        });
+
+        //////////////////////////////////// Calcular o tempo de residência
+
+        $("input#inicio-residencia").blur(function(){
+
+            var inicio = $(this).val();
+
+            $.get("{{ url('/pessoas/temporesidencia') }}", { inicio : inicio}, function(data){
+
+                $("input#periodo").val(data+" anos");
+
+            });
+
+        });
+
     });
 
   </script>

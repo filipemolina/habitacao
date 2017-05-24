@@ -186,16 +186,16 @@
         {{-- Complemento, Bairro e Munícipio --}}
         <div class="form-group">
 
-          {{-- Bairro --}}
-          <label class="col-md-1 control-label" for="bairro">Bairro</label>
-          <div class="col-md-3">
-            <input value="{{ old('bairro') }}" id="bairro" name="bairro" type="text" placeholder="Centro" class="form-control input-md">
-          </div>
-            
           <!-- Município-->
           <label class="col-md-1 control-label" for="municipio">Município</label>
           <div class="col-md-3">
             <input value="{{ old('municipio') }}" disabled="disabled" id="municipio" name="municipio" type="text" placeholder="Mesquita" value="Mesquita" class="form-control input-md" >
+          </div>
+
+          {{-- Bairro --}}
+          <label class="col-md-1 control-label" for="bairro">Bairro</label>
+          <div class="col-md-3">
+            <input value="{{ old('bairro') }}" id="bairro" name="bairro" type="text" placeholder="Centro" class="form-control input-md">
           </div>
 
           {{-- Complemento --}}
@@ -343,6 +343,12 @@
       {{-- Logradouro, Número, Complemento --}}
       <div class="form-group">
 
+        <!-- CEP-->
+        <label class="col-md-1 control-label" for="coparticipante[cep]">CEP</label>
+        <div class="col-md-2">
+          <input value="{{ old('coparticipante.cep') }}" id="coparticipante[cep]" data-inputmask="'mask' : '99.999-999'" name="coparticipante[cep]" type="text" placeholder="99999-999" class="form-control input-md cep" >
+        </div>
+
         {{-- Logradouro ...Av...Rua....etc --}}
         <label class="col-md-1 control-label" for="coparticipante[logradouro]">Logradouro</label>
         <div class="col-md-3">
@@ -355,34 +361,30 @@
           <input value="{{ old('coparticipante.numero') }}" id="coparticipante[numero]" name="coparticipante[numero]" type="text" placeholder="999" class="form-control input-md">
         </div>
 
-        {{-- Complemento --}}
-        <label class="col-md-2 control-label" for="coparticipante[complemento]">Complemento</label>
-        <div class="col-md-3">
-          <input value="{{ old('coparticipante.complemento') }}" id="coparticipante[complemento]" name="coparticipante[complemento]" type="text" placeholder="Ap., Fundos,..." class="form-control input-md">
-        </div>
+        <button class="btn btn-info duplicar-endereco col-md-2" style="margin-right: 0;">Duplicar Endereço</button>
 
       </div> {{-- FIM Logradouro, Número, complemento --}}            
 
 
       {{-- Bairro, Munícipio e CEP --}}
       <div class="form-group">
+
+        <!-- Município-->
+        <label class="col-md-1 control-label" for="coparticipante[municipio]">Município</label>
+        <div class="col-md-3">
+          <input value="{{ old('coparticipante.municipio') }}" id="coparticipante[municipio]" disabled="disabled" value="Mesquita" name="coparticipante[municipio]" type="text" placeholder="Mesquita" class="form-control input-md" >
+        </div>
               
         {{-- Bairro --}}
         <label class="col-md-1 control-label" for="coparticipante[bairro]">Bairro</label>
         <div class="col-md-3">
           <input value="{{ old('coparticipante.bairro') }}" id="coparticipante[bairro]" name="coparticipante[bairro]" type="text" placeholder="Centro" class="form-control input-md">
         </div>
-            
-        <!-- Município-->
-        <label class="col-md-1 control-label" for="coparticipante[municipio]">Município</label>
-        <div class="col-md-4">
-          <input value="{{ old('coparticipante.municipio') }}" id="coparticipante[municipio]" disabled="disabled" value="Mesquita" name="coparticipante[municipio]" type="text" placeholder="Mesquita" class="form-control input-md" >
-        </div>
 
-        <!-- CEP-->
-        <label class="col-md-1 control-label" for="coparticipante[cep]">CEP</label>
+        {{-- Complemento --}}
+        <label class="col-md-2 control-label" for="coparticipante[complemento]">Complemento</label>
         <div class="col-md-2">
-          <input value="{{ old('coparticipante.cep') }}" id="coparticipante[cep]" data-inputmask="'mask' : '99.999-999'" name="coparticipante[cep]" type="text" placeholder="99999-999" class="form-control input-md cep" >
+          <input value="{{ old('coparticipante.complemento') }}" id="coparticipante[complemento]" name="coparticipante[complemento]" type="text" placeholder="Ap., Fundos,..." class="form-control input-md">
         </div>
 
       </div> {{-- FIM Bairoo, Munícipio e CEP --}}
@@ -514,7 +516,7 @@
         {{-- Renda Familiar --}}
         <label class="col-md-1 control-label" for="renda_familiar">Renda</label>
         <div class="col-md-3">
-          <input value="{{ old('renda_familiar') }}" id="renda_familiar" name="renda_familiar" type="text" placeholder="R$ 99999,99" class="form-control input-md cash" >
+          <input value="{{ old('renda_familiar') }}" data-inputmask="'mask' : 'R$ 9999,99'" id="renda_familiar" name="renda_familiar" type="text" placeholder="R$ 99999,99" class="form-control input-md cash" >
         </div>
 
         {{-- Faixa--}}
@@ -535,9 +537,9 @@
         </div>
 
         {{-- Faixa--}}
-        <label class="col-md-1 control-label" for="pariodo">Período</label>
+        <label class="col-md-1 control-label" for="periodo">Período</label>
         <div class="col-md-2">
-          <input value="{{ old('') }}" id="pariodo" name="pariodo" type="text" placeholder="Classificação" class="form-control input-md" disabled selected style>
+          <input value="{{ old('') }}" id="periodo" name="periodo" type="text" placeholder="Classificação" class="form-control input-md" disabled selected style>
         </div>
 
       </div> {{-- Tempo de residência --}}

@@ -255,4 +255,9 @@ class ParticipantesController extends Controller
         return $idades;
     }
 
+    public function anosResidencia(Request $request)
+    {
+        return date('Y') - date('Y', strtotime($request->input('inicio')));
+    }
+
 }

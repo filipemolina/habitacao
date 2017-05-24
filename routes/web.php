@@ -19,6 +19,10 @@ Route::get('/', 'HomeController@index');
 
 Route::get('pessoas/dados', 'ParticipantesController@dados');
 
+// Rota para calcular o tempo de residência do participante
+
+Route::get('pessoas/temporesidencia/', 'ParticipantesController@anosResidencia');
+
 // Rotas dos Resourceful Controllers
 
 Route::resource('users', 'UsersController');
