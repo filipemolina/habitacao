@@ -1,7 +1,7 @@
 <div class="col-md-3 left_col">
     <div class="left_col scroll-view colormenu">
         <div class="navbar nav_title colormenu" style="border: 0;">
-            <a href="{{ url('/') }}" class="site_title"><i class="fa fa-home"></i> <span>Habitação</span></a>
+           <a href="{{ url('/') }}" class="site_title"><i class="fa fa-home"></i> <span>Habitação</span></a>
         </div>
         
         <div class="clearfix"></div>
@@ -47,13 +47,8 @@
                         </ul>
                     </li>
 
-                    <li><a><i class=" fa fa-clipboard"></i>Relatórios<span class="fa fa-chevron-down"></span></a>
-                        <ul class="nav child_menu">
-                            <li><a href="{{ url('relatorios') }}"> Por Faixa</a></li>
-                            <li><a href="{{ url('relatorios') }}"> Por Dependentes</a></li>
-                            <li><a href="{{ url('relatorios') }}"> Por Bairro</a></li>
-                            <li><a href="{{ url('relatorios') }}"> Por Deficiência</a></li>
-                        </ul>
+                    <li><a><i class=" fa fa-clipboard"></i>Relatórios</a>
+                        
                     </li>
 
                     <li><a><i class=" fa fa-cog"></i>Opções<span class="fa fa-chevron-down"></span></a>
