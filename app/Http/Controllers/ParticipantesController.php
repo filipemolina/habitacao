@@ -169,7 +169,9 @@ class ParticipantesController extends Controller
      */
     public function show($id)
     {
-        //
+        $pessoa = Participante::with('endereco', 'telefones', 'coparticipante', 'coparticipante.endereco', 'coparticipante.telefones', 'dependentes')->where('id', $id)->first();
+
+        return view('pessoas.show', compact('pessoa'));
     }
 
     /**
@@ -180,7 +182,9 @@ class ParticipantesController extends Controller
      */
     public function edit($id)
     {
-        //
+        $pessoa = Participante::with('endereco', 'telefones', 'coparticipante', 'coparticipante.endereco', 'coparticipante.telefones', 'dependentes')->where('id', $id)->first();
+
+        return view('pessoas.edit', compact('pessoa'));   
     }
 
     /**

@@ -162,13 +162,13 @@
           <!-- CEP-->
           <label class="col-md-1 control-label" for="cep">CEP</label>
           <div class="col-md-2">
-            <input value="{{ $pessoa->cep }}" id="cep" name="cep" type="text" data-inputmask="'mask' : '99.999-999'" placeholder="99999-999" class="form-control input-md cep" >
+            <input value="{{ $pessoa->endereco->cep }}" id="cep" name="cep" type="text" data-inputmask="'mask' : '99.999-999'" placeholder="99999-999" class="form-control input-md cep" >
           </div>
 
           <!-- Logradouro ...Av...Rua....etc-->
           <label class="col-md-1 control-label" for="logradouro">Logradouro</label>
           <div class="col-md-3">
-            <input value="{{ $pessoa->logradouro }}" id="logradouro" name="logradouro" type="text" placeholder="Av, Rua, Travessa..." class="form-control input-md">
+            <input value="{{ $pessoa->endereco->logradouro }}" id="logradouro" name="logradouro" type="text" placeholder="Av, Rua, Travessa..." class="form-control input-md">
           </div>
           
           <!-- Número da residência-->
@@ -527,7 +527,7 @@
         {{-- Tempo de residência --}}
         <label class="col-md-1 control-label" for="inicio-residencia">Início</label>
         <div class="col-md-3">
-          <input value="{{ $pessoa->"inicio-residencia" }}" id="inicio-residencia" name="inicio-residencia" type="date" placeholder="01 / 01 / 2000" class="form-control input-md global-data" >
+          <input value="{{ $pessoa->inicio_residencia }}" id="inicio-residencia" name="inicio-residencia" type="date" placeholder="01 / 01 / 2000" class="form-control input-md global-data" >
         </div>
 
         {{-- Faixa--}}
