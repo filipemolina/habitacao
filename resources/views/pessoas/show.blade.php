@@ -21,7 +21,6 @@
 		
 		<div class="x_content">
 
-<<<<<<< HEAD
 			Nome:					{{ $pessoa->nome }} <br>
 
 			CPF:					{{ $pessoa->cpf }}<br>
@@ -47,7 +46,7 @@
 			
 			Email:					{{ $pessoa->email}}<br>
 			Celular:				{{ $pessoa->telefones[0]["numero"] }}<br>
-			Telefone:				{{ $pessoa->telefones[1]["numero"] }}
+			Telefone:				{{ $pessoa->telefones[1]["numero"] }}<br>
 
 
 
@@ -85,21 +84,8 @@
 			
 			Email:					{{ $pessoa->coparticipante["email"]}}<br>
 			Celular:				{{ $pessoa->coparticipante["telefones"][0]["numero"] }}<br>
-			Telefone:				{{ $pessoa->coparticipante["telefones"][1]["numero"] }}
+			Telefone:				{{ $pessoa->coparticipante["telefones"][1]["numero"] }}<br>
 
-
-=======
-			{{ $pessoa->nome }} <br>
-			
-
-			@foreach($pessoa->dependentes as $dependente)		
-
-				{{ $dependente->nome }}<br>
-
-
-
-			@endforeach	
->>>>>>> f26fdf59e98c42def0732e2333e0b947e33145b2
 
 		</div>
 	</div>
@@ -108,29 +94,30 @@
 		
 		<div class="x_title"> Dependentes </div>
 		
-		<div class="x_content">
+		@foreach($pessoa->dependentes as $dependente)
+		
+			<div class="x_content">
 
-			Nome:					{{ $pessoa->dependentes[0]["nome"] }} <br>
+					Nome:					{{ $pessoa->dependentes[0]["nome"] }} <br>
 
-			Nascimento:				{{ $pessoa->dependentes[0]["nascimento"]}}<br>
-			Sexo:					{{ $pessoa->coparticipante["sexo"]}}<br>
-			Necessidades Especias:	{{ $pessoa->coparticipante["necessidades_especiais"]}} <br><br>
+					Nascimento:				{{ $pessoa->dependentes[0]["nascimento"]}}<br>
+					Sexo:					{{ $pessoa->coparticipante["sexo"]}}<br>
+					Necessidades Especias:	{{ $pessoa->coparticipante["necessidades_especiais"]}} <br><br>
 
-			Logradouro:				{{ $pessoa->coparticipante["logradouro"]}}<br>
-			Número:					{{ $pessoa->coparticipante["numero"]}}<br>
-			Complementos:			{{ $pessoa->coparticipante["complemento"]}} <br><br>
+					Logradouro:				{{ $pessoa->coparticipante["logradouro"]}}<br>
+					Número:					{{ $pessoa->coparticipante["numero"]}}<br>
+					Complementos:			{{ $pessoa->coparticipante["complemento"]}} <br><br>
 
-			Bairro:					{{ $pessoa->coparticipante["bairro"]}}<br>
-			Munícipio:				{{ $pessoa->coparticipante["municipio"]}}<br>		
-			CEP:					{{ $pessoa->coparticipante["cep"]}} <br><br>
-			
-			Email:					{{ $pessoa->coparticipante["email"]}}<br>
-			Celular:				{{ $pessoa->coparticipante["telefones"][0]["numero"] }}<br>
-			Telefone:				{{ $pessoa->coparticipante["telefones"][1]["numero"] }}
+					Bairro:					{{ $pessoa->coparticipante["bairro"]}}<br>
+					Munícipio:				{{ $pessoa->coparticipante["municipio"]}}<br>		
+					CEP:					{{ $pessoa->coparticipante["cep"]}} <br><br>
+				
+					Email:					{{ $pessoa->coparticipante["email"]}}<br>
+					Celular:				{{ $pessoa->coparticipante["telefones"][0]["numero"] }}<br>
+					Telefone:				{{ $pessoa->coparticipante["telefones"][1]["numero"] }}<br>
 
-
-
-		</div>
+			</div>
+		@endforeach
 	</div>
 
 </div>
