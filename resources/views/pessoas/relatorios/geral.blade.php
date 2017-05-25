@@ -34,7 +34,7 @@
 
 		@foreach($pessoas as $pessoa)
 
-			<p>{{ $pessoa->nome }}</p>
+			<p>{{ $pessoa['idade'] }}</p>
 
 		@endforeach
 		
