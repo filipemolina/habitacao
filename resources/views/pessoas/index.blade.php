@@ -44,29 +44,7 @@ Lista de Pessoas
 
             </thead>
 
-            {{-- <tbody>
-
-                @foreach($participantes as $participante)
-
-                    <tr>
-                        <td>{{ $participante->nome }}</td> 
-                        <td>{{ $idades[$participante->id] }}</td>
-                        <td>{{ $participante->sexo }}</td>
-                        <td>@if($participante->necessidades_especiais)Sim @else Não @endif</td>
-                        <td>@if($participante->coparticipante) Sim @else Não @endif</td>
-                        <td>{{ $participante->dependentes()->count() }}</td>
-                        <td>{{ $participante->endereco->bairro }}</td>
-                        <td class="actions">
-                            <a class="btn btn-success btn-xs" href="#"><i class="fa fa-eye"></i></a>
-                            <a class="btn btn-warning btn-xs" href="{{ url("pessoas/$participante->id/edit") }}"><i class="fa fa-pencil"></i></a>
-                            <a class="btn btn-danger btn-xs"  href="#" data-toggle="modal" data-target=""><i class="fa fa-trash"></i></a>
-                        </td>
-                    </tr>
-
-                @endforeach
-
-            </tbody> --}}
-
+            {{-- preenchido com datatables --}}
         </table>
 
 

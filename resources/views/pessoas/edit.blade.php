@@ -461,73 +461,143 @@
         </div>
       </div>
         
-      
+      @forelse($pessoa->dependentes as $dependente)
 
-      <div class="x_panel panel_dependentes">
+          <div class="x_panel panel_dependentes">
+          
+            {{-- Nome --}}
+            <div class="form-group">
+              <label class="col-md-1 control-label" for="dependentes[0][nome]">Nome</label>
+              <div class="col-md-8">
+                <input value="{{ $dependente->nome }}" name="dependentes[0][nome]" id="dependentes[0][nome]" type="text" placeholder="Informe o nome" class="form-control input-md" >
+              </div>
+
+              <label class="col-md-1 control-label" for="dependentes.0.parentesco">Parentesco</label>
+              <div class="col-md-2">
+                <select name="dependentes[0][parentesco]" id="dependentes[0][parentesco]" type="text" placeholder="Necessidades Especiais" class="form-control input-md" >
+                  <option value="" disabled @if(!$dependente->parentesco) selected @endif style="display: none;">Selecione...</option>
+                <option value="1" @if($dependente->parentesco == "1") selected="selected" @endif>Avô(ó)</option>
+                <option value="2" @if($dependente->parentesco == "2") selected="selected" @endif>Bisavô(ó)</option>
+                <option value="3" @if($dependente->parentesco == "3") selected="selected" @endif>Bisneto(a)</option>
+                <option value="4" @if($dependente->parentesco == "4") selected="selected" @endif>Companheiro(a)</option>
+                <option value="5" @if($dependente->parentesco == "5") selected="selected" @endif>Cônjuge</option>
+                <option value="6" @if($dependente->parentesco == "6") selected="selected" @endif>Enteado(a)</option>
+                <option value="7" @if($dependente->parentesco == "7") selected="selected" @endif>Ex-esposa</option>
+                <option value="8" @if($dependente->parentesco == "8") selected="selected" @endif>Filho(a)</option>
+                <option value="9" @if($dependente->parentesco == "9") selected="selected" @endif>Irmão(ã)</option>
+                <option value="10" @if($dependente->parentesco == "10") selected="selected" @endif>Neto(a)</option>
+                <option value="11" @if($dependente->parentesco == "11") selected="selected" @endif>Pais</option>
+                <option value="12" @if($dependente->parentesco == "12") selected="selected" @endif>Outras</option>
+                </select>
+              </div>
+            </div>
+          
+            {{-- Data de Nascimento, Sexo, Deficiente --}}
+            <div class="form-group">
+
+            {{-- Data de Nascimento --}}
+            <label class="col-md-1 control-label" for="dependentes[0][nascimento]">Nascimento</label>  
+            <div class="col-md-3">
+              <input value="{{ $dependente->nascimento }}" name="dependentes[0][nascimento]" type="date" placeholder="01/01/2000" class="form-control input-md global-data" >
+            </div>
+
+            {{-- Sexo   --}}
+            <label class="col-md-1 control-label" for="dependentes[0][sexo]">Sexo</label>
+            <div class="col-md-3">
+              <select name="dependentes[0][sexo]" id="dependentes[0][sexo]" type="text" placeholder="Sexo" class="form-control input-md" >
+                <option value="" disabled @if(!$dependente->sexo) selected @endif style="display: none;">Selecione...</option>
+                <option value="1" @if($dependente->sexo == "Masculino") selected="selected" @endif>Masculino</option>
+                <option value="2" @if($dependente->sexo == "Feminino") selected="selected" @endif>Femino</option>
+                <option value="3" @if($dependente->sexo == "Outros") selected="selected" @endif>Outros</option>
+              </select>
+            </div>
+
+            {{-- Deficiente --}}
+            <label class="col-md-1 control-label" for="dependentes[0][necessidades_especiais]">Deficiente</label>
+            <div class="col-md-3">
+              <select name="dependentes[0][necessidades_especiais]" id="dependentes[0][necessidades_especiais]" type="text" placeholder="Necessidades Especiais" class="form-control input-md" >
+                <option value="" disabled @if(!$dependente->necessidades_especiais) selected @endif style="display: none;">Selecione...</option>
+                <option value="1" @if($dependente->necessidades_especiais == "1") selected="selected" @endif>Sim</option>
+                <option value="0" @if($dependente->necessidades_especiais == "0") selected="selected" @endif>Não</option>
+              </select>
+            </div>
+          
+          </div>  {{-- FIM Data de Nascimento, Sexo, Deficiente --}}
+              
+          <div class="col-md-11"></div>
+          <button name="submit" value="excluir" class="btn btn-xs btn-danger glyphicon glyphicon-trash excluir" selected style="display:none;"></button>
+
+          </div> {{-- FIM panel_dependentes --}}
+
+      @empty
+
+        <div class="x_panel panel_dependentes">
       
-        {{-- Nome --}}
-        <div class="form-group">
-          <label class="col-md-1 control-label" for="dependentes[0][nome]">Nome</label>
-          <div class="col-md-8">
-            <input value="{{ $pessoa->dependentes[0]->nome }}" name="dependentes[0][nome]" id="dependentes[0][nome]" type="text" placeholder="Informe o nome" class="form-control input-md" >
+          {{-- Nome --}}
+          <div class="form-group">
+            <label class="col-md-1 control-label" for="dependentes[0][nome]">Nome</label>
+            <div class="col-md-8">
+              <input value="{{ old('dependentes.0.nome') }}" name="dependentes[0][nome]" id="dependentes[0][nome]" type="text" placeholder="Informe o nome" class="form-control input-md" >
+            </div>
+
+            <label class="col-md-1 control-label" for="dependentes.0.parentesco">Parentesco</label>
+            <div class="col-md-2">
+              <select name="dependentes[0][parentesco]" id="dependentes[0][parentesco]" type="text" placeholder="Necessidades Especiais" class="form-control input-md" >
+                <option value="" disabled @if(!old('dependentes.0.parentesco')) selected @endif style="display: none;">Selecione...</option>
+              <option value="1" @if(old('dependentes.0.parentesco') == "1") selected="selected" @endif>Avô(ó)</option>
+              <option value="2" @if(old('dependentes.0.parentesco') == "2") selected="selected" @endif>Bisavô(ó)</option>
+              <option value="3" @if(old('dependentes.0.parentesco') == "3") selected="selected" @endif>Bisneto(a)</option>
+              <option value="4" @if(old('dependentes.0.parentesco') == "4") selected="selected" @endif>Companheiro(a)</option>
+              <option value="5" @if(old('dependentes.0.parentesco') == "5") selected="selected" @endif>Cônjuge</option>
+              <option value="6" @if(old('dependentes.0.parentesco') == "6") selected="selected" @endif>Enteado(a)</option>
+              <option value="7" @if(old('dependentes.0.parentesco') == "7") selected="selected" @endif>Ex-esposa</option>
+              <option value="8" @if(old('dependentes.0.parentesco') == "8") selected="selected" @endif>Filho(a)</option>
+              <option value="9" @if(old('dependentes.0.parentesco') == "9") selected="selected" @endif>Irmão(ã)</option>
+              <option value="10" @if(old('dependentes.0.parentesco') == "10") selected="selected" @endif>Neto(a)</option>
+              <option value="11" @if(old('dependentes.0.parentesco') == "11") selected="selected" @endif>Pais</option>
+              <option value="12" @if(old('dependentes.0.parentesco') == "12") selected="selected" @endif>Outras</option>
+              </select>
+            </div>
+          </div>
+        
+          {{-- Data de Nascimento, Sexo, Deficiente --}}
+          <div class="form-group">
+
+          {{-- Data de Nascimento --}}
+          <label class="col-md-1 control-label" for="dependentes[0][nascimento]">Nascimento</label>  
+          <div class="col-md-3">
+            <input value="{{ old('dependentes.0.nascimento') }}" name="dependentes[0][nascimento]" type="date" placeholder="01/01/2000" class="form-control input-md global-data" >
           </div>
 
-          <label class="col-md-1 control-label" for="dependentes.0.parentesco">Parentesco</label>
-          <div class="col-md-2">
-            <select name="dependentes[0][parentesco]" id="dependentes[0][parentesco]" type="text" placeholder="Necessidades Especiais" class="form-control input-md" >
-              <option value="" disabled @if(!$pessoa->dependentes[0]->parentesco) selected @endif style="display: none;">Selecione...</option>
-            <option value="1" @if($pessoa->dependentes[0]->parentesco == "1") selected="selected" @endif>Avô(ó)</option>
-            <option value="2" @if($pessoa->dependentes[0]->parentesco == "2") selected="selected" @endif>Bisavô(ó)</option>
-            <option value="3" @if($pessoa->dependentes[0]->parentesco == "3") selected="selected" @endif>Bisneto(a)</option>
-            <option value="4" @if($pessoa->dependentes[0]->parentesco == "4") selected="selected" @endif>Companheiro(a)</option>
-            <option value="5" @if($pessoa->dependentes[0]->parentesco == "5") selected="selected" @endif>Cônjuge</option>
-            <option value="6" @if($pessoa->dependentes[0]->parentesco == "6") selected="selected" @endif>Enteado(a)</option>
-            <option value="7" @if($pessoa->dependentes[0]->parentesco == "7") selected="selected" @endif>Ex-esposa</option>
-            <option value="8" @if($pessoa->dependentes[0]->parentesco == "8") selected="selected" @endif>Filho(a)</option>
-            <option value="9" @if($pessoa->dependentes[0]->parentesco == "9") selected="selected" @endif>Irmão(ã)</option>
-            <option value="10" @if($pessoa->dependentes[0]->parentesco == "10") selected="selected" @endif>Neto(a)</option>
-            <option value="11" @if($pessoa->dependentes[0]->parentesco == "11") selected="selected" @endif>Pais</option>
-            <option value="12" @if($pessoa->dependentes[0]->parentesco == "12") selected="selected" @endif>Outras</option>
+          {{-- Sexo   --}}
+          <label class="col-md-1 control-label" for="dependentes[0][sexo]">Sexo</label>
+          <div class="col-md-3">
+            <select name="dependentes[0][sexo]" id="dependentes[0][sexo]" type="text" placeholder="Sexo" class="form-control input-md" >
+              <option value="" disabled @if(!old('dependentes.0.sexo')) selected @endif style="display: none;">Selecione...</option>
+              <option value="1" @if(old('dependentes.0.sexo') == "Masculino") selected="selected" @endif>Masculino</option>
+              <option value="2" @if(old('dependentes.0.sexo') == "Feminino") selected="selected" @endif>Femino</option>
+              <option value="3" @if(old('dependentes.0.sexo') == "Outros") selected="selected" @endif>Outros</option>
             </select>
           </div>
-        </div>
-      
-        {{-- Data de Nascimento, Sexo, Deficiente --}}
-        <div class="form-group">
 
-        {{-- Data de Nascimento --}}
-        <label class="col-md-1 control-label" for="dependentes[0][nascimento]">Nascimento</label>  
-        <div class="col-md-3">
-          <input value="{{ $pessoa->dependentes[0]->nascimento }}" name="dependentes[0][nascimento]" type="date" placeholder="01/01/2000" class="form-control input-md global-data" >
-        </div>
+          {{-- Deficiente --}}
+          <label class="col-md-1 control-label" for="dependentes[0][necessidades_especiais]">Deficiente</label>
+          <div class="col-md-3">
+            <select name="dependentes[0][necessidades_especiais]" id="dependentes[0][necessidades_especiais]" type="text" placeholder="Necessidades Especiais" class="form-control input-md" >
+              <option value="" disabled @if(!old('dependentes.0.necessidades_especiais')) selected @endif style="display: none;">Selecione...</option>
+              <option value="1" @if(old('dependentes.0.necessidades_especiais') == "1") selected="selected" @endif>Sim</option>
+              <option value="0" @if(old('dependentes.0.necessidades_especiais') == "0") selected="selected" @endif>Não</option>
+            </select>
+          </div>
+        
+        </div>  {{-- FIM Data de Nascimento, Sexo, Deficiente --}}
+            
+        <div class="col-md-11"></div>
+        <button name="submit" value="excluir" class="btn btn-xs btn-danger glyphicon glyphicon-trash excluir" selected style="display:none;"></button>
 
-        {{-- Sexo   --}}
-        <label class="col-md-1 control-label" for="dependentes[0][sexo]">Sexo</label>
-        <div class="col-md-3">
-          <select name="dependentes[0][sexo]" id="dependentes[0][sexo]" type="text" placeholder="Sexo" class="form-control input-md" >
-            <option value="" disabled @if(!$pessoa->dependentes[0]->sexo) selected @endif style="display: none;">Selecione...</option>
-            <option value="1" @if($pessoa->dependentes[0]->sexo == "Masculino") selected="selected" @endif>Masculino</option>
-            <option value="2" @if($pessoa->dependentes[0]->sexo == "Feminino") selected="selected" @endif>Femino</option>
-            <option value="3" @if($pessoa->dependentes[0]->sexo == "Outros") selected="selected" @endif>Outros</option>
-          </select>
-        </div>
+        </div> {{-- FIM panel_dependentes --}}
 
-        {{-- Deficiente --}}
-        <label class="col-md-1 control-label" for="dependentes[0][necessidades_especiais]">Deficiente</label>
-        <div class="col-md-3">
-          <select name="dependentes[0][necessidades_especiais]" id="dependentes[0][necessidades_especiais]" type="text" placeholder="Necessidades Especiais" class="form-control input-md" >
-            <option value="" disabled @if(!$pessoa->dependentes[0]->necessidades_especiais) selected @endif style="display: none;">Selecione...</option>
-            <option value="1" @if($pessoa->dependentes[0]->necessidades_especiais == "1") selected="selected" @endif>Sim</option>
-            <option value="0" @if($pessoa->dependentes[0]->necessidades_especiais == "0") selected="selected" @endif>Não</option>
-          </select>
-        </div>
-      
-      </div>  {{-- FIM Data de Nascimento, Sexo, Deficiente --}}
-          
-      <div class="col-md-11"></div>
-      <button name="submit" value="excluir" class="btn btn-xs btn-danger glyphicon glyphicon-trash excluir" selected style="display:none;"></button>
-
-      </div> {{-- FIM panel_dependentes --}}
+      @endforelse
 
       <div class="div-clone"></div> {{-- Clonagem da div panel_dependentes --}}
 
@@ -588,7 +658,7 @@
       </label>
 
       <label class="col-md-11 control-label" for="button1id">
-        <button id="button2id" type="reset" value="reset" name="button2id" class="btn btn-danger">Limpar</button>
+        <a class="btn btn-danger" href="{{ url( "pessoas" ) }}">Voltar</a>
       </label>
     </div>
   

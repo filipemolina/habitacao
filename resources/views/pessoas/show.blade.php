@@ -21,7 +21,16 @@
 		
 		<div class="x_content">
 
-			{{ $pessoa->nome }}
+			{{ $pessoa->nome }} <br>
+			
+
+			@foreach($pessoa->dependentes as $dependente)		
+
+				{{ $dependente->nome }}<br>
+
+
+
+			@endforeach	
 
 		</div>
 	</div>
