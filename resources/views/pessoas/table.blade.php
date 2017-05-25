@@ -17,42 +17,9 @@ Lista de Pessoas
 
 @endpush
 
-@section("main_container")
+@section('main_container')
 
-<div class="x_title">
-    <h2>Lista de Pessoas</h2>
-    <div class="clearfix"></div>
-</div>
-
-<div class="col-md-12 col-sm-12 col-xs-12">
-    <div class="x_panel">
-        <div class="x_content">
-            <table class="table table-striped" id="dataTable">
-
-              <thead>
-
-                <tr>
-                    <th>Nome</th>
-                    <th>Idade</th>
-                    <th>Sexo</th>
-                    <th>PNE</th>
-                    <th>Co-participante?</th>
-                    <th>Dependentes</th>
-                    <th>Bairro</th>
-                    <th>Ações</th>
-                </tr>           
-
-            </thead>
-
-            {{-- preenchido com datatables --}}
-        </table>
-
-
-    </div>
-</div>
-</div>
-
-<div class="clearfix"></div>
+	{!! $dataTable->table() !!}
 
 @endsection
 
@@ -74,7 +41,5 @@ Lista de Pessoas
 <script src="{{ asset('vendors/jszip/dist/jszip.min.js') }}"></script>
 <script src="{{ asset('vendors/pdfmake/build/pdfmake.min.js') }}"></script>
 <script src="{{ asset('vendors/pdfmake/build/vfs_fonts.js') }}"></script>
-
-@include('includes.pessoas.index.scripts')
 
 @endpush

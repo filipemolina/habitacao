@@ -21,6 +21,7 @@
 		
 		<div class="x_content">
 
+<<<<<<< HEAD
 			Nome:					{{ $pessoa->nome }} <br>
 
 			CPF:					{{ $pessoa->cpf }}<br>
@@ -87,6 +88,18 @@
 			Telefone:				{{ $pessoa->coparticipante["telefones"][1]["numero"] }}
 
 
+=======
+			{{ $pessoa->nome }} <br>
+			
+
+			@foreach($pessoa->dependentes as $dependente)		
+
+				{{ $dependente->nome }}<br>
+
+
+
+			@endforeach	
+>>>>>>> f26fdf59e98c42def0732e2333e0b947e33145b2
 
 		</div>
 	</div>

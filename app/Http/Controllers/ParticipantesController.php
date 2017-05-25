@@ -9,6 +9,7 @@ use App\Telefone;
 use App\Endereco;
 use App\Dependente;
 use Datatables;
+use PDF;
 
 class ParticipantesController extends Controller
 {
@@ -262,6 +263,19 @@ class ParticipantesController extends Controller
     public function anosResidencia(Request $request)
     {
         return date('Y') - date('Y', strtotime($request->input('inicio')));
+    }
+
+    /**
+     * Gerar Relatórios
+     */
+
+    public function relatorios(Request $request)
+    {
+        $pessoas = Participante::with('coparticipante', 'endereco', 'telefones', 'dependentes', 'coparticipante.telefones', 'coparticipante.endereco')->get();
+
+        $pdf = PDF::loadView('pessoas.relatorio', compact('pessoas'));
+
+        return $pdf->stream();
     }
 
 }
