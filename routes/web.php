@@ -11,6 +11,8 @@
 |
 */
 
+use App\DataTables\ParticipantesDataTable;
+
 Auth::routes();
 Route::get('/logout', 'Auth\LoginController@logout');
 Route::get('/', 'HomeController@index');
@@ -18,6 +20,11 @@ Route::get('/', 'HomeController@index');
 // Rota para o dataTables
 
 Route::get('pessoas/dados', 'ParticipantesController@dados');
+Route::get('pessoas/data', function (ParticipantesDataTable $datatables){
+
+	return $datatables->render('pessoas.table');
+
+});
 
 // Rota para calcular o tempo de residência do participante
 

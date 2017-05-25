@@ -264,4 +264,15 @@ class ParticipantesController extends Controller
         return date('Y') - date('Y', strtotime($request->input('inicio')));
     }
 
+    /**
+     * Gerar Relatórios
+     */
+
+    public function relatorios(Request $request)
+    {
+        $pessoas = Participantes::with('coparticipante', 'endereco', 'telefones', 'dependentes', 'coparticipante.telefones', 'coparticipante.endereco')->get();
+
+        $pdf = PDF::loadView('pessoas.relatorio', compact('pessoas'));
+    }
+
 }
