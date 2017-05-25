@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>Currículo</title>
+    <title>@section('title') @show</title>
     
     <link rel="stylesheet" href="css/pdf.css">
 

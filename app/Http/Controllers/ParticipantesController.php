@@ -287,13 +287,13 @@ class ParticipantesController extends Controller
         // Obter os cabeçalhos desejados no relatório
 
         $cabecalhos = [
-            'nome',
-            'idade',
-            'sexo',
-            'pne',
-            'coparticipante',
-            'dependentes',
-            'bairro',
+            'nome'           => 'Nome',
+            'idade'          => 'Idade',
+            'sexo'           => 'Sexo',
+            'pne'            => 'Necessidades Especiais',
+            'coparticipante' => 'Co-participante',
+            'dependentes'    => 'Dependentes',
+            'bairro'         => 'Bairro',
         ];
 
         // Coleção que será enviada para o PDF
@@ -302,7 +302,7 @@ class ParticipantesController extends Controller
 
         // Gerar o PDF        
 
-        $pdf = PDF::loadView('pessoas.relatorio', compact('pessoas'));
+        $pdf = PDF::loadView('pessoas.relatorios.geral', compact(['pessoas', 'cabecalhos']));
 
         // Enviar para o navegador
 
@@ -342,31 +342,31 @@ class ParticipantesController extends Controller
         $pessoa = [];
 
         // Nome
-        if(in_array('nome', $cabecalhos))
+        if(array_key_exists('nome', $cabecalhos) !== false)
             $pessoa['nome'] = $participante->nome;
 
         // Idade
-        if(in_array('idade', $cabecalhos))
+        if(array_key_exists('idade', $cabecalhos) !== false)
             $pessoa['idade'] = date('Y') - date('Y', strtotime($participante->nascimento));
 
         // Sexo
-        if(in_array('sexo', $cabecalhos))
+        if(array_key_exists('sexo', $cabecalhos) !== false)
             $pessoa['sexo'] = $participante->sexo;
 
         // PNE
-        if(in_array('pne', $cabecalhos))
+        if(array_key_exists('pne', $cabecalhos) !== false)
             $pessoa['pne'] = $participante->necessidades_especiais ? "Sim" : "Não";
 
         // Coparticipante
-        if(in_array('coparticipante', $cabecalhos))
+        if(array_key_exists('coparticipante', $cabecalhos) !== false)
             $pessoa['coparticipante'] = count($participante->coparticipante) ? "Sim" : "Não";
 
         // Dependentes
-        if(in_array('dependentes', $cabecalhos))
+        if(array_key_exists('dependentes', $cabecalhos) !== false)
             $pessoa['dependentes'] = count($participante->dependentes);
 
         // Bairro
-        if(in_array('bairro', $cabecalhos))
+        if(array_key_exists('bairro', $cabecalhos) !== false)
             $pessoa['bairro'] = $participante->endereco->bairro;
 
         return $pessoa;
