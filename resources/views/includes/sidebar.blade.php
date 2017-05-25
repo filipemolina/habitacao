@@ -47,7 +47,14 @@
                         </ul>
                     </li>
 
-                    <li><a><i class=" fa fa-clipboard"></i>Relatórios</a>
+                    <li><a href="{{ url('pessoas/relatorios') }}"><i class=" fa fa-clipboard"></i>Relatórios</a>
+                        <ul class="nav child_menu">
+                      {{--       <li><a href="{{ url('#') }}">Geral</a></li>
+                            <li><a href="{{ url('#') }}">Por Idade</a></li>
+                            <li><a href="{{ url('#') }}">Por Sexo</a></li>
+                            <li><a href="{{ url('#') }}">Por Dependentes</a></li>
+                            <li><a href="{{ url('#') }}">Por Bairro</a></li> --}}
+                        </ul>
                         
                     </li>
 

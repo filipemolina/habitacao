@@ -212,6 +212,15 @@ class ParticipantesController extends Controller
     }
 
     /**
+     * Tela de seleção de relatórios
+     */
+
+    public function relatorios()
+    {
+        return view('pessoas.relatorios');
+    }
+
+    /**
      * Função para gerenciar as chamadas AJAX do DATATABLES
      */
 
@@ -269,13 +278,98 @@ class ParticipantesController extends Controller
      * Gerar Relatórios
      */
 
-    public function relatorios(Request $request)
+    public function imprimeRelatorio(Request $request)
     {
-        $pessoas = Participante::with('coparticipante', 'endereco', 'telefones', 'dependentes', 'coparticipante.telefones', 'coparticipante.endereco')->get();
+        // Obter todos os participantes
 
-        $pdf = PDF::loadView('pessoas.relatorio', compact('pessoas'));
+        $participantes = Participante::with('coparticipante', 'endereco', 'telefones', 'dependentes', 'coparticipante.telefones', 'coparticipante.endereco')->get();
+
+        // Obter os cabeçalhos desejados no relatório
+
+        $cabecalhos = [
+            'nome'           => 'Nome',
+            'idade'          => 'Idade',
+            'sexo'           => 'Sexo',
+            'pne'            => 'Necessidades Especiais',
+            'coparticipante' => 'Co-participante',
+            'dependentes'    => 'Dependentes',
+            'bairro'         => 'Bairro',
+        ];
+
+        // Coleção que será enviada para o PDF
+
+        $pessoas = $this->montaRelatorio($participantes, $cabecalhos);
+
+        // Gerar o PDF        
+
+        $pdf = PDF::loadView('pessoas.relatorios.geral', compact(['pessoas', 'cabecalhos']));
+
+        // Enviar para o navegador
 
         return $pdf->stream();
+    }
+
+    /**
+     * Esta função chama a função montaLinhaDoRelatorio uma vez para cada
+     * participante enviado e retorna uma coleção contendo os dados de acordo
+     * com os cabeçalhos escolhidos pelo usuário
+     */
+
+    protected function montaRelatorio($participantes, $cabecalhos)
+    {
+        // Coleção que será enviada para o PDF
+
+        $pessoas = collect();
+
+        // Iterar pelos participantes e montar cada linha do relatório de acordo
+        // com os cabeçalhos escolhidos
+
+        foreach($participantes as $participante)
+        {
+            $pessoas->push($this->montaLinhaDoRelatorio($participante, $cabecalhos));
+        }
+
+        return $pessoas;
+    }
+
+    /**
+     * Essa função monta uma linha do relatório filtrando os dados do participante
+     * e fazendo ajustes de acordo com os cabeçalhos escolhidos
+     */
+
+    protected function montaLinhaDoRelatorio($participante, $cabecalhos)
+    {
+        $pessoa = [];
+
+        // Nome
+        if(array_key_exists('nome', $cabecalhos) !== false)
+            $pessoa['nome'] = $participante->nome;
+
+        // Idade
+        if(array_key_exists('idade', $cabecalhos) !== false)
+            $pessoa['idade'] = date('Y') - date('Y', strtotime($participante->nascimento));
+
+        // Sexo
+        if(array_key_exists('sexo', $cabecalhos) !== false)
+            $pessoa['sexo'] = $participante->sexo;
+
+        // PNE
+        if(array_key_exists('pne', $cabecalhos) !== false)
+            $pessoa['pne'] = $participante->necessidades_especiais ? "Sim" : "Não";
+
+        // Coparticipante
+        if(array_key_exists('coparticipante', $cabecalhos) !== false)
+            $pessoa['coparticipante'] = count($participante->coparticipante) ? "Sim" : "Não";
+
+        // Dependentes
+        if(array_key_exists('dependentes', $cabecalhos) !== false)
+            $pessoa['dependentes'] = count($participante->dependentes);
+
+        // Bairro
+        if(array_key_exists('bairro', $cabecalhos) !== false)
+            $pessoa['bairro'] = $participante->endereco->bairro;
+
+        return $pessoa;
     }
 
 }
