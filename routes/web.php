@@ -30,6 +30,10 @@ Route::get('pessoas/data', function (ParticipantesDataTable $datatables){
 
 Route::get('pessoas/temporesidencia/', 'ParticipantesController@anosResidencia');
 
+// Rota dos Relatórios
+
+Route::get('pessoas/relatorios', 'ParticipantesController@relatorios');
+
 // Rotas dos Resourceful Controllers
 
 Route::resource('users', 'UsersController');

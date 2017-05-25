@@ -9,6 +9,7 @@ use App\Telefone;
 use App\Endereco;
 use App\Dependente;
 use Datatables;
+use PDF;
 
 class ParticipantesController extends Controller
 {
@@ -270,9 +271,11 @@ class ParticipantesController extends Controller
 
     public function relatorios(Request $request)
     {
-        $pessoas = Participantes::with('coparticipante', 'endereco', 'telefones', 'dependentes', 'coparticipante.telefones', 'coparticipante.endereco')->get();
+        $pessoas = Participante::with('coparticipante', 'endereco', 'telefones', 'dependentes', 'coparticipante.telefones', 'coparticipante.endereco')->get();
 
         $pdf = PDF::loadView('pessoas.relatorio', compact('pessoas'));
+
+        return $pdf->stream();
     }
 
 }
