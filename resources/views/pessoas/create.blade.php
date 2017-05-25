@@ -148,7 +148,7 @@
           </div>
 
           {{-- Deficiente --}}
-          <label class="col-md-1 control-label" for="necessidades_especiais">Deficiente</label>
+          <label class="col-md-1 control-label" for="necessidades_especiais">Necessidades Especias</label>
           <div class="col-md-2">
             <select id="necessidades_especiais" name="necessidades_especiais" type="text" class="form-control input-md" >
               <option value="" disabled @if(!old('necessidades_especiais')) selected @endif style="display: none;">Selecione...</option>
@@ -160,31 +160,16 @@
         </div> {{-- Fim Data de Nascimento, Sexo, Deficiente --}}
 
 
-        {{-- Logradouro, Número, Complemento --}}
+        {{-- CEP, Munícipio e Bairro --}}
         <div class="form-group">
+
+          <button class="btn bnt-xs btn-primary duplicar-endereco glyphicon glyphicon-globe col-md-1" onClick="parent.location='https://google.com'" value="Google" formtarget="_blank" style="margin-right: 0;"></button>
 
           <!-- CEP-->
           <label class="col-md-1 control-label" for="cep">CEP</label>
           <div class="col-md-2">
             <input value="{{ old('cep') }}" id="cep" name="cep" type="text" data-inputmask="'mask' : '99.999-999'" placeholder="99999-999" class="form-control input-md cep" >
           </div>
-
-          <!-- Logradouro ...Av...Rua....etc-->
-          <label class="col-md-1 control-label" for="logradouro">Logradouro</label>
-          <div class="col-md-3">
-            <input value="{{ old('logradouro') }}" id="logradouro" name="logradouro" type="text" placeholder="Av, Rua, Travessa..." class="form-control input-md">
-          </div>
-          
-          <!-- Número da residência-->
-          <label class="col-md-1 control-label" for="numero">Numero</label>
-          <div class="col-md-2">
-            <input value="{{ old('numero') }}" id="numero" name="numero" type="text" placeholder="999" class="form-control input-md">
-          </div>
-
-        </div> {{-- FIM CEP, Logradouro e Número--}}
-
-        {{-- Complemento, Bairro e Munícipio --}}
-        <div class="form-group">
 
           <!-- Município-->
           <label class="col-md-1 control-label" for="municipio">Município</label>
@@ -195,7 +180,24 @@
           {{-- Bairro --}}
           <label class="col-md-1 control-label" for="bairro">Bairro</label>
           <div class="col-md-3">
-            <input value="{{ old('bairro') }}" id="bairro" name="bairro" type="text" placeholder="Centro" class="form-control input-md">
+            <input value="{{ old('bairro') }}" disabled="disabled" id="bairro" name="bairro" type="text" placeholder="Centro" class="form-control input-md">
+          </div>
+
+        </div> {{-- FIM CEP, Munícipio e Bairro--}}
+
+        {{-- Logradouro, Número e Complemento --}}
+        <div class="form-group">
+
+          <!-- Logradouro ...Av...Rua....etc-->
+          <label class="col-md-1 control-label" for="logradouro">Logradouro</label>
+          <div class="col-md-3">
+            <input value="{{ old('logradouro') }}" disabled="disabled" id="logradouro" name="logradouro" type="text" placeholder="Av, Rua, Travessa..." class="form-control input-md">
+          </div>
+
+            <!-- Número da residência-->
+          <label class="col-md-1 control-label" for="numero">Numero</label>
+          <div class="col-md-2">
+            <input value="{{ old('numero') }}" id="numero" name="numero" type="text" placeholder="999" class="form-control input-md">
           </div>
 
           {{-- Complemento --}}
@@ -204,7 +206,7 @@
             <input value="{{ old('complemento') }}" id="complemento" name="complemento" type="text" placeholder="Ap., Fundos,..." class="form-control input-md">
           </div>
 
-        </div> {{-- FIM Bairro, Munícipio e CEP --}}
+        </div> {{-- FIM Logradouro, Número e Complemento --}}
 
         {{-- Email , Celular e Telefone --}}
         <div class="form-group">
@@ -343,25 +345,26 @@
       {{-- Logradouro, Número, Complemento --}}
       <div class="form-group">
 
+        
+        <button class="btn bnt-xs btn-primary duplicar-endereco glyphicon glyphicon-download col-md-1" style="margin-right: 0;"></button>
+
         <!-- CEP-->
         <label class="col-md-1 control-label" for="coparticipante[cep]">CEP</label>
         <div class="col-md-2">
           <input value="{{ old('coparticipante.cep') }}" id="coparticipante[cep]" data-inputmask="'mask' : '99.999-999'" name="coparticipante[cep]" type="text" placeholder="99999-999" class="form-control input-md cep" >
         </div>
 
-        {{-- Logradouro ...Av...Rua....etc --}}
-        <label class="col-md-1 control-label" for="coparticipante[logradouro]">Logradouro</label>
+        <!-- Município-->
+        <label class="col-md-1 control-label" for="coparticipante[municipio]">Município</label>
         <div class="col-md-3">
-          <input value="{{ old('coparticipante.logradouro') }}" id="coparticipante[logradouro]" name="coparticipante[logradouro]" type="text" placeholder="Av, Rua, Travessa..." class="form-control input-md">
-        </div>
-        
-        <!-- Número da residência-->
-        <label class="col-md-1 control-label" for="coparticipante[numero]">Numero</label>
-        <div class="col-md-2">
-          <input value="{{ old('coparticipante.numero') }}" id="coparticipante[numero]" name="coparticipante[numero]" type="text" placeholder="999" class="form-control input-md">
+          <input value="{{ old('coparticipante.municipio') }}" disabled="disabled" id="coparticipante[municipio]" value="Mesquita" name="coparticipante[municipio]" type="text" placeholder="Mesquita" class="form-control input-md" >
         </div>
 
-        <button class="btn btn-info duplicar-endereco col-md-2" style="margin-right: 0;">Duplicar Endereço</button>
+        {{-- Bairro --}}
+        <label class="col-md-1 control-label" for="coparticipante[bairro]">Bairro</label>
+        <div class="col-md-3">
+          <input value="{{ old('coparticipante.bairro') }}" disabled="disabled" id="coparticipante[bairro]" name="coparticipante[bairro]" type="text" placeholder="Centro" class="form-control input-md">
+        </div>
 
       </div> {{-- FIM Logradouro, Número, complemento --}}            
 
@@ -369,16 +372,16 @@
       {{-- Bairro, Munícipio e CEP --}}
       <div class="form-group">
 
-        <!-- Município-->
-        <label class="col-md-1 control-label" for="coparticipante[municipio]">Município</label>
+        {{-- Logradouro ...Av...Rua....etc --}}
+        <label class="col-md-1 control-label" for="coparticipante[logradouro]">Logradouro</label>
         <div class="col-md-3">
-          <input value="{{ old('coparticipante.municipio') }}" id="coparticipante[municipio]" disabled="disabled" value="Mesquita" name="coparticipante[municipio]" type="text" placeholder="Mesquita" class="form-control input-md" >
+          <input value="{{ old('coparticipante.logradouro') }}" disabled="disabled" id="coparticipante[logradouro]" name="coparticipante[logradouro]" type="text" placeholder="Av, Rua, Travessa..." class="form-control input-md">
         </div>
-              
-        {{-- Bairro --}}
-        <label class="col-md-1 control-label" for="coparticipante[bairro]">Bairro</label>
-        <div class="col-md-3">
-          <input value="{{ old('coparticipante.bairro') }}" id="coparticipante[bairro]" name="coparticipante[bairro]" type="text" placeholder="Centro" class="form-control input-md">
+
+        <!-- Número da residência-->
+        <label class="col-md-1 control-label" for="coparticipante[numero]">Numero</label>
+        <div class="col-md-2">
+          <input value="{{ old('coparticipante.numero') }}" id="coparticipante[numero]" name="coparticipante[numero]" type="text" placeholder="999" class="form-control input-md">
         </div>
 
         {{-- Complemento --}}
