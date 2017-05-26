@@ -172,7 +172,10 @@ class ParticipantesController extends Controller
     {
         $pessoa = Participante::with('endereco', 'telefones', 'coparticipante', 'coparticipante.endereco', 'coparticipante.telefones', 'dependentes')->where('id', $id)->first();
 
-        return view('pessoas.show', compact('pessoa'));
+        $faixa = "";
+        $periodo = "";
+
+        return view('pessoas.show', compact(['pessoa', 'faixa', 'periodo']));
     }
 
     /**
