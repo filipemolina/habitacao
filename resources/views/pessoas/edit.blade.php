@@ -45,7 +45,7 @@
 
     @endif
 
-    <h2> Cadastro de Pessoa </h2>
+    <h2> Alteração de Dados </h2>
 
     <form id="cadastro_pessoa" class="form-horizontal" method="post" action="{{ url("/pessoas") }}">
 
@@ -654,7 +654,7 @@
     {{-- Botões Enviar e Limpar --}}
     <div class="form-group">
       <label class="col-md-1 control-label" for="button1id">
-        <button id="button1id" type="submit" value="submit" name="button1id" class="btn btn-primary">Enviar</button>
+        <button id="button1id" type="submit" value="submit" name="button1id" class="btn btn-primary">Salvar</button>
       </label>
 
       <label class="col-md-11 control-label" for="button1id">
