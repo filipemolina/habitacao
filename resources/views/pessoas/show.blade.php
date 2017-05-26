@@ -33,7 +33,7 @@
 		
 		<div class="x_content">
 
-			<table>
+			<table class="">
 
 				<tread>
 
@@ -48,122 +48,186 @@
 				<tbody>
 
 					{{-- CPF, NIS, CTPS e Bolsa Família --}}
-					<table class="table">
+					<table class="table ">
 
 						<tbody>
 
 							<tr>
 
 								<th class="col-md-1 table-bordered">CPF</th>
-								<th class="col-md-2">{{ $pessoa->cpf }}</th>
+								<th class="col-md-2 no-bold">{{ $pessoa->cpf }}</th>
 								<th class="col-md-1 table-bordered">NIS</th>
-								<th class="col-md-2">{{ $pessoa->nis }}</th>
+								<th class="col-md-2 no-bold">{{ $pessoa->nis }}</th>
 								<th class="col-md-1	table-bordered">CTPS</th>
-								<th class="col-md-2">{{ $pessoa->cpf }}</th>
+								<th class="col-md-2 no-bold">{{ $pessoa->cpf }}</th>
 								<th class="col-md-1 table-bordered">Bolsa F.</th>
-								<th class="col-md-2">{{ $pessoa->nis }}</th>
+								<th class="col-md-2 no-bold"> @if ($pessoa->bolsa_familia) sim @else não @endif</th>
+
+							</tr>
+
+							<tr>
+
+								<th></th>
+								<th class="semborda"></th>
+								<th></th>
+								<th class="semborda"></th>
+								<th></th>
+								<th class="semborda"></th>
 
 							</tr>
 						</tbody>
 					</table> {{-- FIM CPF, NIS, CTPS e Bolsa Família --}}
 
 					{{-- RG, Orgão e Emissão --}}
-					<table class="table">
+					<table class="table ">
 
 						<tbody>
 
 							<tr>
 
 								<th class="col-md-1 table-bordered">RG</th>
-								<th class="col-md-2">{{ $pessoa->rg }}</th>
+								<th class="col-md-2 no-bold">{{ $pessoa->rg }}</th>
 								<th class="col-md-1 table-bordered">Orgão</th>
-								<th class="col-md-2">{{ $pessoa->orgao_emissor_rg }}</th>
+								<th class="col-md-2 no-bold">{{ $pessoa->orgao_emissor_rg }}</th>
 								<th class="col-md-1	table-bordered">Emissão</th>
-								<th class="col-md-2">{{ $pessoa->emissao_rg }}</th>
+								<th class="col-md-2 no-bold">{{ $pessoa->emissao_rg }}</th>
 								<th class="col-md-1 table-borderless"></th>
-								<th class="col-md-2"></th>
+								<th class="col-md-2 no-bold"></th>
+
+							</tr>
+
+							<tr>
+
+									<th></th>
+									<th class="semborda"></th>
+									<th></th>
+									<th class="semborda"></th>
+									<th></th>
+									<th class="semborda"></th>
 
 							</tr>
 						</tbody>
 					</table>{{-- FIM RG, Orgão e Emissão --}}
 
 					{{-- Nascimento, Sexo e Necessidades especiais --}}
-					<table class="table">
+					<table class="table ">
 
 							<tbody>
 
 								<tr>
 
 									<th class="col-md-1 table-bordered">Nasc.</th>
-									<th class="col-md-2">{{ $pessoa->nascimento }}</th>
+									<th class="col-md-2 no-bold">{{ $pessoa->nascimento }}</th>
 									<th class="col-md-1 table-bordered">Sexo</th>
-									<th class="col-md-2">{{ $pessoa->sexo }}</th>
+									<th class="col-md-2 no-bold">{{ $pessoa->sexo }}</th>
 									<th class="col-md-1	table-bordered">N. Espec.</th>
-									<th class="col-md-2">{{ $pessoa->necessidades_especiais }}</th>
+									<th class="col-md-2 no-bold">@if ($pessoa->necessidades_especiais) sim @else não @endif</th>
 									<th class="col-md-1 table-borderless"></th>
-									<th class="col-md-2"></th>
+									<th class="col-md-2 no-bold"></th>
+
+								</tr>
+
+								<tr>
+
+									<th></th>
+									<th class="semborda"></th>
+									<th></th>
+									<th class="semborda"></th>
+									<th></th>
+									<th class="semborda"></th>
 
 								</tr>
 							</tbody>
 					</table> {{-- FIM Nascimento, Sexo e Necessidades especiais --}}
 
-					{{-- Bairro, Munícipio e CEP --}}
-					<table class="table">
+					{{-- Logradouro, Número e Complemento --}}
+					<table class="table ">
 
 							<tbody>
 
 								<tr>
 
 									<th class="col-md-1 table-bordered">Lograd.</th>
-									<th class="col-md-2">{{ $pessoa->logradouro }}</th>
+									<th class="col-md-5 no-bold">{{ $pessoa->logradouro }}</th>
 									<th class="col-md-1 table-bordered">Número</th>
-									<th class="col-md-2">{{ $pessoa->numero }}</th>
+									<th class="col-md-2 no-bold">{{ $pessoa->numero }}</th>
 									<th class="col-md-1	table-bordered">Comp.</th>
-									<th class="col-md-2">{{ $pessoa->complemento }}</th>
+									<th class="col-md-2 no-bold">{{ $pessoa->complemento }}</th>
 									<th class="col-md-1 table-borderless"></th>
-									<th class="col-md-2"></th>
+									<th class="col-md-1 no-bold"></th>
+
+								</tr>
+
+								<tr>
+
+									<th></th>
+									<th class="semborda"></th>
+									<th></th>
+									<th class="semborda"></th>
+									<th></th>
+									<th class="semborda"></th>
 
 								</tr>
 							</tbody>
-					</table> {{-- FIM Bairro, Munícipio e CEP --}}
+					</table> {{-- FIM Logradouro, Número e Complemento --}}
 					
-					
-
 					{{-- Bairro, Munícipio e CEP --}}
-					<table class="table">
+					<table class="table ">
 
 							<tbody>
 
 								<tr>
 
 									<th class="col-md-1 table-bordered">Bairro</th>
-									<th class="col-md-2">{{ $pessoa->bairro }}</th>
+									<th class="col-md-5 no-bold">{{ $pessoa->bairro }}</th>
 									<th class="col-md-1 table-bordered">Munícipio</th>
-									<th class="col-md-2">{{ $pessoa->municipio }}</th>
+									<th class="col-md-2 no-bold">{{ $pessoa->municipio }}</th>
 									<th class="col-md-1	table-bordered">CEP</th>
-									<th class="col-md-2">{{ $pessoa->cep }}</th>
+									<th class="col-md-2 no-bold">{{ $pessoa->cep }}</th>
 									<th class="col-md-1 table-borderless"></th>
-									<th class="col-md-2"></th>
+									<th class="col-md-1 no-bold"></th>
+
+								</tr>
+
+								<tr>
+
+									<th></th>
+									<th class="semborda"></th>
+									<th></th>
+									<th class="semborda"></th>
+									<th></th>
+									<th class="semborda"></th>
 
 								</tr>
 							</tbody>
 					</table> {{-- FIM Bairro, Munícipio e CEP --}}
 
 					{{-- Email, Celular e Telefone --}}
-					<table class="table">
+					<table class="table ">
 
 							<tbody>
 
 								<tr>
 
 									<th class="col-md-1 table-bordered">Email</th>
-									<th class="col-md-2">{{ $pessoa->email }}</th>
-									<th class="col-md-1 table-bordered">Celular</th>
-									<th class="col-md-2">{{ $pessoa->telefones[0]["numero"] }}</th>
+									<th class="col-md-5 no-bold">{{ $pessoa->email }}</th>
 									<th class="col-md-1	table-bordered">Telefone</th>
-									<th class="col-md-2">{{ $pessoa->telefones[1]["numero"] }}</th>
+									<th class="col-md-2 no-bold">{{ $pessoa->telefones[1]["numero"] }}</th>
+									<th class="col-md-1 table-bordered">Celular</th>
+									<th class="col-md-2 no-bold">{{ $pessoa->telefones[0]["numero"] }}</th>
 									<th class="col-md-1 table-borderless"></th>
-									<th class="col-md-2"></th>
+									<th class="col-md-1 no-bold"></th>
+
+								</tr>
+								
+								<tr>
+
+									<th></th>
+									<th class="semborda"></th>
+									<th></th>
+									<th class="semborda"></th>
+									<th></th>
+									<th class="semborda"></th>
 
 								</tr>
 							</tbody>
@@ -183,7 +247,7 @@
 		
 		<div class="x_content">
 
-			<table>
+			<table class="">
 
 				<tread>
 
@@ -198,122 +262,192 @@
 				<tbody>
 
 					{{-- CPF, NIS, CTPS e Bolsa Família --}}
-					<table class="table">
+					<table class="table ">
 
 						<tbody>
 
 							<tr>
 
 								<th class="col-md-1 table-bordered">CPF</th>
-								<th class="col-md-2">{{ $pessoa->coparticipante["cpf"] }}</th>
+								<th class="col-md-2 no-bold">{{ $pessoa->coparticipante["cpf"] }}</th>
 								<th class="col-md-1 table-bordered">NIS</th>
-								<th class="col-md-2">{{ $pessoa->coparticipante["nis"] }}</th>
+								<th class="col-md-2 no-bold">{{ $pessoa->coparticipante["nis"] }}</th>
 								<th class="col-md-1	table-bordered">CTPS</th>
-								<th class="col-md-2">{{ $pessoa->coparticipante["cpf"] }}</th>
+								<th class="col-md-2 no-bold">{{ $pessoa->coparticipante["cpf"] }}</th>
 								<th class="col-md-1 table-bordered">Bolsa F.</th>
-								<th class="col-md-2">{{ $pessoa->coparticipante["nis"] }}</th>
+								<th class="col-md-2 no-bold">@if ($pessoa->coparticipante["bolsa_familia"]) sim @else não @endif</th>
+
+							</tr>
+
+							<tr>
+
+								<tr>
+
+									<th></th>
+									<th class="semborda"></th>
+									<th></th>
+									<th class="semborda"></th>
+									<th></th>
+									<th class="semborda"></th>
+
+								</tr>
 
 							</tr>
 						</tbody>
 					</table> {{-- FIM CPF, NIS, CTPS e Bolsa Família --}}
 
 					{{-- RG, Orgão e Emissão --}}
-					<table class="table">
+					<table class="table ">
 
 						<tbody>
 
 							<tr>
 
 								<th class="col-md-1 table-bordered">RG</th>
-								<th class="col-md-2">{{ $pessoa->coparticipante["rg"] }}</th>
+								<th class="col-md-2 no-bold">{{ $pessoa->coparticipante["rg"] }}</th>
 								<th class="col-md-1 table-bordered">Orgão</th>
-								<th class="col-md-2">{{ $pessoa->coparticipante["orgao_emissor_rg"] }}</th>
+								<th class="col-md-2 no-bold">{{ $pessoa->coparticipante["orgao_emissor_rg"] }}</th>
 								<th class="col-md-1	table-bordered">Emissão</th>
-								<th class="col-md-2">{{ $pessoa->coparticipante["emissao_rg"] }}</th>
+								<th class="col-md-2 no-bold">{{ $pessoa->coparticipante["emissao_rg"] }}</th>
 								<th class="col-md-1 table-borderless"></th>
-								<th class="col-md-2"></th>
+								<th class="col-md-2 no-bold"></th>
+
+							</tr>
+
+							<tr>
+
+									<th></th>
+									<th class="semborda"></th>
+									<th></th>
+									<th class="semborda"></th>
+									<th></th>
+									<th class="semborda"></th>
 
 							</tr>
 						</tbody>
 					</table>{{-- FIM RG, Orgão e Emissão --}}
 
 					{{-- Nascimento, Sexo e Necessidades especiais --}}
-					<table class="table">
+					<table class="table ">
 
 							<tbody>
 
 								<tr>
 
 									<th class="col-md-1 table-bordered">Nasc.</th>
-									<th class="col-md-2">{{ $pessoa->coparticipante["nascimento"] }}</th>
+									<th class="col-md-2 no-bold">{{ $pessoa->coparticipante["nascimento"] }}</th>
 									<th class="col-md-1 table-bordered">Sexo</th>
-									<th class="col-md-2">{{ $pessoa->coparticipante["sexo"] }}</th>
+									<th class="col-md-2 no-bold">{{ $pessoa->coparticipante["sexo"] }}</th>
 									<th class="col-md-1	table-bordered">N. Espec.</th>
-									<th class="col-md-2">{{ $pessoa->coparticipante["necessidades_especiais"] }}</th>
+									<th class="col-md-2 no-bold">@if ($pessoa->coparticipante["necessidades_especiais"]) sim @else não @endif</th>
 									<th class="col-md-1 table-borderless"></th>
-									<th class="col-md-2"></th>
+									<th class="col-md-2 no-bold"></th>
+
+								</tr>
+
+								<tr>
+
+									<th></th>
+									<th class="semborda"></th>
+									<th></th>
+									<th class="semborda"></th>
+									<th></th>
+									<th class="semborda"></th>
 
 								</tr>
 							</tbody>
 					</table> {{-- FIM Nascimento, Sexo e Necessidades especiais --}}
 
-					{{-- Bairro, Munícipio e CEP --}}
-					<table class="table">
+					{{-- Logradouro, Número e Complemento --}}
+					<table class="table ">
 
 							<tbody>
 
 								<tr>
 
 									<th class="col-md-1 table-bordered">Lograd.</th>
-									<th class="col-md-2">{{ $pessoa->coparticipante["logradouro"] }}</th>
+									<th class="col-md-5 no-bold">{{ $pessoa->coparticipante["logradouro"] }}</th>
 									<th class="col-md-1 table-bordered">Número</th>
-									<th class="col-md-2">{{ $pessoa->coparticipante["numero"] }}</th>
+									<th class="col-md-2 no-bold">{{ $pessoa->coparticipante["numero"] }}</th>
 									<th class="col-md-1	table-bordered">Comp.</th>
-									<th class="col-md-2">{{ $pessoa->coparticipante["complemento"] }}</th>
+									<th class="col-md-2 no-bold">{{ $pessoa->coparticipante["complemento"] }}</th>
 									<th class="col-md-1 table-borderless"></th>
-									<th class="col-md-2"></th>
+									<th class="col-md-1 no-bold"></th>
+
+								</tr>
+
+								<tr>
+
+									<th></th>
+									<th class="semborda"></th>
+									<th></th>
+									<th class="semborda"></th>
+									<th></th>
+									<th class="semborda"></th>
 
 								</tr>
 							</tbody>
-					</table> {{-- FIM Bairro, Munícipio e CEP --}}
+					</table> {{-- FIM Logradouro, Número e Complemento --}}
 					
 					
 
 					{{-- Bairro, Munícipio e CEP --}}
-					<table class="table">
+					<table class="table ">
 
 							<tbody>
 
 								<tr>
 
 									<th class="col-md-1 table-bordered">Bairro</th>
-									<th class="col-md-2">{{ $pessoa->coparticipante["bairro"] }}</th>
+									<th class="col-md-5 no-bold">{{ $pessoa->coparticipante["bairro"] }}</th>
 									<th class="col-md-1 table-bordered">Munícipio</th>
-									<th class="col-md-2">{{ $pessoa->coparticipante["municipio"] }}</th>
+									<th class="col-md-2 no-bold">{{ $pessoa->coparticipante["municipio"] }}</th>
 									<th class="col-md-1	table-bordered">CEP</th>
-									<th class="col-md-2">{{ $pessoa->coparticipante["cep"] }}</th>
+									<th class="col-md-2 no-bold">{{ $pessoa->coparticipante["cep"] }}</th>
 									<th class="col-md-1 table-borderless"></th>
-									<th class="col-md-2"></th>
+									<th class="col-md-1 no-bold"></th>
+
+								</tr>
+
+								<tr>
+
+									<th></th>
+									<th class="semborda"></th>
+									<th></th>
+									<th class="semborda"></th>
+									<th></th>
+									<th class="semborda"></th>
 
 								</tr>
 							</tbody>
 					</table> {{-- FIM Bairro, Munícipio e CEP --}}
 
 					{{-- Email, Celular e Telefone --}}
-					<table class="table">
+					<table class="table ">
 
 							<tbody>
 
 								<tr>
 
 									<th class="col-md-1 table-bordered">Email</th>
-									<th class="col-md-2">{{ $pessoa->coparticipante["email"] }}</th>
+									<th class="col-md-5 no-bold">{{ $pessoa->coparticipante["email"] }}</th>
 									<th class="col-md-1 table-bordered">Celular</th>
-									<th class="col-md-2">{{ $pessoa->coparticipante["telefones"][0]["numero"] }}</th>
+									<th class="col-md-2 no-bold">{{ $pessoa->coparticipante["telefones"][0]["numero"] }}</th>
 									<th class="col-md-1	table-bordered">Telefone</th>
-									<th class="col-md-2">{{ $pessoa->coparticipante["telefones"][1]["numero"] }}</th>
+									<th class="col-md-2 no-bold">{{ $pessoa->coparticipante["telefones"][1]["numero"] }}</th>
 									<th class="col-md-1 table-borderless"></th>
-									<th class="col-md-2"></th>
+									<th class="col-md-1 no-bold"></th>
+
+								</tr>
+
+								<tr>
+
+									<th></th>
+									<th class="semborda"></th>
+									<th></th>
+									<th class="semborda"></th>
+									<th></th>
+									<th class="semborda"></th>
 
 								</tr>
 							</tbody>
@@ -350,20 +484,31 @@
 					<tbody>
 
 						{{-- Nascimento, Sexo, Parentesco e Necessidades Especias --}}
-						<table class="table">
+						<table class="table ">
 
 							<tbody>
 
 								<tr>
 
 									<th class="col-md-1 table-bordered">Nasc.</th>
-									<th class="col-md-2">{{ $dependente["nascimento"] }}</th>
+									<th class="col-md-2 no-bold">{{ $dependente["nascimento"] }}</th>
 									<th class="col-md-1 table-bordered">Sexo</th>
-									<th class="col-md-2">{{ $dependente["sexo"]}}</th>
+									<th class="col-md-2 no-bold">{{ $dependente["sexo"]}}</th>
 									<th class="col-md-1	table-bordered">Parent.</th>
-									<th class="col-md-2">{{ $dependente["parentesco"]}}</th>
+									<th class="col-md-2 no-bold">{{ $dependente["parentesco"]}}</th>
 									<th class="col-md-1	table-bordered">N. Espec.</th>
-									<th class="col-md-2">{{ $dependente["necessidades_especiais"]}}</th>
+									<th class="col-md-2 no-bold">@if ($dependente["necessidades_especiais"]) sim @else não @endif</th>
+
+								</tr>
+
+								<tr>
+
+									<th></th>
+									<th class="semborda"></th>
+									<th></th>
+									<th class="semborda"></th>
+									<th></th>
+									<th class="semborda"></th>
 
 								</tr>
 							</tbody>
@@ -383,7 +528,7 @@
 			
 			<div class="x_content">
 
-				<table>
+				<table >
 
 					
 					<tbody>
@@ -396,13 +541,13 @@
 								<tr>
 
 									<th class="col-md-1 table-bordered">Renda</th>
-									<th class="col-md-2">{{ $pessoa->renda_familiar }}</th>
+									<th class="col-md-2 no-bold">R${{$pessoa->renda_familiar }}</th>
 									<th class="col-md-1 table-bordered">Faixa</th>
-									<th class="col-md-2">{{ $pessoa->faixa}}</th>
+									<th class="col-md-2 no-bold">{{$faixa}}</th>
 									<th class="col-md-1	table-bordered">Ínicio</th>
-									<th class="col-md-2">{{ $pessoa->inicio_residencia}}</th>
+									<th class="col-md-2 no-bold">{{ $pessoa->tempo_residencia}}</th>
 									<th class="col-md-1	table-bordered">Período</th>
-									<th class="col-md-2">{{ $pessoa->periodo}}</th>
+									<th class="col-md-2 no-bold">{{$periodo}}</th>
 
 								</tr>
 							</tbody>

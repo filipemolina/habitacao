@@ -33,16 +33,16 @@
                     </li>
                     <li><a><i class=" fa fa-users"></i>Pessoas<span class="fa fa-chevron-down"></span></a>
                         <ul class="nav child_menu">
-                            <li><a href="{{ url('pessoas/create') }}">Cadastro de Pessoas</a></li>
-                            <li><a href="{{ url('pessoas') }}">Lista de Pessoas</a></li>
+                            <li><a href="{{ url('pessoas/create') }}">Cadastro</a></li>
+                            <li><a href="{{ url('pessoas') }}">Lista</a></li>
                            
                         </ul>
                     </li>
                     
                     <li><a><i class=" fa fa-user"></i>Usuários<span class="fa fa-chevron-down"></span></a>
                         <ul class="nav child_menu">
-                            <li><a href="{{ url('users/create') }}">Cadastro de Usuário</a></li>
-                            <li><a href="{{ url('users') }}">Lista de Usuário</a></li>
+                            <li><a href="{{ url('users/create') }}">Cadastro</a></li>
+                            <li><a href="{{ url('users') }}">Lista</a></li>
                            
                         </ul>
                     </li>

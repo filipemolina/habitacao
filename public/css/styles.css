@@ -154,6 +154,11 @@ span.pequeno
     color: #afafaf;
 }
 
+.semborda
+{
+    border: none !important;
+}
+
 table.tile_info.bairros
 {
     display: block;
@@ -194,3 +199,12 @@ input, select{
 }
 
 .x_title button { float: right; }
+
+.no-bold {
+    font-weight:normal;
+}
+
+.cinza
+{
+    background: #F7F7F7;
+}
