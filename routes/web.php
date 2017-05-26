@@ -32,7 +32,8 @@ Route::get('pessoas/temporesidencia/', 'ParticipantesController@anosResidencia')
 
 // Rota dos Relatórios
 
-Route::get('pessoas/relatorios', 'ParticipantesController@imprimeRelatorio');
+Route::get('pessoas/relatorios', 'ParticipantesController@relatorios');
+Route::post('pessoas/imprimerelatorios', 'ParticipantesController@imprimeRelatorio');
 
 // Rotas dos Resourceful Controllers
 

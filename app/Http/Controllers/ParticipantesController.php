@@ -280,6 +280,12 @@ class ParticipantesController extends Controller
 
     public function imprimeRelatorio(Request $request)
     {
+        // Validar
+
+        $this->validate($request, [
+            'ordem_relatorio' => 'required',
+        ]);
+
         // Obter todos os participantes
 
         $participantes = Participante::with('coparticipante', 'endereco', 'telefones', 'dependentes', 'coparticipante.telefones', 'coparticipante.endereco')->get();
