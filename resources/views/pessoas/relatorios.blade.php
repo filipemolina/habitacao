@@ -80,11 +80,11 @@ $(function(){
 
              <select name="ordem_relatorio" class="form-control" id="tipodeususario">
               <option value="">Selecione</option>
-              <option value="1">Geral</option>
-              <option value="0">Por Idade</option>
-              <option value="0">Por Sexo</option>
-              <option value="0">Por Dependentes</option>
-              <option value="0">Por Bairro</option>
+              <option value="geral">Geral</option>
+              <option value="idade">Por Idade</option>
+              <option value="sexo">Por Sexo</option>
+              <option value="dependentes">Por Dependentes</option>
+              <option value="bairro">Por Bairro</option>
             </select>
 
           </div>
@@ -99,120 +99,121 @@ $(function(){
           <div class="checkbox" style="float: left;">
             <label>
 
-                <input value="1" name="campos[nome]" type="checkbox" checked="checked"> Nome
+                <input value="Nome" name="cabecalhos[nome]" type="checkbox" checked="checked"> Nome
 
             </label> <br>
 
             <label>
             
-                <input value="1" name="campos[idade]" type="checkbox"> Idade
+                <input value="Idade" name="cabecalhos[idade]" type="checkbox"> Idade
 
             </label> <br>
 
             <label>
             
-                <input value="1" name="campos[sexo]" type="checkbox"> Sexo
+                <input value="Sexo" name="cabecalhos[sexo]" type="checkbox"> Sexo
 
             </label> <br>
 
             <label>
             
-                <input value="1" name="campos[nascimento]" type="checkbox"> Data de Nascimento
+                <input value="Data de Nascimento" name="cabecalhos[nascimento]" type="checkbox"> Data de Nascimento
 
             </label> <br>
 
             <label>
             
-                <input value="1" name="campos[necessidades_especiais]" type="checkbox"> Necessidades Especiais
+                <input value="CPF" name="cabecalhos[cpf]" type="checkbox"> CPF
 
             </label> <br>
 
             <label>
             
-                <input value="1" name="campos[coparticipantes]" type="checkbox"> Coparticipantes
+                <input value="CTPS" name="cabecalhos[ctps]" type="checkbox"> CTPS
 
             </label> <br>
 
             <label>
             
-                <input value="1" name="campos[dependentes]" type="checkbox"> Dependentes
+                <input value="NIS" name="cabecalhos[nis]" type="checkbox"> NIS
 
             </label> <br>
 
             <label>
             
-                <input value="1" name="campos[bairro]" type="checkbox"> Bairro
+                <input value="RG" name="cabecalhos[rg]" type="checkbox"> RG
 
             </label> <br>
 
             <label>
             
-                <input value="1" name="campos[telefone_fixo]" type="checkbox"> Telefone Fixo
+                <input value="PNE" name="cabecalhos[pne]" type="checkbox"> Necessidades Especiais
 
             </label> <br>
 
             <label>
             
-                <input value="1" name="campos[telefone_celular]" type="checkbox"> Telefone Celular
+                <input value="Coparticipante" name="cabecalhos[coparticipante]" type="checkbox"> Coparticipante
 
             </label> <br>
 
             <label>
             
-                <input value="1" name="campos[endereco]" type="checkbox"> Endereço
+                <input value="Dependentes" name="cabecalhos[dependentes]" type="checkbox"> Dependentes
 
             </label> <br>
 
             <label>
             
-                <input value="1" name="campos[cpf]" type="checkbox"> CPF
-            </label> <br>
-
-            <label>
-            
-                <input value="1" name="campos[ctps]" type="checkbox"> CTPS
+                <input value="Endereço" name="cabecalhos[endereco]" type="checkbox"> Endereço
 
             </label> <br>
 
             <label>
             
-                <input value="1" name="campos[nis]" type="checkbox"> NIS
+                <input value="CEP" name="cabecalhos[cep]" type="checkbox"> CEP
 
             </label> <br>
 
             <label>
             
-                <input value="1" name="campos[rg]" type="checkbox"> RG
+                <input value="Bairro" name="cabecalhos[bairro]" type="checkbox"> Bairro
 
             </label> <br>
 
             <label>
             
-                <input value="1" name="campos[cep]" type="checkbox"> CEP
+                <input value="Telefone Fixo" name="cabecalhos[telefone_fixo]" type="checkbox"> Telefone Fixo
 
             </label> <br>
 
             <label>
             
-                <input value="1" name="campos[email]" type="checkbox"> Email
+                <input value="Telefone Celular" name="cabecalhos[telefone_celular]" type="checkbox"> Telefone Celular
 
             </label> <br>
 
             <label>
             
-                <input value="1" name="campos[bolsa_familia]" type="checkbox"> Bolsa Familia
+                <input value="Email" name="cabecalhos[email]" type="checkbox"> Email
 
             </label> <br>
 
             <label>
             
-                <input value="1" name="campos[renda_familiar]" type="checkbox"> Renda Familiar
+                <input value="Bolsa Familia" name="cabecalhos[bolsa_familia]" type="checkbox"> Bolsa Familia
 
             </label> <br>
 
             <label>
             
-                <input value="1" name="campos[tempo_residencia]" type="checkbox"> Tempo de Residência
+                <input value="Renda Familiar" name="cabecalhos[renda_familiar]" type="checkbox"> Renda Familiar
+
+            </label> <br>
+
+            <label>
+            
+                <input value="Tempo de Residência" name="cabecalhos[tempo_residencia]" type="checkbox"> Tempo de Residência
 
             </label> <br>
 

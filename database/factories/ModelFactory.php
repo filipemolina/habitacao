@@ -147,27 +147,37 @@ $factory->define(App\Telefone::class, function(Faker\Generator $faker) {
 
 	$faker = Faker\Factory::create('pt_BR');
 
-	if(rand(0,1))
-	{
-		return [
+	return [
 
-			'numero'         => "(21) ".$faker->cellphone(true, 21),
-			'tipo_telefone'  => "Celular",
+		'numero'         => "(21) ".$faker->cellphone(true, 21),
+		'tipo_telefone'  => "Celular",
 
-		];	
-	}
-	else
-	{
-		return [
-
-			'numero'         => "(21) $faker->landline",
-			'tipo_telefone'  => "Fixo",
-
-		];
-	}
-
-	
+	];	
 
 });
 
+$factory->state(App\Telefone::class, 'fixo', function(Faker\Generator $faker) {
 
+	$faker = Faker\Factory::create('pt_BR');
+
+	return [
+
+		'numero'        => "(21) $faker->landline",
+		'tipo_telefone' => "Fixo"
+
+	];
+
+});
+
+$factory->state(App\Telefone::class, 'celular', function(Faker\Generator $faker) {
+
+	$faker = Faker\Factory::create('pt_BR');
+
+	return [
+
+		'numero'        => "(21) ".$faker->cellphone(true, 21),
+		'tipo_telefone' => "Celular"
+
+	];
+
+});

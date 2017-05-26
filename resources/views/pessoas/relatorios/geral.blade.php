@@ -46,7 +46,7 @@
 
 				@foreach($cabecalhos as $cabecalho)
 
-					<th style="border: 1px solid black">{{ $cabecalho }}</th>
+					<th style="border: 1px solid black; text-transform: uppercase;">{{ $cabecalho }}</th>
 
 				@endforeach
 

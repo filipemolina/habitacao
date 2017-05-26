@@ -1,30 +1,18 @@
 <script>
 
+var tabela;
+
 $(function(){
 
     // Ativar o DataTables
 
-    var table = $('#dataTable').DataTable({
+    tabela = $('#dataTable').DataTable({
         language : {
           'url' : '{{ asset('/js/portugues.json') }}'
         },
         processing: true,
         serverSide: true,
         ajax      : "{{ url('/pessoas/dados') }}",
-        // buttons   : [
-        //   {
-        //     extend        : 'pdf',
-        //     text          : 'Imprimir',
-        //     filename      : 'Relatório de Participantes',
-        //     exportOptions : {
-        //       columns : 'th:not(:last-child)',
-        //     },
-        //     customize : function(doc){
-        //       doc.defaultStyle.fontSize = 50;
-        //     },
-        //   }
-        // ],
-        // dom : 'Bfrtip',
         columns   : [
 
           { data : 'nome', name : 'nome' },

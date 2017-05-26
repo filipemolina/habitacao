@@ -2,12 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
-use App\Participante;
 use App\Coparticipante;
+use App\Participante;
+use App\Dependente;
 use App\Telefone;
 use App\Endereco;
-use App\Dependente;
 use Datatables;
 use PDF;
 
@@ -291,19 +292,15 @@ class ParticipantesController extends Controller
 
         // Obter todos os participantes
 
-        $participantes = Participante::with('coparticipante', 'endereco', 'telefones', 'dependentes', 'coparticipante.telefones', 'coparticipante.endereco')->get();
+        $query = Participante::with('coparticipante', 'endereco', 'telefones', 'dependentes', 'coparticipante.telefones', 'coparticipante.endereco');
 
-        // Obter os cabeçalhos desejados no relatório
+        // Modifica o agrupamento e ordenação da query de acordo com os dados selecionados pelo usuário
 
-        $cabecalhos = [
-            'nome'           => 'Nome',
-            'idade'          => 'Idade',
-            'sexo'           => 'Sexo',
-            'pne'            => 'Necessidades Especiais',
-            'coparticipante' => 'Co-participante',
-            'dependentes'    => 'Dependentes',
-            'bairro'         => 'Bairro',
-        ];
+        $participantes = $this->modificaQuery($request, $query);
+
+        // Obter todos os cabeçalhos selecionado
+
+        $cabecalhos = $request->cabecalhos;
 
         // Coleção que será enviada para o PDF
 
@@ -316,6 +313,49 @@ class ParticipantesController extends Controller
         // Enviar para o navegador
 
         return $pdf->stream();
+    }
+
+    /**
+     * Esta função aplica agrupamento e ordenção à uma query enviada pela
+     * função imprimeRelatorio.
+     */
+
+    protected function modificaQuery($request, $query)
+    {
+        // Verifica qual é a ordem do relatório
+
+        // Geral, ordem alfabética dos nomes
+
+        if($request->ordem_relatorio == 'geral')
+            return $query->orderBy('nome', 'asc')->get();
+
+        // Idade
+
+        if($request->ordem_relatorio == 'idade')
+            return $query->orderByRaw('YEAR(STR_TO_DATE(nascimento, "%Y-%m-%d")), nome ASC')->get();        
+
+        // Sexo
+
+        if($request->ordem_relatorio == 'sexo')
+            return $query->orderByRaw('sexo ASC, nome ASC')->get();
+
+        // Dependentes
+
+        if($request->ordem_relatorio == 'dependentes')
+        {
+            return $query->select(DB::raw('participantes.*, count(dependentes.id)'))
+                        ->orderByRaw('count(dependentes.id) DESC, participantes.nome ASC')
+                        ->groupBy('participantes.id')
+                        ->join('dependentes', 'participantes.id', '=', 'dependentes.participante_id')
+                        ->get();
+        }
+
+        // Bairro
+
+        if($request->ordem_relatorio == 'bairro')
+            return $query->get()->sortBy(function($participante){
+                return $participante->endereco->bairro;
+            });
     }
 
     /**
@@ -356,11 +396,15 @@ class ParticipantesController extends Controller
 
         // Idade
         if(array_key_exists('idade', $cabecalhos) !== false)
-            $pessoa['idade'] = date('Y') - date('Y', strtotime($participante->nascimento));
+            $pessoa['idade'] = date('Y') - date('Y', strtotime($participante->nascimento)) ." Anos";
 
         // Sexo
         if(array_key_exists('sexo', $cabecalhos) !== false)
             $pessoa['sexo'] = $participante->sexo;
+
+        // Sexo
+        if(array_key_exists('nascimento', $cabecalhos) !== false)
+            $pessoa['nascimento'] = $participante->nascimento;
 
         // PNE
         if(array_key_exists('pne', $cabecalhos) !== false)
@@ -377,6 +421,54 @@ class ParticipantesController extends Controller
         // Bairro
         if(array_key_exists('bairro', $cabecalhos) !== false)
             $pessoa['bairro'] = $participante->endereco->bairro;
+
+        // Telefone Fixo
+        if(array_key_exists('telefone_fixo', $cabecalhos) !== false)
+            $pessoa['telefone_fixo'] = $participante->telefones()->where('tipo_telefone', 'Fixo')->first()['numero'];
+
+        // Telefone Celular
+        if(array_key_exists('telefone_celular', $cabecalhos) !== false)
+            $pessoa['telefone_celular'] = $participante->telefones()->where('tipo_telefone', 'Celular')->first()['numero'];
+
+        // Endereço
+        if(array_key_exists('endereco', $cabecalhos) !== false)
+            $pessoa['endereco'] = $participante->endereco->logradouro." nº ".$participante->endereco->numero." - ".$participante->endereco->complemento;
+
+        // CPF
+        if(array_key_exists('cpf', $cabecalhos) !== false)
+            $pessoa['cpf'] = $participante->cpf;
+
+        // CTPS
+        if(array_key_exists('ctps', $cabecalhos) !== false)
+            $pessoa['ctps'] = $participante->ctps;
+
+        // NIS
+        if(array_key_exists('nis', $cabecalhos) !== false)
+            $pessoa['nis'] = $participante->nis;
+
+        // RG
+        if(array_key_exists('rg', $cabecalhos) !== false)
+            $pessoa['rg'] = $participante->rg;
+
+        // CEP
+        if(array_key_exists('cep', $cabecalhos) !== false)
+            $pessoa['cep'] = $participante->endereco->cep;
+
+        // E-mail
+        if(array_key_exists('email', $cabecalhos) !== false)
+            $pessoa['email'] = $participante->email;
+
+        // Bolsa Família
+        if(array_key_exists('bolsa_familia', $cabecalhos) !== false)
+            $pessoa['bolsa_familia'] = $participante->bolsa_familia ? "Sim" : "Não" ;
+
+        // Renda Familiar
+        if(array_key_exists('renda_familiar', $cabecalhos) !== false)
+            $pessoa['renda_familiar'] = "R$ ".$participante->renda_familiar;
+
+        // Tempo de Residência
+        if(array_key_exists('tempo_residencia', $cabecalhos) !== false)
+            $pessoa['tempo_residencia'] = date('Y') - date('Y', strtotime($participante->tempo_residencia))." Anos";
 
         return $pessoa;
     }

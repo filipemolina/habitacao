@@ -23,7 +23,8 @@ class ParticipantesSeeder extends Seeder
 
                 // Criar 2 telefones
 
-                $participante->telefones()->saveMany(factory(App\Telefone::class, 2)->make());
+                $participante->telefones()->save(factory(App\Telefone::class)->states('fixo')->make());
+                $participante->telefones()->save(factory(App\Telefone::class)->states('celular')->make());
 
                 if(rand(0,1))
                 {
