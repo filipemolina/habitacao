@@ -52,7 +52,7 @@ $(function(){
 
         <div class="form-group">
 
-          <label for="senha" class="col-sm-4 control-label">Tipo do Relatório</label>
+          <label for="senha" class="col-sm-4 control-label">Ordem do Relatório</label>
 
           <div class="col-sm-4">
 
@@ -200,7 +200,7 @@ $(function(){
         </div>
 
         <div class="form-group" style="text-align: center;">
-                    <button type="submit" value="submit" class="btn btn-primary">Enviar</button>
+                    <button type="submit" value="submit" class="btn btn-primary">Imprimir</button>
         </div>
 
         
