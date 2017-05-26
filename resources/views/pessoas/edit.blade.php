@@ -156,8 +156,10 @@
         </div> {{-- Fim Data de Nascimento, Sexo, Deficiente --}}
 
 
-        {{-- Logradouro, Número, Complemento --}}
+        {{-- CEP, Município e Bairro --}}
         <div class="form-group">
+
+          <a href="http://www.buscacep.correios.com.br/sistemas/buscacep/" target="_blank" class="btn bnt-xs btn-primary col-md-1" formtarget="_blank" style="margin-right: 0;padding-left: 0">Buscar CEP</a>
 
           <!-- CEP-->
           <label class="col-md-1 control-label" for="cep">CEP</label>
@@ -165,42 +167,42 @@
             <input value="{{ $pessoa->endereco->cep }}" id="cep" name="cep" type="text" data-inputmask="'mask' : '99.999-999'" placeholder="99999-999" class="form-control input-md cep" >
           </div>
 
-          <!-- Logradouro ...Av...Rua....etc-->
-          <label class="col-md-1 control-label" for="logradouro">Logradouro</label>
-          <div class="col-md-3">
-            <input value="{{ $pessoa->endereco->logradouro }}" id="logradouro" name="logradouro" type="text" placeholder="Av, Rua, Travessa..." class="form-control input-md">
-          </div>
-          
-          <!-- Número da residência-->
-          <label class="col-md-1 control-label" for="numero">Numero</label>
-          <div class="col-md-2">
-            <input value="{{ $pessoa->endereco->numero }}" id="numero" name="numero" type="text" placeholder="999" class="form-control input-md">
-          </div>
-
-        </div> {{-- FIM CEP, Logradouro e Número--}}
-
-        {{-- Complemento, Bairro e Munícipio --}}
-        <div class="form-group">
-
-          {{-- Bairro --}}
-          <label class="col-md-1 control-label" for="bairro">Bairro</label>
-          <div class="col-md-3">
-            <input value="{{ $pessoa->endereco->bairro }}" id="bairro" name="bairro" type="text" placeholder="Centro" class="form-control input-md">
-          </div>
-            
           <!-- Município-->
           <label class="col-md-1 control-label" for="municipio">Município</label>
           <div class="col-md-3">
             <input value="{{ $pessoa->endereco->municipio }}" disabled="disabled" id="municipio" name="municipio" type="text" placeholder="Mesquita" value="Mesquita" class="form-control input-md" >
           </div>
 
+          {{-- Bairro --}}
+          <label class="col-md-1 control-label" for="bairro">Bairro</label>
+          <div class="col-md-3">
+            <input value="{{ $pessoa->endereco->bairro }}" id="bairro" name="bairro" type="text" placeholder="Centro" class="form-control input-md">
+          </div>
+
+        </div> {{-- FIM CEP, Município e Bairro--}}
+
+        {{-- Logradouro, Número e Complemento --}}
+        <div class="form-group">
+
+          <!-- Logradouro ...Av...Rua....etc-->
+          <label class="col-md-1 control-label" for="logradouro">Logradouro</label>
+          <div class="col-md-3">
+            <input value="{{ $pessoa->endereco->logradouro }}" id="logradouro" name="logradouro" type="text" placeholder="Av, Rua, Travessa..." class="form-control input-md">
+          </div>
+
+          <!-- Número da residência-->
+          <label class="col-md-1 control-label" for="numero">Numero</label>
+          <div class="col-md-2">
+            <input value="{{ $pessoa->endereco->numero }}" id="numero" name="numero" type="text" placeholder="999" class="form-control input-md">
+          </div>
+
           {{-- Complemento --}}
           <label class="col-md-2 control-label" for="complemento">Complemento</label>
-          <div class="col-md-2">
+          <div class="col-md-3">
             <input value="{{ $pessoa->endereco->complemento }}" id="complemento" name="complemento" type="text" placeholder="Ap., Fundos,..." class="form-control input-md">
           </div>
 
-        </div> {{-- FIM Bairro, Munícipio e CEP --}}
+        </div> {{-- FIM Logradouro, Número e Complemento --}}
 
         {{-- Email , Celular e Telefone --}}
         <div class="form-group">
@@ -372,9 +374,35 @@
       </div> {{-- Fim Data de Nascimento, Sexo, Deficiente --}}
 
 
-      {{-- Logradouro, Número, Complemento --}}
+      {{-- CEP, Município e Bairro --}}
       <div class="form-group">
 
+        <button class="btn bnt-xs btn-primary duplicar-endereco col-md-1" style="margin-right: 0;padding-left: 0">Copiar CEP</button>
+
+        <!-- CEP-->
+        <label class="col-md-1 control-label" for="coparticipante[cep]">CEP</label>
+        <div class="col-md-2">
+          <input value="{{ $pessoa->coparticipante->endereco->cep or ""}}" id="coparticipante[cep]" data-inputmask="'mask' : '99.999-999'" name="coparticipante[cep]" type="text" placeholder="99999-999" class="form-control input-md cep" >
+        </div>
+
+        <!-- Município-->
+        <label class="col-md-1 control-label" for="coparticipante[municipio]">Município</label>
+        <div class="col-md-3">
+          <input value="{{ $pessoa->coparticipante->endereco->municipio or ""}}" id="coparticipante[municipio]" disabled="disabled" value="Mesquita" name="coparticipante[municipio]" type="text" placeholder="Mesquita" class="form-control input-md" >
+        </div>
+
+        {{-- Bairro --}}
+        <label class="col-md-1 control-label" for="coparticipante[bairro]">Bairro</label>
+        <div class="col-md-3">
+          <input value="{{ $pessoa->coparticipante->endereco->bairro or ""}}" id="coparticipante[bairro]" name="coparticipante[bairro]" type="text" placeholder="Centro" class="form-control input-md">
+        </div>
+
+      </div> {{-- FIM CEP, Município e Bairro --}}            
+
+
+      {{-- Logradouro, Número e Complemento --}}
+      <div class="form-group">
+        
         {{-- Logradouro ...Av...Rua....etc --}}
         <label class="col-md-1 control-label" for="coparticipante[logradouro]">Logradouro</label>
         <div class="col-md-3">
@@ -393,31 +421,7 @@
           <input value="{{ $pessoa->coparticipante->endereco->complemento or ""}}" id="coparticipante[complemento]" name="coparticipante[complemento]" type="text" placeholder="Ap., Fundos,..." class="form-control input-md">
         </div>
 
-      </div> {{-- FIM Logradouro, Número, complemento --}}            
-
-
-      {{-- Bairro, Munícipio e CEP --}}
-      <div class="form-group">
-              
-        {{-- Bairro --}}
-        <label class="col-md-1 control-label" for="coparticipante[bairro]">Bairro</label>
-        <div class="col-md-3">
-          <input value="{{ $pessoa->coparticipante->endereco->bairro or ""}}" id="coparticipante[bairro]" name="coparticipante[bairro]" type="text" placeholder="Centro" class="form-control input-md">
-        </div>
-            
-        <!-- Município-->
-        <label class="col-md-1 control-label" for="coparticipante[municipio]">Município</label>
-        <div class="col-md-4">
-          <input value="{{ $pessoa->coparticipante->endereco->municipio or ""}}" id="coparticipante[municipio]" disabled="disabled" value="Mesquita" name="coparticipante[municipio]" type="text" placeholder="Mesquita" class="form-control input-md" >
-        </div>
-
-        <!-- CEP-->
-        <label class="col-md-1 control-label" for="coparticipante[cep]">CEP</label>
-        <div class="col-md-2">
-          <input value="{{ $pessoa->coparticipante->endereco->cep or ""}}" id="coparticipante[cep]" data-inputmask="'mask' : '99.999-999'" name="coparticipante[cep]" type="text" placeholder="99999-999" class="form-control input-md cep" >
-        </div>
-
-      </div> {{-- FIM Bairoo, Munícipio e CEP --}}
+      </div> {{-- FIM Logradouro, Número e Complemento --}}
 
       {{-- Email , elular e Telefone --}}
       <div class="form-group">

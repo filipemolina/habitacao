@@ -10,8 +10,18 @@
 
 <div class="col-md-12 col-sm-12 col-xs-12">
 
+
+	<div class="col-md-1">
+		<button name="submit" class="btn btn-sm  glyphicon glyphicon-arrow-left "></button>
+	</div>
+	<div class="col-md-10">
+		<button name="submit" class="btn btn-sm  glyphicon glyphicon-arrow-right "></button>
+	</div>
+	<button name="submit" class="btn btn-sm  glyphicon glyphicon-remove "></button>
+
 	<div class="x_title">
-		<h2> Informações</h2>
+		<h2 class="col-md-2"> Informações</h2>
+		
 		<div class="clearfix"></div>
 	</div>
 
@@ -349,11 +359,11 @@
 									<th class="col-md-1 table-bordered">Nasc.</th>
 									<th class="col-md-2">{{ $dependente["nascimento"] }}</th>
 									<th class="col-md-1 table-bordered">Sexo</th>
-									<th class="col-md-2">{{ $pessoa->dependente["sexo"]}}</th>
+									<th class="col-md-2">{{ $dependente["sexo"]}}</th>
 									<th class="col-md-1	table-bordered">Parent.</th>
-									<th class="col-md-2">{{ $pessoa->dependente["parentesco"]}}</th>
+									<th class="col-md-2">{{ $dependente["parentesco"]}}</th>
 									<th class="col-md-1	table-bordered">N. Espec.</th>
-									<th class="col-md-2">{{ $pessoa->dependente["necessidades_especiais"]}}</th>
+									<th class="col-md-2">{{ $dependente["necessidades_especiais"]}}</th>
 
 								</tr>
 							</tbody>
@@ -366,6 +376,51 @@
 		@endforeach
 	</div> {{-- FIM x_panel Dependentes --}}
 
+	{{-- -------------------------------------Renda---------------------------------------------------- --}}
+	<div class="x_panel">
+		
+		<div class="x_title"> Renda </div>
+			
+			<div class="x_content">
+
+				<table>
+
+					
+					<tbody>
+
+						{{-- Nascimento, Sexo, Parentesco e Necessidades Especias --}}
+						<table class="table">
+
+							<tbody>
+
+								<tr>
+
+									<th class="col-md-1 table-bordered">Renda</th>
+									<th class="col-md-2">{{ $pessoa->renda_familiar }}</th>
+									<th class="col-md-1 table-bordered">Faixa</th>
+									<th class="col-md-2">{{ $pessoa->faixa}}</th>
+									<th class="col-md-1	table-bordered">Ínicio</th>
+									<th class="col-md-2">{{ $pessoa->inicio_residencia}}</th>
+									<th class="col-md-1	table-bordered">Período</th>
+									<th class="col-md-2">{{ $pessoa->periodo}}</th>
+
+								</tr>
+							</tbody>
+						</table> {{-- FIM Nascimento, Sexo, Parentesco e Necessidades Especias --}}
+
+					</tbody>
+
+				</table>	
+			</div>
+	</div> {{-- FIM x_panel Renda --}}
+
+	<div class="col-md-1">
+		<button name="submit" class="btn btn-sm  glyphicon glyphicon-arrow-left "></button>
+	</div>
+	<div class="col-md-10">
+		<button name="submit" class="btn btn-sm  glyphicon glyphicon-arrow-right "></button>
+	</div>
+	<button name="submit" class="btn btn-sm  glyphicon glyphicon-remove "></button>	
 
 
 </div>
