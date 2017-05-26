@@ -148,7 +148,7 @@
           </div>
 
           {{-- Deficiente --}}
-          <label class="col-md-1 control-label" for="necessidades_especiais">Necessidades Especias</label>
+          <label class="col-md-1 control-label" for="necessidades_especiais">Deficiente</label>
           <div class="col-md-2">
             <select id="necessidades_especiais" name="necessidades_especiais" type="text" class="form-control input-md" >
               <option value="" disabled @if(!old('necessidades_especiais')) selected @endif style="display: none;">Selecione...</option>
@@ -163,7 +163,7 @@
         {{-- CEP, Munícipio e Bairro --}}
         <div class="form-group">
 
-          <button class="btn bnt-xs btn-primary duplicar-endereco glyphicon glyphicon-globe col-md-1" onClick="parent.location='https://google.com'" value="Google" formtarget="_blank" style="margin-right: 0;"></button>
+          <a href="http://www.buscacep.correios.com.br/sistemas/buscacep/" target="_blank" class="btn bnt-xs btn-primary col-md-1" formtarget="_blank" style="margin-right: 0;padding-left: 0">Buscar CEP</a>
 
           <!-- CEP-->
           <label class="col-md-1 control-label" for="cep">CEP</label>
@@ -180,7 +180,7 @@
           {{-- Bairro --}}
           <label class="col-md-1 control-label" for="bairro">Bairro</label>
           <div class="col-md-3">
-            <input value="{{ old('bairro') }}" disabled="disabled" id="bairro" name="bairro" type="text" placeholder="Centro" class="form-control input-md">
+            <input value="{{ old('bairro') }}" id="bairro" name="bairro" type="text" placeholder="Centro" class="form-control input-md">
           </div>
 
         </div> {{-- FIM CEP, Munícipio e Bairro--}}
@@ -191,7 +191,7 @@
           <!-- Logradouro ...Av...Rua....etc-->
           <label class="col-md-1 control-label" for="logradouro">Logradouro</label>
           <div class="col-md-3">
-            <input value="{{ old('logradouro') }}" disabled="disabled" id="logradouro" name="logradouro" type="text" placeholder="Av, Rua, Travessa..." class="form-control input-md">
+            <input value="{{ old('logradouro') }}"  id="logradouro" name="logradouro" type="text" placeholder="Av, Rua, Travessa..." class="form-control input-md">
           </div>
 
             <!-- Número da residência-->
@@ -202,7 +202,7 @@
 
           {{-- Complemento --}}
           <label class="col-md-2 control-label" for="complemento">Complemento</label>
-          <div class="col-md-2">
+          <div class="col-md-3">
             <input value="{{ old('complemento') }}" id="complemento" name="complemento" type="text" placeholder="Ap., Fundos,..." class="form-control input-md">
           </div>
 
@@ -342,11 +342,11 @@
       </div> {{-- Fim Data de Nascimento, Sexo, Deficiente --}}
 
 
-      {{-- Logradouro, Número, Complemento --}}
+      {{-- CEP, Município e Bairro --}}
       <div class="form-group">
 
         
-        <button class="btn bnt-xs btn-primary duplicar-endereco glyphicon glyphicon-download col-md-1" style="margin-right: 0;"></button>
+        <button class="btn bnt-xs btn-primary duplicar-endereco col-md-1" style="margin-right: 0;padding-left: 0">Copiar CEP</button>
 
         <!-- CEP-->
         <label class="col-md-1 control-label" for="coparticipante[cep]">CEP</label>
@@ -363,19 +363,19 @@
         {{-- Bairro --}}
         <label class="col-md-1 control-label" for="coparticipante[bairro]">Bairro</label>
         <div class="col-md-3">
-          <input value="{{ old('coparticipante.bairro') }}" disabled="disabled" id="coparticipante[bairro]" name="coparticipante[bairro]" type="text" placeholder="Centro" class="form-control input-md">
+          <input value="{{ old('coparticipante.bairro') }}" id="coparticipante[bairro]" name="coparticipante[bairro]" type="text" placeholder="Centro" class="form-control input-md">
         </div>
 
-      </div> {{-- FIM Logradouro, Número, complemento --}}            
+      </div> {{-- FIM CEP, Município e Bairro --}}            
 
 
-      {{-- Bairro, Munícipio e CEP --}}
+      {{-- Logradouro, Número e Complemento --}}
       <div class="form-group">
 
         {{-- Logradouro ...Av...Rua....etc --}}
         <label class="col-md-1 control-label" for="coparticipante[logradouro]">Logradouro</label>
         <div class="col-md-3">
-          <input value="{{ old('coparticipante.logradouro') }}" disabled="disabled" id="coparticipante[logradouro]" name="coparticipante[logradouro]" type="text" placeholder="Av, Rua, Travessa..." class="form-control input-md">
+          <input value="{{ old('coparticipante.logradouro') }}" id="coparticipante[logradouro]" name="coparticipante[logradouro]" type="text" placeholder="Av, Rua, Travessa..." class="form-control input-md">
         </div>
 
         <!-- Número da residência-->
@@ -386,11 +386,11 @@
 
         {{-- Complemento --}}
         <label class="col-md-2 control-label" for="coparticipante[complemento]">Complemento</label>
-        <div class="col-md-2">
+        <div class="col-md-3">
           <input value="{{ old('coparticipante.complemento') }}" id="coparticipante[complemento]" name="coparticipante[complemento]" type="text" placeholder="Ap., Fundos,..." class="form-control input-md">
         </div>
 
-      </div> {{-- FIM Bairoo, Munícipio e CEP --}}
+      </div> {{-- Logradouro, Número e Complemento --}}
 
       {{-- Email , elular e Telefone --}}
       <div class="form-group">
@@ -536,7 +536,7 @@
         {{-- Tempo de residência --}}
         <label class="col-md-1 control-label" for="inicio-residencia">Início</label>
         <div class="col-md-3">
-          <input value="{{ old('inicio-residencia') }}" id="inicio-residencia" name="inicio-residencia" type="date" placeholder="01 / 01 / 2000" class="form-control input-md global-data" >
+          <input value="{{ old('inicio-residencia') }}" id="inicio_residencia" name="inicio-residencia" type="date" placeholder="01 / 01 / 2000" class="form-control input-md global-data" >
         </div>
 
         {{-- Faixa--}}
