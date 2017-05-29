@@ -44,7 +44,7 @@
                 <!-- /page content -->
 
                 <!-- footer content -->
-                <footer>
+                <footer class="cinza">
                     <div class="pull-right">
                         Subsecretaria da Tecnologia da Informação - Equipe de Desenvolvimento - 2017
                     </div>
