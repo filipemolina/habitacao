@@ -99,5 +99,6 @@ class UsersController extends Controller
         $user=User::find($id);
 
         $user->delete();
+
     }
 }
