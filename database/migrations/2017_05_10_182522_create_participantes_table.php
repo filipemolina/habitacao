@@ -17,7 +17,7 @@ class CreateParticipantesTable extends Migration
             $table->increments('id');
            
             $table->string('nome',100); 
-            $table->enum('sexo',['Masculino','Feminino','Outros']);
+            $table->enum('sexo',['Feminino', 'Masculino', 'Outros']);
             $table->char('cpf',14);
             $table->date('nascimento');
             $table->string('rg',20);
