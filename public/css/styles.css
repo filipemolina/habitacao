@@ -2,6 +2,21 @@
 	float:none !important; 
 	margin-left: 0px !important;
 }
+
+.btn-circulo{
+  width: 30px;
+  height: 30px;
+  text-align: center;
+  padding: 6px 0;
+  font-size: 12px;
+  line-height: 1.428571429;
+  border-radius: 15px;
+}
+.cor-padrao{
+    background-color: white;
+    color: #3D276B;
+}
+}
 .login_content h1:after, 
 .login_content h1:before{
 
