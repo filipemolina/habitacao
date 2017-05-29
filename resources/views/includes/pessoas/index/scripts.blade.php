@@ -47,6 +47,18 @@ $(function(){
 
     });
 
+    $("#modal_pessoas_show").on('show.bs.modal', function(e){
+
+        var id = $(e.relatedTarget).data('id');
+
+        $.get('/pessoas/api/'+id, function(data){
+
+            
+
+        });
+
+    });
+
     // Função executada quando o botão "EXCLUIR" do modal for clicado
 
     $("#btn-excluir-modal").click(function(){

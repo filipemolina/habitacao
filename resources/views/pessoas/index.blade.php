@@ -79,6 +79,12 @@ Lista de Pessoas
 
 {{-- fim do modal do botão excluir --}}
 
+{{-- Modal do Botão Visualizar --}}
+
+  @include('pessoas.show')  
+
+{{-- Modal do Botão Visualizar --}}
+
 @endsection
 
 @push('scripts')
