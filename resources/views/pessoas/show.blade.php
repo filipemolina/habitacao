@@ -404,55 +404,53 @@
 			
 			<div class="x_title"> Dependente(s) </div>
 
-			{{-- Início do Loop --}}
-			
-				<div class="x_content">
+			<div class="x_content">
 
-					<table>
+				<table>
 
-						<tread>
+					<tread>
 
-							<tr>
+						<tr>
 
-								<th class="col-md-1">Nome</th>
-								<th id="dependentes[0][nome]_modal"></th>
+							<th class="col-md-1">Nome</th>
+							<th id="dependentes[0][nome]_modal"></th>
 
-							</tr>
-						</tread>
+						</tr>
+					</tread>
 
-						<tbody>
+					<tbody>
 
-							{{-- Nascimento, Sexo, Parentesco e Necessidades Especias --}}
-							<table class="table ">
+						{{-- Nascimento, Sexo, Parentesco e Necessidades Especias --}}
+						<table class="table ">
 
-								<tbody>
+							<tbody>
 
-									<tr>
+								<tr>
 
-										<th class="col-md-1 table-bordered">Nasc.</th>
-										<th class="col-md-2 no-bold semborda" id="dependentes[0][nascimento]_modal"></th>
-										<th class="col-md-1 table-bordered">Sexo</th>
-										<th class="col-md-2 no-bold semborda" id="dependentes[0][sexo]_modal"></th>
-										<th class="col-md-1	table-bordered">Parent.</th>
-										<th class="col-md-2 no-bold semborda" id="dependentes[0][parentesco]_modal"></th>
-										<th class="col-md-1	table-bordered">Defi.</th>
-										<th class="col-md-2 no-bold semborda" id="dependentes[0][necessidades_especiais]_modal"></th>
+									<th class="col-md-1 table-bordered">Nasc.</th>
+									<th class="col-md-2 no-bold semborda" id="dependentes[0][nascimento]_modal"></th>
+									<th class="col-md-1 table-bordered">Sexo</th>
+									<th class="col-md-2 no-bold semborda" id="dependentes[0][sexo]_modal"></th>
+									<th class="col-md-1	table-bordered">Parent.</th>
+									<th class="col-md-2 no-bold semborda" id="dependentes[0][parentesco]_modal"></th>
+									<th class="col-md-1	table-bordered">Defi.</th>
+									<th class="col-md-2 no-bold semborda" id="dependentes[0][necessidades_especiais]_modal"></th>
 
-									</tr>
+								</tr>
 
-									<tr>
+								<tr>
 
-										<th></th>
-										<th class="semborda"></th>
+									<th></th>
+									<th class="semborda"></th>
 
-									</tr>
-								</tbody>
-							</table> {{-- FIM Nascimento, Sexo, Parentesco e Necessidades Especias --}}
+								</tr>
+							</tbody>
+						</table> {{-- FIM Nascimento, Sexo, Parentesco e Necessidades Especias --}}
 
-						</tbody>
+					</tbody>
 
-					</table>	
-				</div>
+				</table>	
+			</div>
 			{{-- Fim do Loop --}}
 
 		</div> {{-- FIM x_panel Dependentes --}}
@@ -462,37 +460,37 @@
 			
 			<div class="x_title"> Renda </div>
 				
-				<div class="x_content">
+			<div class="x_content">
 
-					<table >
+				<table >
 
 						
-						<tbody>
+					<tbody>
 
-							{{-- Nascimento, Sexo, Parentesco e Necessidades Especias --}}
-							<table class="table">
+						{{-- Nascimento, Sexo, Parentesco e Necessidades Especias --}}
+						<table class="table">
 
-								<tbody>
+							<tbody>
 
-									<tr>
+								<tr>
 
-										<th class="col-md-1 table-bordered">Renda</th>
-										<th class="col-md-2 no-bold semborda" id="renda_familiar_modal"></th>
-										<th class="col-md-1 table-bordered">Faixa</th>
-										<th class="col-md-2 no-bold semborda" id="faixa_modal"></th>
-										<th class="col-md-1	table-bordered">Ínicio</th>
-										<th class="col-md-2 no-bold semborda" id="inicio_residencia_modal"></th>
-										<th class="col-md-1	table-bordered">Período</th>
-										<th class="col-md-2 no-bold semborda" id="periodo_modal"></th>
+									<th class="col-md-1 table-bordered">Renda</th>
+									<th class="col-md-2 no-bold semborda" id="renda_familiar_modal"></th>
+									<th class="col-md-1 table-bordered">Faixa</th>
+									<th class="col-md-2 no-bold semborda" id="faixa_modal"></th>
+									<th class="col-md-1	table-bordered">Ínicio</th>
+									<th class="col-md-2 no-bold semborda" id="inicio_residencia_modal"></th>
+									<th class="col-md-1	table-bordered">Período</th>
+									<th class="col-md-2 no-bold semborda" id="periodo_modal"></th>
 
-									</tr>
-								</tbody>
-							</table> {{-- FIM Nascimento, Sexo, Parentesco e Necessidades Especias --}}
+								</tr>
+							</tbody>
+						</table> {{-- FIM Nascimento, Sexo, Parentesco e Necessidades Especias --}}
 
-						</tbody>
+					</tbody>
 
-					</table>	
-				</div>
+				</table>	
+			</div>
 		</div> {{-- FIM x_panel Renda --}}
 
 		<a href="" class="btn btn-circulo cor-padrao glyphicon glyphicon-remove" data-dismiss="modal"></a>
@@ -504,3 +502,5 @@
 
 
 </div> {{-- FIM Modal Fade --}}
+			{{-- Início do Loop --}}
+			
