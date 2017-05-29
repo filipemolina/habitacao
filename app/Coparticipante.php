@@ -3,6 +3,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Coparticipante extends Model
 {
@@ -25,6 +26,13 @@ class Coparticipante extends Model
 		'ctps',
 		'bolsa_familia',
 	];
+
+	/**
+	* The attributes that should be mutated to dates.
+	*
+	* @var array
+	*/
+    protected $dates = ['deleted_at'];
 
     /**
      * Relacionamento

@@ -32,7 +32,7 @@
 
 	<div style="max-width: 100%">
 		
-		<h2 style="text-align: center;">RELATÓRIO GERAL</h2>
+		<h2 style="text-align: center; text-transform: uppercase;">RELATÓRIO {{ $nome_relatorio }}</h2>
 
 	</div>
 

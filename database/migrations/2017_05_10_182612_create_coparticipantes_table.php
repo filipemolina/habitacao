@@ -40,6 +40,7 @@ class CreateCoparticipantesTable extends Migration
             $table->boolean('bolsa_familia');
             $table->integer('participante_id')->unsigned();
 
+            $table->softDeletes();
             $table->timestamps();
 
             $table->foreign('participante_id')->references('id')->on('participantes')->onDelete('cascade');

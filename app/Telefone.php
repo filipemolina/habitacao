@@ -3,6 +3,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Telefone extends Model
 {
@@ -15,6 +16,13 @@ class Telefone extends Model
 		'tipo_telefone',
         'numero'
 	];
+
+    /**
+    * The attributes that should be mutated to dates.
+    *
+    * @var array
+    */
+    protected $dates = ['deleted_at'];
 
     /**
      * Relacionamentos

@@ -212,7 +212,13 @@ class ParticipantesController extends Controller
      */
     public function destroy($id)
     {
-        //
+        // Obter o participante à ser deletado
+
+        $participante = Participante::find($id);
+
+        // Excluir do banco de dados (soft-delete ativado!)
+
+        $participante->delete();
     }
 
     /**
@@ -302,13 +308,27 @@ class ParticipantesController extends Controller
 
         $cabecalhos = $request->cabecalhos;
 
+        // Titulo
+
+        $titulo = [
+
+            'geral'       => "GERAL",
+            'idade'       => "POR IDADE",
+            'sexo'        => "Por Sexo",
+            'dependentes' => "Por Número de Dependentes",
+            'bairro'      => "Por Bairro"
+
+        ];
+
+        $nome_relatorio = $titulo[$request->ordem_relatorio];
+
         // Coleção que será enviada para o PDF
 
         $pessoas = $this->montaRelatorio($participantes, $cabecalhos);
 
         // Gerar o PDF        
 
-        $pdf = PDF::loadView('pessoas.relatorios.geral', compact(['pessoas', 'cabecalhos']));
+        $pdf = PDF::loadView('pessoas.relatorios.geral', compact(['pessoas', 'cabecalhos', 'nome_relatorio']));
 
         // Enviar para o navegador
 
@@ -342,13 +362,12 @@ class ParticipantesController extends Controller
         // Dependentes
 
         if($request->ordem_relatorio == 'dependentes')
-        {
             return $query->select(DB::raw('participantes.*, count(dependentes.id)'))
                         ->orderByRaw('count(dependentes.id) DESC, participantes.nome ASC')
                         ->groupBy('participantes.id')
                         ->join('dependentes', 'participantes.id', '=', 'dependentes.participante_id')
                         ->get();
-        }
+
 
         // Bairro
 
