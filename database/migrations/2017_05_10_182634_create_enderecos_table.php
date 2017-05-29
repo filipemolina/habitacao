@@ -29,7 +29,7 @@ class CreateEnderecosTable extends Migration
             $table->foreign('coparticipante_id')->references('id')->on('coparticipantes')->onDelete('cascade');
 
 
-
+            $table->softDeletes();
             $table->timestamps();
         });
     }

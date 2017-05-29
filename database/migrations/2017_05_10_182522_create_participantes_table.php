@@ -32,7 +32,7 @@ class CreateParticipantesTable extends Migration
             $table->char('ctps',11)                     ->nullable();
             $table->boolean('bolsa_familia');
 
-
+            $table->softDeletes();
             $table->timestamps();
 
 

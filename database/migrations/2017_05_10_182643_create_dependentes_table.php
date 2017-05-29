@@ -34,6 +34,7 @@ class CreateDependentesTable extends Migration
 
             $table->foreign('participante_id')->references('id')->on('participantes')->onDelete('cascade');
 
+            $table->softDeletes();
             $table->timestamps();
         });
     }

@@ -35,6 +35,10 @@ Route::get('pessoas/temporesidencia/', 'ParticipantesController@anosResidencia')
 Route::get('pessoas/relatorios', 'ParticipantesController@relatorios');
 Route::post('pessoas/imprimerelatorios', 'ParticipantesController@imprimeRelatorio');
 
+// Rotas para AJAX
+
+Route::get('/pessoas/api/{id}', 'ParticipantesController@info_ajax');
+
 // Rotas dos Resourceful Controllers
 
 Route::resource('users', 'UsersController');

@@ -1,429 +1,506 @@
-@extends("layouts.blank")
+<!-- Modal Fade-->
+<div id="modal_pessoas_show" class="modal fade" role="dialog">
 
-@section('titulo')
-
-	Informações do Participantes
-
-@endsection
-
-@section("main_container")
-
-<div class="col-md-12 col-sm-12 col-xs-12">
-
-
-	<div class="col-md-1">
-		<button name="submit" class="btn btn-sm  glyphicon glyphicon-arrow-left "></button>
-	</div>
-	<div class="col-md-10">
-		<button name="submit" class="btn btn-sm  glyphicon glyphicon-arrow-right "></button>
-	</div>
-	<button name="submit" class="btn btn-sm  glyphicon glyphicon-remove "></button>
-
-	<div class="x_title">
-		<h2 class="col-md-2"> Informações</h2>
+	<div class="modal-dialog modal-lg">
 		
-		<div class="clearfix"></div>
-	</div>
-
-
-{{-- -------------------------------------Participante---------------------------------------------------- --}}
-	<div class="x_panel">
-		
-		<div class="x_title"> Participante </div>
-		
-		<div class="x_content">
-
-			<table>
-
-				<tread>
-
-					<tr>
-
-						<th class="col-md-1">Nome</th>
-						<th>{{ $pessoa->nome }}</th>
-
-					</tr>
-				</tread>
-
-				<tbody>
-
-					{{-- CPF, NIS, CTPS e Bolsa Família --}}
-					<table class="table">
-
-						<tbody>
-
-							<tr>
-
-								<th class="col-md-1 table-bordered">CPF</th>
-								<th class="col-md-2">{{ $pessoa->cpf }}</th>
-								<th class="col-md-1 table-bordered">NIS</th>
-								<th class="col-md-2">{{ $pessoa->nis }}</th>
-								<th class="col-md-1	table-bordered">CTPS</th>
-								<th class="col-md-2">{{ $pessoa->cpf }}</th>
-								<th class="col-md-1 table-bordered">Bolsa F.</th>
-								<th class="col-md-2">{{ $pessoa->nis }}</th>
-
-							</tr>
-						</tbody>
-					</table> {{-- FIM CPF, NIS, CTPS e Bolsa Família --}}
-
-					{{-- RG, Orgão e Emissão --}}
-					<table class="table">
-
-						<tbody>
-
-							<tr>
-
-								<th class="col-md-1 table-bordered">RG</th>
-								<th class="col-md-2">{{ $pessoa->rg }}</th>
-								<th class="col-md-1 table-bordered">Orgão</th>
-								<th class="col-md-2">{{ $pessoa->orgao_emissor_rg }}</th>
-								<th class="col-md-1	table-bordered">Emissão</th>
-								<th class="col-md-2">{{ $pessoa->emissao_rg }}</th>
-								<th class="col-md-1 table-borderless"></th>
-								<th class="col-md-2"></th>
-
-							</tr>
-						</tbody>
-					</table>{{-- FIM RG, Orgão e Emissão --}}
-
-					{{-- Nascimento, Sexo e Necessidades especiais --}}
-					<table class="table">
-
-							<tbody>
-
-								<tr>
-
-									<th class="col-md-1 table-bordered">Nasc.</th>
-									<th class="col-md-2">{{ $pessoa->nascimento }}</th>
-									<th class="col-md-1 table-bordered">Sexo</th>
-									<th class="col-md-2">{{ $pessoa->sexo }}</th>
-									<th class="col-md-1	table-bordered">N. Espec.</th>
-									<th class="col-md-2">{{ $pessoa->necessidades_especiais }}</th>
-									<th class="col-md-1 table-borderless"></th>
-									<th class="col-md-2"></th>
-
-								</tr>
-							</tbody>
-					</table> {{-- FIM Nascimento, Sexo e Necessidades especiais --}}
-
-					{{-- Bairro, Munícipio e CEP --}}
-					<table class="table">
-
-							<tbody>
-
-								<tr>
-
-									<th class="col-md-1 table-bordered">Lograd.</th>
-									<th class="col-md-2">{{ $pessoa->logradouro }}</th>
-									<th class="col-md-1 table-bordered">Número</th>
-									<th class="col-md-2">{{ $pessoa->numero }}</th>
-									<th class="col-md-1	table-bordered">Comp.</th>
-									<th class="col-md-2">{{ $pessoa->complemento }}</th>
-									<th class="col-md-1 table-borderless"></th>
-									<th class="col-md-2"></th>
-
-								</tr>
-							</tbody>
-					</table> {{-- FIM Bairro, Munícipio e CEP --}}
-					
-					
-
-					{{-- Bairro, Munícipio e CEP --}}
-					<table class="table">
-
-							<tbody>
-
-								<tr>
-
-									<th class="col-md-1 table-bordered">Bairro</th>
-									<th class="col-md-2">{{ $pessoa->bairro }}</th>
-									<th class="col-md-1 table-bordered">Munícipio</th>
-									<th class="col-md-2">{{ $pessoa->municipio }}</th>
-									<th class="col-md-1	table-bordered">CEP</th>
-									<th class="col-md-2">{{ $pessoa->cep }}</th>
-									<th class="col-md-1 table-borderless"></th>
-									<th class="col-md-2"></th>
-
-								</tr>
-							</tbody>
-					</table> {{-- FIM Bairro, Munícipio e CEP --}}
-
-					{{-- Email, Celular e Telefone --}}
-					<table class="table">
-
-							<tbody>
-
-								<tr>
-
-									<th class="col-md-1 table-bordered">Email</th>
-									<th class="col-md-2">{{ $pessoa->email }}</th>
-									<th class="col-md-1 table-bordered">Celular</th>
-									<th class="col-md-2">{{ $pessoa->telefones[0]["numero"] }}</th>
-									<th class="col-md-1	table-bordered">Telefone</th>
-									<th class="col-md-2">{{ $pessoa->telefones[1]["numero"] }}</th>
-									<th class="col-md-1 table-borderless"></th>
-									<th class="col-md-2"></th>
-
-								</tr>
-							</tbody>
-					</table> {{-- FIM Email, Celular e Telefone --}}
-
-
-				</tbody>
-
-			</table>	
-		</div>
-	</div> {{-- FIM x_panel Participante --}}
-
-	{{-- -------------------------------------Co-Participante---------------------------------------------------- --}}
-	<div class="x_panel">
-		
-		<div class="x_title"> Co-participante </div>
-		
-		<div class="x_content">
-
-			<table>
-
-				<tread>
-
-					<tr>
-
-						<th class="col-md-1">Nome</th>
-						<th>{{ $pessoa->coparticipante["nome"] }}</th>
-
-					</tr>
-				</tread>
-
-				<tbody>
-
-					{{-- CPF, NIS, CTPS e Bolsa Família --}}
-					<table class="table">
-
-						<tbody>
-
-							<tr>
-
-								<th class="col-md-1 table-bordered">CPF</th>
-								<th class="col-md-2">{{ $pessoa->coparticipante["cpf"] }}</th>
-								<th class="col-md-1 table-bordered">NIS</th>
-								<th class="col-md-2">{{ $pessoa->coparticipante["nis"] }}</th>
-								<th class="col-md-1	table-bordered">CTPS</th>
-								<th class="col-md-2">{{ $pessoa->coparticipante["cpf"] }}</th>
-								<th class="col-md-1 table-bordered">Bolsa F.</th>
-								<th class="col-md-2">{{ $pessoa->coparticipante["nis"] }}</th>
-
-							</tr>
-						</tbody>
-					</table> {{-- FIM CPF, NIS, CTPS e Bolsa Família --}}
-
-					{{-- RG, Orgão e Emissão --}}
-					<table class="table">
-
-						<tbody>
-
-							<tr>
-
-								<th class="col-md-1 table-bordered">RG</th>
-								<th class="col-md-2">{{ $pessoa->coparticipante["rg"] }}</th>
-								<th class="col-md-1 table-bordered">Orgão</th>
-								<th class="col-md-2">{{ $pessoa->coparticipante["orgao_emissor_rg"] }}</th>
-								<th class="col-md-1	table-bordered">Emissão</th>
-								<th class="col-md-2">{{ $pessoa->coparticipante["emissao_rg"] }}</th>
-								<th class="col-md-1 table-borderless"></th>
-								<th class="col-md-2"></th>
-
-							</tr>
-						</tbody>
-					</table>{{-- FIM RG, Orgão e Emissão --}}
-
-					{{-- Nascimento, Sexo e Necessidades especiais --}}
-					<table class="table">
-
-							<tbody>
-
-								<tr>
-
-									<th class="col-md-1 table-bordered">Nasc.</th>
-									<th class="col-md-2">{{ $pessoa->coparticipante["nascimento"] }}</th>
-									<th class="col-md-1 table-bordered">Sexo</th>
-									<th class="col-md-2">{{ $pessoa->coparticipante["sexo"] }}</th>
-									<th class="col-md-1	table-bordered">N. Espec.</th>
-									<th class="col-md-2">{{ $pessoa->coparticipante["necessidades_especiais"] }}</th>
-									<th class="col-md-1 table-borderless"></th>
-									<th class="col-md-2"></th>
-
-								</tr>
-							</tbody>
-					</table> {{-- FIM Nascimento, Sexo e Necessidades especiais --}}
-
-					{{-- Bairro, Munícipio e CEP --}}
-					<table class="table">
-
-							<tbody>
-
-								<tr>
-
-									<th class="col-md-1 table-bordered">Lograd.</th>
-									<th class="col-md-2">{{ $pessoa->coparticipante["logradouro"] }}</th>
-									<th class="col-md-1 table-bordered">Número</th>
-									<th class="col-md-2">{{ $pessoa->coparticipante["numero"] }}</th>
-									<th class="col-md-1	table-bordered">Comp.</th>
-									<th class="col-md-2">{{ $pessoa->coparticipante["complemento"] }}</th>
-									<th class="col-md-1 table-borderless"></th>
-									<th class="col-md-2"></th>
-
-								</tr>
-							</tbody>
-					</table> {{-- FIM Bairro, Munícipio e CEP --}}
-					
-					
-
-					{{-- Bairro, Munícipio e CEP --}}
-					<table class="table">
-
-							<tbody>
-
-								<tr>
-
-									<th class="col-md-1 table-bordered">Bairro</th>
-									<th class="col-md-2">{{ $pessoa->coparticipante["bairro"] }}</th>
-									<th class="col-md-1 table-bordered">Munícipio</th>
-									<th class="col-md-2">{{ $pessoa->coparticipante["municipio"] }}</th>
-									<th class="col-md-1	table-bordered">CEP</th>
-									<th class="col-md-2">{{ $pessoa->coparticipante["cep"] }}</th>
-									<th class="col-md-1 table-borderless"></th>
-									<th class="col-md-2"></th>
-
-								</tr>
-							</tbody>
-					</table> {{-- FIM Bairro, Munícipio e CEP --}}
-
-					{{-- Email, Celular e Telefone --}}
-					<table class="table">
-
-							<tbody>
-
-								<tr>
-
-									<th class="col-md-1 table-bordered">Email</th>
-									<th class="col-md-2">{{ $pessoa->coparticipante["email"] }}</th>
-									<th class="col-md-1 table-bordered">Celular</th>
-									<th class="col-md-2">{{ $pessoa->coparticipante["telefones"][0]["numero"] }}</th>
-									<th class="col-md-1	table-bordered">Telefone</th>
-									<th class="col-md-2">{{ $pessoa->coparticipante["telefones"][1]["numero"] }}</th>
-									<th class="col-md-1 table-borderless"></th>
-									<th class="col-md-2"></th>
-
-								</tr>
-							</tbody>
-					</table> {{-- FIM Email, Celular e Telefone --}}
-
-
-				</tbody>
-
-			</table>	
-		</div>
-	</div> {{-- FIM x_panel Co-Participante --}}
-
-	{{-- -------------------------------------Dependentes---------------------------------------------------- --}}
-	<div class="x_panel">
-		
-		<div class="x_title"> Dependente(s) </div>
-
-		@foreach($pessoa->dependentes as $dependente)
-		
+		<a href="" class="btn btn-circulo cor-padrao glyphicon glyphicon-remove" data-dismiss="modal"></a>
+		<a href="" class="btn btn-circulo cor-padrao glyphicon glyphicon-print"></a>
+		<a href="" class="btn btn-circulo btn-warning fa fa-pencil"></a>
+		<a href="" class="btn btn-circulo btn-danger fa fa-trash"></a>
+      	
+      	{{-- Título --}}
+      	<div class="modal-header modal-content x_panel">
+        	<h4 class="modal-title">Informações</h4>
+      	</div>
+
+		{{-- -------------------------------------Participante---------------------------------------------------- --}}
+		<div class="x_panel modal-content">
+			
+			<div class="x_title"> Participante </div>
+			
 			<div class="x_content">
 
-				<table>
+				<table class="">
 
 					<tread>
 
 						<tr>
 
 							<th class="col-md-1">Nome</th>
-							<th>{{ $dependente["nome"] }}</th>
+							<th></th>
 
 						</tr>
 					</tread>
 
 					<tbody>
 
-						{{-- Nascimento, Sexo, Parentesco e Necessidades Especias --}}
-						<table class="table">
+						{{-- CPF, NIS, CTPS e Bolsa Família --}}
+						<table class="table ">
 
 							<tbody>
 
 								<tr>
 
-									<th class="col-md-1 table-bordered">Nasc.</th>
-									<th class="col-md-2">{{ $dependente["nascimento"] }}</th>
-									<th class="col-md-1 table-bordered">Sexo</th>
-									<th class="col-md-2">{{ $dependente["sexo"]}}</th>
-									<th class="col-md-1	table-bordered">Parent.</th>
-									<th class="col-md-2">{{ $dependente["parentesco"]}}</th>
-									<th class="col-md-1	table-bordered">N. Espec.</th>
-									<th class="col-md-2">{{ $dependente["necessidades_especiais"]}}</th>
+									<th class="col-md-1 table-bordered">CPF</th>
+									<th class="col-md-2 no-bold semborda" id="cpf_modal"></th>
+									<th class="col-md-1 table-bordered">NIS</th>
+									<th class="col-md-2 no-bold semborda" id="nis_modal"></th>
+									<th class="col-md-1	table-bordered">CTPS</th>
+									<th class="col-md-2 no-bold semborda"></th>
+									<th class="col-md-1 table-bordered">Bolsa F.</th>
+									<th class="col-md-2 no-bold semborda"></th>
+
+								</tr>
+
+								<tr>
+
+									<th></th>
+									<th class="semborda"></th>
 
 								</tr>
 							</tbody>
-						</table> {{-- FIM Nascimento, Sexo, Parentesco e Necessidades Especias --}}
+						</table> {{-- FIM CPF, NIS, CTPS e Bolsa Família --}}
+
+						{{-- RG, Orgão e Emissão --}}
+						<table class="table ">
+
+							<tbody>
+
+								<tr>
+
+									<th class="col-md-1 table-bordered">RG</th>
+									<th class="col-md-2 no-bold semborda"></th>
+									<th class="col-md-1 table-bordered">Orgão</th>
+									<th class="col-md-2 no-bold semborda"></th>
+									<th class="col-md-1	table-bordered">Emis.</th>
+									<th class="col-md-2 no-bold semborda"></th>
+									<th class="col-md-1 semborda"></th>
+									<th class="col-md-2 semborda"></th>
+
+								</tr>
+
+								<tr>
+
+										<th></th>
+										<th class="semborda"></th>
+
+								</tr>
+							</tbody>
+						</table>{{-- FIM RG, Orgão e Emissão --}}
+
+						{{-- Nascimento, Sexo e Necessidades especiais --}}
+						<table class="table ">
+
+								<tbody>
+
+									<tr>
+
+										<th class="col-md-1 table-bordered">Nasc.</th>
+										<th class="col-md-2 no-bold semborda"></th>
+										<th class="col-md-1 table-bordered">Sexo</th>
+										<th class="col-md-2 no-bold semborda"></th>
+										<th class="col-md-1	table-bordered">Defi.</th>
+										<th class="col-md-2 semborda"></th>
+										<th class="col-md-1 semborda"></th>
+										<th class="col-md-2 semborda"></th>
+
+									</tr>
+
+									<tr>
+
+										<th></th>
+										<th class="semborda"></th>
+
+									</tr>
+								</tbody>
+						</table> {{-- FIM Nascimento, Sexo e Necessidades especiais --}}
+
+						{{-- Logradouro, Número e Complemento --}}
+						<table class="table ">
+
+								<tbody>
+
+									<tr>
+
+										<th class="col-md-1 table-bordered">Logr.</th>
+										<th class="col-md-5 no-bold semborda"></th>
+										<th class="col-md-1 table-bordered">Num.</th>
+										<th class="col-md-2 no-bold semborda"></th>
+										<th class="col-md-1	table-bordered">Comp.</th>
+										<th class="col-md-2 no-bold semborda"></th>
+										<th class="col-md-1 semborda"></th>
+										<th class="col-md-1 semborda"></th>
+
+									</tr>
+
+									<tr>
+
+										<th></th>
+										<th class="semborda"></th>
+
+									</tr>
+								</tbody>
+						</table> {{-- FIM Logradouro, Número e Complemento --}}
+						
+						{{-- Bairro, Município e CEP --}}
+						<table class="table ">
+
+								<tbody>
+
+									<tr>
+
+										<th class="col-md-1 table-bordered">Bairro</th>
+										<th class="col-md-5 no-bold semborda"></th>
+										<th class="col-md-1 table-bordered">Munic.</th>
+										<th class="col-md-2 no-bold semborda"></th>
+										<th class="col-md-1	table-bordered">CEP</th>
+										<th class="col-md-2 no-bold semborda"></th>
+										<th class="col-md-1 semborda"></th>
+										<th class="col-md-1 semborda"></th>
+
+									</tr>
+
+									<tr>
+
+										<th></th>
+										<th class="semborda"></th>
+
+									</tr>
+								</tbody>
+						</table> {{-- FIM Bairro, Município e CEP --}}
+
+						{{-- Email, Celular e Telefone --}}
+						<table class="table ">
+
+								<tbody>
+
+									<tr>
+
+										<th class="col-md-1 table-bordered">Email</th>
+										<th class="col-md-5 no-bold semborda"></th>
+										<th class="col-md-1	table-bordered">Tel.</th>
+										<th class="col-md-2 no-bold semborda"></th>
+										<th class="col-md-1 table-bordered">Cel.</th>
+										<th class="col-md-2 semborda"></th>
+										<th class="col-md-1 semborda"></th>
+										<th class="col-md-1 semborda"></th>
+
+									</tr>
+									
+									<tr>
+
+										<th></th>
+										<th class="semborda"></th>
+
+									</tr>
+								</tbody>
+						</table> {{-- FIM Email, Celular e Telefone --}}
+
 
 					</tbody>
 
 				</table>	
 			</div>
-		@endforeach
-	</div> {{-- FIM x_panel Dependentes --}}
+		</div> {{-- FIM x_panel Participante --}}
 
-	{{-- -------------------------------------Renda---------------------------------------------------- --}}
-	<div class="x_panel">
-		
-		<div class="x_title"> Renda </div>
+		{{-- -------------------------------------Co-Participante---------------------------------------------------- --}}
+		<div class="x_panel modal-content">
+			
+			<div class="x_title"> Co-participante </div>
 			
 			<div class="x_content">
 
-				<table>
+				<table class="">
 
-					
+					<tread>
+
+						<tr>
+
+							<th class="col-md-1">Nome</th>
+							<th></th>
+
+						</tr>
+					</tread>
+
 					<tbody>
 
-						{{-- Nascimento, Sexo, Parentesco e Necessidades Especias --}}
-						<table class="table">
+						{{-- CPF, NIS, CTPS e Bolsa Família --}}
+						<table class="table ">
 
 							<tbody>
 
 								<tr>
 
-									<th class="col-md-1 table-bordered">Renda</th>
-									<th class="col-md-2">{{ $pessoa->renda_familiar }}</th>
-									<th class="col-md-1 table-bordered">Faixa</th>
-									<th class="col-md-2">{{ $pessoa->faixa}}</th>
-									<th class="col-md-1	table-bordered">Ínicio</th>
-									<th class="col-md-2">{{ $pessoa->inicio_residencia}}</th>
-									<th class="col-md-1	table-bordered">Período</th>
-									<th class="col-md-2">{{ $pessoa->periodo}}</th>
+									<th class="col-md-1 table-bordered">CPF</th>
+									<th class="col-md-2 no-bold semborda"></th>
+									<th class="col-md-1 table-bordered">NIS</th>
+									<th class="col-md-2 no-bold semborda"></th>
+									<th class="col-md-1	table-bordered">CTPS</th>
+									<th class="col-md-2 no-bold semborda"></th>
+									<th class="col-md-1 table-bordered">Bolsa F.</th>
+									<th class="col-md-2 no-bold semborda"></th>
+
+								</tr>
+
+								<tr>
+
+									<tr>
+
+										<th></th>
+										<th class="semborda"></th>
+
+									</tr>
 
 								</tr>
 							</tbody>
-						</table> {{-- FIM Nascimento, Sexo, Parentesco e Necessidades Especias --}}
+						</table> {{-- FIM CPF, NIS, CTPS e Bolsa Família --}}
+
+						{{-- RG, Orgão e Emissão --}}
+						<table class="table ">
+
+							<tbody>
+
+								<tr>
+
+									<th class="col-md-1 table-bordered">RG</th>
+									<th class="col-md-2 no-bold semborda"></th>
+									<th class="col-md-1 table-bordered">Orgão</th>
+									<th class="col-md-2 no-bold semborda"></th>
+									<th class="col-md-1	table-bordered">Emis.</th>
+									<th class="col-md-2 no-bold semborda"></th>
+									<th class="col-md-1 semborda"></th>
+									<th class="col-md-2 semborda"></th>
+
+								</tr>
+
+								<tr>
+
+										<th></th>
+										<th class="semborda"></th>
+
+								</tr>
+							</tbody>
+						</table>{{-- FIM RG, Orgão e Emissão --}}
+
+						{{-- Nascimento, Sexo e Necessidades especiais --}}
+						<table class="table ">
+
+								<tbody>
+
+									<tr>
+
+										<th class="col-md-1 table-bordered">Nasc.</th>
+										<th class="col-md-2 no-bold semborda"></th>
+										<th class="col-md-1 table-bordered">Sexo</th>
+										<th class="col-md-2 no-bold semborda"></th>
+										<th class="col-md-1	table-bordered">Defi.</th>
+										<th class="col-md-2 no-bold semborda"></th>
+										<th class="col-md-1 semborda"></th>
+										<th class="col-md-2 semborda"></th>
+
+									</tr>
+
+									<tr>
+
+										<th></th>
+										<th class="semborda"></th>
+
+									</tr>
+								</tbody>
+						</table> {{-- FIM Nascimento, Sexo e Necessidades especiais --}}
+
+						{{-- Logradouro, Número e Complemento --}}
+						<table class="table ">
+
+								<tbody>
+
+									<tr>
+
+										<th class="col-md-1 table-bordered">Logr.</th>
+										<th class="col-md-5 no-bold semborda"></th>
+										<th class="col-md-1 table-bordered">Num.</th>
+										<th class="col-md-2 no-bold semborda"></th>
+										<th class="col-md-1	table-bordered">Comp.</th>
+										<th class="col-md-2 no-bold semborda"></th>
+										<th class="col-md-1 semborda"></th>
+										<th class="col-md-1 semborda"></th>
+
+									</tr>
+
+									<tr>
+
+										<th></th>
+										<th class="semborda"></th>
+
+									</tr>
+								</tbody>
+						</table> {{-- FIM Logradouro, Número e Complemento --}}
+						
+						
+
+						{{-- Bairro, Município e CEP --}}
+						<table class="table ">
+
+								<tbody>
+
+									<tr>
+
+										<th class="col-md-1 table-bordered">Bairro</th>
+										<th class="col-md-5 no-bold semborda"></th>
+										<th class="col-md-1 table-bordered">Munic.</th>
+										<th class="col-md-2 no-bold semborda"></th>
+										<th class="col-md-1	table-bordered">CEP</th>
+										<th class="col-md-2 no-bold semborda"></th>
+										<th class="col-md-1 semborda"></th>
+										<th class="col-md-1 semborda"></th>
+
+									</tr>
+
+									<tr>
+
+										<th></th>
+										<th class="semborda"></th>
+
+									</tr>
+								</tbody>
+						</table> {{-- FIM Bairro, Município e CEP --}}
+
+						{{-- Email, Celular e Telefone --}}
+						<table class="table ">
+
+								<tbody>
+
+									<tr>
+
+										<th class="col-md-1 table-bordered">Email</th>
+										<th class="col-md-5 no-bold semborda"></th>
+										<th class="col-md-1 table-bordered">Cel.</th>
+										<th class="col-md-2 no-bold semborda"></th>
+										<th class="col-md-1	table-bordered">Tel.</th>
+										<th class="col-md-2 no-bold semborda"></th>
+										<th class="col-md-1 semborda"></th>
+										<th class="col-md-1 semborda"></th>
+
+									</tr>
+
+									<tr>
+
+										<th></th>
+										<th class="semborda"></th>
+
+									</tr>
+								</tbody>
+						</table> {{-- FIM Email, Celular e Telefone --}}
+
 
 					</tbody>
 
 				</table>	
 			</div>
-	</div> {{-- FIM x_panel Renda --}}
+		</div> {{-- FIM x_panel Co-Participante --}}
 
-	<div class="col-md-1">
-		<button name="submit" class="btn btn-sm  glyphicon glyphicon-arrow-left "></button>
-	</div>
-	<div class="col-md-10">
-		<button name="submit" class="btn btn-sm  glyphicon glyphicon-arrow-right "></button>
-	</div>
-	<button name="submit" class="btn btn-sm  glyphicon glyphicon-remove "></button>	
+		{{-- -------------------------------------Dependentes---------------------------------------------------- --}}
+		<div class="x_panel modal-content">
+			
+			<div class="x_title"> Dependente(s) </div>
+
+			{{-- Início do Loop --}}
+			
+				<div class="x_content">
+
+					<table>
+
+						<tread>
+
+							<tr>
+
+								<th class="col-md-1">Nome</th>
+								<th></th>
+
+							</tr>
+						</tread>
+
+						<tbody>
+
+							{{-- Nascimento, Sexo, Parentesco e Necessidades Especias --}}
+							<table class="table ">
+
+								<tbody>
+
+									<tr>
+
+										<th class="col-md-1 table-bordered">Nasc.</th>
+										<th class="col-md-2 no-bold semborda"></th>
+										<th class="col-md-1 table-bordered">Sexo</th>
+										<th class="col-md-2 no-bold semborda"></th>
+										<th class="col-md-1	table-bordered">Parent.</th>
+										<th class="col-md-2 no-bold semborda"></th>
+										<th class="col-md-1	table-bordered">Defi.</th>
+										<th class="col-md-2 no-bold semborda"></th>
+
+									</tr>
+
+									<tr>
+
+										<th></th>
+										<th class="semborda"></th>
+
+									</tr>
+								</tbody>
+							</table> {{-- FIM Nascimento, Sexo, Parentesco e Necessidades Especias --}}
+
+						</tbody>
+
+					</table>	
+				</div>
+			{{-- Fim do Loop --}}
+
+		</div> {{-- FIM x_panel Dependentes --}}
+
+		{{-- -------------------------------------Renda---------------------------------------------------- --}}
+		<div class="x_panel modal-content">
+			
+			<div class="x_title"> Renda </div>
+				
+				<div class="x_content">
+
+					<table >
+
+						
+						<tbody>
+
+							{{-- Nascimento, Sexo, Parentesco e Necessidades Especias --}}
+							<table class="table">
+
+								<tbody>
+
+									<tr>
+
+										<th class="col-md-1 table-bordered">Renda</th>
+										<th class="col-md-2 no-bold semborda">R$</th>
+										<th class="col-md-1 table-bordered">Faixa</th>
+										<th class="col-md-2 no-bold semborda"></th>
+										<th class="col-md-1	table-bordered">Ínicio</th>
+										<th class="col-md-2 no-bold semborda"></th>
+										<th class="col-md-1	table-bordered">Período</th>
+										<th class="col-md-2 no-bold semborda"></th>
+
+									</tr>
+								</tbody>
+							</table> {{-- FIM Nascimento, Sexo, Parentesco e Necessidades Especias --}}
+
+						</tbody>
+
+					</table>	
+				</div>
+		</div> {{-- FIM x_panel Renda --}}
+
+		<a href="" class="btn btn-circulo cor-padrao glyphicon glyphicon-remove" data-dismiss="modal"></a>
+		<a href="" class="btn btn-circulo cor-padrao glyphicon glyphicon-print"></a>
+		<a href="" class="btn btn-circulo btn-warning fa fa-pencil"></a>
+		<a href="" class="btn btn-circulo btn-danger fa fa-trash"></a>
+
+	</div> {{-- FIM Modal Dialog --}}
 
 
-</div>
-
-
-@endsection
+</div> {{-- FIM Modal Fade --}}

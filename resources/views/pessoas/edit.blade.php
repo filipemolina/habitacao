@@ -159,7 +159,7 @@
         {{-- CEP, Município e Bairro --}}
         <div class="form-group">
 
-          <a href="http://www.buscacep.correios.com.br/sistemas/buscacep/" target="_blank" class="btn bnt-xs btn-primary col-md-1" formtarget="_blank" style="margin-right: 0;padding-left: 0">Buscar CEP</a>
+          <a href="http://www.buscacep.correios.com.br/sistemas/buscacep/" target="_blank" class="btn bnt-xs btn-primary col-md-1 glyphicon glyphicon-search" data-toggle="tooltip" title="Buscar CEP" formtarget="_blank" style="margin-right: 0;"></a>
 
           <!-- CEP-->
           <label class="col-md-1 control-label" for="cep">CEP</label>
@@ -377,7 +377,7 @@
       {{-- CEP, Município e Bairro --}}
       <div class="form-group">
 
-        <button class="btn bnt-xs btn-primary duplicar-endereco col-md-1" style="margin-right: 0;padding-left: 0">Copiar CEP</button>
+        <button class="btn bnt-xs btn-primary duplicar-endereco col-md-1 glyphicon glyphicon-repeat" data-toggle="tooltip" title="Copiar endereço" style="margin-right: 0;"></button>
 
         <!-- CEP-->
         <label class="col-md-1 control-label" for="coparticipante[cep]">CEP</label>

@@ -40,6 +40,17 @@ class ParticipantesController extends Controller
     }
 
     /**
+     *  Retornar informações do participante via Ajax
+     */
+
+    public function info_ajax($id)
+    {
+        $participante = Participante::with('endereco', 'telefones', 'dependentes', 'coparticipante', 'coparticipante.telefones', 'coparticipante.endereco')->where('id', $id)->first();
+
+        return $participante->toJson();
+    }
+
+    /**
      * Show the form for creating a new resource.
      *
      * @return \Illuminate\Http\Response
@@ -212,7 +223,13 @@ class ParticipantesController extends Controller
      */
     public function destroy($id)
     {
-        //
+        // Obter o participante à ser deletado
+
+        $participante = Participante::find($id);
+
+        // Excluir do banco de dados (soft-delete ativado!)
+
+        $participante->delete();
     }
 
     /**
@@ -248,7 +265,7 @@ class ParticipantesController extends Controller
                 'coparticipante'         => count($participante->coparticipante) ? "Sim" : "Não",
                 'dependentes'            => count($participante->dependentes),
                 'bairro'                 => $participante->endereco->bairro,
-                'acoes'                  => "<a class='btn btn-success btn-xs' href='" . url("/pessoas/$participante->id") .  "'><i class='fa fa-eye'></i></a><a class='btn btn-warning btn-xs' href='".url("pessoas/$participante->id/edit")."'><i class='fa fa-pencil'></i></a><a class='btn btn-danger btn-xs'  href='#'' data-toggle='modal' data-target='#modalexcluir'><i class='fa fa-trash'></i></a>"
+                'acoes'                  => "<a class='btn btn-success btn-xs' data-toggle='modal' data-target='#modal_pessoas_show' data-id='".$participante->id."' href='#'><i class='fa fa-eye'></i></a><a class='btn btn-warning btn-xs' href='".url("pessoas/$participante->id/edit")."'><i class='fa fa-pencil'></i></a><a class='btn btn-danger btn-xs btn-excluir'  href='#'' data-toggle='modal' data-nome='".str_replace("'", "", $participante->nome)."' data-id='$participante->id' data-target='#modalexcluir'><i class='fa fa-trash'></i></a>"
             ]);
         }
 
@@ -302,13 +319,27 @@ class ParticipantesController extends Controller
 
         $cabecalhos = $request->cabecalhos;
 
+        // Titulo
+
+        $titulo = [
+
+            'geral'       => "GERAL",
+            'idade'       => "POR IDADE",
+            'sexo'        => "Por Sexo",
+            'dependentes' => "Por Número de Dependentes",
+            'bairro'      => "Por Bairro"
+
+        ];
+
+        $nome_relatorio = $titulo[$request->ordem_relatorio];
+
         // Coleção que será enviada para o PDF
 
         $pessoas = $this->montaRelatorio($participantes, $cabecalhos);
 
         // Gerar o PDF        
 
-        $pdf = PDF::loadView('pessoas.relatorios.geral', compact(['pessoas', 'cabecalhos']));
+        $pdf = PDF::loadView('pessoas.relatorios.geral', compact(['pessoas', 'cabecalhos', 'nome_relatorio']));
 
         // Enviar para o navegador
 
@@ -342,13 +373,12 @@ class ParticipantesController extends Controller
         // Dependentes
 
         if($request->ordem_relatorio == 'dependentes')
-        {
             return $query->select(DB::raw('participantes.*, count(dependentes.id)'))
                         ->orderByRaw('count(dependentes.id) DESC, participantes.nome ASC')
                         ->groupBy('participantes.id')
                         ->join('dependentes', 'participantes.id', '=', 'dependentes.participante_id')
                         ->get();
-        }
+
 
         // Bairro
 
