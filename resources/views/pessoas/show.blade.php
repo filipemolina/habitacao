@@ -20,10 +20,10 @@
 
 	<div class="modal-dialog modal-lg">
 		
-		<button type="button" class="btn btn-circulo cor-padrao glyphicon glyphicon-remove" data-dismiss="modal"></button>
-		<button type="button" class="btn btn-circulo cor-padrao fa fa-pencil"></button>
-		<button type="button" class="btn btn-circulo cor-padrao glyphicon glyphicon-print"></button>
-		<button type="button" class="btn btn-circulo cor-padrao fa fa-trash"></button>
+		<a href="" class="btn btn-circulo cor-padrao glyphicon glyphicon-remove" data-dismiss="modal"></a>
+		<a href="" class="btn btn-circulo cor-padrao glyphicon glyphicon-print"></a>
+		<a href="" class="btn btn-circulo btn-warning fa fa-pencil"></a>
+		<a href="" class="btn btn-circulo btn-danger fa fa-trash"></a>
       	
       	{{-- Título --}}
       	<div class="modal-header modal-content x_panel">
@@ -511,10 +511,10 @@
 				</div>
 		</div> {{-- FIM x_panel Renda --}}
 
-		<button type="button" class="btn btn-circulo cor-padrao glyphicon glyphicon-remove" data-dismiss="modal"></button>
-		<button type="button" class="btn btn-circulo cor-padrao fa fa-pencil"></button>
-		<button type="button" class="btn btn-circulo cor-padrao glyphicon glyphicon-print"></button>
-		<button type="button" class="btn btn-circulo cor-padrao fa fa-trash"></button>
+		<a href="" class="btn btn-circulo cor-padrao glyphicon glyphicon-remove" data-dismiss="modal"></a>
+		<a href="" class="btn btn-circulo cor-padrao glyphicon glyphicon-print"></a>
+		<a href="" class="btn btn-circulo btn-warning fa fa-pencil"></a>
+		<a href="" class="btn btn-circulo btn-danger fa fa-trash"></a>
 
 	</div> {{-- FIM Modal Dialog --}}
 
