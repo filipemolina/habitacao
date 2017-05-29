@@ -3,8 +3,8 @@
 
 	<div class="modal-dialog modal-lg">
 		
-		<a href="" class="btn btn-circulo cor-padrao glyphicon glyphicon-remove" data-dismiss="modal"></a>
-		<a href="" class="btn btn-circulo cor-padrao glyphicon glyphicon-print"></a>
+		<a href="" class="btn btn-circulo btn-default cor-padrao glyphicon glyphicon-remove" data-dismiss="modal"></a>
+		<a href="" class="btn btn-circulo btn-default cor-padrao glyphicon glyphicon-print"></a>
 		<a href="" class="btn btn-circulo btn-warning fa fa-pencil"></a>
 		<a href="" class="btn btn-circulo btn-danger fa fa-trash"></a>
       	
@@ -47,8 +47,8 @@
 									<th class="col-md-2 no-bold semborda" id="nis_modal"></th>
 									<th class="col-md-1	table-bordered">CTPS</th>
 									<th class="col-md-2 no-bold semborda" id="ctps_modal"></th>
-									<th class="col-md-1 table-bordered" id="bolsa_familia_modal">Bolsa F.</th>
-									<th class="col-md-2 no-bold semborda"></th>
+									<th class="col-md-1 table-bordered">Bolsa F.</th>
+									<th class="col-md-2 no-bold semborda" id="bolsa_familia_modal"></th>
 
 								</tr>
 
@@ -493,8 +493,8 @@
 			</div>
 		</div> {{-- FIM x_panel Renda --}}
 
-		<a href="" class="btn btn-circulo cor-padrao glyphicon glyphicon-remove" data-dismiss="modal"></a>
-		<a href="" class="btn btn-circulo cor-padrao glyphicon glyphicon-print"></a>
+		<a href="" class="btn btn-circulo btn-default btn-cons cor-padrao glyphicon glyphicon-remove" data-dismiss="modal"></a>
+		<a href="" class="btn btn-circulo btn-default btn-cons cor-padrao glyphicon glyphicon-print"></a>
 		<a href="" class="btn btn-circulo btn-warning fa fa-pencil"></a>
 		<a href="" class="btn btn-circulo btn-danger fa fa-trash"></a>
 
