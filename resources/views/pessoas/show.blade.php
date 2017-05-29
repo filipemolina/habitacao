@@ -27,7 +27,7 @@
 						<tr>
 
 							<th class="col-md-1">Nome</th>
-							<th></th>
+							<th id="nome_modal"></th>
 
 						</tr>
 					</tread>
@@ -46,8 +46,8 @@
 									<th class="col-md-1 table-bordered">NIS</th>
 									<th class="col-md-2 no-bold semborda" id="nis_modal"></th>
 									<th class="col-md-1	table-bordered">CTPS</th>
-									<th class="col-md-2 no-bold semborda"></th>
-									<th class="col-md-1 table-bordered">Bolsa F.</th>
+									<th class="col-md-2 no-bold semborda" id="ctps_modal"></th>
+									<th class="col-md-1 table-bordered" id="bolsa_familia_modal">Bolsa F.</th>
 									<th class="col-md-2 no-bold semborda"></th>
 
 								</tr>
@@ -69,11 +69,11 @@
 								<tr>
 
 									<th class="col-md-1 table-bordered">RG</th>
-									<th class="col-md-2 no-bold semborda"></th>
+									<th class="col-md-2 no-bold semborda" id="rg_modal"></th>
 									<th class="col-md-1 table-bordered">Orgão</th>
-									<th class="col-md-2 no-bold semborda"></th>
+									<th class="col-md-2 no-bold semborda" id="orgao_emissor_rg_modal"></th>
 									<th class="col-md-1	table-bordered">Emis.</th>
-									<th class="col-md-2 no-bold semborda"></th>
+									<th class="col-md-2 no-bold semborda" id="emissao_rg_modal"></th>
 									<th class="col-md-1 semborda"></th>
 									<th class="col-md-2 semborda"></th>
 
@@ -96,11 +96,11 @@
 									<tr>
 
 										<th class="col-md-1 table-bordered">Nasc.</th>
-										<th class="col-md-2 no-bold semborda"></th>
+										<th class="col-md-2 no-bold semborda" id="nascimento_modal"></th>
 										<th class="col-md-1 table-bordered">Sexo</th>
-										<th class="col-md-2 no-bold semborda"></th>
+										<th class="col-md-2 no-bold semborda" id="sexo_modal"></th>
 										<th class="col-md-1	table-bordered">Defi.</th>
-										<th class="col-md-2 semborda"></th>
+										<th class="col-md-2 semborda" id="necessidades_especiais_modal"></th>
 										<th class="col-md-1 semborda"></th>
 										<th class="col-md-2 semborda"></th>
 
@@ -123,11 +123,11 @@
 									<tr>
 
 										<th class="col-md-1 table-bordered">Logr.</th>
-										<th class="col-md-5 no-bold semborda"></th>
+										<th class="col-md-5 no-bold semborda" id="logradouro_modal"></th>
 										<th class="col-md-1 table-bordered">Num.</th>
-										<th class="col-md-2 no-bold semborda"></th>
+										<th class="col-md-2 no-bold semborda" id="numero_modal"></th>
 										<th class="col-md-1	table-bordered">Comp.</th>
-										<th class="col-md-2 no-bold semborda"></th>
+										<th class="col-md-2 no-bold semborda" id="complemento_modal"></th>
 										<th class="col-md-1 semborda"></th>
 										<th class="col-md-1 semborda"></th>
 
@@ -150,11 +150,11 @@
 									<tr>
 
 										<th class="col-md-1 table-bordered">Bairro</th>
-										<th class="col-md-5 no-bold semborda"></th>
+										<th class="col-md-5 no-bold semborda" id="bairro_modal"></th>
 										<th class="col-md-1 table-bordered">Munic.</th>
-										<th class="col-md-2 no-bold semborda"></th>
+										<th class="col-md-2 no-bold semborda" id="municipio_modal"></th>
 										<th class="col-md-1	table-bordered">CEP</th>
-										<th class="col-md-2 no-bold semborda"></th>
+										<th class="col-md-2 no-bold semborda" id="cep_modal"></th>
 										<th class="col-md-1 semborda"></th>
 										<th class="col-md-1 semborda"></th>
 
@@ -177,11 +177,11 @@
 									<tr>
 
 										<th class="col-md-1 table-bordered">Email</th>
-										<th class="col-md-5 no-bold semborda"></th>
+										<th class="col-md-5 no-bold semborda" id="email_modal"></th>
 										<th class="col-md-1	table-bordered">Tel.</th>
-										<th class="col-md-2 no-bold semborda"></th>
+										<th class="col-md-2 no-bold semborda" id="telefones[1][numero]"></th>
 										<th class="col-md-1 table-bordered">Cel.</th>
-										<th class="col-md-2 semborda"></th>
+										<th class="col-md-2 semborda" id="telefones[0][numero]"></th>
 										<th class="col-md-1 semborda"></th>
 										<th class="col-md-1 semborda"></th>
 
@@ -232,13 +232,13 @@
 								<tr>
 
 									<th class="col-md-1 table-bordered">CPF</th>
-									<th class="col-md-2 no-bold semborda"></th>
+									<th class="col-md-2 no-bold semborda" id="coparticipante[cpf]_modal"></th>
 									<th class="col-md-1 table-bordered">NIS</th>
-									<th class="col-md-2 no-bold semborda"></th>
+									<th class="col-md-2 no-bold semborda" id="coparticipante[nis]_modal"></th>
 									<th class="col-md-1	table-bordered">CTPS</th>
-									<th class="col-md-2 no-bold semborda"></th>
+									<th class="col-md-2 no-bold semborda" id="coparticipante[ctps]_modal"></th>
 									<th class="col-md-1 table-bordered">Bolsa F.</th>
-									<th class="col-md-2 no-bold semborda"></th>
+									<th class="col-md-2 no-bold semborda" id="coparticipante[bolsa_familia]_modal"></th>
 
 								</tr>
 
@@ -263,11 +263,11 @@
 								<tr>
 
 									<th class="col-md-1 table-bordered">RG</th>
-									<th class="col-md-2 no-bold semborda"></th>
+									<th class="col-md-2 no-bold semborda" id="coparticipante[rg]_modal"></th>
 									<th class="col-md-1 table-bordered">Orgão</th>
-									<th class="col-md-2 no-bold semborda"></th>
+									<th class="col-md-2 no-bold semborda" id="coparticipante[orgao_emissor_rg]_modal"></th>
 									<th class="col-md-1	table-bordered">Emis.</th>
-									<th class="col-md-2 no-bold semborda"></th>
+									<th class="col-md-2 no-bold semborda" id="coparticipante[emissao_rg]_modal"></th>
 									<th class="col-md-1 semborda"></th>
 									<th class="col-md-2 semborda"></th>
 
@@ -290,11 +290,11 @@
 									<tr>
 
 										<th class="col-md-1 table-bordered">Nasc.</th>
-										<th class="col-md-2 no-bold semborda"></th>
+										<th class="col-md-2 no-bold semborda" id="coparticipante[nascimento]_modal"></th>
 										<th class="col-md-1 table-bordered">Sexo</th>
-										<th class="col-md-2 no-bold semborda"></th>
+										<th class="col-md-2 no-bold semborda" id="coparticipante[sexo]_modal"></th>
 										<th class="col-md-1	table-bordered">Defi.</th>
-										<th class="col-md-2 no-bold semborda"></th>
+										<th class="col-md-2 no-bold semborda" id="coparticipante[necessidades_especiais]_modal]"></th>
 										<th class="col-md-1 semborda"></th>
 										<th class="col-md-2 semborda"></th>
 
@@ -317,11 +317,11 @@
 									<tr>
 
 										<th class="col-md-1 table-bordered">Logr.</th>
-										<th class="col-md-5 no-bold semborda"></th>
+										<th class="col-md-5 no-bold semborda" id="coparticipante[logradouro]_modal"></th>
 										<th class="col-md-1 table-bordered">Num.</th>
-										<th class="col-md-2 no-bold semborda"></th>
+										<th class="col-md-2 no-bold semborda" id="coparticipante[numero]_modal"></th>
 										<th class="col-md-1	table-bordered">Comp.</th>
-										<th class="col-md-2 no-bold semborda"></th>
+										<th class="col-md-2 no-bold semborda" id="coparticipante[complemento]_modal"></th>
 										<th class="col-md-1 semborda"></th>
 										<th class="col-md-1 semborda"></th>
 
@@ -346,11 +346,11 @@
 									<tr>
 
 										<th class="col-md-1 table-bordered">Bairro</th>
-										<th class="col-md-5 no-bold semborda"></th>
+										<th class="col-md-5 no-bold semborda" id="coparticipante[bairro]_modal"></th>
 										<th class="col-md-1 table-bordered">Munic.</th>
-										<th class="col-md-2 no-bold semborda"></th>
+										<th class="col-md-2 no-bold semborda" id="coparticipante[municipio]_modal"></th>
 										<th class="col-md-1	table-bordered">CEP</th>
-										<th class="col-md-2 no-bold semborda"></th>
+										<th class="col-md-2 no-bold semborda" id="coparticipante[cep]_modal"></th>
 										<th class="col-md-1 semborda"></th>
 										<th class="col-md-1 semborda"></th>
 
@@ -373,11 +373,11 @@
 									<tr>
 
 										<th class="col-md-1 table-bordered">Email</th>
-										<th class="col-md-5 no-bold semborda"></th>
+										<th class="col-md-5 no-bold semborda" id="coparticipante[email]_modal"></th>
 										<th class="col-md-1 table-bordered">Cel.</th>
-										<th class="col-md-2 no-bold semborda"></th>
+										<th class="col-md-2 no-bold semborda" id="coparticipante[telefones][0][numero]_modal"></th>
 										<th class="col-md-1	table-bordered">Tel.</th>
-										<th class="col-md-2 no-bold semborda"></th>
+										<th class="col-md-2 no-bold semborda" id="coparticipante[telefones][1][tipo_telefone]_modal"></th>
 										<th class="col-md-1 semborda"></th>
 										<th class="col-md-1 semborda"></th>
 
@@ -415,7 +415,7 @@
 							<tr>
 
 								<th class="col-md-1">Nome</th>
-								<th></th>
+								<th id="dependentes[0][nome]_modal"></th>
 
 							</tr>
 						</tread>
@@ -430,13 +430,13 @@
 									<tr>
 
 										<th class="col-md-1 table-bordered">Nasc.</th>
-										<th class="col-md-2 no-bold semborda"></th>
+										<th class="col-md-2 no-bold semborda" id="dependentes[0][nascimento]_modal"></th>
 										<th class="col-md-1 table-bordered">Sexo</th>
-										<th class="col-md-2 no-bold semborda"></th>
+										<th class="col-md-2 no-bold semborda" id="dependentes[0][sexo]_modal"></th>
 										<th class="col-md-1	table-bordered">Parent.</th>
-										<th class="col-md-2 no-bold semborda"></th>
+										<th class="col-md-2 no-bold semborda" id="dependentes[0][parentesco]_modal"></th>
 										<th class="col-md-1	table-bordered">Defi.</th>
-										<th class="col-md-2 no-bold semborda"></th>
+										<th class="col-md-2 no-bold semborda" id="dependentes[0][necessidades_especiais]_modal"></th>
 
 									</tr>
 
@@ -477,13 +477,13 @@
 									<tr>
 
 										<th class="col-md-1 table-bordered">Renda</th>
-										<th class="col-md-2 no-bold semborda">R$</th>
+										<th class="col-md-2 no-bold semborda" id="renda_familiar_modal"></th>
 										<th class="col-md-1 table-bordered">Faixa</th>
-										<th class="col-md-2 no-bold semborda"></th>
+										<th class="col-md-2 no-bold semborda" id="faixa_modal"></th>
 										<th class="col-md-1	table-bordered">Ínicio</th>
-										<th class="col-md-2 no-bold semborda"></th>
+										<th class="col-md-2 no-bold semborda" id="inicio_residencia_modal"></th>
 										<th class="col-md-1	table-bordered">Período</th>
-										<th class="col-md-2 no-bold semborda"></th>
+										<th class="col-md-2 no-bold semborda" id="periodo_modal"></th>
 
 									</tr>
 								</tbody>
