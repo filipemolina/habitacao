@@ -1,8 +1,8 @@
 <script type="text/javascript">
 
-    // Contador de dependentes
+    // Contador de dependentes, 
 
-    var cont = 1;
+    var cont = {{ $i }};
 
     // Calcular a faixa de inscrição
 

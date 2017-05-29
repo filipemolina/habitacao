@@ -15,6 +15,11 @@
 
 @section('main_container')
 
+    {{-- Este contador deve iniciar com o próximo item a ser criado. Como essa página sempre tem 1 item, ele deve --}}
+    {{-- começar na segunda posção (1) --}}
+
+    <?php $i = 1; ?>
+
     {{-- Mostrar os erros de validação --}}
 
     @if( count($errors) > 0)

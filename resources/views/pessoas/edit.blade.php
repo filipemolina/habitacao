@@ -466,34 +466,39 @@
             <button name="submit" value="clonar" class="btn btn-xs btn-primary glyphicon glyphicon-plus-sign clonar"></button>
         </div>
       </div>
+
+      {{-- Diferente da página de criação, esse índice deve iniciar em 0, pois o próprio php irá --}}
+      {{-- criar cada item e atualizar o contador --}}
+
+      <?php $i = 0; ?>
         
       @forelse($pessoa->dependentes as $dependente)
 
-          <div class="x_panel panel_dependentes">
+          <div class="x_panel @if($i==0) panel_dependentes @else clone_dependentes @endif">
           
             {{-- Nome --}}
             <div class="form-group">
-              <label class="col-md-1 control-label" for="dependentes[0][nome]">Nome</label>
+              <label class="col-md-1 control-label" for="dependentes[{{ $i }}][nome]">Nome</label>
               <div class="col-md-8">
-                <input value="{{ $dependente->nome }}" name="dependentes[0][nome]" id="dependentes[0][nome]" type="text" placeholder="Informe o nome" class="form-control input-md" >
+                <input value="{{ $dependente->nome }}" name="dependentes[{{ $i }}][nome]" id="dependentes[{{ $i }}][nome]" type="text" placeholder="Informe o nome" class="form-control input-md" >
               </div>
 
               <label class="col-md-1 control-label" for="dependentes.0.parentesco">Parentesco</label>
               <div class="col-md-2">
-                <select name="dependentes[0][parentesco]" id="dependentes[0][parentesco]" type="text" placeholder="Necessidades Especiais" class="form-control input-md" >
+                <select name="dependentes[{{ $i }}][parentesco]" id="dependentes[{{ $i }}][parentesco]" type="text" placeholder="Necessidades Especiais" class="form-control input-md" >
                   <option value="" disabled @if(!$dependente->parentesco) selected @endif style="display: none;">Selecione...</option>
-                <option value="1" @if($dependente->parentesco == "1") selected="selected" @endif>Avô(ó)</option>
-                <option value="2" @if($dependente->parentesco == "2") selected="selected" @endif>Bisavô(ó)</option>
-                <option value="3" @if($dependente->parentesco == "3") selected="selected" @endif>Bisneto(a)</option>
-                <option value="4" @if($dependente->parentesco == "4") selected="selected" @endif>Companheiro(a)</option>
-                <option value="5" @if($dependente->parentesco == "5") selected="selected" @endif>Cônjuge</option>
-                <option value="6" @if($dependente->parentesco == "6") selected="selected" @endif>Enteado(a)</option>
-                <option value="7" @if($dependente->parentesco == "7") selected="selected" @endif>Ex-esposa</option>
-                <option value="8" @if($dependente->parentesco == "8") selected="selected" @endif>Filho(a)</option>
-                <option value="9" @if($dependente->parentesco == "9") selected="selected" @endif>Irmão(ã)</option>
-                <option value="10" @if($dependente->parentesco == "10") selected="selected" @endif>Neto(a)</option>
-                <option value="11" @if($dependente->parentesco == "11") selected="selected" @endif>Pais</option>
-                <option value="12" @if($dependente->parentesco == "12") selected="selected" @endif>Outras</option>
+                  <option value="1"  @if($dependente->parentesco == "Avós")  selected="selected" @endif>Avô(ó)</option>
+                  <option value="2"  @if($dependente->parentesco == "Bisavós")  selected="selected" @endif>Bisavô(ó)</option>
+                  <option value="3"  @if($dependente->parentesco == "Bisneto(a)")  selected="selected" @endif>Bisneto(a)</option>
+                  <option value="4"  @if($dependente->parentesco == "Companheiro(a)")  selected="selected" @endif>Companheiro(a)</option>
+                  <option value="5"  @if($dependente->parentesco == "Cônjuge")  selected="selected" @endif>Cônjuge</option>
+                  <option value="6"  @if($dependente->parentesco == "Enteado(a)")  selected="selected" @endif>Enteado(a)</option>
+                  <option value="7"  @if($dependente->parentesco == "Ex-esposa")  selected="selected" @endif>Ex-esposa</option>
+                  <option value="8"  @if($dependente->parentesco == "Filho(a)")  selected="selected" @endif>Filho(a)</option>
+                  <option value="9"  @if($dependente->parentesco == "Irmão(ã)")  selected="selected" @endif>Irmão(ã)</option>
+                  <option value="10" @if($dependente->parentesco == "Neto(a)") selected="selected" @endif>Neto(a)</option>
+                  <option value="11" @if($dependente->parentesco == "Pais") selected="selected" @endif>Pais</option>
+                  <option value="12" @if($dependente->parentesco == "Outras") selected="selected" @endif>Outras</option>
                 </select>
               </div>
             </div>
@@ -502,15 +507,15 @@
             <div class="form-group">
 
             {{-- Data de Nascimento --}}
-            <label class="col-md-1 control-label" for="dependentes[0][nascimento]">Nascimento</label>  
+            <label class="col-md-1 control-label" for="dependentes[{{ $i }}][nascimento]">Nascimento</label>  
             <div class="col-md-3">
-              <input value="{{ $dependente->nascimento }}" name="dependentes[0][nascimento]" type="date" placeholder="01/01/2000" class="form-control input-md global-data" >
+              <input value="{{ $dependente->nascimento }}" name="dependentes[{{ $i }}][nascimento]" type="date" placeholder="01/01/2000" class="form-control input-md global-data" >
             </div>
 
             {{-- Sexo   --}}
-            <label class="col-md-1 control-label" for="dependentes[0][sexo]">Sexo</label>
+            <label class="col-md-1 control-label" for="dependentes[{{ $i }}][sexo]">Sexo</label>
             <div class="col-md-3">
-              <select name="dependentes[0][sexo]" id="dependentes[0][sexo]" type="text" placeholder="Sexo" class="form-control input-md" >
+              <select name="dependentes[{{ $i }}][sexo]" id="dependentes[{{ $i }}][sexo]" type="text" placeholder="Sexo" class="form-control input-md" >
                 <option value="" disabled @if(!$dependente->sexo) selected @endif style="display: none;">Selecione...</option>
                 <option value="1" @if($dependente->sexo == "Masculino") selected="selected" @endif>Masculino</option>
                 <option value="2" @if($dependente->sexo == "Feminino") selected="selected" @endif>Femino</option>
@@ -519,9 +524,9 @@
             </div>
 
             {{-- Deficiente --}}
-            <label class="col-md-1 control-label" for="dependentes[0][necessidades_especiais]">Deficiente</label>
+            <label class="col-md-1 control-label" for="dependentes[{{ $i }}][necessidades_especiais]">Deficiente</label>
             <div class="col-md-3">
-              <select name="dependentes[0][necessidades_especiais]" id="dependentes[0][necessidades_especiais]" type="text" placeholder="Necessidades Especiais" class="form-control input-md" >
+              <select name="dependentes[{{ $i }}][necessidades_especiais]" id="dependentes[{{ $i }}][necessidades_especiais]" type="text" placeholder="Necessidades Especiais" class="form-control input-md" >
                 <option value="" disabled @if(!$dependente->necessidades_especiais) selected @endif style="display: none;">Selecione...</option>
                 <option value="1" @if($dependente->necessidades_especiais == "1") selected="selected" @endif>Sim</option>
                 <option value="0" @if($dependente->necessidades_especiais == "0") selected="selected" @endif>Não</option>
@@ -531,9 +536,11 @@
           </div>  {{-- FIM Data de Nascimento, Sexo, Deficiente --}}
               
           <div class="col-md-11"></div>
-          <button name="submit" value="excluir" class="btn btn-xs btn-danger glyphicon glyphicon-trash excluir" selected style="display:none;"></button>
+          <button name="submit" value="excluir" class="btn btn-xs btn-danger glyphicon glyphicon-trash excluir" selected></button>
 
           </div> {{-- FIM panel_dependentes --}}
+
+          <?php $i++; ?>
 
       @empty
 

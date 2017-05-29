@@ -276,9 +276,29 @@ class ParticipantesController extends Controller
 
         $participante->coparticipante->update($request->coparticipante);
 
-        // Alterar os dependentes
+        // Alterar os dependentes que já existem ou adicionar novos
 
-        $participante->dependentes->sync();
+        foreach($request->dependentes as $dependente)
+        {
+            $participante->dependentes()->updateOrCreate(
+                ['participante_id' => $participante->id, 'nome' => $dependente['nome']],
+                $dependente
+            );
+
+        }
+
+        // Retirar os dependentes que foram excluídos
+
+        foreach($participante->dependentes as $dependente)
+        {
+            // Caso o dependente não exista no vetor da $request, é por que ele foi deletado
+            // pelo usuário que estava alterando esse cadastro. Logo deve ser deletado do cadastro
+
+            if(!$this->existeNoVetor($dependente->nome, $request->dependentes))
+            {
+                $dependente->delete();
+            }
+        }
 
         return redirect("/pessoas/$participante->id/edit")->with('sucesso', "Participante alterado com sucesso");
 
@@ -586,6 +606,22 @@ class ParticipantesController extends Controller
             $pessoa['tempo_residencia'] = date('Y') - date('Y', strtotime($participante->tempo_residencia))." Anos";
 
         return $pessoa;
+    }
+
+    /**
+     * Função que procura um item em um array multidimensional e retorna true ou false
+     */
+
+    protected function existeNoVetor($needle, $haystack, $strict = false) 
+    {    
+        foreach ($haystack as $item) {
+            if (($strict ? $item === $needle : $item == $needle) || (is_array($item) && $this->existeNoVetor($needle, $item, $strict))) 
+            {
+              return true;
+            }
+        }
+
+        return false;
     }
 
 }
