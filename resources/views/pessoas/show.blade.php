@@ -47,8 +47,8 @@
 									<th class="col-md-2 no-bold semborda" id="nis_modal"></th>
 									<th class="col-md-1	table-bordered">CTPS</th>
 									<th class="col-md-2 no-bold semborda" id="ctps_modal"></th>
-									<th class="col-md-1 table-bordered" id="bolsa_familia_modal">Bolsa F.</th>
-									<th class="col-md-2 no-bold semborda"></th>
+									<th class="col-md-1 table-bordered">Bolsa F.</th>
+									<th class="col-md-2 no-bold semborda" id="bolsa_familia_modal"></th>
 
 								</tr>
 
