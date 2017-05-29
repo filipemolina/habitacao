@@ -3,6 +3,40 @@
     // Contador de dependentes
 
     var cont = 1;
+
+    // Calcular a faixa de inscrição
+
+    function calculaFaixa(salario){
+
+        var valor = parseFloat(salario.replace('R$ ', '').replace(',', '.'));
+
+        var faixa = 0;
+
+        if(valor <= 1800)
+            faixa = 1;
+        else if(valor > 1800 && valor <= 2600)
+            faixa = "1,5";
+        else if(valor > 2600 && valor <= 4000)
+            faixa = 2;
+        else if(valor > 4000 && valor <= 9000)
+            faixa = 3;
+        else
+            faixa = "Sem Classificação";
+
+        // Sem comentários
+
+        $("input#faixa").val(faixa);
+    }
+
+    function calculaPeriodo(inicio){
+
+        $.get("{{ url('/pessoas/temporesidencia') }}", { inicio : inicio}, function(data){
+
+            $("input#periodo").val(data+" anos");
+
+        });
+
+    }
   
     {{-- Máscarasa dos campos CPF e RG --}}
     $(function(){
@@ -120,39 +154,13 @@
         ////////////////////////////////////// Calcular as faixas de classifiação
 
         $("input#renda_familiar").blur(function(){
-
-            var valor = parseFloat($(this).val().replace('R$ ', '').replace(',', '.'));
-            console.log(valor);
-            var faixa = 0;
-
-            if(valor <= 1800)
-                faixa = 1;
-            else if(valor > 1800 && valor <= 2600)
-                faixa = "1,5";
-            else if(valor > 2600 && valor <= 4000)
-                faixa = 2;
-            else if(valor > 4000 && valor <= 9000)
-                faixa = 3;
-            else
-                faixa = "Sem Classificação";
-
-            // Sem comentários
-
-            $("input#faixa").val(faixa);
+            calculaFaixa($(this).val());
         });
 
         //////////////////////////////////// Calcular o tempo de residência
 
         $("input#inicio-residencia").blur(function(){
-
-            var inicio = $(this).val();
-
-            $.get("{{ url('/pessoas/temporesidencia') }}", { inicio : inicio}, function(data){
-
-                $("input#periodo").val(data+" anos");
-
-            });
-
+            calculaPeriodo($(this).val());
         });
 
     });

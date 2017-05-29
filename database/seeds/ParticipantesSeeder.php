@@ -23,8 +23,8 @@ class ParticipantesSeeder extends Seeder
 
                 // Criar 2 telefones
 
-                $participante->telefones()->save(factory(App\Telefone::class)->states('fixo')->make());
                 $participante->telefones()->save(factory(App\Telefone::class)->states('celular')->make());
+                $participante->telefones()->save(factory(App\Telefone::class)->states('fixo')->make());
 
                 if(rand(0,1))
                 {
@@ -38,7 +38,8 @@ class ParticipantesSeeder extends Seeder
 
                     // Criar um telefone para o coparticipante
 
-                    $participante->coparticipante->telefones()->saveMany(factory(App\Telefone::class, 2)->make());
+                   $participante->coparticipante->telefones()->save(factory(App\Telefone::class)->states('celular')->make());
+                   $participante->coparticipante->telefones()->save(factory(App\Telefone::class)->states('fixo')->make());
                 }
 
                 // Criar dependentes para cada participante

@@ -36,20 +36,22 @@
 
     {{-- Mostrar mensagem de sucesso --}}
 
-    @if(isset($sucesso) && $sucesso)
+    @if(session('sucesso'))
 
         <div class="alert alert-dourado alert-dismissible" style="margin-top: 70px;" role="alert">
           <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-          <strong>Parabéns!</strong> Participante cadastrado com sucesso!
+          <strong>Parabéns!</strong> {{ session('sucesso') }}
         </div>
 
     @endif
 
     <h2> Alteração de Dados </h2>
 
-    <form id="cadastro_pessoa" class="form-horizontal" method="post" action="{{ url("/pessoas") }}">
+    <form id="cadastro_pessoa" class="form-horizontal" method="post" action="{{ url("/pessoas/$pessoa->id") }}">
 
     {{ csrf_field() }}
+
+    {{ method_field('PUT') }}
 
 
 {{------------------------------------ Participante --------------------------------------------}}
@@ -138,8 +140,8 @@
           <div class="col-md-2">
             <select id="sexo" name="sexo" type="text" class="form-control input-md" >
               <option value="" disabled @if(!$pessoa->sexo) selected @endif style="display: none;">Selecione...</option>
-              <option value="m" @if($pessoa->sexo == "m") selected="selected" @endif>Masculino</option>
-              <option value="f" @if($pessoa->sexo == "f") selected="selected" @endif>Femino</option>
+              <option value="Masculino" @if($pessoa->sexo == "Masculino") selected="selected" @endif>Masculino</option>
+              <option value="Feminino" @if($pessoa->sexo == "Feminino") selected="selected" @endif>Feminino</option>
             </select>
           </div>
 
@@ -335,14 +337,14 @@
           @if(count($pessoa->coparticipante))
 
             <option value="" disabled @if(!$pessoa->coparticipante->sexo) selected @endif style="display: none;"></option>
-            <option value="m" @if($pessoa->coparticipante->sexo == "m") selected="selected" @endif>Masculino</option>
-            <option value="f" @if($pessoa->coparticipante->sexo == "f") selected="selected" @endif>Femino</option>
+            <option value="Masculino" @if($pessoa->coparticipante->sexo == "Masculino") selected="selected" @endif>Masculino</option>
+            <option value="Feminino" @if($pessoa->coparticipante->sexo == "Feminino") selected="selected" @endif>Femino</option>
 
           @else
 
             <option value="" disabled selected style="display: none;"></option>
-            <option value="m">Masculino</option>
-            <option value="f">Femino</option> 
+            <option value="Masculino">Masculino</option>
+            <option value="Feminino">Femino</option> 
 
           @endif
 
@@ -639,7 +641,7 @@
         {{-- Tempo de residência --}}
         <label class="col-md-1 control-label" for="inicio-residencia">Início</label>
         <div class="col-md-3">
-          <input value="{{ $pessoa->inicio_residencia }}" id="inicio-residencia" name="inicio-residencia" type="date" placeholder="01 / 01 / 2000" class="form-control input-md global-data" >
+          <input value="{{ $pessoa->tempo_residencia }}" id="inicio-residencia" name="inicio-residencia" type="date" placeholder="01 / 01 / 2000" class="form-control input-md global-data" >
         </div>
 
         {{-- Faixa--}}
@@ -676,5 +678,18 @@
   <script src="{{ asset("js/jquery.inputmask.bundle.min.js") }}"></script>
   
   @include('includes.pessoas.create.scripts')
+
+  {{-- Chamar as funções que calculam a faixa e o período assim que a página é carregada --}}
+
+  <script>
+    
+  $(function(){
+
+      calculaFaixa($("input#renda_familiar").val());
+      calculaPeriodo($("input#inicio-residencia").val());
+
+  });
+
+  </script>
 
 @endpush

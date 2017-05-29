@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Support\Facades\DB;
+use Illuminate\Validation\Rule;
 use Illuminate\Http\Request;
 use App\Coparticipante;
 use App\Participante;
@@ -212,7 +213,75 @@ class ParticipantesController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+         ////////////////////////////////////////////////// Validação
+
+        $this->validate($request, [
+
+            // Participante
+
+            'nome'                                  => 'required',
+            'cpf'                                   => [
+                    'required',
+                    Rule::unique('participantes')->ignore($id)
+            ],
+            'bolsa_familia'                         => 'required',
+            'rg'                                    => 'required',
+            'orgao_emissor_rg'                      => 'required',
+            'emissao_rg'                            => 'date',
+            'nascimento'                            => 'date',
+            'sexo'                                  => 'required',
+            'necessidades_especiais'                => 'required',
+            'cep'                                   => 'required',
+            'logradouro'                            => 'required',
+            'numero'                                => 'required',
+            'bairro'                                => 'required',
+            'renda_familiar'                        => 'required',
+            'tempo_residencia'                      => 'date',
+            'telefones.*.numero'                    => 'required',
+            'inicio-residencia'                     => 'required',
+
+            // Coparticipante
+            // O campo nome é totalmente opcional. Entretanto, caso este seja preenchido
+            // todos os campos abaixo se tornam obrigatórios
+
+            'coparticipante.nome'                   => 'required_with:coparticipante.cpf,coparticipante.bolsa_familia,coparticipante.rg,coparticipante.orgao_emissor_rg,coparticipante.emissao_rg,coparticipante.nascimento,coparticipante.sexo,coparticipante.necessidades_especiais,coparticipante.cep,coparticipante.logradouro,coparticipante.numero,coparticipante.bairro',
+            'coparticipante.cpf'                    => 'required_with:coparticipante.nome',
+            'coparticipante.bolsa_familia'          => 'required_with:coparticipante.nome',
+            'coparticipante.rg'                     => 'required_with:coparticipante.nome',
+            'coparticipante.orgao_emissor_rg'       => 'required_with:coparticipante.nome',
+            'coparticipante.emissao_rg'             => 'required_with:coparticipante.nome|date',
+            'coparticipante.nascimento'             => 'required_with:coparticipante.nome|date',
+            'coparticipante.sexo'                   => 'required_with:coparticipante.nome',
+            'coparticipante.necessidades_especiais' => 'required_with:coparticipante.nome',
+            'coparticipante.cep'                    => 'required_with:coparticipante.nome',
+            'coparticipante.logradouro'             => 'required_with:coparticipante.nome',
+            'coparticipante.numero'                 => 'required_with:coparticipante.nome',
+            'coparticipante.bairro'                 => 'required_with:coparticipante.nome',
+
+            // Dependentes
+            'dependentes.*.nome'                    => 'required_with:dependentes.*.parentesco,dependentes.*.nascimento,dependentes.*.nascimento,dependentes.*.sexo,dependentes.*.necessidades_especiais',
+            'dependentes.*.parentesco'              => 'required_with:dependentes.*.nome',
+            'dependentes.*.nascimento'              => 'required_with:dependentes.*.nome|date',
+            'dependentes.*.sexo'                    => 'required_with:dependentes.*.nome',
+            'dependentes.*.necessidades_especiais'  => 'required_with:dependentes.*.nome',
+
+        ]);
+
+        // Atualizar os dados do participante;
+
+        $participante = Participante::find($id);
+        $participante->update($request->all());
+
+        // Atualizar os dados do Coparticipante
+
+        $participante->coparticipante->update($request->coparticipante);
+
+        // Alterar os dependentes
+
+        $participante->dependentes->sync();
+
+        return redirect("/pessoas/$participante->id/edit")->with('sucesso', "Participante alterado com sucesso");
+
     }
 
     /**
