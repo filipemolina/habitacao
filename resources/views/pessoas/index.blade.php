@@ -54,6 +54,28 @@ Lista de Pessoas
 
 <div class="clearfix"></div>
 
+{{-- modal do botão excluir --}}
+
+<div class="modal fade" id="modalexcluir" tabindex="-1" role="dialog">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title">Excluir Pessoa</h4>
+      </div>
+      <div class="modal-body">
+        <p>Realmente Desejar Excluir?</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger" data-dismiss="modal">Excluir</button>
+        <button type="button" class="btn btn-primary" data-dismiss="modal" aria-label="Close">Fechar</button>
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
+{{-- fim do modal do botão excluir --}}
+
 @endsection
 
 @push('scripts')
