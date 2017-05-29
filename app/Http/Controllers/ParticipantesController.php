@@ -334,7 +334,7 @@ class ParticipantesController extends Controller
                 'coparticipante'         => count($participante->coparticipante) ? "Sim" : "Não",
                 'dependentes'            => count($participante->dependentes),
                 'bairro'                 => $participante->endereco->bairro,
-                'acoes'                  => "<a class='btn btn-success btn-xs' data-toggle='modal' data-target='#modal_pessoas_show' data-id='".$participante->id."' href='#'><i class='fa fa-eye'></i></a><a class='btn btn-warning btn-xs' href='".url("pessoas/$participante->id/edit")."'><i class='fa fa-pencil'></i></a><a class='btn btn-danger btn-xs btn-excluir'  href='#'' data-toggle='modal' data-nome='".str_replace("'", "", $participante->nome)."' data-id='$participante->id' data-target='#modalexcluir'><i class='fa fa-trash'></i></a>"
+                'acoes'                  => "<a class='btn btn-success  btn-circulo' data-toggle='modal' data-target='#modal_pessoas_show' data-id='".$participante->id."' href='#'><i class='fa fa-eye'></i></a><a class='btn btn-warning  btn-circulo' href='".url("pessoas/$participante->id/edit")."'><i class='fa fa-pencil'></i></a><a class='btn btn-danger btn-excluir btn-circulo'  href='#'' data-toggle='modal' data-nome='".str_replace("'", "", $participante->nome)."' data-id='$participante->id' data-target='#modalexcluir'><i class='fa fa-trash'></i></a>"
             ]);
         }
 

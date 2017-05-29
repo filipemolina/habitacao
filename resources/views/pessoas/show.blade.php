@@ -3,7 +3,7 @@
 
 	<div class="modal-dialog modal-lg">
 		
-		<a href="" class="btn btn-circulo btn-default cor-padrao glyphicon glyphicon-remove" data-dismiss="modal"></a>
+		<a class="btn btn-circulo btn-default cor-padrao glyphicon glyphicon-remove" data-dismiss="modal"></a>
 		<a href="" class="btn btn-circulo btn-default cor-padrao glyphicon glyphicon-print"></a>
 		<a href="" class="btn btn-circulo btn-warning fa fa-pencil"></a>
 		<a href="" class="btn btn-circulo btn-danger fa fa-trash"></a>
@@ -181,7 +181,7 @@
 										<th class="col-md-1	table-bordered">Tel.</th>
 										<th class="col-md-2 no-bold semborda" id="telefones[1][numero]"></th>
 										<th class="col-md-1 table-bordered">Cel.</th>
-										<th class="col-md-2 semborda" id="telefones[0][numero]"></th>
+										<th class="col-md-2 no-bold semborda" id="telefones[0][numero]"></th>
 										<th class="col-md-1 semborda"></th>
 										<th class="col-md-1 semborda"></th>
 
@@ -493,7 +493,7 @@
 			</div>
 		</div> {{-- FIM x_panel Renda --}}
 
-		<a href="" class="btn btn-circulo btn-default btn-cons cor-padrao glyphicon glyphicon-remove" data-dismiss="modal"></a>
+		<a class="btn btn-circulo btn-default btn-cons cor-padrao glyphicon glyphicon-remove" data-dismiss="modal"></a>
 		<a href="" class="btn btn-circulo btn-default btn-cons cor-padrao glyphicon glyphicon-print"></a>
 		<a href="" class="btn btn-circulo btn-warning fa fa-pencil"></a>
 		<a href="" class="btn btn-circulo btn-danger fa fa-trash"></a>

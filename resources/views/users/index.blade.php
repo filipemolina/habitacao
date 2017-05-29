@@ -54,8 +54,8 @@
 							    <td>{{ $usuario->email }}</td>
 							    <td>Sim</td>
 							    <td class="actions">
-				                  <a class="btn btn-warning btn-xs" href="{{ url("users/$usuario->id/edit") }}"><i class="fa fa-pencil"></i></a>
-				                  <a class="btn btn-danger btn-xs"  data-id="{{$usuario->id}}" data-nome="{{ $usuario->name }}" href="#" data-toggle="modal" data-target="#modalexcluir"><i class="fa fa-trash"></i></a>
+				                  <a class="btn btn-warning btn-circulo btn-xs" href="{{ url("users/$usuario->id/edit") }}"><i class="fa fa-pencil"></i></a>
+				                  <a class="btn btn-danger btn-circulo btn-xs"  data-id="{{$usuario->id}}" data-nome="{{ $usuario->name }}" href="#" data-toggle="modal" data-target="#modalexcluir"><i class="fa fa-trash"></i></a>
 				                </td>
 							</tr>
 
