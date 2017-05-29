@@ -55,7 +55,7 @@
 							    <td>Sim</td>
 							    <td class="actions">
 				                  <a class="btn btn-warning btn-xs" href="{{ url("users/$usuario->id/edit") }}"><i class="fa fa-pencil"></i></a>
-				                  <a class="btn btn-danger btn-xs"  data-nome="{{ $usuario->name }}" href="#" data-toggle="modal" data-target="#modalexcluir"><i class="fa fa-trash"></i></a>
+				                  <a class="btn btn-danger btn-xs"  data-id="{{$usuario->id}}" data-nome="{{ $usuario->name }}" href="#" data-toggle="modal" data-target="#modalexcluir"><i class="fa fa-trash"></i></a>
 				                </td>
 							</tr>
 
@@ -77,15 +77,18 @@
 			    <div class="modal-content">
 			      <div class="modal-header">
 			        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-			        <h4 class="modal-title">Excluir</h4>
+			        <h4 class="modal-title">Excluir <span id="nome_usuario"></span></h4>
 			      </div>
 			      <div class="modal-body">
 			        <p>Realmente Desejar Excluir?</p>
 			      </div>
 			      <div class="modal-footer">
-			        <button type="button" class="btn btn-danger" data-dismiss="modal">Excluir</button>
+			        <button type="button" id="btn-excluir-modal" class="btn btn-danger" data-dismiss="modal">Excluir</button>
 			        <button type="button" class="btn btn-primary" data-dismiss="modal" aria-label="Close">Fechar</button>
 			      </div>
+			      <input type="hidden" name="id" id="id_usuario">
+			      {{ method_field("DELETE") }}
+      			  {{ csrf_field() }}
 			    </div><!-- /.modal-content -->
 			  </div><!-- /.modal-dialog -->
 			</div><!-- /.modal -->

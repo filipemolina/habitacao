@@ -434,7 +434,23 @@ class ParticipantesController extends Controller
 
         // Sexo
         if(array_key_exists('nascimento', $cabecalhos) !== false)
-            $pessoa['nascimento'] = $participante->nascimento;
+        {
+            //Explodir a data de nascimento
+
+            $data=explode("-", $participante->nascimento);
+
+            //Inverter
+
+            $data=array_reverse($data);
+
+            // Implodir
+
+            $data=implode("/", $data);
+
+            // Atribuir
+
+            $pessoa['nascimento'] = $data;
+        }
 
         // PNE
         if(array_key_exists('pne', $cabecalhos) !== false)
