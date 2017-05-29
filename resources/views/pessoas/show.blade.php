@@ -12,11 +12,11 @@
 {{-- DIV Master --}}
 <div class="col-md-12 col-sm-12 col-xs-12">
 
-<!-- Trigger the modal with a button -->
-<button type="button" class="btn btn-info btn" data-toggle="modal" data-target="#myModal">Open Modal</button>
+<!-- Botão para chamar o MODAL precisa ser removido -->
+<button type="button" class="btn btn-info btn" data-toggle="modal" data-target="#modal_pessoas_show">Open Modal</button>
 
 <!-- Modal Fade-->
-<div id="myModal" class="modal fade" role="dialog">
+<div id="modal_pessoas_show" class="modal fade" role="dialog">
 
 	<div class="modal-dialog modal-lg">
 		
