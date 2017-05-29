@@ -61,15 +61,18 @@ Lista de Pessoas
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title">Excluir Pessoa</h4>
+        <h4 class="modal-title">Excluir <span id="nome_participante"></span></h4>
       </div>
       <div class="modal-body">
         <p>Realmente Desejar Excluir?</p>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-danger" data-dismiss="modal">Excluir</button>
+        <button type="button" class="btn btn-danger" id="btn-excluir-modal" data-dismiss="modal">Excluir</button>
         <button type="button" class="btn btn-primary" data-dismiss="modal" aria-label="Close">Fechar</button>
       </div>
+      <input type="hidden" name="id" id="id_participante">
+      {{ method_field("DELETE") }}
+      {{ csrf_field() }}
     </div><!-- /.modal-content -->
   </div><!-- /.modal-dialog -->
 </div><!-- /.modal -->
