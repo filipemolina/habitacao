@@ -166,19 +166,19 @@
           <!-- CEP-->
           <label class="col-md-1 control-label" for="cep">CEP</label>
           <div class="col-md-2">
-            <input value="{{ $pessoa->endereco->cep }}" id="cep" name="cep" type="text" data-inputmask="'mask' : '99.999-999'" placeholder="99999-999" class="form-control input-md cep" >
+            <input value="{{ $pessoa->endereco->cep }}" id="cep" name="endereco[cep]" type="text" data-inputmask="'mask' : '99.999-999'" placeholder="99999-999" class="form-control input-md cep" >
           </div>
 
           <!-- Município-->
           <label class="col-md-1 control-label" for="municipio">Município</label>
           <div class="col-md-2">
-            <input value="{{ $pessoa->endereco->municipio }}" disabled="disabled" id="municipio" name="municipio" type="text" placeholder="Mesquita" value="Mesquita" class="form-control input-md" >
+            <input value="{{ $pessoa->endereco->municipio }}" disabled="disabled" id="endereco[municipio]" name="endereco[municipio]" type="text" placeholder="Mesquita" value="Mesquita" class="form-control input-md" >
           </div>
 
           {{-- Bairro --}}
           <label class="col-md-1 control-label" for="bairro">Bairro</label>
           <div class="col-md-2">
-            <input value="{{ $pessoa->endereco->bairro }}" id="bairro" name="bairro" type="text" placeholder="Centro" class="form-control input-md">
+            <input value="{{ $pessoa->endereco->bairro }}" id="bairro" name="endereco[bairro]" type="text" placeholder="Centro" class="form-control input-md">
           </div>
 
         </div> {{-- FIM CEP, Município e Bairro--}}
@@ -188,20 +188,20 @@
 
           <!-- Logradouro ...Av...Rua....etc-->
           <label class="col-md-1 control-label" for="logradouro">Logradouro</label>
-          <div class="col-md-2">
-            <input value="{{ $pessoa->endereco->logradouro }}" id="logradouro" name="logradouro" type="text" placeholder="Av, Rua, Travessa..." class="form-control input-md">
+          <div class="col-md-3">
+            <input value="{{ $pessoa->endereco->logradouro }}" id="logradouro" name="endereco[logradouro]" type="text" placeholder="Av, Rua, Travessa..." class="form-control input-md">
           </div>
 
           <!-- Número da residência-->
           <label class="col-md-1 control-label" for="numero">Numero</label>
           <div class="col-md-2">
-            <input value="{{ $pessoa->endereco->numero }}" id="numero" name="numero" type="text" placeholder="999" class="form-control input-md">
+            <input value="{{ $pessoa->endereco->numero }}" id="numero" name="endereco[numero]" type="text" placeholder="999" class="form-control input-md">
           </div>
 
           {{-- Complemento --}}
           <label class="col-md-2 control-label" for="complemento">Complemento</label>
           <div class="col-md-2">
-            <input value="{{ $pessoa->endereco->complemento }}" id="complemento" name="complemento" type="text" placeholder="Ap., Fundos,..." class="form-control input-md">
+            <input value="{{ $pessoa->endereco->complemento }}" id="complemento" name="endereco[complemento]" type="text" placeholder="Ap., Fundos,..." class="form-control input-md">
           </div>
 
         </div> {{-- FIM Logradouro, Número e Complemento --}}
@@ -342,7 +342,7 @@
 
           @else
 
-            <option value="" selected></option>
+            <option value="" selected>Selecione...</option>
             <option value="Masculino">Masculino</option>
             <option value="Feminino">Femino</option> 
 
@@ -364,7 +364,7 @@
 
           @else
 
-            <option value="" disabled selected style="display: none;">   </option>
+            <option value="" disabled selected style="display: none;">Selecione...</option>
             <option value="1">Sim</option>
             <option value="0">Não</option>
 
@@ -382,21 +382,21 @@
         <button class="btn bnt-xs btn-primary duplicar-endereco col-md-1 glyphicon glyphicon-repeat" data-toggle="tooltip" title="Copiar endereço" style="margin-right: 0;"></button>
 
         <!-- CEP-->
-        <label class="col-md-1 control-label" for="coparticipante[cep]">CEP</label>
+        <label class="col-md-1 control-label" for="coparticipante[endereco][cep]">CEP</label>
         <div class="col-md-2">
-          <input value="{{ $pessoa->coparticipante->endereco->cep or ""}}" id="coparticipante[cep]" data-inputmask="'mask' : '99.999-999'" name="coparticipante[cep]" type="text" placeholder="99999-999" class="form-control input-md cep" >
+          <input value="{{ $pessoa->coparticipante->endereco->cep or ""}}" id="coparticipante[cep]" data-inputmask="'mask' : '99.999-999'" name="coparticipante[endereco][cep]" type="text" placeholder="99999-999" class="form-control input-md cep" >
         </div>
 
         <!-- Município-->
-        <label class="col-md-1 control-label" for="coparticipante[municipio]">Município</label>
+        <label class="col-md-1 control-label" for="coparticipante[endereco][municipio]">Município</label>
         <div class="col-md-2">
-          <input value="{{ $pessoa->coparticipante->endereco->municipio or ""}}" id="coparticipante[municipio]" disabled="disabled" value="Mesquita" name="coparticipante[municipio]" type="text" placeholder="Mesquita" class="form-control input-md" >
+          <input value="{{ $pessoa->coparticipante->endereco->municipio or ""}}" id="coparticipante[municipio]" disabled="disabled" value="Mesquita" name="coparticipante[endereco][municipio]" type="text" placeholder="Mesquita" class="form-control input-md" >
         </div>
 
         {{-- Bairro --}}
-        <label class="col-md-1 control-label" for="coparticipante[bairro]">Bairro</label>
+        <label class="col-md-1 control-label" for="coparticipante[endereco][bairro]">Bairro</label>
         <div class="col-md-2">
-          <input value="{{ $pessoa->coparticipante->endereco->bairro or ""}}" id="coparticipante[bairro]" name="coparticipante[bairro]" type="text" placeholder="Centro" class="form-control input-md">
+          <input value="{{ $pessoa->coparticipante->endereco->bairro or ""}}" id="coparticipante[bairro]" name="coparticipante[endereco][bairro]" type="text" placeholder="Centro" class="form-control input-md">
         </div>
 
       </div> {{-- FIM CEP, Município e Bairro --}}            
@@ -406,21 +406,21 @@
       <div class="form-group">
         
         {{-- Logradouro ...Av...Rua....etc --}}
-        <label class="col-md-1 control-label" for="coparticipante[logradouro]">Logradouro</label>
+        <label class="col-md-1 control-label" for="coparticipante[endereco][logradouro]">Logradouro</label>
         <div class="col-md-3">
-          <input value="{{ $pessoa->coparticipante->endereco->logradouro or ""}}" id="coparticipante[logradouro]" name="coparticipante[logradouro]" type="text" placeholder="Av, Rua, Travessa..." class="form-control input-md">
+          <input value="{{ $pessoa->coparticipante->endereco->logradouro or ""}}" id="coparticipante[logradouro]" name="coparticipante[endereco][logradouro]" type="text" placeholder="Av, Rua, Travessa..." class="form-control input-md">
         </div>
         
         <!-- Número da residência-->
-        <label class="col-md-1 control-label" for="coparticipante[numero]">Numero</label>
+        <label class="col-md-1 control-label" for="coparticipante[endereco][numero]">Numero</label>
         <div class="col-md-2">
-          <input value="{{ $pessoa->coparticipante->endereco->numero or ""}}" id="coparticipante[numero]" name="coparticipante[numero]" type="text" placeholder="999" class="form-control input-md">
+          <input value="{{ $pessoa->coparticipante->endereco->numero or ""}}" id="coparticipante[numero]" name="coparticipante[endereco][numero]" type="text" placeholder="999" class="form-control input-md">
         </div>
 
         {{-- Complemento --}}
-        <label class="col-md-2 control-label" for="coparticipante[complemento]">Complemento</label>
+        <label class="col-md-2 control-label" for="coparticipante[endereco][complemento]">Complemento</label>
         <div class="col-md-3">
-          <input value="{{ $pessoa->coparticipante->endereco->complemento or ""}}" id="coparticipante[complemento]" name="coparticipante[complemento]" type="text" placeholder="Ap., Fundos,..." class="form-control input-md">
+          <input value="{{ $pessoa->coparticipante->endereco->complemento or ""}}" id="coparticipante[complemento]" name="coparticipante[endereco][complemento]" type="text" placeholder="Ap., Fundos,..." class="form-control input-md">
         </div>
 
       </div> {{-- FIM Logradouro, Número e Complemento --}}

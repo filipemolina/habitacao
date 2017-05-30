@@ -213,7 +213,7 @@ class ParticipantesController extends Controller
      */
     public function update(Request $request, $id)
     {
-         ////////////////////////////////////////////////// Validação
+        ////////////////////////////////////////////////// Validação
 
         $this->validate($request, [
 
@@ -231,10 +231,10 @@ class ParticipantesController extends Controller
             'nascimento'                            => 'date',
             'sexo'                                  => 'required',
             'necessidades_especiais'                => 'required',
-            'cep'                                   => 'required',
-            'logradouro'                            => 'required',
-            'numero'                                => 'required',
-            'bairro'                                => 'required',
+            'endereco.cep'                          => 'required',
+            'endereco.logradouro'                   => 'required',
+            'endereco.numero'                       => 'required',
+            'endereco.bairro'                       => 'required',
             'renda_familiar'                        => 'required',
             'tempo_residencia'                      => 'date',
             'telefones.*.numero'                    => 'required',
@@ -253,10 +253,10 @@ class ParticipantesController extends Controller
             'coparticipante.nascimento'             => 'required_with:coparticipante.nome|date',
             'coparticipante.sexo'                   => 'required_with:coparticipante.nome',
             'coparticipante.necessidades_especiais' => 'required_with:coparticipante.nome',
-            'coparticipante.cep'                    => 'required_with:coparticipante.nome',
-            'coparticipante.logradouro'             => 'required_with:coparticipante.nome',
-            'coparticipante.numero'                 => 'required_with:coparticipante.nome',
-            'coparticipante.bairro'                 => 'required_with:coparticipante.nome',
+            'coparticipante.endereco.cep'           => 'required_with:coparticipante.nome',
+            'coparticipante.endereco.logradouro'    => 'required_with:coparticipante.nome',
+            'coparticipante.endereco.numero'        => 'required_with:coparticipante.nome',
+            'coparticipante.endereco.bairro'        => 'required_with:coparticipante.nome',
 
             // Dependentes
             'dependentes.*.nome'                    => 'required_with:dependentes.*.parentesco,dependentes.*.nascimento,dependentes.*.nascimento,dependentes.*.sexo,dependentes.*.necessidades_especiais',
@@ -272,10 +272,25 @@ class ParticipantesController extends Controller
         $participante = Participante::find($id);
         $participante->update($request->all());
 
+        // Atualizar endereço
+
+        $participante->endereco->update($request->endereco);
+
+        // Deletar os telefones atuais
+
+        $participante->telefones()->delete();
+
+        // Criar novos telefones com as informações enviadas
+
+        foreach($request->telefones as $telefone)
+        {
+            $participante->telefones()->save(new Telefone($telefone));
+        }
+
         // Caso haja um coparticipante no request, o usuário está tentando cadastrar um coparticipante
         // que não existia previamente ou alterar um que já existe.
 
-        if(count($request->coparticipante))
+        if($request->coparticipante['nome'] != null)
         {
             // O método updateOrCreate tenta encontrar um objeto com as características ditadas no primeiro
             // argumento (vetor), caso encontre, ele usa o segundo argumento para alterá-lo. Caso contrário
@@ -286,12 +301,21 @@ class ParticipantesController extends Controller
                 $request->coparticipante
             );
 
-            /////////////////////////////////////////////////////////////////////// Estou atualizando endereço e telefone do CO
+            // Atualizar endereço do coparticipante
 
             $participante->coparticipante->endereco()->updateOrCreate(
                 ['coparticipante_id' => $participante->coparticipante->id],
                 $request->coparticipante['endereco']
             );
+
+            // Atualizar telefones
+
+            $participante->coparticipante->telefones()->delete();
+
+            foreach($request->coparticipante['telefones'] as $telefone)
+            {
+                $participante->coparticipante->telefones()->save(new Telefone($telefone));
+            }
         }
         else
         {
