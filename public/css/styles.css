@@ -1,9 +1,11 @@
-.btn-entrar{
+/******************************** CSS Global *************************************************/
+
+.btn-entrar {
 	float:none !important; 
 	margin-left: 0px !important;
 }
 
-.btn-circulo{
+.btn-circulo {
   width: 30px;
   height: 30px;
   text-align: center;
@@ -12,7 +14,7 @@
   line-height: 1.428571429;
   border-radius: 15px;
 }
-.cor-padrao{
+.cor-padrao {
     background-color: white;
     color: #3D276B;
 }
@@ -21,24 +23,32 @@
 
 	background: none;
 }
-body.login{
+body.login {
 	background-color: rgba(191, 161, 95, 0.4);
 }
 
-.dourado
-{
+.dourado {
     color: #d0c1a1;
 }
-
-input[type=submit]{
+.dourado2 {
+background: rgba(191,161,95,1);
+background: -moz-linear-gradient(left, rgba(191,161,95,1) 0%, rgba(191,161,95,1) 15%, rgba(214,182,113,1) 25%, rgba(219,186,114,1) 40%, rgba(219,186,114,1) 50%, rgba(214,182,113,1) 60%, rgba(214,182,113,1) 75%, rgba(191,161,95,1) 85%, rgba(191,161,95,1) 100%);
+background: -webkit-gradient(left top, right top, color-stop(0%, rgba(191,161,95,1)), color-stop(15%, rgba(191,161,95,1)), color-stop(25%, rgba(214,182,113,1)), color-stop(40%, rgba(219,186,114,1)), color-stop(50%, rgba(219,186,114,1)), color-stop(60%, rgba(214,182,113,1)), color-stop(75%, rgba(214,182,113,1)), color-stop(85%, rgba(191,161,95,1)), color-stop(100%, rgba(191,161,95,1)));
+background: -webkit-linear-gradient(left, rgba(191,161,95,1) 0%, rgba(191,161,95,1) 15%, rgba(214,182,113,1) 25%, rgba(219,186,114,1) 40%, rgba(219,186,114,1) 50%, rgba(214,182,113,1) 60%, rgba(214,182,113,1) 75%, rgba(191,161,95,1) 85%, rgba(191,161,95,1) 100%);
+background: -o-linear-gradient(left, rgba(191,161,95,1) 0%, rgba(191,161,95,1) 15%, rgba(214,182,113,1) 25%, rgba(219,186,114,1) 40%, rgba(219,186,114,1) 50%, rgba(214,182,113,1) 60%, rgba(214,182,113,1) 75%, rgba(191,161,95,1) 85%, rgba(191,161,95,1) 100%);
+background: -ms-linear-gradient(left, rgba(191,161,95,1) 0%, rgba(191,161,95,1) 15%, rgba(214,182,113,1) 25%, rgba(219,186,114,1) 40%, rgba(219,186,114,1) 50%, rgba(214,182,113,1) 60%, rgba(214,182,113,1) 75%, rgba(191,161,95,1) 85%, rgba(191,161,95,1) 100%);
+background: linear-gradient(to right, rgba(191,161,95,1) 0%, rgba(191,161,95,1) 15%, rgba(214,182,113,1) 25%, rgba(219,186,114,1) 40%, rgba(219,186,114,1) 50%, rgba(214,182,113,1) 60%, rgba(214,182,113,1) 75%, rgba(191,161,95,1) 85%, rgba(191,161,95,1) 100%);
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#bfa15f', endColorstr='#bfa15f', GradientType=1 );
+}
+input[type=submit] {
 	color:black;
 }
 
-.topo{
+.topo {
 	background-color:#3D276B;
 }
 
-.logo_topo{
+.logo_topo {
 	width: 315px;
 	margin-top: 20px;
     border: 4px solid #BFA15F;
@@ -55,7 +65,7 @@ input[type=submit]{
     min-width: 280px;
    }
 
-.colormenu{
+.colormenu {
 	background-color:#3D276B;
     background: rgba(255,255,255,0.66);
     background: -moz-linear-gradient(top, rgba(255,255,255,0.66) 0%, rgba(128,117,155,1) 15%, rgba(103,89,135,1) 18%, rgba(96,69,158,1) 30%, rgba(90,69,133,1) 41%, rgba(45,27,82,1) 84%, rgba(33,16,69,1) 95%, rgba(33,16,69,1) 100%);
@@ -82,12 +92,12 @@ h3.home {
     width: 100%;
     float: left;
 }
-.body{
+.body {
 	color: #3D276B;
     background: #3D276B;
     background: rgba(31,20,51,1);
 }
-.colortopbar{
+.colortopbar {
 	background-color: rgba(191, 161, 95, 0.5);
     background: rgba(196,163,92,1);
     background: -moz-linear-gradient(-45deg, rgba(196,163,92,1) 0%, rgba(196,163,92,1) 3%, rgba(207,183,131,1) 15%, rgba(219,198,151,1) 26%, rgba(230,199,143,1) 40%, rgba(240,211,161,1) 52%, rgba(240,213,173,1) 65%, rgba(231,206,168,1) 73%, rgba(227,203,166,0.94) 77%, rgba(229,216,196,0.9) 80%, rgba(230,229,225,0.84) 83%, rgba(237,236,234,0.8) 85%, rgba(255,255,255,0.74) 90%, rgba(255,255,255,0.7) 93%, rgba(255,255,255,0.5) 100%);
@@ -98,7 +108,7 @@ h3.home {
     background: linear-gradient(135deg, rgba(196,163,92,1) 0%, rgba(196,163,92,1) 3%, rgba(207,183,131,1) 15%, rgba(219,198,151,1) 26%, rgba(230,199,143,1) 40%, rgba(240,211,161,1) 52%, rgba(240,213,173,1) 65%, rgba(231,206,168,1) 73%, rgba(227,203,166,0.94) 77%, rgba(229,216,196,0.9) 80%, rgba(230,229,225,0.84) 83%, rgba(237,236,234,0.8) 85%, rgba(255,255,255,0.74) 90%, rgba(255,255,255,0.7) 93%, rgba(255,255,255,0.5) 100%);
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#c4a35c', endColorstr='#ffffff', GradientType=1 );
 }
-.color_special1{
+.color_special1 {
     background: rgba(62,44,97,1);
     background: -moz-linear-gradient(left, rgba(62,44,97,1) 0%, rgba(60,32,117,1) 12%, rgba(60,32,117,1) 22%, rgba(60,29,133,1) 38%, rgba(60,29,133,1) 53%, rgba(74,29,133,1) 69%, rgba(105,38,138,1) 100%);
     background: -webkit-gradient(left top, right top, color-stop(0%, rgba(62,44,97,1)), color-stop(12%, rgba(60,32,117,1)), color-stop(22%, rgba(60,32,117,1)), color-stop(38%, rgba(60,29,133,1)), color-stop(53%, rgba(60,29,133,1)), color-stop(69%, rgba(74,29,133,1)), color-stop(100%, rgba(105,38,138,1)));
@@ -109,7 +119,7 @@ h3.home {
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#3e2c61', endColorstr='#69268a', GradientType=1 );
 
 }
-.color_special2{
+.color_special2 {
     background: rgba(105,38,138,1);
     background: -moz-linear-gradient(left, rgba(105,38,138,1) 0%, rgba(74,29,133,1) 22%, rgba(60,29,133,1) 35%, rgba(60,29,133,1) 47%, rgba(60,32,117,1) 58%, rgba(60,32,117,1) 64%, rgba(60,32,117,0.99) 65%, rgba(60,32,117,0.91) 72%, rgba(60,32,117,0.9) 73%, rgba(60,32,117,0.15) 83%, rgba(60,33,115,0) 85%, rgba(62,44,97,0) 100%);
     background: -webkit-gradient(left top, right top, color-stop(0%, rgba(105,38,138,1)), color-stop(22%, rgba(74,29,133,1)), color-stop(35%, rgba(60,29,133,1)), color-stop(47%, rgba(60,29,133,1)), color-stop(58%, rgba(60,32,117,1)), color-stop(64%, rgba(60,32,117,1)), color-stop(65%, rgba(60,32,117,0.99)), color-stop(72%, rgba(60,32,117,0.91)), color-stop(73%, rgba(60,32,117,0.9)), color-stop(83%, rgba(60,32,117,0.15)), color-stop(85%, rgba(60,33,115,0)), color-stop(100%, rgba(62,44,97,0)));
@@ -130,8 +140,6 @@ a {
 .nav.side-menu>li.active, .nav.side-menu>li.current-page {
     border-right: none;
 }
-
-<<<<<<< HEAD
 .col-md-3.left_col {
     background-color: #3d276b;
 }
@@ -148,19 +156,16 @@ a {
     background: #cab994;
 }
 
-.bg-padrao
-{
+.bg-padrao {
     background-color: #947fc1 !important;
     border: 1px solid #3D276B !important;
 }
 
-.nav-md ul.nav.child_menu li:before 
-{
+.nav-md ul.nav.child_menu li:before  {
     background: #dbccaa;
 }
 
-.nav-md ul.nav.child_menu li:after 
-{
+.nav-md ul.nav.child_menu li:after {
     border-left: 1px solid #dbccaa;
 }
 
@@ -172,19 +177,16 @@ a {
     border-right: none;
 }
 
-span.pequeno 
-{
+span.pequeno {
     font-size: 10px;
     color: #afafaf;
 }
 
-.semborda
-{
+.semborda {
     border: none !important;
 }
 
-table.tile_info.bairros
-{
+table.tile_info.bairros {
     display: block;
     height: 210px;
     overflow-y: scroll;
@@ -192,26 +194,23 @@ table.tile_info.bairros
 
 .panel_toolbox { min-width: auto !important; }
 
-input, select{
+input, select {
     border-radius: 10px !important;
 }
 
-.alert-branco
-{
+.alert-branco {
     color: #ea6153;
     background-color: rgb(255, 255, 255);
     border-color: rgba(231,76,60,.88);
 }
 
-.alert-roxo
-{
+.alert-roxo {
     color: #fff;
     background-color: #583A78;
     border-color: #3D276B;
 }
 
-.alert-dourado
-{
+.alert-dourado {
     color: #fff;
     background-color: #d7c190;
     border-color: #c9ab6d;
@@ -222,18 +221,18 @@ input, select{
     opacity: 1 !important;
 }
 
-.x_title button { float: right; }
-
+.x_title button {
+    float: right;
+}
 .no-bold {
     font-weight:normal;
 }
 
-.cinza
-{
+.cinza {
     background: #F7F7F7;
 }
-input, select{
-border-radius: 15px !important;
+input, select {
+    border-radius: 15px !important;
 }
 
 
@@ -249,7 +248,7 @@ border-radius: 15px !important;
 }
 
 /*Para INPUT tipo DATE caber em DIV de COL-MD-2*/
-.global_data{
+.global_data {
     padding-right: 0;
     padding-left:  5px;
 }
