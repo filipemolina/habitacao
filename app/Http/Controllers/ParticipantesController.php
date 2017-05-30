@@ -47,6 +47,7 @@ class ParticipantesController extends Controller
     public function info_ajax($id)
     {
         $participante = Participante::with('endereco', 'telefones', 'dependentes', 'coparticipante', 'coparticipante.telefones', 'coparticipante.endereco')->where('id', $id)->first();
+        $participante->teste = "filipe";
 
         return $participante->toJson();
     }
