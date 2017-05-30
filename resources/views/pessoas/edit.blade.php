@@ -119,8 +119,8 @@
 
           <!-- Data de Emissão do RG-->
           <label class="col-md-1 control-label" for="emissao_rg">Emissão</label>  
-          <div class="col-md-3">
-            <input value="{{ $pessoa->emissao_rg }}" id="emissao_rg" name="emissao_rg" type="date" class="form-control input-md global-data" >
+          <div class="col-md-2">
+            <input value="{{ $pessoa->emissao_rg }}" id="emissao_rg" name="emissao_rg" type="date" class="form-control input-md global_data" >
           </div>
 
         </div> {{-- FIM RG, Orgão Emissor do RG e Data de Emissão do RG --}}
@@ -131,8 +131,8 @@
 
           {{-- Data de Nascimento --}}
           <label class="col-md-1 control-label" for="nascimento">Nascimento</label>  
-          <div class="col-md-3">
-            <input value="{{ $pessoa->nascimento }}" id="nascimento" name="nascimento" type="date" class="form-control input-md global-data" >
+          <div class="col-md-2">
+            <input value="{{ $pessoa->nascimento }}" id="nascimento" name="nascimento" type="date" class="form-control input-md global_data" >
           </div>
 
           {{-- Sexo   --}}
@@ -171,13 +171,13 @@
 
           <!-- Município-->
           <label class="col-md-1 control-label" for="municipio">Município</label>
-          <div class="col-md-3">
+          <div class="col-md-2">
             <input value="{{ $pessoa->endereco->municipio }}" disabled="disabled" id="municipio" name="municipio" type="text" placeholder="Mesquita" value="Mesquita" class="form-control input-md" >
           </div>
 
           {{-- Bairro --}}
           <label class="col-md-1 control-label" for="bairro">Bairro</label>
-          <div class="col-md-3">
+          <div class="col-md-2">
             <input value="{{ $pessoa->endereco->bairro }}" id="bairro" name="bairro" type="text" placeholder="Centro" class="form-control input-md">
           </div>
 
@@ -188,7 +188,7 @@
 
           <!-- Logradouro ...Av...Rua....etc-->
           <label class="col-md-1 control-label" for="logradouro">Logradouro</label>
-          <div class="col-md-3">
+          <div class="col-md-2">
             <input value="{{ $pessoa->endereco->logradouro }}" id="logradouro" name="logradouro" type="text" placeholder="Av, Rua, Travessa..." class="form-control input-md">
           </div>
 
@@ -200,7 +200,7 @@
 
           {{-- Complemento --}}
           <label class="col-md-2 control-label" for="complemento">Complemento</label>
-          <div class="col-md-3">
+          <div class="col-md-2">
             <input value="{{ $pessoa->endereco->complemento }}" id="complemento" name="complemento" type="text" placeholder="Ap., Fundos,..." class="form-control input-md">
           </div>
 
@@ -313,8 +313,8 @@
 
         <!-- Data de Emissão do RG-->
         <label class="col-md-1 control-label" for="coparticipante[emissao_rg]">Emissão</label>  
-        <div class="col-md-3">
-          <input value="{{ $pessoa->coparticipante->emissao_rg or "" }}" id="coparticipante[emissao_rg]" name="coparticipante[emissao_rg]" type="date" placeholder="Data de Emissão" class="form-control input-md global-data" >
+        <div class="col-md-2">
+          <input value="{{ $pessoa->coparticipante->emissao_rg or "" }}" id="coparticipante[emissao_rg]" name="coparticipante[emissao_rg]" type="date" placeholder="Data de Emissão" class="form-control input-md global_data" >
         </div>
             
       </div> {{-- FIM RG, Orgão Emissor do RG e Data de Emissão do RG --}}
@@ -325,8 +325,8 @@
 
         {{-- Data de Nascimento --}}
         <label class="col-md-1 control-label" for="coparticipante[nascimento]">Nascimento</label>  
-        <div class="col-md-3">
-          <input value="{{ $pessoa->coparticipante->nascimento or "" }}" id="coparticipante[nascimento]" name="coparticipante[nascimento]" type="date" placeholder="01 / 01 / 2000" class="form-control input-md global-data" >
+        <div class="col-md-2">
+          <input value="{{ $pessoa->coparticipante->nascimento or "" }}" id="coparticipante[nascimento]" name="coparticipante[nascimento]" type="date" placeholder="01 / 01 / 2000" class="form-control input-md global_data" >
         </div>
 
         {{-- Sexo   --}}
@@ -389,13 +389,13 @@
 
         <!-- Município-->
         <label class="col-md-1 control-label" for="coparticipante[municipio]">Município</label>
-        <div class="col-md-3">
+        <div class="col-md-2">
           <input value="{{ $pessoa->coparticipante->endereco->municipio or ""}}" id="coparticipante[municipio]" disabled="disabled" value="Mesquita" name="coparticipante[municipio]" type="text" placeholder="Mesquita" class="form-control input-md" >
         </div>
 
         {{-- Bairro --}}
         <label class="col-md-1 control-label" for="coparticipante[bairro]">Bairro</label>
-        <div class="col-md-3">
+        <div class="col-md-2">
           <input value="{{ $pessoa->coparticipante->endereco->bairro or ""}}" id="coparticipante[bairro]" name="coparticipante[bairro]" type="text" placeholder="Centro" class="form-control input-md">
         </div>
 
@@ -507,6 +507,7 @@
             <div class="form-group">
 
             {{-- Data de Nascimento --}}
+
             <label class="col-md-1 control-label" for="dependentes[{{ $i }}][nascimento]">Nascimento</label>  
             <div class="col-md-3">
               <input value="{{ $dependente->nascimento }}" name="dependentes[{{ $i }}][nascimento]" type="date" placeholder="01/01/2000" class="form-control input-md global-data" >
@@ -578,13 +579,13 @@
 
           {{-- Data de Nascimento --}}
           <label class="col-md-1 control-label" for="dependentes[0][nascimento]">Nascimento</label>  
-          <div class="col-md-3">
-            <input value="{{ old('dependentes.0.nascimento') }}" name="dependentes[0][nascimento]" type="date" placeholder="01/01/2000" class="form-control input-md global-data" >
+          <div class="col-md-2">
+            <input value="{{ old('dependentes.0.nascimento') }}" name="dependentes[0][nascimento]" type="date" placeholder="01/01/2000" class="form-control input-md global_data" >
           </div>
 
           {{-- Sexo   --}}
           <label class="col-md-1 control-label" for="dependentes[0][sexo]">Sexo</label>
-          <div class="col-md-3">
+          <div class="col-md-2">
             <select name="dependentes[0][sexo]" id="dependentes[0][sexo]" type="text" placeholder="Sexo" class="form-control input-md" >
               <option value="" disabled @if(!old('dependentes.0.sexo')) selected @endif style="display: none;">Selecione...</option>
               <option value="1" @if(old('dependentes.0.sexo') == "Masculino") selected="selected" @endif>Masculino</option>
@@ -595,7 +596,7 @@
 
           {{-- Deficiente --}}
           <label class="col-md-1 control-label" for="dependentes[0][necessidades_especiais]">Deficiente</label>
-          <div class="col-md-3">
+          <div class="col-md-2">
             <select name="dependentes[0][necessidades_especiais]" id="dependentes[0][necessidades_especiais]" type="text" placeholder="Necessidades Especiais" class="form-control input-md" >
               <option value="" disabled @if(!old('dependentes.0.necessidades_especiais')) selected @endif style="display: none;">Selecione...</option>
               <option value="1" @if(old('dependentes.0.necessidades_especiais') == "1") selected="selected" @endif>Sim</option>
@@ -630,7 +631,7 @@
 
         {{-- Renda Familiar --}}
         <label class="col-md-1 control-label" for="renda_familiar">Renda</label>
-        <div class="col-md-3">
+        <div class="col-md-2">
           <input value="{{ $pessoa->renda_familiar }}" id="renda_familiar" name="renda_familiar" type="text" placeholder="R$ 99999,99" class="form-control input-md cash" >
         </div>
 
@@ -647,8 +648,8 @@
 
         {{-- Tempo de residência --}}
         <label class="col-md-1 control-label" for="inicio-residencia">Início</label>
-        <div class="col-md-3">
-          <input value="{{ $pessoa->tempo_residencia }}" id="inicio-residencia" name="inicio-residencia" type="date" placeholder="01 / 01 / 2000" class="form-control input-md global-data" >
+        <div class="col-md-2">
+          <input value="{{ $pessoa->tempo_residencia }}" id="inicio-residencia" name="inicio-residencia" type="date" placeholder="01 / 01 / 2000" class="form-control input-md global_data" >
         </div>
 
         {{-- Faixa--}}

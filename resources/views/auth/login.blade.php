@@ -20,9 +20,9 @@
 
 </head>
 
-<body class="login">
+<body class="login color_special3">
 <div>
-<div style="background-color: #3D276B; width:100%; height:150px; text-align: center;">
+<div class="color_special1" style="width:100%; height:150px; text-align: center;">
 <img class="logo_topo" src="{{ asset("img/logoretangular.jpg") }}">
 
 </div>
