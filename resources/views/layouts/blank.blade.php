@@ -27,7 +27,7 @@
     </head>
 
     <body class="nav-md">
-        <div class="container body">
+        <div class="container body color_special4">
             <div class="main_container">
 
                 @include('includes/sidebar')
