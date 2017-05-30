@@ -217,7 +217,7 @@
 						<tr>
 
 							<th class="col-md-1">Nome</th>
-							<th></th>
+							<th id="coparticipante[nome]_modal"></th>
 
 						</tr>
 					</tread>

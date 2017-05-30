@@ -2,6 +2,52 @@
 
 var tabela;
 
+function invertedata (dataerrada)
+{
+  return dataerrada.split("-").reverse().join("/");
+}
+
+function calculaFaixa(salario){
+
+        var valor = parseFloat(salario.replace('R$ ', '').replace(',', '.'));
+
+        var faixa = 0;
+
+        if(valor <= 1800)
+            faixa = 1;
+        else if(valor > 1800 && valor <= 2600)
+            faixa = "1,5";
+        else if(valor > 2600 && valor <= 4000)
+            faixa = 2;
+        else if(valor > 4000 && valor <= 9000)
+            faixa = 3;
+        else
+            faixa = "Sem Classificação";
+
+        // Sem comentários
+
+        return faixa;
+    }
+
+    function calculaPeriodo(inicio, funcao){ 
+
+        $.ajax({
+
+          type    : "GET",
+          url     : "{{ url('/pessoas/temporesidencia') }}",
+          data    : { inicio : inicio},
+          success : function(limao){
+            console.log("Escrevendo da função");
+            console.log(limao)
+
+            funcao(limao);
+
+          }
+
+        });
+
+    }
+
 $(function(){
 
     // Ativar o DataTables
@@ -49,11 +95,76 @@ $(function(){
 
     $("#modal_pessoas_show").on('show.bs.modal', function(e){
 
+        // Obtem o id da pessoa
+
         var id = $(e.relatedTarget).data('id');
 
         $.get('/pessoas/api/'+id, function(data){
 
-            
+            var dados = JSON.parse(data);
+
+            console.log(dados);
+
+            // Começar o código aqui
+
+            ////////////////////////////// Participante
+
+            $("#nome_modal").text(dados.nome);
+            $("#cpf_modal").text(dados.cpf);
+            $("#nis_modal").text(dados.nis);
+            $("#ctps_modal").text(dados.ctps);
+            $("#bolsa_familia_modal").text(dados.bolsa_familia);
+            $("#rg_modal").text(dados.rg);
+            $("#orgao_emissor_rg_modal").text(dados.orgao_emissor_rg);
+            $("#emissao_rg_modal").text(invertedata(dados.emissao_rg));
+            $("#nascimento_modal").text(invertedata(dados.nascimento));
+            $("#sexo_modal").text(dados.sexo);
+            $("#necessidades_especiais_modal").text(dados.necessidades_especiais ? "Sim" : "Não");
+            $("#logradouro_modal").text(dados.endereco.logradouro);
+            $("#numero_modal").text(dados.endereco.numero);
+            $("#complemento_modal").text(dados.endereco.complemento);
+            $("#bairro_modal").text(dados.endereco.bairro);
+            $("#municipio_modal").text("Mesquita");
+            $("#cep_modal").text(dados.endereco.cep);
+            $("#email_modal").text(dados.email);
+            $("#telefones\\[1\\]\\[numero\\]").text(dados.telefones[1].numero);
+            $("#telefones\\[0\\]\\[numero\\]").text(dados.telefones[0].numero);
+
+            ////////////////////////////// Coparticipante
+
+            if(dados.coparticipante != null)
+            {
+               $("#coparticipante\\[nome\\]_modal").text(dados.coparticipante.nome);
+               $("#coparticipante\\[cpf\\]_modal").text(dados.coparticipante.cpf);
+               $("#coparticipante\\[nis\\]_modal").text(dados.coparticipante.nis);
+               $("#coparticipante\\[ctps\\]_modal").text(dados.coparticipante.ctps);
+               $("#coparticipante\\[bolsa_familia\\]_modal").text(dados.coparticipante.bolsa_familia);
+               $("#coparticipante\\[rg\\]_modal").text(dados.coparticipante.rg);
+               $("#coparticipante\\[orgao_emissor_rg\\]_modal").text(dados.coparticipante.orgao_emissor_rg);
+               $("#coparticipante\\[emissao_rg\\]_modal").text(invertedata(dados.coparticipante.emissao_rg));
+               $("#coparticipante\\[nascimento\\]_modal").text(invertedata(dados.coparticipante.nascimento));
+               $("#coparticipante\\[sexo\\]_modal").text(dados.coparticipante.sexo);
+               $("#coparticipante\\[necessidades_especiais\\]_modal\\]").text(dados.coparticipante.necessidades_especiais ? "Sim" : "Não");
+               $("#coparticipante\\[logradouro\\]_modal").text(dados.coparticipante.endereco.logradouro);
+               $("#coparticipante\\[numero\\]_modal").text(dados.coparticipante.endereco.numero);
+               $("#coparticipante\\[complemento\\]_modal").text(dados.coparticipante.endereco.complemento);
+               $("#coparticipante\\[bairro\\]_modal").text(dados.coparticipante.endereco.bairro);
+               $("#coparticipante\\[municipio\\]_modal").text("mesquita");
+               $("#coparticipante\\[cep\\]_modal").text(dados.coparticipante.endereco.cep);
+               $("#coparticipante\\[email\\]_modal").text(dados.coparticipante.email);
+               $("#coparticipante\\[telefones\\]\\[0\\]\\[numero\\]_modal").text(dados.coparticipante.telefones[0].numero);
+               $("#coparticipante\\[telefones\\]\\[1\\]\\[tipo_telefone\\]_modal").text(dados.coparticipante.telefones[1].numero);
+            }
+
+
+            ////////////////////////////////RENDA
+
+             $("#renda_familiar_modal").text(dados.renda_familiar);
+             $("#faixa_modal").text(calculaFaixa(""+dados.renda_familiar+""));
+             $("#inicio_residencia_modal").text(invertedata(dados.tempo_residencia));
+              calculaPeriodo(dados.tempo_residencia, function(tempo){
+                 $("#periodo_modal").text(tempo+" anos");
+             });        
 
         });
 
