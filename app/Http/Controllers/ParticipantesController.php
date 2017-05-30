@@ -272,9 +272,39 @@ class ParticipantesController extends Controller
         $participante = Participante::find($id);
         $participante->update($request->all());
 
-        // Atualizar os dados do Coparticipante
+        // Caso haja um coparticipante no request, o usuário está tentando cadastrar um coparticipante
+        // que não existia previamente ou alterar um que já existe.
 
-        $participante->coparticipante->update($request->coparticipante);
+        if(count($request->coparticipante))
+        {
+            // O método updateOrCreate tenta encontrar um objeto com as características ditadas no primeiro
+            // argumento (vetor), caso encontre, ele usa o segundo argumento para alterá-lo. Caso contrário
+            // ele usará o segundo argumento para criar um objeto e salvá-lo
+
+            $participante->coparticipante()->updateOrCreate(
+                ['participante_id' => $id, 'nome' => $request->coparticipante['nome']],
+                $request->coparticipante
+            );
+
+            /////////////////////////////////////////////////////////////////////// Estou atualizando endereço e telefone do CO
+
+            $participante->coparticipante->endereco()->updateOrCreate(
+                ['coparticipante_id' => $participante->coparticipante->id],
+                $request->coparticipante['endereco']
+            );
+        }
+        else
+        {
+            // Caso NÃO haja um coparticipante na request, o usuário pode estar tentando excluir um coparticipante
+            // ou esta é uma alteração de um participante sem coparticipante
+
+            // Testar se o participante possui coparticipante, nesse caso, excluí-lo
+
+            if(count($participante->coparticipante))
+            {
+                $participante->coparticipante->delete();
+            }
+        }
 
         // Alterar os dependentes que já existem ou adicionar novos
 

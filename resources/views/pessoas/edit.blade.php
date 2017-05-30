@@ -278,13 +278,13 @@
 
             @if(count($pessoa->coparticipante))
 
-              <option value="" disabled @if(!$pessoa->coparticipante->bolsa_familia) selected @endif style="display: none;">Selectione...</option>
+              <option value="" @if(!$pessoa->coparticipante->bolsa_familia) selected @endif>Selectione...</option>
               <option value="1" @if($pessoa->coparticipante->bolsa_familia == "1") selected="selected" @endif>Possui</option>
               <option value="0" @if($pessoa->coparticipante->bolsa_familia == "0") selected="selected" @endif>Não possui</option>
 
             @else
 
-              <option value="" disabled  selected style="display: none;">Selectione...</option>
+              <option value="" selected>Selectione...</option>
               <option value="1">Possui</option>
               <option value="0">Não possui</option>
 
@@ -336,13 +336,13 @@
 
           @if(count($pessoa->coparticipante))
 
-            <option value="" disabled @if(!$pessoa->coparticipante->sexo) selected @endif style="display: none;"></option>
+            <option value="" @if(!$pessoa->coparticipante->sexo) selected @endif">Selecione...</option>
             <option value="Masculino" @if($pessoa->coparticipante->sexo == "Masculino") selected="selected" @endif>Masculino</option>
             <option value="Feminino" @if($pessoa->coparticipante->sexo == "Feminino") selected="selected" @endif>Femino</option>
 
           @else
 
-            <option value="" disabled selected style="display: none;"></option>
+            <option value="" selected></option>
             <option value="Masculino">Masculino</option>
             <option value="Feminino">Femino</option> 
 
@@ -358,7 +358,7 @@
 
           @if(count($pessoa->coparticipante))
 
-            <option value="" disabled @if(!$pessoa->coparticipante->necessidades_especiais) selected @endif style="display: none;">   </option>
+            <option value="" @if(!$pessoa->coparticipante->necessidades_especiais) selected @endif>Selecione...</option>
             <option value="1" @if($pessoa->coparticipante->necessidades_especiais == "1") selected="selected" @endif>Sim</option>
             <option value="0" @if($pessoa->coparticipante->necessidades_especiais == "0") selected="selected" @endif>Não</option>
 
