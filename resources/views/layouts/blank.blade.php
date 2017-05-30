@@ -36,7 +36,7 @@
 
 
                 <!-- page content -->
-                <div class="right_col" role="main">
+                <div class="right_col color_fundo" role="main">
 
                     @yield('main_container')
 
