@@ -117,7 +117,35 @@ class HomeController extends Controller
 
     protected function inscricoesSemanais($participantes)
     {
-        $semanas = [];
+        // $semanas = [
+
+        //     0 => [
+        //         "Masculinos" => [],
+        //         "Femininos" => [],
+        //         "Outros" => [],
+        //     ],
+        //     1 => [
+        //         "Masculinos" => [],
+        //         "Femininos" => [],
+        //         "Outros" => [],
+        //     ],
+        //     2 => [
+        //         "Masculinos" => [],
+        //         "Femininos" => [],
+        //         "Outros" => [],
+        //     ],
+        //     3 => [
+        //         "Masculinos" => [],
+        //         "Femininos" => [],
+        //         "Outros" => [],
+        //     ],
+        //     4 => [
+        //         "Masculinos" => [],
+        //         "Femininos" => [],
+        //         "Outros" => [],
+        //     ],
+
+        // ];
 
         $cont_ite = 0;
 
@@ -207,9 +235,20 @@ class HomeController extends Controller
 
         foreach($semanas as $indice => $semana)
         {
-            $semanas[$indice]["Masculinos"] = [count($semana['Masculinos']), $semana["Masculinos"][1][1]];
-            $semanas[$indice]["Femininos"] = [count($semana['Femininos']), $semana["Femininos"][1][1]];
-            $semanas[$indice]["Outros"] = [count($semana['Outros']), $semana["Outros"][1][1]];            
+            if(isset($semana['Masculinos']))
+                $semanas[$indice]["Masculinos"] = [count($semana['Masculinos']), $semana["Masculinos"][0][1]];
+            else   
+                $semanas[$indice]["Masculinos"] = [0, 0];
+
+            if(isset($semana['Femininos']))
+                $semanas[$indice]["Femininos"] = [count($semana['Femininos']), $semana["Femininos"][0][1]];
+            else   
+                $semanas[$indice]["Femininos"] = [0, 0];
+
+            if(isset($semana['Outros']))
+                $semanas[$indice]["Outros"] = [count($semana['Outros']), $semana["Outros"][0][1]];
+            else   
+                $semanas[$indice]["Outros"] = [0, 0];
         }
 
         $total = 0;
@@ -259,16 +298,14 @@ class HomeController extends Controller
 
         }
 
-        sort($inscricoes);
-
         // Calcular as porcentagens
 
-        foreach($inscricoes as $faixa)
+        foreach($inscricoes as $indice => $faixa)
         {
             if($total > 0)
-                $porcentagens[] = [floor($faixa * 100 / $total), $faixa];
+                $porcentagens[$indice] = [floor($faixa * 100 / $total), $faixa];
             else
-                $porcentagens[] = [0, $faixa];
+                $porcentagens[$indice] = [0, $faixa];
 
         }
 

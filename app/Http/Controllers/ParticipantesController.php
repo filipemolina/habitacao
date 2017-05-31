@@ -128,6 +128,10 @@ class ParticipantesController extends Controller
 
         $participante = Participante::create($request->except('coparticipante'));
 
+        $participante->renda_familiar = str_replace("R$ ", "", $participante->renda_familiar);
+
+        $participante->save();
+
         // Telefones do Participante
 
         foreach($request->telefones as $telefone)
