@@ -109,7 +109,7 @@ $(function(){
 
         var id = $(e.relatedTarget).data('id');
 
-        $.get('/pessoas/api/'+id, function(data){
+        $.get('{{ url("/pessoas/api") }}/'+id, function(data){
 
             var dados = JSON.parse(data);
 
@@ -240,7 +240,7 @@ $(function(){
 
         // Fazer uma chamada post enviando o id do participante e o método DELETE
 
-        $.post("/pessoas/"+id, {
+        $.post("{{ url("/pessoas/") }}/"+id, {
           id : id,
           _method : method,
           _token : token,
