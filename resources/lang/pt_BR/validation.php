@@ -135,7 +135,7 @@ return [
         'dependentes.*.sexo'                    => 'Sexo do Dependente',
         'dependentes.*.nascimento'              => 'Data de Nascimento do Dependente',
         'dependentes.*.necessidades_especiais'  => 'Necessidades Especiais do Dependente',
-        'inicio-residencia'                     => 'Início da Resiência em Mesquita',
+        'tempo_residencia'                      => 'Início da Resiência em Mesquita',
         'name'                                  => 'Nome',
         'email'                                 => 'E-mail',
         'password'                              => 'Senha',

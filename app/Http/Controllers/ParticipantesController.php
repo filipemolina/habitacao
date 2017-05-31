@@ -94,7 +94,6 @@ class ParticipantesController extends Controller
             'renda_familiar'                        => 'required',
             'tempo_residencia'                      => 'date',
             'telefones.*.numero'                    => 'required',
-            'inicio-residencia'                     => 'required',
 
             // Coparticipante
             // O campo nome é totalmente opcional. Entretanto, caso este seja preenchido
