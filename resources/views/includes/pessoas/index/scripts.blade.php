@@ -193,7 +193,7 @@ $(function(){
                             // Data de nascimento do dependente
 
                             .parent().parent().parent().parent().find("#dependentes\\[0\\]\\[nascimento\\]_modal")
-                            .html(dados.dependentes[i].nascimento)
+                            .html(invertedata(dados.dependentes[i].nascimento))
 
                             // Sexo do dependente
 
