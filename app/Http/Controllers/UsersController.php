@@ -59,6 +59,8 @@ class UsersController extends Controller
 
         $user = User::create($request->all());
 
+        $user->password = Hash::make($request->password);
+
         return redirect("/users/create")->with('sucesso', 'Usuário cadastrado com sucesso.');
     }
 
