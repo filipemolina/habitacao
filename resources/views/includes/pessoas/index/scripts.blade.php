@@ -72,6 +72,18 @@ $(function(){
         // paging : false,
       });
 
+    // Botão de imprimir do overlay de visualização
+
+    $(".btn.glyphicon-print").click(function(e){
+
+        e.preventDefault();
+
+        $(".modal-lg").print({
+          stylesheet : "{{ asset("css/print.css") }}"
+        });
+
+    });
+
     // Criar uma função que será executada no evento "show.bs.modal" que acontece no modal.
 
     $("#modalexcluir").on('show.bs.modal', function(e){

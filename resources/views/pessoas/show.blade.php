@@ -4,9 +4,9 @@
 	<div class="modal-dialog modal-lg">
 		
 		<a class="btn btn-circulo btn-default cor-padrao glyphicon glyphicon-remove" data-dismiss="modal"></a>
-		<a href="" class="btn btn-circulo btn-default cor-padrao glyphicon glyphicon-print"></a>
-		<a href="" class="btn btn-circulo btn-warning fa fa-pencil"></a>
-		<a href="" class="btn btn-circulo btn-danger fa fa-trash"></a>
+		<a href="#" class="btn btn-circulo btn-default cor-padrao glyphicon glyphicon-print"></a>
+		<a href="#" class="btn btn-circulo btn-warning fa fa-pencil"></a>
+		<a href="#" class="btn btn-circulo btn-danger fa fa-trash"></a>
       	
       	{{-- Título --}}
       	<div class="modal-header modal-content x_panel">
@@ -494,9 +494,9 @@
 		</div> {{-- FIM x_panel Renda --}}
 
 		<a class="btn btn-circulo btn-default btn-cons cor-padrao glyphicon glyphicon-remove" data-dismiss="modal"></a>
-		<a href="" class="btn btn-circulo btn-default btn-cons cor-padrao glyphicon glyphicon-print"></a>
-		<a href="" class="btn btn-circulo btn-warning fa fa-pencil"></a>
-		<a href="" class="btn btn-circulo btn-danger fa fa-trash"></a>
+		<a href="#" class="btn btn-circulo btn-default btn-cons cor-padrao glyphicon glyphicon-print"></a>
+		<a href="#" class="btn btn-circulo btn-warning fa fa-pencil"></a>
+		<a href="#" class="btn btn-circulo btn-danger fa fa-trash"></a>
 
 	</div> {{-- FIM Modal Dialog --}}
 
