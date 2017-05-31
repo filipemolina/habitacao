@@ -445,6 +445,10 @@ class ParticipantesController extends Controller
 
     public function imprimeRelatorio(Request $request)
     {
+        // echo "<pre>";
+        // print_r($request->toArray());
+        // exit;
+
         // Validar
 
         $this->validate($request, [

@@ -4,7 +4,7 @@
             <h2>Dependentes</h2>
             <ul class="nav navbar-right panel_toolbox">
                 <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-eye" style="color: #3D276B"></i></a>
+                    <a href="#" class="dropdown-toggle relatorio" data-ordem="dependentes" role="button" aria-expanded="false"><i class="fa fa-eye" style="color: #3D276B"></i></a>
                 </li>
             </ul>
             <div class="clearfix"></div>

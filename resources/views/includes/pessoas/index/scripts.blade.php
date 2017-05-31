@@ -37,8 +37,6 @@ function calculaFaixa(salario){
           url     : "{{ url('/pessoas/temporesidencia') }}",
           data    : { inicio : inicio},
           success : function(limao){
-            console.log("Escrevendo da função");
-            console.log(limao)
 
             funcao(limao);
 
@@ -103,7 +101,7 @@ $(function(){
 
             var dados = JSON.parse(data);
 
-            console.log(dados);
+            console.log(dados.dependentes.length);
 
             // Começar o código aqui
 
@@ -164,7 +162,55 @@ $(function(){
              $("#inicio_residencia_modal").text(invertedata(dados.tempo_residencia));
               calculaPeriodo(dados.tempo_residencia, function(tempo){
                  $("#periodo_modal").text(tempo+" anos");
-             });        
+             });
+
+            ///////////////////////////// Dependentes
+
+            // Apagar todos os dependentes criados anteriormente
+
+            $(".x_content.clone").remove()
+
+            // Criar um novo dependente para cada um dos dependentes cadastrados na lista
+
+            for(i=0; i< dados.dependentes.length; i++)
+            {
+              //////////////// Clonar
+
+              $("div.x_content.dependente").clone()
+                            .css('display', 'block')
+                            .removeClass('dependente')
+                            .addClass('clone')
+
+                            // Colocar na div mãe
+
+                            .appendTo(".x_panel.dependentes")
+
+                            // Nome do Dependente
+
+                            .find("#dependentes\\[0\\]\\[nome\\]_modal")
+                            .html(dados.dependentes[i].nome)
+
+                            // Data de nascimento do dependente
+
+                            .parent().parent().parent().parent().find("#dependentes\\[0\\]\\[nascimento\\]_modal")
+                            .html(dados.dependentes[i].nascimento)
+
+                            // Sexo do dependente
+
+                            .parent().parent().parent().parent().find("#dependentes\\[0\\]\\[sexo\\]_modal")
+                            .html(dados.dependentes[i].sexo)
+
+                            // Parentesco do Dependente
+
+                            .parent().parent().parent().parent().find("#dependentes\\[0\\]\\[parentesco\\]_modal")
+                            .html(dados.dependentes[i].parentesco)
+
+                            // PNE do dependente
+
+                            .parent().parent().parent().parent().find("#dependentes\\[0\\]\\[necessidades_especiais\\]_modal")
+                            .html(dados.dependentes[i].necessidades_especiais ? "Sim" : "Não");
+
+            }
 
         });
 

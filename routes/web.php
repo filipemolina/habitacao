@@ -37,10 +37,14 @@ Route::post('pessoas/imprimerelatorios', 'ParticipantesController@imprimeRelator
 
 // Rotas para AJAX
 
+// Rota para alterar a senha do usuário atual
+
+Route::get("mudarsenha", "HomeController@mudarsenha");
+Route::post("/users/alterarsenha", "UsersController@alterarSenha");
+
 Route::get('/pessoas/api/{id}', 'ParticipantesController@info_ajax');
 
 // Rotas dos Resourceful Controllers
 
 Route::resource('users', 'UsersController');
 Route::resource('pessoas', 'ParticipantesController');
-Route::get("mudarsenha", "HomeController@mudarsenha");

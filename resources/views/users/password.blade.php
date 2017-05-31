@@ -8,6 +8,40 @@
 
 @section("main_container")
 
+{{-- Mostrar os erros de validação --}}
+
+    @if( count($errors) > 0)
+
+        <div class="alert alert-roxo alert-dismissible" style="margin-top: 70px;" role="alert">
+          <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+
+          <strong>Atenção!</strong><br>
+
+          <ul>
+
+            @foreach($errors->all() as $erro)
+
+              <li>{{ $erro }}</li>
+
+            @endforeach
+
+          </ul>
+
+        </div>
+
+    @endif
+
+    {{-- Mostrar mensagem de sucesso --}}
+
+    @if(session('sucesso'))
+
+        <div class="alert alert-dourado alert-dismissible" style="margin-top: 70px;" role="alert">
+          <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <strong>Parabéns!</strong> {{ session('sucesso') }}
+        </div>
+
+    @endif
+
 <div class="col-md-12 col-sm-12 col-xs-12">
 
 	<div class="x_title">
@@ -21,7 +55,9 @@
 		
 		<div class="x_content">
 
-			<form action="" class="form-horizontal" id="form-cadastro-usuario">
+			<form action="{{ url('/users/alterarsenha') }}" method="POST" class="form-horizontal" id="form-cadastro-usuario">
+
+				{{ csrf_field() }}
 
 
 				{{-- Campo Senha Atual--}}
@@ -51,10 +87,10 @@
 
 				<div class="form-group">
 
-					<label for="confirmarsenha" class="col-sm-4 control-label">Confirmar Senha</label>
+					<label for="novasenha_confirmation" class="col-sm-4 control-label">Confirmar Senha</label>
 
 					<div class="col-sm-4">
-						<input name="senhaconfirmar" type="password" class="form-control" id="senha" placeholder="Confirmar Senha">
+						<input name="novasenha_confirmation" type="password" class="form-control" id="senha" placeholder="Confirmar Senha">
 					</div>
 				</div>
 

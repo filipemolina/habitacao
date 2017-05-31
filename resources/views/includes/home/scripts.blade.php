@@ -4,7 +4,6 @@
 
         /////////////////////////// Flot
 
-        //******* 2012 Average Temperature - BAR CHART
         var data = [
             @foreach($grafico as $indice => $posicao)
                 [{{ $indice }}, {{ $posicao['Masculinos'][0] }}],
@@ -201,6 +200,117 @@
         });
 
         /////////////////////////// Donut
+
+        /////////////////////////// Chamada dos relatórios
+
+        $("a.relatorio").click(function(e){
+
+            e.preventDefault();
+
+            var ordem = $(this).data('ordem');
+            var cabecalhos = [];
+
+            // Montar os cabeçalhos de acordo com o relatório
+
+            if(ordem == 'sexo')
+                cabecalhos = [
+                    {
+                        tipo : 'nome',
+                        titulo : "Nome",
+                    },
+                    {
+                        tipo : 'idade',
+                        titulo : "Idade",
+                    },
+                    { 
+                        tipo : 'sexo',
+                        titulo : "Sexo",
+                    },
+                    { 
+                        tipo: 'cpf',
+                        titulo : "CPF",
+                    },
+                    { 
+                        tipo : 'telefone_fixo',
+                        titulo : "Telefone Fixo",
+                    }
+                ];
+
+            if(ordem == 'dependentes')
+                cabecalhos = [
+                    {
+                        tipo : 'nome',
+                        titulo : "Nome",
+                    },
+                    {
+                        tipo : 'idade',
+                        titulo : "Idade",
+                    },
+                    { 
+                        tipo : 'sexo',
+                        titulo : "Sexo",
+                    },
+                    { 
+                        tipo: 'cpf',
+                        titulo : "CPF",
+                    },
+                    { 
+                        tipo : 'dependentes',
+                        titulo : "Dependentes",
+                    }, 
+                    {
+                        tipo : 'telefone_fixo',
+                        titulo : 'Telefone Fixo',
+                    }
+                ];
+
+            if(ordem == 'bairro')
+                cabecalhos = [
+                    {
+                        tipo : 'nome',
+                        titulo : "Nome",
+                    },
+                    {
+                        tipo : 'idade',
+                        titulo : "Idade",
+                    },
+                    { 
+                        tipo : 'sexo',
+                        titulo : "Sexo",
+                    },
+                    { 
+                        tipo: 'cpf',
+                        titulo : "CPF",
+                    },
+                    { 
+                        tipo : 'bairro',
+                        titulo : "Bairro",
+                    },
+                    { 
+                        tipo :'telefone_fixo',
+                        titulo : "Telefone Fixo",
+                    }
+                ];
+
+            // Colocar a ordem escolhida no formulário
+
+            $("input#ordem").val(ordem);
+
+            // Colocar todos os cabeçalhos no relatório
+
+            for (var i = 0; i < cabecalhos.length; i++) {
+                
+                var input = $("<input>")
+                    .attr('type', 'hidden')
+                    .attr('name', 'cabecalhos['+cabecalhos[i].tipo+']')
+                    .val(cabecalhos[i].titulo);
+
+                $("form#form-relatorios-ajax").append($(input));
+            }
+
+            $("form#form-relatorios-ajax").submit();
+
+        });
 
     });
 </script>

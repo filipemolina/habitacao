@@ -400,11 +400,11 @@
 		</div> {{-- FIM x_panel Co-Participante --}}
 
 		{{-- -------------------------------------Dependentes---------------------------------------------------- --}}
-		<div class="x_panel modal-content">
+		<div class="x_panel modal-content dependentes">
 			
 			<div class="x_title"> Dependente(s) </div>
 
-			<div class="x_content">
+			<div class="x_content dependente">
 
 				<table>
 

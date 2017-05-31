@@ -50,6 +50,11 @@
     </div>
 <!-- /page content -->
 
+<form action="{{ url("/pessoas/imprimerelatorios") }}" method="POST" id="form-relatorios-ajax" style="display: none;">
+    {{ csrf_field() }}
+    <input type="hidden" id="ordem" name="ordem_relatorio">
+</form>
+
 @endsection
 
 @push('scripts')

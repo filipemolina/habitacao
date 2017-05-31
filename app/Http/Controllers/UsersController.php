@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Http\Request;
 use App\Models\User;
 
@@ -49,9 +51,10 @@ class UsersController extends Controller
     public function store(Request $request)
     {
         $this->validate($request, [
-            'name' => 'required|max:255',
-            'email' => 'required|email|max:255|unique:users',
+            'name'     => 'required|max:255',
+            'email'    => 'required|email|max:255|unique:users',
             'password' => 'required|min:6|confirmed',
+            'admin'    => 'required',
         ]);
 
         $user = User::create($request->all());
@@ -92,7 +95,25 @@ class UsersController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        // Validar
+
+        $this->validate($request, [
+            'name'     => 'required|max:255',
+            'email'    => 'required|email|max:255|unique:users,email,'.$id,
+            'admin'    => 'required',
+        ]);
+
+        // Obter o usuário
+
+        $usuario = User::find($id);
+
+        // Atualizar as informações
+
+        $usuario->update($request->all());
+
+        // Retornar com mensagem de sucesso
+
+        return redirect("/users/$usuario->id/edit")->with('sucesso', 'Informações do usuário atualizadas com sucesso.');
     }
 
     /**
@@ -108,5 +129,25 @@ class UsersController extends Controller
 
         $user->delete();
 
+    }
+
+    /**
+     * Função para alterar a senha do usuário atual
+     */
+
+    public function alterarSenha(Request $request)
+    {
+        $this->validate($request, [
+            'senhaatual' => 'required|logado|min:6',
+            'novasenha'  => 'required|confirmed',
+        ]);
+
+        $usuario = User::find(Auth::user()->id);
+
+        $usuario->password = Hash::make($request->novasenha);
+
+        $usuario->save();
+
+        return redirect('/mudarsenha')->with('sucesso', 'Senha alterada com sucesso.');
     }
 }

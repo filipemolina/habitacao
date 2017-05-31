@@ -2,7 +2,10 @@
 
 namespace App\Providers;
 
+use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\ServiceProvider;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -13,7 +16,11 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
+        // Criar um novo tipo de validação, testa se o usuário forneceu a senha correta
+
+        Validator::extend('logado', function($atributo, $valor, $parametros, $validador){
+            return Hash::check($valor, Auth::user()->password);
+        });
     }
 
     /**

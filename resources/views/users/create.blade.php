@@ -65,7 +65,7 @@
 						<label for="nome" class="col-sm-4 control-label">Nome</label>
 
 						<div class="col-sm-4">
-							<input name="name" type="text" class="form-control" id="nome" placeholder="Nome">
+							<input value="{{ old('name') }}" name="name" type="text" class="form-control" id="nome" placeholder="Nome">
 						</div>
 					</div>
 
@@ -76,7 +76,7 @@
 	    				<label for="email" class="col-sm-4 control-label">Email</label>
 
 	    				<div class="col-sm-4">
-	     	 				<input name="email" type="email" class="form-control" id="email" placeholder="Email">
+	     	 				<input value="{{ old('email') }}" name="email" type="email" class="form-control" id="email" placeholder="Email">
 	    				</div>
 
 	   				</div>
@@ -108,14 +108,14 @@
 
 					<div class="form-group">
 
-						<label for="tipodeusuario" class="col-sm-4 control-label">Tipo de Usuário</label>
+						<label for="admin" class="col-sm-4 control-label">Tipo de Usuário</label>
 
 						<div class="col-sm-4">
 						
-							<select name="tipodeususario" class="form-control" id="tipodeususario">
+							<select name="admin" class="form-control" id="tipodeususario">
 								<option value="">Selecione</option>
-								<option value="1">Administrador</option>
-								<option value="0">Padrão</option>
+								<option value="1" @if(old('admin') === 1) selected="selected" @endif>Administrador</option>
+								<option value="0" @if(old('admin') === 0) selected="selected" @endif>Padrão</option>
 							</select>
 
 						</div>

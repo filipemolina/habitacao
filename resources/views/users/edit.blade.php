@@ -8,6 +8,40 @@
 
 @section("main_container")
 
+{{-- Mostrar os erros de validação --}}
+
+    @if( count($errors) > 0)
+
+        <div class="alert alert-roxo alert-dismissible" style="margin-top: 70px;" role="alert">
+          <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+
+          <strong>Atenção!</strong><br>
+
+          <ul>
+
+            @foreach($errors->all() as $erro)
+
+              <li>{{ $erro }}</li>
+
+            @endforeach
+
+          </ul>
+
+        </div>
+
+    @endif
+
+    {{-- Mostrar mensagem de sucesso --}}
+
+    @if(session('sucesso'))
+
+        <div class="alert alert-dourado alert-dismissible" style="margin-top: 70px;" role="alert">
+          <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <strong>Parabéns!</strong> {{ session('sucesso') }}
+        </div>
+
+    @endif
+
 <div class="col-md-12 col-sm-12 col-xs-12">
 
 	<div class="x_title">
@@ -21,16 +55,19 @@
 		
 		<div class="x_content">
 
-			<form action="" class="form-horizontal" id="form-cadastro-usuario">
+			<form action="{{ url("/users/$usuario->id") }}" method="POST" class="form-horizontal" id="form-cadastro-usuario">
 
+				{{ method_field('PUT') }}
+
+				{{ csrf_field() }}
 
 				{{-- Campo Nome --}}
 				<div class="form-group">
 
-					<label for="nome" class="col-sm-4 control-label">Nome</label>
+					<label for="name" class="col-sm-4 control-label">Nome</label>
 
 					<div class="col-sm-4">
-						<input name="nome" value="{{ $usuario->name }}" type="text" class="form-control" id="nome" placeholder="Nome">
+						<input name="name" value="{{ $usuario->name }}" type="text" class="form-control" id="nome" placeholder="Nome">
 					</div>
 				</div>
 
@@ -51,14 +88,14 @@
 
 				<div class="form-group">
 
-					<label for="tipodeusuario" class="col-sm-4 control-label">Tipo de Usuário</label>
+					<label for="admin" class="col-sm-4 control-label">Tipo de Usuário</label>
 
 					<div class="col-sm-4">
 					
-						<select name="tipodeususario" class="form-control" id="tipodeususario">
+						<select name="admin" class="form-control" id="tipodeususario">
 							<option value="">Selecione</option>
-							<option value="1">Administrador</option>
-							<option value="0">Padrão</option>
+							<option value="1" @if($usuario->admin) selected="selected" @endif >Administrador</option>
+							<option value="0" @if(!$usuario->admin) selected="selected" @endif >Padrão</option>
 						</select>
 
 					</div>

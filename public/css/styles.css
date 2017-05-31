@@ -246,3 +246,5 @@ input, select {
 #participante, #co-participante, #dependentes, #renda-familiar {
     padding: 10px 15px;
 }
+
+div.x_content.dependente { display: none; }

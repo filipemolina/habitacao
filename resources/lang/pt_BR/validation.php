@@ -42,6 +42,7 @@ return [
     'integer'              => ':Attribute deve ser um inteiro.',
     'ip'                   => ':Attribute deve ser um endereço IP válido.',
     'json'                 => ':Attribute deve ser um JSON válido.',
+    'logado'               => 'Senha atual incorreta.',
     'max'                  => [
         'numeric' => ':Attribute não deve ser maior que :max.',
         'file'    => ':Attribute não deve ter mais que :max kilobytes.',
@@ -138,7 +139,10 @@ return [
         'name'                                  => 'Nome',
         'email'                                 => 'E-mail',
         'password'                              => 'Senha',
-        'password_confirmation'                 => 'Confirmar Senha'
+        'password_confirmation'                 => 'Confirmar Senha',
+        'admin'                                 => 'Tipo de Usuário',
+        'novasenha'                             => 'Nova Senha',
+        'senhaatual'                            => 'Senha Atual',
 
     ],
 
