@@ -117,6 +117,8 @@ class HomeController extends Controller
 
     protected function inscricoesSemanais($participantes)
     {
+        $semanas = [];
+
         // $semanas = [
 
         //     0 => [
