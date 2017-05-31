@@ -119,36 +119,6 @@ class HomeController extends Controller
     {
         $semanas = [];
 
-        // $semanas = [
-
-        //     0 => [
-        //         "Masculinos" => [],
-        //         "Femininos" => [],
-        //         "Outros" => [],
-        //     ],
-        //     1 => [
-        //         "Masculinos" => [],
-        //         "Femininos" => [],
-        //         "Outros" => [],
-        //     ],
-        //     2 => [
-        //         "Masculinos" => [],
-        //         "Femininos" => [],
-        //         "Outros" => [],
-        //     ],
-        //     3 => [
-        //         "Masculinos" => [],
-        //         "Femininos" => [],
-        //         "Outros" => [],
-        //     ],
-        //     4 => [
-        //         "Masculinos" => [],
-        //         "Femininos" => [],
-        //         "Outros" => [],
-        //     ],
-
-        // ];
-
         $cont_ite = 0;
 
         foreach($participantes as $participante)
@@ -240,17 +210,17 @@ class HomeController extends Controller
             if(isset($semana['Masculinos']))
                 $semanas[$indice]["Masculinos"] = [count($semana['Masculinos']), $semana["Masculinos"][0][1]];
             else   
-                $semanas[$indice]["Masculinos"] = [0, 0];
+                $semanas[$indice]["Masculinos"] = [0, { format : function(data) { return 0; } }];
 
             if(isset($semana['Femininos']))
                 $semanas[$indice]["Femininos"] = [count($semana['Femininos']), $semana["Femininos"][0][1]];
             else   
-                $semanas[$indice]["Femininos"] = [0, 0];
+                $semanas[$indice]["Femininos"] = [0, { format : function(data) { return 0; } }];
 
             if(isset($semana['Outros']))
                 $semanas[$indice]["Outros"] = [count($semana['Outros']), $semana["Outros"][0][1]];
             else   
-                $semanas[$indice]["Outros"] = [0, 0];
+                $semanas[$indice]["Outros"] = [0, { format : function(data) { return 0; } }];
         }
 
         $total = 0;
