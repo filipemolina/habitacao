@@ -265,7 +265,11 @@ class HomeController extends Controller
 
         foreach($inscricoes as $faixa)
         {
-            $porcentagens[] = [floor($faixa * 100 / $total), $faixa];
+            if($total > 0)
+                $porcentagens[] = [floor($faixa * 100 / $total), $faixa];
+            else
+                $porcentagens[] = [0, $faixa];
+
         }
 
         return $porcentagens;

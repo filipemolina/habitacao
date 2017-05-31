@@ -36,7 +36,7 @@
                     <p>Faixa 1 <span class="pequeno">(Até R$ 1.800,00)</span></p>
                     <div class="">
                         <div class="progress progress_sm" style="width: 100%;">
-                            <div class="progress-bar bg-padrao" role="progressbar" data-transitiongoal="{{ $faixas["1"] }}"></div>
+                            <div class="progress-bar bg-padrao" role="progressbar" data-transitiongoal="{{ $faixas["1"] or 0 }}"></div>
                         </div>
                     </div>
                 </div>
@@ -44,7 +44,7 @@
                     <p>Faixa 1,5 <span class="pequeno">(De R$ 1.800,01 até R$ 2.600,00)</span></p>
                     <div class="">
                         <div class="progress progress_sm" style="width: 100%;">
-                            <div class="progress-bar bg-padrao" role="progressbar" data-transitiongoal="{{ $faixas["15"] }}"></div>
+                            <div class="progress-bar bg-padrao" role="progressbar" data-transitiongoal="{{ $faixas["15"] or 0 }}"></div>
                         </div>
                     </div>
                 </div>
@@ -54,7 +54,7 @@
                     <p>Faixa 2 <span class="pequeno">(De R$ 2.600,01 até R$ 4.000,00)</span></p>
                     <div class="">
                         <div class="progress progress_sm" style="width: 100%;">
-                            <div class="progress-bar bg-padrao" role="progressbar" data-transitiongoal="{{ $faixas["2"] }}"></div>
+                            <div class="progress-bar bg-padrao" role="progressbar" data-transitiongoal="{{ $faixas["2"] or 0}}"></div>
                         </div>
                     </div>
                 </div>
@@ -62,7 +62,7 @@
                     <p>Faixa 3 <span class="pequeno">(De R$ 4.000,01 até R$ 9.000,00)</span></p>
                     <div class="">
                         <div class="progress progress_sm" style="width: 100%;">
-                            <div class="progress-bar bg-padrao" role="progressbar" data-transitiongoal="{{ $faixas["3"] }}"></div>
+                            <div class="progress-bar bg-padrao" role="progressbar" data-transitiongoal="{{ $faixas["3"] or 0 }}"></div>
                         </div>
                     </div>
                 </div>
