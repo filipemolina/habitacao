@@ -147,8 +147,9 @@
           <div class="col-md-2">
             <select id="sexo" name="sexo" type="text" class="form-control input-md" >
               <option value="" disabled selected style="display: none;">Selecione...</option>
-              <option value="m" @if(old('sexo') == "m") selected="selected" @endif>Masculino</option>
-              <option value="f" @if(old('sexo') == "f") selected="selected" @endif>Feminino</option>
+              <option value="Masculino" @if(old('sexo') == "Masculino") selected="selected" @endif>Masculino</option>
+              <option value="Feminino" @if(old('sexo') == "Feminino") selected="selected" @endif>Feminino</option>
+              <option value="Outros" @if(old('sexo') == "Outros") selected="selected" @endif>Outros</option>
             </select>
           </div>
 
@@ -329,8 +330,9 @@
         <div class="col-md-2">
           <select id="coparticipante[sexo]" name="coparticipante[sexo]" type="text" class="form-control input-md" >
             <option value="" disabled @if(!old('coparticipante.sexo')) selected @endif style="display: none;"></option>
-            <option value="m" @if(old('coparticipante.sexo') == "m") selected="selected" @endif>Masculino</option>
-            <option value="f" @if(old('coparticipante.sexo') == "f") selected="selected" @endif>Feminino</option>
+            <option value="Masculino" @if(old('coparticipante.sexo') == "Masculino") selected="selected" @endif>Masculino</option>
+            <option value="Feminino" @if(old('coparticipante.sexo') == "Feminino") selected="selected" @endif>Feminino</option>
+            <option value="Outros" @if(old('coparticipante.sexo') == "Outros") selected="selected" @endif>Outros</option>
           </select>
         </div>
         
