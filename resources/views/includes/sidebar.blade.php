@@ -38,14 +38,18 @@
                            
                         </ul>
                     </li>
+
+                    @if(Auth::user()->admin)
                     
-                    <li><a><i class=" fa fa-user"></i>Usuários<span class="fa fa-chevron-down"></span></a>
-                        <ul class="nav child_menu">
-                            <li><a href="{{ url('users/create') }}">Cadastro</a></li>
-                            <li><a href="{{ url('users') }}">Lista</a></li>
-                           
-                        </ul>
-                    </li>
+                        <li><a><i class=" fa fa-user"></i>Usuários<span class="fa fa-chevron-down"></span></a>
+                            <ul class="nav child_menu">
+                                <li><a href="{{ url('users/create') }}">Cadastro</a></li>
+                                <li><a href="{{ url('users') }}">Lista</a></li>
+                               
+                            </ul>
+                        </li>
+
+                    @endif
 
                     <li><a href="{{ url('pessoas/relatorios') }}"><i class=" fa fa-clipboard"></i>Relatórios</a>
                         <ul class="nav child_menu">
