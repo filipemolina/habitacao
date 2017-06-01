@@ -54,8 +54,15 @@
 							    <td>{{ $usuario->email }}</td>
 							    <td>{{ $usuario->admin ? "Sim" : "Não" }}</td>
 							    <td class="actions">
-				                  <a class="btn btn-warning btn-circulo btn-xs" href="{{ url("users/$usuario->id/edit") }}"><i class="fa fa-pencil"></i></a>
-				                  <a class="btn btn-danger btn-circulo btn-xs"  data-id="{{$usuario->id}}" data-nome="{{ $usuario->name }}" href="#" data-toggle="modal" data-target="#modalexcluir"><i class="fa fa-trash"></i></a>
+				                  	<a class="btn btn-warning btn-circulo btn-xs" href="{{ url("users/$usuario->id/edit") }}"><i class="fa fa-pencil"></i></a>
+
+									{{-- Não deixar o usuário deletar a si mesmo --}}
+	
+									@if(Auth::user()->id != $usuario->id)
+
+				                  		<a class="btn btn-danger btn-circulo btn-xs"  data-id="{{$usuario->id}}" data-nome="{{ $usuario->name }}" href="#" data-toggle="modal" data-target="#modalexcluir"><i class="fa fa-trash"></i></a>
+
+				                  	@endif
 				                </td>
 							</tr>
 
