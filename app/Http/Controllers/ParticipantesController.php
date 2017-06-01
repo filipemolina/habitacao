@@ -475,6 +475,7 @@ class ParticipantesController extends Controller
         $titulo = [
 
             'geral'       => "GERAL",
+            'faixa'       => "POR FAIXA DE INSCRIÇÃO",
             'idade'       => "POR IDADE",
             'sexo'        => "Por Sexo",
             'dependentes' => "Por Número de Dependentes",
@@ -510,6 +511,10 @@ class ParticipantesController extends Controller
 
         if($request->ordem_relatorio == 'geral')
             return $query->orderBy('nome', 'asc')->get();
+
+        if($request->ordem_relatorio == 'faixa')
+            return $query->select(DB::raw("participantes.nome, renda_familiar, IF(renda_familiar <= 1800, '1', IF( renda_familiar > 1800 AND renda_familiar <= 2600, '1,5', IF(renda_familiar > 2600 AND renda_familiar <= 4000, '2', IF(renda_familiar > 4000 AND renda_familiar <= 9000, '3', 'Sem Classificação')))) as faixa"))
+                ->orderByRaw("faixa, nome")->get();
 
         // Idade
 
@@ -574,6 +579,11 @@ class ParticipantesController extends Controller
         // Nome
         if(array_key_exists('nome', $cabecalhos) !== false)
             $pessoa['nome'] = $participante->nome;
+
+        // Faixa
+        if(array_key_exists('faixa', $cabecalhos) !== false)
+            $pessoa['faixa'] = $participante->faixa;
+
 
         // Idade
         if(array_key_exists('idade', $cabecalhos) !== false)
@@ -668,6 +678,28 @@ class ParticipantesController extends Controller
             $pessoa['tempo_residencia'] = date('Y') - date('Y', strtotime($participante->tempo_residencia))." Anos";
 
         return $pessoa;
+    }
+
+    /**
+     * Função que calcula a faixa de inscrição do participante
+     */
+
+    protected function calculaFaixa($renda)
+    {
+        if($renda <= 1800)
+            return "1";
+
+        elseif($renda > 1800 && $renda <= 2600)
+            return "1,5";
+
+        elseif($renda > 2600 && $renda <= 4000)
+            return "2";
+
+        elseif($renda > 4000 && $renda <= 9000)
+            return "3";
+
+        else
+            return "Sem Classificação";
     }
 
     /**
