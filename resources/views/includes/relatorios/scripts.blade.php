@@ -8,9 +8,7 @@ $(function(){
 
 		// Idade
 
-		if($(this).val() == "idade"){ 
-
-			console.log("idade");
+		if($(this).val() == "idade"){
 
 			$("[name='cabecalhos\\[idade\\]']").prop('checked', true); 
 
@@ -20,8 +18,6 @@ $(function(){
 
 		if($(this).val() == "sexo"){ 
 
-			console.log("sexo");
-
 			$("[name='cabecalhos\\[sexo\\]']").prop('checked', true); 
 
 		}
@@ -29,8 +25,6 @@ $(function(){
 		// Dependentes
 
 		if($(this).val() == "dependentes"){ 
-
-			console.log("dependentes");
 
 			$("[name='cabecalhos\\[dependentes\\]']").prop('checked', true); 
 
@@ -40,9 +34,16 @@ $(function(){
 
 		if($(this).val() == "bairro"){ 
 
-			console.log("bairro");
-
 			$("[name='cabecalhos\\[bairro\\]']").prop('checked', true); 
+
+		} 
+
+		// Bairro
+
+		if($(this).val() == "faixa"){ 
+
+			$("[name='cabecalhos\\[faixa\\]']").prop('checked', true); 
+			$("[name='cabecalhos\\[renda_familiar\\]']").prop('checked', true); 
 
 		} 
 

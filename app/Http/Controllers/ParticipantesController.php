@@ -474,12 +474,12 @@ class ParticipantesController extends Controller
 
         $titulo = [
 
-            'geral'       => "GERAL",
+            'geral'       => "EM ORDEM ALFABÉTICA",
             'faixa'       => "POR FAIXA DE INSCRIÇÃO",
             'idade'       => "POR IDADE",
             'sexo'        => "Por Sexo",
             'dependentes' => "Por Número de Dependentes",
-            'bairro'      => "Por Bairro"
+            'bairro'      => "Por Bairro",
 
         ];
 
@@ -510,36 +510,36 @@ class ParticipantesController extends Controller
         // Geral, ordem alfabética dos nomes
 
         if($request->ordem_relatorio == 'geral')
-            return $query->orderBy('nome', 'asc')->get();
+            return $this->incluirFaixaNaQuery($query)->orderBy('nome', 'asc')->get();
 
         if($request->ordem_relatorio == 'faixa')
-            return $query->select(DB::raw("participantes.nome, renda_familiar, IF(renda_familiar <= 1800, '1', IF( renda_familiar > 1800 AND renda_familiar <= 2600, '1,5', IF(renda_familiar > 2600 AND renda_familiar <= 4000, '2', IF(renda_familiar > 4000 AND renda_familiar <= 9000, '3', 'Sem Classificação')))) as faixa"))
-                ->orderByRaw("faixa, nome")->get();
+            return $this->incluirFaixaNaQuery($query)->orderByRaw("faixa, nome")->get();
 
         // Idade
 
         if($request->ordem_relatorio == 'idade')
-            return $query->orderByRaw('YEAR(STR_TO_DATE(nascimento, "%Y-%m-%d")), nome ASC')->get();        
+            return $this->incluirFaixaNaQuery($query)->orderByRaw('YEAR(STR_TO_DATE(nascimento, "%Y-%m-%d")), nome ASC')->get();        
 
         // Sexo
 
         if($request->ordem_relatorio == 'sexo')
-            return $query->orderByRaw('sexo ASC, nome ASC')->get();
+            return $this->incluirFaixaNaQuery($query)->orderByRaw('sexo ASC, nome ASC')->get();
 
         // Dependentes
 
         if($request->ordem_relatorio == 'dependentes')
-            return $query->select(DB::raw('participantes.*, count(dependentes.id)'))
-                        ->orderByRaw('count(dependentes.id) DESC, participantes.nome ASC')
-                        ->groupBy('participantes.id')
-                        ->join('dependentes', 'participantes.id', '=', 'dependentes.participante_id')
-                        ->get();
+            // return $query->select(DB::raw('participantes.*, count(dependentes.id)'))
+            //             ->orderByRaw('count(dependentes.id) DESC, participantes.nome ASC')
+            //             ->groupBy('participantes.id')
+            //             ->join('dependentes', 'participantes.id', '=', 'dependentes.participante_id')
+            //             ->get();
+            return $this->queryDependentes($query);
 
 
         // Bairro
 
         if($request->ordem_relatorio == 'bairro')
-            return $query->get()->sortBy(function($participante){
+            return $this->incluirFaixaNaQuery($query)->get()->sortBy(function($participante){
                 return $participante->endereco->bairro;
             });
     }
@@ -671,7 +671,7 @@ class ParticipantesController extends Controller
 
         // Renda Familiar
         if(array_key_exists('renda_familiar', $cabecalhos) !== false)
-            $pessoa['renda_familiar'] = "R$ ".$participante->renda_familiar;
+            $pessoa['renda_familiar'] = "R$ ".number_format($participante->renda_familiar, 2, ",", ".");
 
         // Tempo de Residência
         if(array_key_exists('tempo_residencia', $cabecalhos) !== false)
@@ -716,6 +716,31 @@ class ParticipantesController extends Controller
         }
 
         return false;
+    }
+
+    /**
+     * Essa função fui criada para evitar que essa query seja escrita em todos os selects.
+     * Deve ser executada em todos os selects
+     */
+
+    protected function incluirFaixaNaQuery($query)
+    {
+        return $query->select(DB::raw("participantes.*, renda_familiar, IF(renda_familiar <= 1800, '1', IF( renda_familiar > 1800 AND renda_familiar <= 2600, '1,5', IF(renda_familiar > 2600 AND renda_familiar <= 4000, '2', IF(renda_familiar > 4000 AND renda_familiar <= 9000, '3', 'Sem Classificação')))) as faixa"));
+    }
+
+    /**
+     * A query do relatório por dependentes possui seu próprio select(), por isso não pode ser 
+     * concatenada utilizando a função acima. Criei então essa função que executa apenas a query
+     * desse relatório.
+     */
+
+    protected function queryDependentes($query)
+    {
+        return $query->select(DB::raw("participantes.*, count(dependentes.id), IF(renda_familiar <= 1800, '1', IF( renda_familiar > 1800 AND renda_familiar <= 2600, '1,5', IF(renda_familiar > 2600 AND renda_familiar <= 4000, '2', IF(renda_familiar > 4000 AND renda_familiar <= 9000, '3', 'Sem Classificação')))) as faixa"))
+                        ->orderByRaw('count(dependentes.id) DESC, participantes.nome ASC')
+                        ->groupBy('participantes.id')
+                        ->join('dependentes', 'participantes.id', '=', 'dependentes.participante_id')
+                        ->get();
     }
 
 }
