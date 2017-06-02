@@ -46,12 +46,13 @@ class Kernel extends HttpKernel
      * @var array
      */
     protected $routeMiddleware = [
-        'auth'       => \App\Http\Middleware\Authenticate::class,
-        'auth.basic' => \Illuminate\Auth\Middleware\AuthenticateWithBasicAuth::class,
-		'can'        => \Illuminate\Auth\Middleware\Authorize::class,
-        'guest'      => \App\Http\Middleware\RedirectIfAuthenticated::class,
-        'throttle'   => \Illuminate\Routing\Middleware\ThrottleRequests::class,
-		'bindings'   => \Illuminate\Routing\Middleware\SubstituteBindings::class,
-        'is_admin'   => \App\Http\Middleware\IsAdmin::class,
+        'auth.basic'    => \Illuminate\Auth\Middleware\AuthenticateWithBasicAuth::class,
+        'bindings'      => \Illuminate\Routing\Middleware\SubstituteBindings::class,
+        'throttle'      => \Illuminate\Routing\Middleware\ThrottleRequests::class,
+        'guest'         => \App\Http\Middleware\RedirectIfAuthenticated::class,
+        'can'           => \Illuminate\Auth\Middleware\Authorize::class,
+        'auth'          => \App\Http\Middleware\Authenticate::class,
+        'is_supervisor' => \App\Http\Middleware\IsSupervisor::class,
+        'is_master'     => \App\Http\Middleware\IsMaster::class,
     ];
 }

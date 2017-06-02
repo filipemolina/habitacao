@@ -11,7 +11,7 @@
             
             <div class="profile_info">
                 <span>Bem-Vindo!</span>
-                <h2>{{ Auth::user()->name }}</h2>
+                <h2>{{ Auth::user()->name }} ({{Auth::user()->admin}})</h2>
             </div>
             <div class="clearfix"></div>
         </div>
@@ -39,7 +39,7 @@
                         </ul>
                     </li>
 
-                    @if(Auth::user()->admin)
+                    @if(Auth::user()->admin == "Master")
                     
                         <li><a><i class=" fa fa-user"></i>Usuários<span class="fa fa-chevron-down"></span></a>
                             <ul class="nav child_menu">
@@ -49,18 +49,18 @@
                             </ul>
                         </li>
 
-                    @endif
+                        <li><a href="{{ url('pessoas/relatorios') }}"><i class=" fa fa-clipboard"></i>Relatórios</a>
+                            {{-- <ul class="nav child_menu">
+                                <li><a href="{{ url('#') }}">Geral</a></li>
+                                <li><a href="{{ url('#') }}">Por Idade</a></li>
+                                <li><a href="{{ url('#') }}">Por Sexo</a></li>
+                                <li><a href="{{ url('#') }}">Por Dependentes</a></li>
+                                <li><a href="{{ url('#') }}">Por Bairro</a></li>
+                            </ul> --}}
+                            
+                        </li>
 
-                    <li><a href="{{ url('pessoas/relatorios') }}"><i class=" fa fa-clipboard"></i>Relatórios</a>
-                        <ul class="nav child_menu">
-                      {{--       <li><a href="{{ url('#') }}">Geral</a></li>
-                            <li><a href="{{ url('#') }}">Por Idade</a></li>
-                            <li><a href="{{ url('#') }}">Por Sexo</a></li>
-                            <li><a href="{{ url('#') }}">Por Dependentes</a></li>
-                            <li><a href="{{ url('#') }}">Por Bairro</a></li> --}}
-                        </ul>
-                        
-                    </li>
+                    @endif
 
                     <li><a><i class=" fa fa-cog"></i>Opções<span class="fa fa-chevron-down"></span></a>
                         <ul class="nav child_menu">

@@ -20,7 +20,7 @@ class CreateParticipantesTable extends Migration
             $table->enum('sexo',['Feminino', 'Masculino', 'Outros']);
             $table->char('cpf',14);
             $table->date('nascimento');
-            $table->string('rg',20);
+            $table->string('rg',20)->nullable();
             $table->date('emissao_rg');
             $table->string('orgao_emissor_rg',20);
             $table->boolean('mulher_responsavel');

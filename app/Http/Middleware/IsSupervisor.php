@@ -5,7 +5,7 @@ namespace App\Http\Middleware;
 use Illuminate\Support\Facades\Auth;
 use Closure;
 
-class IsAdmin
+class IsSupervisor
 {
     /**
      * Handle an incoming request.
@@ -16,11 +16,11 @@ class IsAdmin
      */
     public function handle($request, Closure $next)
     {
-        if(Auth::user()->admin)
+        if(Auth::user()->admin == "Supervisor" || Auth::user()->admin == "Master")
         {
             return $next($request);
         }
 
-        return response('Unauthorized.', 401);
+        return redirect("/login");
     }
 }

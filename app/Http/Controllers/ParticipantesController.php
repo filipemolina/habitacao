@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Validation\Rule;
 use Illuminate\Http\Request;
@@ -20,6 +21,14 @@ class ParticipantesController extends Controller
     public function __construct()
     {
         $this->middleware('auth');
+
+        $this->middleware('is_supervisor')->only([
+            'edit',
+            'update',
+            'destroy',
+            'relatorios',
+            'imprimeRelatorio'
+        ]);
     }
 
      /**
@@ -402,8 +411,21 @@ class ParticipantesController extends Controller
 
         $colecao = collect();
 
+        // Os botões de ação da tabela variam de acordo com o 'role' do usuário atual.
+
+        $padrao = "<a class='btn btn-success  btn-circulo' data-toggle='modal' data-target='#modal_pessoas_show' data-id='{id}' href='#'><i class='fa fa-eye'></i></a>";
+
+        $supervisor_master = "<a class='btn btn-success  btn-circulo' data-toggle='modal' data-target='#modal_pessoas_show' data-id='{id}' href='#'><i class='fa fa-eye'></i></a><a class='btn btn-warning  btn-circulo' href='".url("pessoas/{id}/edit")."'><i class='fa fa-pencil'></i></a><a class='btn btn-danger btn-excluir btn-circulo'  href='#'' data-toggle='modal' data-nome='{nome}' data-id='{id}' data-target='#modalexcluir'><i class='fa fa-trash'></i></a>";
+
         foreach($participantes as $participante)
         {
+            // Preparar a string de ações
+
+            if(Auth::user()->admin == "Padrão")
+                $acoes = str_replace(['{id}', '{nome}'], [$participante->id, str_replace("'", "'", $participante->nome)], $padrao);
+            else
+                $acoes = str_replace(['{id}', '{nome}'], [$participante->id, str_replace("'", "'", $participante->nome)], $supervisor_master);
+
             $colecao->push([
                 'nome'                   => $participante->nome,
                 'idade'                  => date('Y') - date('Y', strtotime($participante->nascimento)),
@@ -412,7 +434,7 @@ class ParticipantesController extends Controller
                 'coparticipante'         => count($participante->coparticipante) ? "Sim" : "Não",
                 'dependentes'            => count($participante->dependentes),
                 'bairro'                 => $participante->endereco->bairro,
-                'acoes'                  => "<a class='btn btn-success  btn-circulo' data-toggle='modal' data-target='#modal_pessoas_show' data-id='".$participante->id."' href='#'><i class='fa fa-eye'></i></a><a class='btn btn-warning  btn-circulo' href='".url("pessoas/$participante->id/edit")."'><i class='fa fa-pencil'></i></a><a class='btn btn-danger btn-excluir btn-circulo'  href='#'' data-toggle='modal' data-nome='".str_replace("'", "", $participante->nome)."' data-id='$participante->id' data-target='#modalexcluir'><i class='fa fa-trash'></i></a>"
+                'acoes'                  => $acoes,
             ]);
         }
 

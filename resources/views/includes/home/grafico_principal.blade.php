@@ -10,7 +10,14 @@
 
             <ul class="nav navbar-right panel_toolbox">
                 <li class="dropdown">
-                    <a href="#" class="dropdown-toggle relatorio" data-ordem="sexo" role="button" aria-expanded="false"><i class="fa fa-eye" style="color: #3D276B"></i></a>
+                    {{-- Link para gerar relatórios apenas se for Master --}}
+
+                    @if(Auth::user()->admin == "Master")
+                    
+                        <a href="#" class="dropdown-toggle relatorio" data-ordem="sexo" role="button" aria-expanded="false"><i class="fa fa-eye" style="color: #3D276B"></i></a>
+                    
+                    @endif
+
                 </li>
             </ul>
             <div class="clearfix"></div>
