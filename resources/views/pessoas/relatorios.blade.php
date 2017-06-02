@@ -68,7 +68,8 @@
 
                  <select name="ordem_relatorio" class="form-control" id="ordem_relatorio">
                   <option value="">Selecione</option>
-                  <option value="geral">Geral</option>
+                  <option value="geral">Por Nome</option>
+                  <option value="faixa">Por Faixa</option>
                   <option value="idade">Por Idade</option>
                   <option value="sexo">Por Sexo</option>
                   <option value="dependentes">Por Dependentes</option>
@@ -196,6 +197,12 @@
                 <label>
                 
                     <input value="Renda Familiar" name="cabecalhos[renda_familiar]" type="checkbox"> Renda Familiar
+
+                </label> <br>
+
+                <label>
+                
+                    <input value="Faixa" name="cabecalhos[faixa]" type="checkbox"> Faixa de Inscrição
 
                 </label> <br>
 

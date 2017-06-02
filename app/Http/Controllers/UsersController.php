@@ -13,7 +13,7 @@ class UsersController extends Controller
 
     public function __construct()
     {
-        $this->middleware('auth');
+        $this->middleware(['auth', 'is_admin']);
     }
 
     /**
@@ -58,6 +58,10 @@ class UsersController extends Controller
         ]);
 
         $user = User::create($request->all());
+
+        $user->password = Hash::make($request->password);
+
+        $user->save();
 
         return redirect("/users/create")->with('sucesso', 'Usuário cadastrado com sucesso.');
     }
@@ -124,11 +128,9 @@ class UsersController extends Controller
      */
     public function destroy($id)
     {
-
         $user=User::find($id);
 
         $user->delete();
-
     }
 
     /**

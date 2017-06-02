@@ -41,7 +41,7 @@ $(function(){
 
         // Fazer uma chamada post enviando o id do participante e o método DELETE
 
-        $.post("/users/"+id, {
+        $.post("{{ url("/users/") }}"+"/"+id, {
           id : id,
           _method : method,
           _token : token,

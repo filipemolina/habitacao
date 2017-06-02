@@ -57,7 +57,7 @@
 					<br />
                         
 					<div>
-						<p style="color:#3D276B">©2017 Subsecretaria da Tecnologia da Informação</p>
+						<p style="color:#3D276B">©2017 Subsecretaria da Tecnologia da Informação<br>Equipe de Desenvolvimento de Sistemas</p>
 					</div>
 				</div>
 				{!! BootForm::close() !!}

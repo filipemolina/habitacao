@@ -100,7 +100,7 @@
           <label class="col-md-1 control-label" for="bolsa_familia">Bolsa F.</label>  
           <div class="col-md-2">
             <select id="bolsa_familia" name="bolsa_familia" type="text" class="form-control input-md" >
-              <option value="" disabled selected style="display: none;">Selecione...</option>
+              <option value="" disabled selected>Selecione...</option>
               <option value="1" @if(old('bolsa_familia') == "1") selected="selected" @endif >Possui</option>
               <option value="0" @if(old('bolsa_familia') == "0") selected="selected" @endif >Não possui</option>
             </select>
@@ -146,9 +146,10 @@
           <label class="col-md-1 control-label" for="sexo">Sexo</label>
           <div class="col-md-2">
             <select id="sexo" name="sexo" type="text" class="form-control input-md" >
-              <option value="" disabled selected style="display: none;">Selecione...</option>
-              <option value="m" @if(old('sexo') == "m") selected="selected" @endif>Masculino</option>
-              <option value="f" @if(old('sexo') == "f") selected="selected" @endif>Femino</option>
+              <option value="" disabled selected>Selecione...</option>
+              <option value="Masculino" @if(old('sexo') == "Masculino") selected="selected" @endif>Masculino</option>
+              <option value="Feminino" @if(old('sexo') == "Feminino") selected="selected" @endif>Feminino</option>
+              <option value="Outros" @if(old('sexo') == "Outros") selected="selected" @endif>Outros</option>
             </select>
           </div>
 
@@ -156,7 +157,7 @@
           <label class="col-md-1 control-label" for="necessidades_especiais">Deficiente</label>
           <div class="col-md-2">
             <select id="necessidades_especiais" name="necessidades_especiais" type="text" class="form-control input-md" >
-              <option value="" disabled @if(!old('necessidades_especiais')) selected @endif style="display: none;">Selecione...</option>
+              <option value="" disabled @if(!old('necessidades_especiais')) selected @endif>Selecione...</option>
               <option value="1" @if(old('necessidades_especiais') == "1") selected="selected" @endif>Sim</option>
               <option value="0" @if(old('necessidades_especiais') == "0") selected="selected" @endif>Não</option>
             </select>
@@ -282,7 +283,7 @@
         <label class="col-md-1 control-label" for="coparticipante[bolsa_familia]">Bolsa F.</label>  
         <div class="col-md-2">
           <select id="coparticipante[bolsa_familia]" name="coparticipante[bolsa_familia]" type="text" class="form-control input-md" >
-            <option value="" disabled @if(!old('coparticipante.bolsa_familia')) selected @endif style="display: none;">Selectione...</option>
+            <option value="" disabled @if(!old('coparticipante.bolsa_familia')) selected @endif>Selectione...</option>
             <option value="1" @if(old('coparticipante.bolsa_familia') == "1") selected="selected" @endif>Possui</option>
             <option value="0" @if(old('coparticipante.bolsa_familia') == "0") selected="selected" @endif>Não possui</option>
           </select>
@@ -328,9 +329,10 @@
         <label class="col-md-1 control-label" for="coparticipante[sexo]">Sexo</label>
         <div class="col-md-2">
           <select id="coparticipante[sexo]" name="coparticipante[sexo]" type="text" class="form-control input-md" >
-            <option value="" disabled @if(!old('coparticipante.sexo')) selected @endif style="display: none;"></option>
-            <option value="m" @if(old('coparticipante.sexo') == "m") selected="selected" @endif>Masculino</option>
-            <option value="f" @if(old('coparticipante.sexo') == "f") selected="selected" @endif>Femino</option>
+            <option value="" disabled @if(!old('coparticipante.sexo')) selected @endif>Selecione...</option>
+            <option value="Masculino" @if(old('coparticipante.sexo') == "Masculino") selected="selected" @endif>Masculino</option>
+            <option value="Feminino" @if(old('coparticipante.sexo') == "Feminino") selected="selected" @endif>Feminino</option>
+            <option value="Outros" @if(old('coparticipante.sexo') == "Outros") selected="selected" @endif>Outros</option>
           </select>
         </div>
         
@@ -338,7 +340,7 @@
         <label class="col-md-1 control-label" for="coparticipante[necessidades_especiais]">Deficiente</label>
         <div class="col-md-2">
           <select id="coparticipante[necessidades_especiais]" name="coparticipante[necessidades_especiais]" type="text" class="form-control input-md" >
-            <option value="" disabled @if(!old('coparticipante.necessidades_especiais')) selected @endif style="display: none;">   </option>
+            <option value="" disabled @if(!old('coparticipante.necessidades_especiais')) selected @endif">Selecione...</option>
             <option value="1" @if(old('coparticipante.necessidades_especiais') == "1") selected="selected" @endif>Sim</option>
             <option value="0" @if(old('coparticipante.necessidades_especiais') == "0") selected="selected" @endif>Não</option>
           </select>
@@ -451,7 +453,7 @@
           <label class="col-md-1 control-label" for="dependentes.0.parentesco">Parentesco</label>
           <div class="col-md-2">
             <select name="dependentes[0][parentesco]" id="dependentes[0][parentesco]" type="text" placeholder="Necessidades Especiais" class="form-control input-md" >
-              <option value="" disabled @if(!old('dependentes.0.parentesco')) selected @endif style="display: none;">Selecione...</option>
+              <option value="" disabled @if(!old('dependentes.0.parentesco')) selected @endif>Selecione...</option>
             <option value="1" @if(old('dependentes.0.parentesco') == "1") selected="selected" @endif>Avô(ó)</option>
             <option value="2" @if(old('dependentes.0.parentesco') == "2") selected="selected" @endif>Bisavô(ó)</option>
             <option value="3" @if(old('dependentes.0.parentesco') == "3") selected="selected" @endif>Bisneto(a)</option>
@@ -481,9 +483,9 @@
         <label class="col-md-1 control-label" for="dependentes[0][sexo]">Sexo</label>
         <div class="col-md-2">
           <select name="dependentes[0][sexo]" id="dependentes[0][sexo]" type="text" placeholder="Sexo" class="form-control input-md" >
-            <option value="" disabled @if(!old('dependentes.0.sexo')) selected @endif style="display: none;">Selecione...</option>
+            <option value="" disabled @if(!old('dependentes.0.sexo')) selected @endif>Selecione...</option>
             <option value="1" @if(old('dependentes.0.sexo') == "Masculino") selected="selected" @endif>Masculino</option>
-            <option value="2" @if(old('dependentes.0.sexo') == "Feminino") selected="selected" @endif>Femino</option>
+            <option value="2" @if(old('dependentes.0.sexo') == "Feminino") selected="selected" @endif>Feminino</option>
             <option value="3" @if(old('dependentes.0.sexo') == "Outros") selected="selected" @endif>Outros</option>
           </select>
         </div>
@@ -492,7 +494,7 @@
         <label class="col-md-1 control-label" for="dependentes[0][necessidades_especiais]">Deficiente</label>
         <div class="col-md-2">
           <select name="dependentes[0][necessidades_especiais]" id="dependentes[0][necessidades_especiais]" type="text" placeholder="Necessidades Especiais" class="form-control input-md" >
-            <option value="" disabled @if(!old('dependentes.0.necessidades_especiais')) selected @endif style="display: none;">Selecione...</option>
+            <option value="" disabled @if(!old('dependentes.0.necessidades_especiais')) selected @endif>Selecione...</option>
             <option value="1" @if(old('dependentes.0.necessidades_especiais') == "1") selected="selected" @endif>Sim</option>
             <option value="0" @if(old('dependentes.0.necessidades_especiais') == "0") selected="selected" @endif>Não</option>
           </select>
@@ -541,7 +543,7 @@
         {{-- Tempo de residência --}}
         <label class="col-md-1 control-label" for="inicio-residencia">Início</label>
         <div class="col-md-2">
-          <input value="{{ old('inicio-residencia') }}" id="inicio_residencia" name="inicio-residencia" type="date" placeholder="01 / 01 / 2000" class="form-control input-md global_data" >
+          <input value="{{ old('inicio-residencia') }}" id="inicio-residencia" name="tempo_residencia" type="date" placeholder="01 / 01 / 2000" class="form-control input-md global_data" >
         </div>
 
         {{-- Faixa--}}

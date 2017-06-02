@@ -207,9 +207,20 @@ class HomeController extends Controller
 
         foreach($semanas as $indice => $semana)
         {
-            $semanas[$indice]["Masculinos"] = [count($semana['Masculinos']), $semana["Masculinos"][1][1]];
-            $semanas[$indice]["Femininos"] = [count($semana['Femininos']), $semana["Femininos"][1][1]];
-            $semanas[$indice]["Outros"] = [count($semana['Outros']), $semana["Outros"][1][1]];            
+            if(isset($semana['Masculinos']))
+                $semanas[$indice]["Masculinos"] = [count($semana['Masculinos']), $semana["Masculinos"][0][1]];
+            else   
+                $semanas[$indice]["Masculinos"] = [0, date('Y-m-d')];
+
+            if(isset($semana['Femininos']))
+                $semanas[$indice]["Femininos"] = [count($semana['Femininos']), $semana["Femininos"][0][1]];
+            else   
+                $semanas[$indice]["Femininos"] = [0, date('Y-m-d')];
+
+            if(isset($semana['Outros']))
+                $semanas[$indice]["Outros"] = [count($semana['Outros']), $semana["Outros"][0][1]];
+            else   
+                $semanas[$indice]["Outros"] = [0, date('Y-m-d')];
         }
 
         $total = 0;
@@ -259,13 +270,15 @@ class HomeController extends Controller
 
         }
 
-        sort($inscricoes);
-
         // Calcular as porcentagens
 
-        foreach($inscricoes as $faixa)
+        foreach($inscricoes as $indice => $faixa)
         {
-            $porcentagens[] = [floor($faixa * 100 / $total), $faixa];
+            if($total > 0)
+                $porcentagens[$indice] = [floor($faixa * 100 / $total), $faixa];
+            else
+                $porcentagens[$indice] = [0, $faixa];
+
         }
 
         return $porcentagens;

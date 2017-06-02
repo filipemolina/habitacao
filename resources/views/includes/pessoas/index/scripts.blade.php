@@ -109,7 +109,7 @@ $(function(){
 
         var id = $(e.relatedTarget).data('id');
 
-        $.get('/pessoas/api/'+id, function(data){
+        $.get('{{ url("/pessoas/api") }}/'+id, function(data){
 
             var dados = JSON.parse(data);
 
@@ -123,7 +123,7 @@ $(function(){
             $("#cpf_modal").text(dados.cpf);
             $("#nis_modal").text(dados.nis);
             $("#ctps_modal").text(dados.ctps);
-            $("#bolsa_familia_modal").text(dados.bolsa_familia);
+            $("#bolsa_familia_modal").text(dados.bolsa_familia ? "Sim" : "Não");
             $("#rg_modal").text(dados.rg);
             $("#orgao_emissor_rg_modal").text(dados.orgao_emissor_rg);
             $("#emissao_rg_modal").text(invertedata(dados.emissao_rg));
@@ -148,7 +148,7 @@ $(function(){
                $("#coparticipante\\[cpf\\]_modal").text(dados.coparticipante.cpf);
                $("#coparticipante\\[nis\\]_modal").text(dados.coparticipante.nis);
                $("#coparticipante\\[ctps\\]_modal").text(dados.coparticipante.ctps);
-               $("#coparticipante\\[bolsa_familia\\]_modal").text(dados.coparticipante.bolsa_familia);
+               $("#coparticipante\\[bolsa_familia\\]_modal").text(dados.coparticipante.bolsa_familia ? "Sim" : "Não");
                $("#coparticipante\\[rg\\]_modal").text(dados.coparticipante.rg);
                $("#coparticipante\\[orgao_emissor_rg\\]_modal").text(dados.coparticipante.orgao_emissor_rg);
                $("#coparticipante\\[emissao_rg\\]_modal").text(invertedata(dados.coparticipante.emissao_rg));
@@ -240,7 +240,7 @@ $(function(){
 
         // Fazer uma chamada post enviando o id do participante e o método DELETE
 
-        $.post("/pessoas/"+id, {
+        $.post("{{ url("/pessoas/") }}/"+id, {
           id : id,
           _method : method,
           _token : token,

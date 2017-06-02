@@ -26,6 +26,17 @@ $factory->define(App\Participante::class, function(Faker\Generator $faker) {
 
 	$faker = Faker\Factory::create('pt_BR');
 
+	// Consertar a proporção de "outros" no sexo.
+
+	if($faker->boolean(10))
+	{
+		$sexo = "Outros";
+	}
+	else
+	{
+		$sexo = $faker->randomElement(["Masculino", "Feminino"]);
+	}
+
 	return [
 
 		'nome'                    => $faker->name,
@@ -33,7 +44,7 @@ $factory->define(App\Participante::class, function(Faker\Generator $faker) {
 		'nis'                     => $faker->randomNumber(9), // Número de Dígitos
 		'ctps'                    => $faker->randomNumber(9),
 		'bolsa_familia'           => $faker->boolean,
-		'sexo'                    => $faker->randomElement(['Masculino', 'Feminino', 'Outros']),
+		'sexo'                    => $sexo,
 		'nascimento'              => $faker->date('Y-m-d', '-18 years'),
 		'rg'                      => $faker->rg,
 		'emissao_rg'              => $faker->date('Y-m-d', '-18 years'),

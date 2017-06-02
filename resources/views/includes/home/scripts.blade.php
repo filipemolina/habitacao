@@ -129,10 +129,10 @@
 
         //console.log(item.series.xaxis.ticks[x].label);                
 
-        showTooltip(item.pageX,
-            item.pageY,
-            color,
-            "<strong>" + item.series.label + "</strong><br>" + item.series.xaxis.ticks[x].label + " : <strong>" + y + "</strong> °C");
+        // showTooltip(item.pageX,
+        //     item.pageY,
+        //     color,
+        //     "<strong>" + item.series.label + "</strong><br>" + item.series.xaxis.ticks[x].label + " : <strong>" + y + "</strong> °C");
         }
         } else {
             $("#tooltip").remove();
