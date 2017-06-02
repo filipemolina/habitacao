@@ -157,9 +157,24 @@
           <label class="col-md-1 control-label" for="necessidades_especiais">Deficiente</label>
           <div class="col-md-2">
             <select id="necessidades_especiais" name="necessidades_especiais" type="text" class="form-control input-md" >
-              <option value="" disabled @if(!old('necessidades_especiais')) selected @endif>Selecione...</option>
+              <option value=" " @if(!old('necessidades_especiais')) selected @endif>Selecione...</option>
               <option value="1" @if(old('necessidades_especiais') == "1") selected="selected" @endif>Sim</option>
               <option value="0" @if(old('necessidades_especiais') == "0") selected="selected" @endif>Não</option>
+            </select>
+          </div>
+
+          <div class="col-md-2">
+            <select id="necessidades_especiais" name="necessidades_especiais" type="text" class="form-control input-md" >
+              <option value=" " @if(!old('necessidades_especiais')) selected @endif>Selecione...</option>
+              <option value="1" @if(old('necessidades_especiais') == "1") selected="selected" @endif>Microcefalia</option>
+              <option value="0" @if(old('necessidades_especiais') == "0") selected="selected" @endif>Sindrome de Down</option>
+              <option value="0" @if(old('necessidades_especiais') == "0") selected="selected" @endif>Opção</option>
+              <option value="0" @if(old('necessidades_especiais') == "0") selected="selected" @endif>Opção</option>
+              <option value="0" @if(old('necessidades_especiais') == "0") selected="selected" @endif>Opção</option>
+              <option value="0" @if(old('necessidades_especiais') == "0") selected="selected" @endif>Opção</option>
+              <option value="0" @if(old('necessidades_especiais') == "0") selected="selected" @endif>Opção</option>
+              <option value="0" @if(old('necessidades_especiais') == "0") selected="selected" @endif>Opção</option>
+
             </select>
           </div>
         
