@@ -94,8 +94,9 @@
 					
 						<select name="admin" class="form-control" id="tipodeususario">
 							<option value="">Selecione</option>
-							<option value="1" @if($usuario->admin) selected="selected" @endif >Administrador</option>
-							<option value="0" @if(!$usuario->admin) selected="selected" @endif >Padrão</option>
+							<option value="2" @if($usuario->admin) selected="selected" @endif >Master</option>
+							<option value="1" @if($usuario->admin) selected="selected" @endif >Supervisor</option>
+							<option value="0" @if(!$usuario->admin) selected="selected" @endif >Básico</option>
 						</select>
 
 					</div>
