@@ -74,6 +74,9 @@
                   <option value="sexo">Por Sexo</option>
                   <option value="dependentes">Por Dependentes</option>
                   <option value="bairro">Por Bairro</option>
+                  <option value="bairro">Por Tipo de Deficiência</option>
+                  <option value="bairro">Por Participantes Idosos</option>
+                  <option value="bairro">Por Mulheres Chefes de Família</option>
                 </select>
 
               </div>
