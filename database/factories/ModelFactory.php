@@ -37,6 +37,13 @@ $factory->define(App\Participante::class, function(Faker\Generator $faker) {
 		$sexo = $faker->randomElement(["Masculino", "Feminino"]);
 	}
 
+	$mulher_responsavel = false;
+
+	if($sexo = "Feminino" || $sexo == "Outros")
+	{
+		$mulher_responsavel = $faker->boolean;
+	}
+
 	$nascimento = $faker->dateTimeBetween("-90 years", "-18 years")->format('Y-m-d');
 	$idoso = false;
 
@@ -64,7 +71,7 @@ $factory->define(App\Participante::class, function(Faker\Generator $faker) {
 		'rg'                      => $faker->rg,
 		'emissao_rg'              => $faker->date('Y-m-d', '-18 years'),
 		'orgao_emissor_rg'        => $faker->randomElement(['DETRAN', 'IFP', 'Marinha do Brasil']),
-		'mulher_responsavel'      => $faker->boolean,
+		'mulher_responsavel'      => $mulher_responsavel,
 		'email'                   => $faker->email,
 		'renda_familiar'          => $faker->randomFloat(2, 800, 9000),
 		'tempo_residencia'        => $faker->date('Y-m-d', '-1 year'),

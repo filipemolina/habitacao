@@ -537,7 +537,7 @@ class ParticipantesController extends Controller
             'sexo'               => "Por Sexo",
             'dependentes'        => "Por Número de Dependentes",
             'bairro'             => "Por Bairro",
-            'tipo_deficiencia'   => "Por Tipo de Defiência",
+            'tipo_deficiencia'   => "Por Tipo de Deficiência",
             'idosos'             => "de participantes idosos",
             'mulher_responsavel' => "de Mulheres Chefes de Família",
 
