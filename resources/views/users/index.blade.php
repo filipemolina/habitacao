@@ -38,7 +38,7 @@
 						  	<th>ID</th>
 						   	<th>Nome</th> 
 						   	<th>E-mail</th>
-							<th>Administrador?</th>
+							<th>Nível de Acesso</th>
 							<th>Ações</th>
 						</tr>						
 
@@ -52,7 +52,7 @@
 							    <td>{{ $usuario->id }}</td>
 							    <td>{{ $usuario->name }}</td> 
 							    <td>{{ $usuario->email }}</td>
-							    <td>{{ $usuario->admin ? "Sim" : "Não" }}</td>
+							    <td>{{ $usuario->admin }}</td>
 							    <td class="actions">
 				                  	<a class="btn btn-warning btn-circulo btn-xs" href="{{ url("users/$usuario->id/edit") }}"><i class="fa fa-pencil"></i></a>
 

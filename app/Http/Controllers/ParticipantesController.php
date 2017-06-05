@@ -602,17 +602,17 @@ class ParticipantesController extends Controller
         // Relatório por tipo de deficiência
 
         if($request->ordem_relatorio == "tipo_deficiencia")
-            return $this->incluirFaixaNaQuery($query)->where('necessidades_especiais', 1)->get();
+            return $this->incluirFaixaNaQuery($query)->where('necessidades_especiais', 1)->orderBy("tipo_deficiencia")->get();
 
         // Relatório por participantes idosos
 
         if($request->ordem_relatorio == "idosos")
-            return $this->incluirFaixaNaQuery($query)->where('idoso', 1)->get();
+            return $this->incluirFaixaNaQuery($query)->where('idoso', 1)->orderBy("nascimento", 'ASC')->get();
 
         // Relatório por mulher 
 
         if($request->ordem_relatorio == "mulher_responsavel")
-            return $this->incluirFaixaNaQuery($query)->where('mulher_responsavel', 1)->get();
+            return $this->incluirFaixaNaQuery($query)->where('mulher_responsavel', 1)->orderBy("nome")->get();
     }
 
     /**
