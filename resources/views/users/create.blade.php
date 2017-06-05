@@ -114,9 +114,9 @@
 						
 							<select name="admin" class="form-control" id="tipodeususario">
 								<option value="">Selecione</option>
-								<option value="2" @if(old('admin') === 1) selected="selected" @endif>Master</option>
-								<option value="1" @if(old('admin') === 1) selected="selected" @endif>Supervisor</option>
-								<option value="0" @if(old('admin') === 0) selected="selected" @endif>Básico</option>
+								<option value="Master" @if(old('admin') == "Master") selected="selected" @endif>Master</option>
+								<option value="Supervisor" @if(old('admin') == "Supervisor") selected="selected" @endif>Supervisor</option>
+								<option value="Padrão" @if(old('admin') == "Padrão") selected="selected" @endif>Padrão</option>
 							</select>
 
 						</div>
