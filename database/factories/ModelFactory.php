@@ -39,7 +39,7 @@ $factory->define(App\Participante::class, function(Faker\Generator $faker) {
 
 	$mulher_responsavel = false;
 
-	if($sexo = "Feminino" || $sexo == "Outros")
+	if($sexo == "Feminino" || $sexo == "Outros")
 	{
 		$mulher_responsavel = $faker->boolean;
 	}
