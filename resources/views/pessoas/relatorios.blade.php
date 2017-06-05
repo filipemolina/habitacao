@@ -74,9 +74,9 @@
                   <option value="sexo">Por Sexo</option>
                   <option value="dependentes">Por Dependentes</option>
                   <option value="bairro">Por Bairro</option>
-                  <option value="bairro">Por Tipo de Deficiência</option>
-                  <option value="bairro">Por Participantes Idosos</option>
-                  <option value="bairro">Por Mulheres Chefes de Família</option>
+                  <option value="tipo_deficiencia">Por Tipo de Deficiência</option>
+                  <option value="idosos">Por Participantes Idosos</option>
+                  <option value="mulher_responsavel">Por Mulheres Chefes de Família</option>
                 </select>
 
               </div>
@@ -140,6 +140,12 @@
                 <label>
                 
                     <input value="PNE" name="cabecalhos[pne]" type="checkbox"> Necessidades Especiais
+
+                </label> <br>
+
+                <label>
+                
+                    <input value="Tipo de Deficiência" name="cabecalhos[tipo_deficiencia]" type="checkbox"> Tipo de Deficiência
 
                 </label> <br>
 

@@ -531,12 +531,15 @@ class ParticipantesController extends Controller
 
         $titulo = [
 
-            'geral'       => "EM ORDEM ALFABÉTICA",
-            'faixa'       => "POR FAIXA DE INSCRIÇÃO",
-            'idade'       => "POR IDADE",
-            'sexo'        => "Por Sexo",
-            'dependentes' => "Por Número de Dependentes",
-            'bairro'      => "Por Bairro",
+            'geral'              => "EM ORDEM ALFABÉTICA",
+            'faixa'              => "POR FAIXA DE INSCRIÇÃO",
+            'idade'              => "POR IDADE",
+            'sexo'               => "Por Sexo",
+            'dependentes'        => "Por Número de Dependentes",
+            'bairro'             => "Por Bairro",
+            'tipo_deficiencia'   => "Por Tipo de Defiência",
+            'idosos'             => "de participantes idosos",
+            'mulher_responsavel' => "de Mulheres Chefes de Família",
 
         ];
 
@@ -569,6 +572,8 @@ class ParticipantesController extends Controller
         if($request->ordem_relatorio == 'geral')
             return $this->incluirFaixaNaQuery($query)->orderBy('nome', 'asc')->get();
 
+        // Faixa de Inscrição
+
         if($request->ordem_relatorio == 'faixa')
             return $this->incluirFaixaNaQuery($query)->orderByRaw("faixa, nome")->get();
 
@@ -585,13 +590,7 @@ class ParticipantesController extends Controller
         // Dependentes
 
         if($request->ordem_relatorio == 'dependentes')
-            // return $query->select(DB::raw('participantes.*, count(dependentes.id)'))
-            //             ->orderByRaw('count(dependentes.id) DESC, participantes.nome ASC')
-            //             ->groupBy('participantes.id')
-            //             ->join('dependentes', 'participantes.id', '=', 'dependentes.participante_id')
-            //             ->get();
             return $this->queryDependentes($query);
-
 
         // Bairro
 
@@ -599,6 +598,21 @@ class ParticipantesController extends Controller
             return $this->incluirFaixaNaQuery($query)->get()->sortBy(function($participante){
                 return $participante->endereco->bairro;
             });
+
+        // Relatório por tipo de deficiência
+
+        if($request->ordem_relatorio == "tipo_deficiencia")
+            return $this->incluirFaixaNaQuery($query)->where('necessidades_especiais', 1)->get();
+
+        // Relatório por participantes idosos
+
+        if($request->ordem_relatorio == "idosos")
+            return $this->incluirFaixaNaQuery($query)->where('idoso', 1)->get();
+
+        // Relatório por mulher 
+
+        if($request->ordem_relatorio == "mulher_responsavel")
+            return $this->incluirFaixaNaQuery($query)->where('mulher_responsavel', 1)->get();
     }
 
     /**
@@ -673,6 +687,10 @@ class ParticipantesController extends Controller
         // PNE
         if(array_key_exists('pne', $cabecalhos) !== false)
             $pessoa['pne'] = $participante->necessidades_especiais ? "Sim" : "Não";
+
+        // Tipo de Deficiência
+        if(array_key_exists('tipo_deficiencia', $cabecalhos) !== false)
+            $pessoa['tipo_deficiencia'] = $participante->tipo_deficiencia;
 
         // Coparticipante
         if(array_key_exists('coparticipante', $cabecalhos) !== false)
