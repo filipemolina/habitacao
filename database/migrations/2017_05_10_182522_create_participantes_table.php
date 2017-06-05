@@ -24,13 +24,16 @@ class CreateParticipantesTable extends Migration
             $table->date('emissao_rg');
             $table->string('orgao_emissor_rg',20);
             $table->boolean('mulher_responsavel');
-            $table->string('email',100)                 ->nullable();
+            $table->string('email',100)->nullable();
             $table->float('renda_familiar',8,2);
             $table->date('tempo_residencia');
             $table->boolean('necessidades_especiais');
-            $table->char('nis',11)                      ->nullable();
-            $table->char('ctps',11)                     ->nullable();
+            $table->string('tipo_deficiencia')->nullable();
+            $table->char('nis',11)->nullable();
+            $table->char('ctps',11)->nullable();
             $table->boolean('bolsa_familia');
+            $table->string('codigo_inscricao', 10);
+            $table->boolean('idoso')->default(false);
 
             $table->softDeletes();
             $table->timestamps();

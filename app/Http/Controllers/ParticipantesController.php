@@ -137,7 +137,29 @@ class ParticipantesController extends Controller
 
         $participante = Participante::create($request->except('coparticipante'));
 
+        // Renda Familiar
+
         $participante->renda_familiar = str_replace("R$ ", "", $participante->renda_familiar);
+
+        // Verificar se o participante é idoso
+
+        if(date('Y') - date('Y', strtotime($participante->nascimento)) >= 65)
+        {
+            $participante->idoso = true;
+        }
+
+        // Código de inscrição
+
+        if($request->codigo_inscricao == "")
+        {
+            // Obter o último código de inscrição criado
+
+            $maior = Participante::max("codigo_inscricao");
+
+            $proximo = $maior + 1;
+
+            $participante->codigo_inscricao = $proximo;
+        }
 
         $participante->save();
 
@@ -185,7 +207,7 @@ class ParticipantesController extends Controller
             }
         }
 
-        return redirect('/pessoas/create')->with('sucesso', 'Usuário cadastrado com sucesso');
+        return redirect('/pessoas/create')->with('sucesso', "Usuário cadastrado com sucesso. Código da inscriçao: <span style='text-transform: uppercase; font-weight: bold; font-size: 16px;'>$participante->codigo_inscricao</span>");
     }
 
     /**
@@ -285,6 +307,17 @@ class ParticipantesController extends Controller
         $participante = Participante::find($id);
         $participante->update($request->all());
 
+        if(date('Y') - date('Y', strtotime($participante->nascimento)) >= 65)
+        {
+            $participante->idoso = true;
+        }
+        else
+        {
+            $participante->idoso = false;
+        }
+
+        $participante->save();
+
         // Atualizar endereço
 
         $participante->endereco->update($request->endereco);
@@ -343,16 +376,7 @@ class ParticipantesController extends Controller
             }
         }
 
-        // Alterar os dependentes que já existem ou adicionar novos
-
-        foreach($request->dependentes as $dependente)
-        {
-            $participante->dependentes()->updateOrCreate(
-                ['participante_id' => $participante->id, 'nome' => $dependente['nome']],
-                $dependente
-            );
-
-        }
+        $dependentes_novos = $request->dependentes ?: [];
 
         // Retirar os dependentes que foram excluídos
 
@@ -361,10 +385,21 @@ class ParticipantesController extends Controller
             // Caso o dependente não exista no vetor da $request, é por que ele foi deletado
             // pelo usuário que estava alterando esse cadastro. Logo deve ser deletado do cadastro
 
-            if(!$this->existeNoVetor($dependente->nome, $request->dependentes))
+            if(!$this->existeNoVetor($dependente->nome, $dependentes_novos))
             {
                 $dependente->delete();
             }
+        }
+
+        // Alterar os dependentes que já existem ou adicionar novos
+
+        foreach($dependentes_novos as $dependente)
+        {
+            $participante->dependentes()->updateOrCreate(
+                ['participante_id' => $participante->id, 'nome' => $dependente['nome']],
+                $dependente
+            );
+
         }
 
         return redirect("/pessoas/$participante->id/edit")->with('sucesso', "Participante alterado com sucesso");

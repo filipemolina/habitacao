@@ -143,6 +143,7 @@ return [
         'admin'                                 => 'Tipo de Usuário',
         'novasenha'                             => 'Nova Senha',
         'senhaatual'                            => 'Senha Atual',
+        'novasenha_confirmation'                => "Confirmar Senha",
 
     ],
 

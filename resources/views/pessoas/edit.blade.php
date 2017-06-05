@@ -63,8 +63,12 @@
         {{-- Nome --}}
         <div class="form-group">
           <label class="col-md-1 control-label" for="nome">Nome</label>
-          <div class="col-md-11">
+          <div class="col-md-8">
             <input value="{{ $pessoa->nome }}" id="nome" name="nome" type="text" placeholder="Informe o nome" class="form-control input-md nome" >
+          </div>
+          <label class="col-md-2 control-label" for="mulher_responsavel">Mulher Responsável?</label>
+          <div class="col-md-1">
+            <input type="checkbox" @if($pessoa->mulher_responsavel) checked @endif id="mulher_responsavel" name="mulher_responsavel">
           </div>
         </div>
 
@@ -642,6 +646,12 @@
         <label class="col-md-1 control-label" for="faixa">Faixa</label>
         <div class="col-md-2">
           <input value="" id="faixa" name="faixa" type="text" placeholder="Classificação" class="form-control input-md" disabled selected style>
+        </div>
+
+        {{-- Código da Inscrição --}}
+        <label class="col-md-2 control-label" for="codigo_inscricao">Código da Inscrição</label>
+        <div class="col-md-2">
+          <input value="{{ old('codigo_inscricao') }}" id="codigo_inscricao" name="codigo_inscricao" type="text" class="form-control input-md" >
         </div>
 
       </div> {{-- FIM Renda Familiar e Faixa --}}

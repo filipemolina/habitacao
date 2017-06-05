@@ -90,7 +90,7 @@
 					<label for="novasenha_confirmation" class="col-sm-4 control-label">Confirmar Senha</label>
 
 					<div class="col-sm-4">
-						<input name="novasenha_confirmation" type="password" class="form-control" id="senha" placeholder="Confirmar Senha">
+						<input name="novasenha_confirmation" type="password" class="form-control" id="novasenha_confirmation" placeholder="Confirmar Senha">
 					</div>
 				</div>
 

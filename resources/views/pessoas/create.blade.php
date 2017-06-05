@@ -49,7 +49,7 @@
 
         <div class="alert alert-dourado alert-dismissible" style="margin-top: 70px;" role="alert">
           <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-          <strong>Parabéns!</strong> {{ session('sucesso') }}
+          <strong>Parabéns!</strong> {!! session('sucesso') !!}
         </div>
 
     @endif
@@ -70,9 +70,13 @@
         {{-- Nome --}}
         <div class="form-group">
           <label class="col-md-1 control-label" for="nome">Nome</label>
-          <div class="col-md-11">
-            <input value="{{ old('nome') }}" id="nome" name="nome" value="{{ old('nome') }}" type="text" placeholder="Informe o nome" class="form-control input-md nome" >
+          <div class="col-md-8">
+            <input value="{{ old('nome') }}" id="nome" name="nome" type="text" placeholder="Informe o nome" class="form-control input-md nome" >
           </div>
+          <div class="col-md-1">
+            <input type="checkbox" @if(old('mulher_responsavel')) checked @endif id="mulher_responsavel" name="mulher_responsavel">
+          </div>
+          <label class="col-md-2 control-label" for="mulher_responsavel">Mulher Responsável?</label>
         </div>
 
         {{-- CPF, NIS/PIS, Bolsa Família e Carteira de trabalho --}}
@@ -163,9 +167,9 @@
             </select>
           </div>
 
-          <div class="col-md-2">
-            <select id="necessidades_especiais" name="necessidades_especiais" type="text" class="form-control input-md" >
-              <option value=" " @if(!old('necessidades_especiais')) selected @endif>Selecione...</option>
+          <div class="col-md-3">
+            <select id="tipo_necessidade" disabled name="necessidades_especiais" type="text" class="form-control input-md" >
+              <option value=" " @if(!old('necessidades_especiais')) selected @endif>Tipo de Deficiência</option>
               <option value="1" @if(old('necessidades_especiais') == "1") selected="selected" @endif>Microcefalia</option>
               <option value="0" @if(old('necessidades_especiais') == "0") selected="selected" @endif>Sindrome de Down</option>
               <option value="0" @if(old('necessidades_especiais') == "0") selected="selected" @endif>Opção</option>
@@ -533,7 +537,8 @@
 {{------------------------------------------ Renda ------------------------------------------}}
 
     <div class="x_panel" id="renda-familiar">
-      <div class="x_title"> Renda familiar e tempo de residência em Mesquita </div>
+      {{-- <div class="x_title"> Renda familiar e tempo de residência em Mesquita </div> --}}
+      <div class="x_title"> Informações Adicionais</div>
       
       {{-- Renda Familiar, Tempo de residência e Faixa --}}
       <div class="form-group">
@@ -548,6 +553,12 @@
         <label class="col-md-1 control-label" for="faixa">Faixa</label>
         <div class="col-md-2">
           <input value="{{ old('') }}" id="faixa" name="faixa" type="text" placeholder="Classificação" class="form-control input-md" disabled selected style>
+        </div>
+
+        {{-- Código da Inscrição --}}
+        <label class="col-md-2 control-label" for="codigo_inscricao">Código da Inscrição</label>
+        <div class="col-md-2">
+          <input value="{{ old('codigo_inscricao') }}" id="codigo_inscricao" name="codigo_inscricao" type="text" class="form-control input-md" >
         </div>
 
       </div> {{-- FIM Renda Familiar e Faixa --}}

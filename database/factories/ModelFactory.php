@@ -37,6 +37,21 @@ $factory->define(App\Participante::class, function(Faker\Generator $faker) {
 		$sexo = $faker->randomElement(["Masculino", "Feminino"]);
 	}
 
+	$nascimento = $faker->dateTimeBetween("-90 years", "-18 years")->format('Y-m-d');
+	$idoso = false;
+
+	if(date('Y') - date('Y', strtotime($nascimento)) >= 65)
+    {
+        $idoso = true;
+    }
+
+    $necessidades = $faker->boolean(10);
+
+    if($necessidades)
+    	$tipo = $faker->randomElement(['Deficiente Visual', "Deficiente Auditivo", "Cadeirante", "Síndrome de Down"]);
+    else
+    	$tipo = null;
+
 	return [
 
 		'nome'                    => $faker->name,
@@ -45,7 +60,7 @@ $factory->define(App\Participante::class, function(Faker\Generator $faker) {
 		'ctps'                    => $faker->randomNumber(9),
 		'bolsa_familia'           => $faker->boolean,
 		'sexo'                    => $sexo,
-		'nascimento'              => $faker->date('Y-m-d', '-18 years'),
+		'nascimento'              => $nascimento,
 		'rg'                      => $faker->rg,
 		'emissao_rg'              => $faker->date('Y-m-d', '-18 years'),
 		'orgao_emissor_rg'        => $faker->randomElement(['DETRAN', 'IFP', 'Marinha do Brasil']),
@@ -53,7 +68,10 @@ $factory->define(App\Participante::class, function(Faker\Generator $faker) {
 		'email'                   => $faker->email,
 		'renda_familiar'          => $faker->randomFloat(2, 800, 9000),
 		'tempo_residencia'        => $faker->date('Y-m-d', '-1 year'),
-		'necessidades_especiais'  => $faker->boolean(10), // Chance de 10% de sair True
+		'necessidades_especiais'  => $necessidades, // Chance de 10% de sair True
+		'tipo_deficiencia'        => $tipo,
+		'idoso'                   => $idoso,
+		'codigo_inscricao'        => $faker->randomNumber(4),
 		'created_at'              => $faker->dateTimeBetween('-5 weeks', 'now'),
  
 	];

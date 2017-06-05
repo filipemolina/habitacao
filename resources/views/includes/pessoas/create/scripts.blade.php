@@ -163,6 +163,19 @@
             calculaPeriodo($(this).val());
         });
 
+        //////////////////////////////////// Ativar ou desativar o campo "tipo de deficiência"
+
+        $("select#necessidades_especiais").change(function(){ 
+
+            if($(this).val() == 1)
+
+                $("#tipo_necessidade").prop("disabled", false); 
+
+            else 
+                
+                $("#tipo_necessidade").prop("disabled", true); 
+        });
+
     });
 
   </script>

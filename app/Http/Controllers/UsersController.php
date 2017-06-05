@@ -139,9 +139,14 @@ class UsersController extends Controller
 
     public function alterarSenha(Request $request)
     {
+        // echo "<pre>";
+        // print_r($request->all());
+        // exit;
+
         $this->validate($request, [
-            'senhaatual' => 'required|logado|min:6',
-            'novasenha'  => 'required|confirmed',
+            'senhaatual'             => 'required|logado|min:6',
+            'novasenha'              => 'required|min:6',
+            'novasenha_confirmation' => 'required|min:6|same:novasenha'
         ]);
 
         $usuario = User::find(Auth::user()->id);
