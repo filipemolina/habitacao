@@ -36,7 +36,7 @@ Lista de Pessoas
                     <th>Idade</th>
                     <th>Sexo</th>
                     <th>PNE</th>
-                    <th>Co-participante?</th>
+                    <th>Co-participante</th>
                     <th>Dependentes</th>
                     <th>Bairro</th>
                     <th>Ações</th>
@@ -61,14 +61,14 @@ Lista de Pessoas
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title">Excluir <span id="nome_participante"></span></h4>
+        <h4 class="modal-title">Exclusão de cadastro</h4>
       </div>
       <div class="modal-body">
-        <p>Realmente Desejar Excluir?</p>
+        <h2>Realmente Desejar Excluir o cadastro de <span id="nome_participante"></span>?</h2>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-danger" id="btn-excluir-modal" data-dismiss="modal">Excluir</button>
-        <button type="button" class="btn btn-primary" data-dismiss="modal" aria-label="Close">Fechar</button>
+        <button type="button" class="btn btn-cor-perigo" id="btn-excluir-modal" data-dismiss="modal">Excluir</button>
+        <button type="button" class="btn btn-cor-padrao" data-dismiss="modal" aria-label="Close">Fechar</button>
       </div>
       <input type="hidden" name="id" id="id_participante">
       {{ method_field("DELETE") }}

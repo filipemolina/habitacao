@@ -102,8 +102,8 @@
 					</div>
 				</div>	
 				<div class="form-group" style="text-align: center;">
-					<button type="submit" value="submit" class="btn btn-primary">Enviar</button>
-					<a class="btn btn-danger" href="{{ url( "users" ) }}">Voltar</a>
+					<button type="submit" value="submit" data-toggle="tooltip" title="Salvar alterações" class="btn btn-lg-circulo btn-cor-padrao fa fa-floppy-o"></button>
+					<a data-toggle="tooltip" title="Retonar a lista de usuários" class="btn btn btn-lg-circulo btn-cor-perigo fa fa-arrow-left" href="{{ url( "users" ) }}"></a>
 				</div>
 				
 			</form>

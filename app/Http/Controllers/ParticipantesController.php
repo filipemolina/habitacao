@@ -448,9 +448,9 @@ class ParticipantesController extends Controller
 
         // Os botões de ação da tabela variam de acordo com o 'role' do usuário atual.
 
-        $padrao = "<a class='btn btn-success  btn-circulo' data-toggle='modal' data-target='#modal_pessoas_show' data-id='{id}' href='#'><i class='fa fa-eye'></i></a>";
+        $padrao = "<a data-title='Visualizar' class='btn btn-cor-padrao  btn-circulo' data-toggle='modal' data-target='#modal_pessoas_show' data-id='{id}' href='#'><i class='fa fa-eye'></i></a>";
 
-        $supervisor_master = "<a class='btn btn-success  btn-circulo' data-toggle='modal' data-target='#modal_pessoas_show' data-id='{id}' href='#'><i class='fa fa-eye'></i></a><a class='btn btn-warning  btn-circulo' href='".url("pessoas/{id}/edit")."'><i class='fa fa-pencil'></i></a><a class='btn btn-danger btn-excluir btn-circulo'  href='#'' data-toggle='modal' data-nome='{nome}' data-id='{id}' data-target='#modalexcluir'><i class='fa fa-trash'></i></a>";
+        $supervisor_master = "<a title='Visualizar' class='btn btn-cor-padrao  btn-circulo' data-toggle='modal' data-target='#modal_pessoas_show' data-id='{id}' href='#'><i class='fa fa-eye'></i></a><a title='Editar' class='btn btn-cor-padrao  btn-circulo' href='".url("pessoas/{id}/edit")."'><i class='fa fa-pencil'></i></a><a title='Excluir' class='btn btn-cor-perigo btn-excluir btn-circulo'  href='#'' data-toggle='modal' data-nome='{nome}' data-id='{id}' data-target='#modalexcluir'><i class='fa fa-trash'></i></a>";
 
         foreach($participantes as $participante)
         {

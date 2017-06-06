@@ -54,13 +54,13 @@
 							    <td>{{ $usuario->email }}</td>
 							    <td>{{ $usuario->admin }}</td>
 							    <td class="actions">
-				                  	<a class="btn btn-warning btn-circulo btn-xs" href="{{ url("users/$usuario->id/edit") }}"><i class="fa fa-pencil"></i></a>
+				                  	<a data-toggle="tooltip" title="Alterar" class="btn btn-cor-padrao btn-circulo btn-xs" href="{{ url("users/$usuario->id/edit") }}"><i class="fa fa-pencil"></i></a>
 
 									{{-- Não deixar o usuário deletar a si mesmo --}}
 	
 									@if(Auth::user()->id != $usuario->id)
 
-				                  		<a class="btn btn-danger btn-circulo btn-xs"  data-id="{{$usuario->id}}" data-nome="{{ $usuario->name }}" href="#" data-toggle="modal" data-target="#modalexcluir"><i class="fa fa-trash"></i></a>
+				                  		<a data-toggle="tooltip" title="Excluir" class="btn btn-cor-perigo btn-circulo btn-xs"  data-id="{{$usuario->id}}" data-nome="{{ $usuario->name }}" href="#" data-toggle="modal" data-target="#modalexcluir"><i class="fa fa-trash"></i></a>
 
 				                  	@endif
 				                </td>
@@ -84,14 +84,14 @@
 			    <div class="modal-content">
 			      <div class="modal-header">
 			        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-			        <h4 class="modal-title">Excluir <span id="nome_usuario"></span></h4>
+			        <h4 class="modal-title">Excluir de usuário</h4>
 			      </div>
 			      <div class="modal-body">
-			        <p>Realmente Desejar Excluir?</p>
+			        <h2>Você realmente desejar excluir o(a) usuário(a) <span id="nome_usuario"></span></h2>
 			      </div>
 			      <div class="modal-footer">
-			        <button type="button" id="btn-excluir-modal" class="btn btn-danger" data-dismiss="modal">Excluir</button>
-			        <button type="button" class="btn btn-primary" data-dismiss="modal" aria-label="Close">Fechar</button>
+			        <button type="button" id="btn-excluir-modal" class="btn btn-cor-perigo" data-dismiss="modal">Excluir</button>
+			        <button type="button" class="btn btn-cor-padrao" data-dismiss="modal" aria-label="Close">Fechar</button>
 			      </div>
 			      <input type="hidden" name="id" id="id_usuario">
 			      {{ method_field("DELETE") }}
