@@ -171,7 +171,7 @@
           </div>
 
           <div class="col-md-3">
-            <select id="tipo_necessidade" disabled name="necessidades_especiais" type="text" class="form-control input-md" >
+            <select id="tipo_necessidade" name="tipo_deficiencia" type="text" class="form-control input-md" >
               <option value=" " 
                   @if(!old('necessidades_especiais')) 
                       selected 
@@ -283,14 +283,14 @@
           {{-- Celular --}}
           <label class="col-md-1 control-label" for="telefones[0][numero]">Cel.</label>
           <div class="col-md-2">
-            <input value="{{ old('telefones.0.numero') }}" id="telefones[0][numero]" name="telefones[0][numero]" type="text" placeholder="(99) 9 9999-9999" data-inputmask="'mask': '(99) 9 9999-9999', 'numericInput': true" class="form-control input-md celular">
+            <input value="{{ old('telefones.0.numero') }}" id="telefones[0][numero]" name="telefones[0][numero]" type="text" placeholder="(99) 9 9999-9999" data-inputmask="'mask': '(99) 9 9999-9999'" class="form-control input-md celular">
             <input type="hidden" name="telefones[0][tipo_telefone]" value="Celular">
           </div>
 
           {{-- Telefone --}}
           <label class="col-md-1 control-label" for="telefones[1][numero]">Tel.</label>
           <div class="col-md-2">
-            <input value="{{ old('telefones.1.numero') }}" id="telefones[1][numero]"  name="telefones[1][numero]" type="text" placeholder="(99) 9999-9999" data-inputmask="'mask': '(99) 9999-9999)', 'numericInput': true" class="form-control input-md telefone">
+            <input value="{{ old('telefones.1.numero') }}" id="telefones[1][numero]"  name="telefones[1][numero]" type="text" placeholder="(99) 9999-9999" data-inputmask="'mask': '(99) 9999-9999'" class="form-control input-md telefone">
             <input type="hidden" name="telefones[1][tipo_telefone]" value="Fixo">
           </div>
 
@@ -469,14 +469,14 @@
         {{-- Celular --}}
         <label class="col-md-1 control-label" for="coparticipante[telefones][0][numero]">Celular</label>
         <div class="col-md-2">
-          <input value="{{ old('coparticipante.telefones.0.numero') }}" id="coparticipante[telefones][0][numero]" name="coparticipante[telefones][0][numero]" type="text" placeholder="(99) 9 9999-9999" data-inputmask="'mask': '(99) 9 9999-9999', 'numericInput': true" class="form-control input-md celular">
+          <input value="{{ old('coparticipante.telefones.0.numero') }}" id="coparticipante[telefones][0][numero]" name="coparticipante[telefones][0][numero]" type="text" placeholder="(99) 9 9999-9999" data-inputmask="'mask': '(99) 9 9999-9999'" class="form-control input-md celular">
           <input type="hidden" value="Celular" name="coparticipante[telefones][0][tipo_telefone]">
         </div>
 
         {{-- Telefone --}}
         <label class="col-md-1 control-label" for="coparticipante[telefones][1][numero]">Tel.</label>
         <div class="col-md-2">
-          <input value="{{ old('coparticipante.telefones.1.numero') }}" id="coparticipante[telefones][1][numero]" name="coparticipante[telefones][1][numero]" type="text" placeholder="(99) 9999-9999" data-inputmask="'mask': '(99) 9999-9999)', 'numericInput': true" class="form-control input-md telefone">
+          <input value="{{ old('coparticipante.telefones.1.numero') }}" id="coparticipante[telefones][1][numero]" name="coparticipante[telefones][1][numero]" type="text" placeholder="(99) 9999-9999" data-inputmask="'mask': '(99) 9999-9999'" class="form-control input-md telefone">
           <input type="hidden" value="Fixo" name="coparticipante[telefones][1][tipo_telefone]">
         </div>
 
@@ -584,7 +584,7 @@
         {{-- Renda Familiar --}}
         <label class="col-md-1 control-label" for="renda_familiar">Renda</label>
         <div class="col-md-2">
-          <input value="{{ old('renda_familiar') }}" id="renda_familiar" name="renda_familiar" type="text" placeholder="R$ 99.999,99" data-inputmask="'mask': 'R$ 99.999,99', 'numericInput': true" class="form-control input-md cash" >
+          <input value="{{ old('renda_familiar') }}" id="renda_familiar" name="renda_familiar" type="text" placeholder="R$ 99.999,99" data-inputmask="'mask': 'R$ 99.999,99', 'numericInput' : true" class="form-control input-md cash" >
         </div>
 
         {{-- Faixa--}}

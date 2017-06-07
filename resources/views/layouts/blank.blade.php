@@ -17,6 +17,8 @@
         <link href="{{ asset("css/font-awesome.min.css") }}" rel="stylesheet">
         <!-- Custom Theme Style -->
         <link href="{{ asset("css/gentelella.min.css") }}" rel="stylesheet">
+        {{-- Sweet Alert --}}
+        <link rel="stylesheet" href="{{ asset("css/sweetalert.css") }}">
         
         @stack('css')
 
@@ -59,6 +61,8 @@
         <script src="{{ asset("js/jquery.min.js") }}"></script>
         <!-- Bootstrap -->
         <script src="{{ asset("js/bootstrap.min.js") }}"></script>
+        {{-- Sweet Alert --}}
+        <script src="{{ asset("js/sweetalert.min.js") }}"></script>
 
         @stack('scripts')
 

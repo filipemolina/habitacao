@@ -90,9 +90,6 @@ class ParticipantesController extends Controller
             'nome'                                  => 'required',
             'cpf'                                   => 'required|unique:participantes',
             'bolsa_familia'                         => 'required',
-            'rg'                                    => 'required',
-            'orgao_emissor_rg'                      => 'required',
-            'emissao_rg'                            => 'date',
             'nascimento'                            => 'date',
             'sexo'                                  => 'required',
             'necessidades_especiais'                => 'required',
@@ -102,7 +99,6 @@ class ParticipantesController extends Controller
             'bairro'                                => 'required',
             'renda_familiar'                        => 'required',
             'tempo_residencia'                      => 'date',
-            'telefones.*.numero'                    => 'required',
 
             // Coparticipante
             // O campo nome é totalmente opcional. Entretanto, caso este seja preenchido
@@ -139,7 +135,11 @@ class ParticipantesController extends Controller
 
         // Renda Familiar
 
-        $participante->renda_familiar = str_replace("R$ ", "", $participante->renda_familiar);
+        $participante->renda_familiar = str_replace(["R", "$", "_", " "],  "", 
+                                            str_replace(",", ".", 
+                                                str_replace(".", "", $request->renda_familiar)
+                                            )
+                                        );
 
         // Verificar se o participante é idoso
 
@@ -282,9 +282,6 @@ class ParticipantesController extends Controller
             'coparticipante.nome'                   => 'required_with:coparticipante.cpf,coparticipante.bolsa_familia,coparticipante.rg,coparticipante.orgao_emissor_rg,coparticipante.emissao_rg,coparticipante.nascimento,coparticipante.sexo,coparticipante.necessidades_especiais,coparticipante.cep,coparticipante.logradouro,coparticipante.numero,coparticipante.bairro',
             'coparticipante.cpf'                    => 'required_with:coparticipante.nome',
             'coparticipante.bolsa_familia'          => 'required_with:coparticipante.nome',
-            'coparticipante.rg'                     => 'required_with:coparticipante.nome',
-            'coparticipante.orgao_emissor_rg'       => 'required_with:coparticipante.nome',
-            'coparticipante.emissao_rg'             => 'required_with:coparticipante.nome|date',
             'coparticipante.nascimento'             => 'required_with:coparticipante.nome|date',
             'coparticipante.sexo'                   => 'required_with:coparticipante.nome',
             'coparticipante.necessidades_especiais' => 'required_with:coparticipante.nome',
@@ -450,7 +447,7 @@ class ParticipantesController extends Controller
 
         $padrao = "<a data-title='Visualizar' class='btn btn-cor-padrao  btn-circulo' data-toggle='modal' data-target='#modal_pessoas_show' data-id='{id}' href='#'><i class='fa fa-eye'></i></a>";
 
-        $supervisor_master = "<a title='Visualizar' class='btn btn-cor-padrao  btn-circulo' data-toggle='modal' data-target='#modal_pessoas_show' data-id='{id}' href='#'><i class='fa fa-eye'></i></a><a title='Editar' class='btn btn-cor-padrao  btn-circulo' href='".url("pessoas/{id}/edit")."'><i class='fa fa-pencil'></i></a><a title='Excluir' class='btn btn-cor-perigo btn-excluir btn-circulo'  href='#'' data-toggle='modal' data-nome='{nome}' data-id='{id}' data-target='#modalexcluir'><i class='fa fa-trash'></i></a>";
+        $supervisor_master = "<a title='Visualizar' class='btn btn-cor-padrao  btn-circulo' data-toggle='modal' data-target='#modal_pessoas_show' data-id='{id}' href='#'><i class='fa fa-eye'></i></a><a title='Editar' class='btn btn-cor-padrao  btn-circulo' href='".url("pessoas/{id}/edit")."'><i class='fa fa-pencil'></i></a><a title='Excluir' class='btn btn-cor-perigo btn-excluir btn-circulo'  href='#'' data-nome='{nome}' data-id='{id}'><i class='fa fa-trash'></i></a>";
 
         foreach($participantes as $participante)
         {

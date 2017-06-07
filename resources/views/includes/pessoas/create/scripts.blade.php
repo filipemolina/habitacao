@@ -9,6 +9,17 @@
 
     });
 
+    // Ligar ou desligar o select de tipos de necessidades especiais
+
+    if($("#necessidades_especiais").val() == 0)
+    {
+        $("#tipo_necessidade").prop('disabled', true);
+    }
+    else
+    {
+        $("#tipo_necessidade").prop('disabled', false);
+    }
+
     // Contador de dependentes, 
 
     var cont = {{ $i }};
@@ -17,7 +28,7 @@
 
     function calculaFaixa(salario){
 
-        var valor = parseFloat(salario.replace('R$ ', '').replace(',', '.'));
+        var valor = parseFloat(salario.replace('R$ ', '').replace(',', '.').replace('_', ''));
 
         var faixa = 0;
 

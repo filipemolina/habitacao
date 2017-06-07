@@ -70,7 +70,8 @@ $(function(){
 
         ],
         stateSave: true,
-        stateDuration: -1
+        stateDuration: -1,
+        responsive : true,
         // paging : false,
       });
 
@@ -86,24 +87,68 @@ $(function(){
 
     });
 
-    // Criar uma função que será executada no evento "show.bs.modal" que acontece no modal.
+    ///////////////////// Excluir usando SweetAlert
 
-    $("#modalexcluir").on('show.bs.modal', function(e){
+    $("body").on("click", "a.btn-excluir", function(e){
 
-        // Peguei a propriedade "data-nome" que está em todos os links de excluir ...
+        e.preventDefault();
 
-        var nome = $(e.relatedTarget).data("nome");
-        var id = $(e.relatedTarget).data("id");
+        var nome   = $(this).data('nome');
+        var id     = $(this).data('id');
+        var method = $("[name='_method']").val();
+        var token  = $("[name='_token']").val();
+        var link   = $(this);
 
-        // ... E coloquei no texto do titulo do modal...
+        // Configuração do Sweet alert
 
-        $("span#nome_participante").text(nome.replace("'", "")+"?");
+        swal({
+            title: "Atenção!",
+            text: "Você realmente deseja excluir o participante "+nome+" ?",
+            type: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#DD6B55",
+            confirmButtonText: "Sim, exclua!",
+            cancelButtonText: "Cancelar",
+            closeOnConfirm: false,
+            closeOnCancel: false
+        },
+        function(isConfirm){
+            if (isConfirm) {
 
-        // ... E coloquei o ID na Parada
+                // Fazer uma chamada post enviando o id do participante e o método DELETE
 
-        $("#id_participante").val(id);
+                $.post("{{ url("/pessoas/") }}/"+id, {
+                  id : id,
+                  _method : method,
+                  _token : token,
+                })
+
+                // Caso a chamada seja bem-sucedida
+
+                .done(function(){
+
+                    // Deletar a TR do cadastro que foi deletado
+
+                    $(link).parents("tr").remove();
+
+                    swal({
+
+                        title : "Excluído!",
+                        text  : "O participante " + nome + "foi excluído do cadastro.",
+                        type  : "success",
+                    
+                    });
+                });
+            } else {
+
+                swal("Cancelado", "O participante "+nome+" permanece no cadastro.", "error");
+
+            }
+        });
 
     });
+
+    ///////////////////////////////////////////////////////// Mostrar o modal de impressão de pessoas
 
     $("#modal_pessoas_show").on('show.bs.modal', function(e){
 
@@ -226,35 +271,6 @@ $(function(){
 
             }
 
-        });
-
-    });
-
-    // Função executada quando o botão "EXCLUIR" do modal for clicado
-
-    $("#btn-excluir-modal").click(function(){
-
-        // Obter as variáveis do modal
-
-        var id = $("#id_participante").val();
-        var method = $("[name='_method']").val();
-        var token = $("[name='_token']").val();
-
-        // Fazer uma chamada post enviando o id do participante e o método DELETE
-
-        $.post("{{ url("/pessoas/") }}/"+id, {
-          id : id,
-          _method : method,
-          _token : token,
-        })
-
-        // Caso a chamada seja bem-sucedida
-
-        .done(function(){
-
-            // Recarregar a página
-
-            location.reload();
         });
 
     });

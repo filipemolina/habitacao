@@ -60,7 +60,7 @@
 	
 									@if(Auth::user()->id != $usuario->id)
 
-				                  		<a data-toggle="tooltip" title="Excluir" class="btn btn-cor-perigo btn-circulo btn-xs"  data-id="{{$usuario->id}}" data-nome="{{ $usuario->name }}" href="#" data-toggle="modal" data-target="#modalexcluir"><i class="fa fa-trash"></i></a>
+				                  		<a data-toggle="tooltip" title="Excluir" class="btn btn-excluir btn-cor-perigo btn-circulo btn-xs"  data-id="{{$usuario->id}}" data-nome="{{ $usuario->name }}" href="#" data-toggle="modal" data-target="#modalexcluir"><i class="fa fa-trash"></i></a>
 
 				                  	@endif
 				                </td>
