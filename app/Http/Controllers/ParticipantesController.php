@@ -89,7 +89,6 @@ class ParticipantesController extends Controller
 
             'nome'                                  => 'required',
             'cpf'                                   => 'required|unique:participantes',
-            'bolsa_familia'                         => 'required',
             'nascimento'                            => 'date',
             'sexo'                                  => 'required',
             'necessidades_especiais'                => 'required',
