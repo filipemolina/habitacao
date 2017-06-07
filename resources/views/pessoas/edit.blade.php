@@ -159,6 +159,53 @@
               <option value="0" @if($pessoa->necessidades_especiais == "0") selected="selected" @endif>Não</option>
             </select>
           </div>
+
+          <div class="col-md-3">
+            <select id="tipo_necessidade" name="necessidades_especiais" type="text" class="form-control input-md" >
+              <option value=" " 
+                  @if(!$pessoa->tipo_deficiencia) 
+                      selected 
+                  @endif>Tipo de Deficiência
+              </option>
+
+              <option value="Microcefalia" 
+                  @if($pessoa->tipo_deficiencia == "Microcefalia") 
+                      selected="selected" 
+                  @endif>Microcefalia
+              </option>
+
+              <option value="Deficiência Física" 
+                  @if($pessoa->tipo_deficiencia == "Deficiência Física") 
+                      selected="selected" 
+                  @endif>Deficiência Física
+              </option>
+
+              <option value="Deficiência Auditiva" 
+                  @if($pessoa->tipo_deficiencia == "Deficiência Auditiva") 
+                      selected="selected" 
+                  @endif>Deficiência Auditiva
+              </option>
+
+              <option value="Deficiência Visual" 
+                  @if($pessoa->tipo_deficiencia == "Deficiência Visual") 
+                      selected="selected" 
+                  @endif>Deficiência Visual
+              </option>
+
+              <option value="Deficiência Mental" 
+                  @if($pessoa->tipo_deficiencia == "Deficiência Mental") 
+                      selected="selected" 
+                  @endif>Deficiência Mental
+              </option>
+
+              <option value="Deficiência Mùltipla" 
+                  @if($pessoa->tipo_deficiencia == "Deficiência Mùltipla") 
+                      selected="selected" 
+                  @endif>Deficiência Mùltipla
+              </option>             
+
+            </select>
+          </div>
         
         </div> {{-- Fim Data de Nascimento, Sexo, Deficiente --}}
 

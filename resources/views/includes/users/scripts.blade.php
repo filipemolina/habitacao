@@ -5,9 +5,11 @@ $(function(){
 	// Ativar o DataTables
 
 	var table = $('#dataTable').DataTable({
-      'language' : {
-        'url' : '{{ asset('/js/portugues.json') }}'
-      }
+        'language' : {
+            'url' : '{{ asset('/js/portugues.json') }}'
+        },
+        stateSave: true,
+        stateDuration: -1
     });
 
     // Criar uma função que será executada no evento "show.bs.modal" que acontece no modal.

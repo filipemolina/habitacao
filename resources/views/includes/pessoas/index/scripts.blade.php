@@ -69,6 +69,8 @@ $(function(){
           { data : 'acoes', name : 'acoes' },
 
         ],
+        stateSave: true,
+        stateDuration: -1
         // paging : false,
       });
 

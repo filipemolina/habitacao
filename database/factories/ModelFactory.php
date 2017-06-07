@@ -55,7 +55,16 @@ $factory->define(App\Participante::class, function(Faker\Generator $faker) {
     $necessidades = $faker->boolean(10);
 
     if($necessidades)
-    	$tipo = $faker->randomElement(['Deficiente Visual', "Deficiente Auditivo", "Cadeirante", "Síndrome de Down"]);
+
+    	$tipo = $faker->randomElement([
+			"Microcefalia",
+			"Deficiência Física",
+			"Deficiência Auditiva",
+			"Deficiência Visual",
+			"Deficiência Mental",
+			"Deficiência Múltipla",
+    	]);
+    
     else
     	$tipo = null;
 
