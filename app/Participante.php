@@ -28,6 +28,7 @@ class Participante extends Model
 		'ctps',
 		'bolsa_familia',
 		'tipo_deficiencia',
+		'codigo_inscricao',
 	];
 
 	/**
