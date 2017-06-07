@@ -95,7 +95,7 @@
 				</div>
 
 				<div class="form-group" style="text-align: center;">
-                    <button type="submit" value="submit" class="btn btn-primary">Enviar</button>
+                    <button type="submit" value="submit" data-toggle="tooltip" title="Salvar nova senha" class="btn btn-lg-circulo btn-cor-padrao fa fa-floppy-o"></button>
            		 </div>
 
 				

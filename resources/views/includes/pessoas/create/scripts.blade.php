@@ -1,5 +1,14 @@
 <script type="text/javascript">
 
+
+    // Tooltip para elementos dinâmicos
+
+    $('body').tooltip({
+        
+        selector: '[data-toggle="tooltip"]'
+
+    });
+
     // Contador de dependentes, 
 
     var cont = {{ $i }};
@@ -37,7 +46,7 @@
         });
 
     }
-  
+
     {{-- Máscarasa dos campos CPF e RG --}}
     $(function(){
       

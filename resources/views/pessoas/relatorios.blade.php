@@ -227,7 +227,7 @@
             </div>
 
             <div class="form-group" style="text-align: center;">
-                        <button type="submit" value="submit" class="btn btn-primary">Imprimir</button>
+                        <button type="submit" value="submit" data-toggle="tooltip" title="Imprimir relatório" class="btn btn-cor-padrao btn-lg-circulo glyphicon glyphicon-print"></button>
             </div>
 
             
