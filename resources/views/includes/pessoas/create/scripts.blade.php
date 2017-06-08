@@ -1,5 +1,25 @@
 <script type="text/javascript">
 
+
+    // Tooltip para elementos dinâmicos
+
+    $('body').tooltip({
+        
+        selector: '[data-toggle="tooltip"]'
+
+    });
+
+    // Ligar ou desligar o select de tipos de necessidades especiais
+
+    if($("#necessidades_especiais").val() == 0)
+    {
+        $("#tipo_necessidade").prop('disabled', true);
+    }
+    else
+    {
+        $("#tipo_necessidade").prop('disabled', false);
+    }
+
     // Contador de dependentes, 
 
     var cont = {{ $i }};
@@ -8,7 +28,7 @@
 
     function calculaFaixa(salario){
 
-        var valor = parseFloat(salario.replace('R$ ', '').replace(',', '.'));
+        var valor = parseFloat(salario.replace('R$ ', '').replace(',', '.').replace('_', ''));
 
         var faixa = 0;
 
@@ -37,7 +57,7 @@
         });
 
     }
-  
+
     {{-- Máscarasa dos campos CPF e RG --}}
     $(function(){
       
@@ -161,6 +181,19 @@
 
         $("input#inicio-residencia").blur(function(){
             calculaPeriodo($(this).val());
+        });
+
+        //////////////////////////////////// Ativar ou desativar o campo "tipo de deficiência"
+
+        $("select#necessidades_especiais").change(function(){ 
+
+            if($(this).val() == 1)
+
+                $("#tipo_necessidade").prop("disabled", false); 
+
+            else 
+                
+                $("#tipo_necessidade").prop("disabled", true); 
         });
 
     });

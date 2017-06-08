@@ -53,7 +53,7 @@
         ];
         var ticks = [
             @foreach($grafico as $indice => $posicao)
-                [{{ $indice }}, "{{ $posicao['Masculinos'][1]->format('d/m/Y') }}"], 
+                [{{ $indice }}, "{{ is_string($posicao['Femininos'][1]) ? date("d/m/Y", strtotime($posicao['Femininos'][1])) : $posicao['Femininos'][1]->format('d/m/Y') }}"], 
             @endforeach
         ];
 
