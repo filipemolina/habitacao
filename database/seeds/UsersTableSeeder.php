@@ -29,14 +29,14 @@ class UsersTableSeeder extends Seeder
             ]);
 
              DB::table('users')->insert([
-                'name'      =>  'Lenadro Accioly',
+                'name'      =>  'Leandro Accioly',
                 'email'     =>  'leandro.accioly@hotmail.com',
                 'password'  =>  bcrypt('123456'),
                 'admin'     => "Master",
             ]);
 
              DB::table('users')->insert([
-                'name'      =>  'Lenadro Accioly',
+                'name'      =>  'Marcelo Milanda',
                 'email'     =>  'marcelo.miranda.pp@gmail.com',
                 'password'  =>  bcrypt('123456'),
                 'admin'     => "Master",
