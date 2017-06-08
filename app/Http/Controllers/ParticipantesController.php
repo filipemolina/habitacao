@@ -81,6 +81,10 @@ class ParticipantesController extends Controller
      */
     public function store(Request $request)
     {
+        echo "<pre>";
+        print_r($request->all());
+        exit;
+
         ////////////////////////////////////////////////// Validação
 
         $this->validate($request, [
@@ -139,6 +143,10 @@ class ParticipantesController extends Controller
                                                 str_replace(".", "", $request->renda_familiar)
                                             )
                                         );
+
+        // Verificar se o participante é mulher chefe de família
+
+        $participante->mulher_responsavel = $request->mulher_responsavel ? 1 : 0;
 
         // Verificar se o participante é idoso
 

@@ -17,6 +17,7 @@ class Dependente extends Model
 		'nascimento',
 		'parentesco',
 		'necessidades_especiais',
+		'tipo_deficiencia',
 	];
 
 	/**

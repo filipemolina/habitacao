@@ -11,6 +11,10 @@
   <!-- CSS views Pessoas-->
   <link href="{{ asset("css/pessoas.css") }}" rel="stylesheet">
 
+  {{-- Switchery --}}
+
+  <link rel="stylesheet" href="{{ asset("vendors/switchery/dist/switchery.css") }}">
+
 @endpush
 
 @section('main_container')
@@ -74,7 +78,7 @@
             <input value="{{ old('nome') }}" id="nome" name="nome" type="text" placeholder="Informe o nome" class="form-control input-md nome" >
           </div>
           
-          <div class="exibir" selected style="display:block;">
+          <div class="exibir">
             <label class="col-md-3 control-label" for="mulher_responsavel">Responsável familiar</label>
             <div class="col-md-1">
               <input type="checkbox" @if(old('mulher_responsavel')) checked @endif id="mulher_responsavel" name="mulher_responsavel"  style="margin-top: 12px">
@@ -642,6 +646,10 @@
 
   {{-- Script para máscara numérica. Ex.: CPF, RG --}}
   <script src="{{ asset("js/jquery.inputmask.bundle.min.js") }}"></script>
+
+  {{-- Switchery --}}
+
+  <script src="{{ asset("vendors/switchery/dist/switchery.min.js") }}"></script>
   
   @include('includes.pessoas.create.scripts')
 

@@ -9,6 +9,11 @@
 
     });
 
+    // Switchery
+
+    var check = document.querySelector("#mulher_responsavel");
+    var init = new Switchery(check);
+
     // Ligar ou desligar o select de tipos de necessidades especiais
 
     if($("#necessidades_especiais").val() == 0)
