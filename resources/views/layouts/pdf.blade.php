@@ -6,6 +6,8 @@
     
     <link rel="stylesheet" href="css/pdf.css">
 
+    @stack('css')
+
   </head>
   <body>
     

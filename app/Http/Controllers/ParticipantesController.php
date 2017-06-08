@@ -514,6 +514,8 @@ class ParticipantesController extends Controller
 
         return $pdf->stream();
 
+        // return view('pessoas.relatorios.comprovante', compact('participante'));
+
     }
 
     /**
