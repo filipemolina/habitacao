@@ -33,7 +33,9 @@ $(function(){
             showCancelButton: true,
             confirmButtonColor: "#DD6B55",
             confirmButtonText: "Sim, exclua!",
+            confirmButtonClass: 'btn-cor-perigo',
             cancelButtonText: "Cancelar",
+            cancelButtonClass: 'btn-cor-padrao',
             closeOnConfirm: false,
             closeOnCancel: false
         },
@@ -61,12 +63,18 @@ $(function(){
                         title : "Excluído!",
                         text  : "O usuário " + nome + "foi excluído do sistema.",
                         type  : "success",
+                        confirmButtonClass: 'btn-cor-padrao',
                     
                     });
                 });
             } else {
 
-                swal("Cancelado", "O usuário "+nome+" permanece no sistema.", "error");
+                swal({
+                    title : "Cancelado",
+                    text : "O usuário " + nome + " permanece no sistema.",
+                    type : 'error',
+                    confirmButtonClass: 'btn-cor-padrao',
+                });
 
             }
         });

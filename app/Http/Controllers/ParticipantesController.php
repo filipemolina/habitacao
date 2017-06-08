@@ -501,6 +501,22 @@ class ParticipantesController extends Controller
     }
 
     /**
+     * Gerar o comprovante de inscrição
+     */
+
+    public function imprimeComprovante(Request $request, $id)
+    {
+        // Imprimir o comprovante de cadastro
+
+        $participante = Participante::with('coparticipante', 'telefones', 'endereco', 'dependentes', 'coparticipante.telefones', 'coparticipante.endereco')->where("id", $id)->first()->get();
+
+        $pdf = PDF::loadView('pessoas.relatorios.comprovante', compact('participante'));
+
+        $pdf->stream();
+
+    }
+
+    /**
      * Gerar Relatórios
      */
 

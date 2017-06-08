@@ -30,10 +30,11 @@ Route::get('pessoas/data', function (ParticipantesDataTable $datatables){
 
 Route::get('pessoas/temporesidencia/', 'ParticipantesController@anosResidencia');
 
-// Rota dos Relatórios
+// Rotas dos Relatórios
 
 Route::get('pessoas/relatorios', 'ParticipantesController@relatorios');
 Route::post('pessoas/imprimerelatorios', 'ParticipantesController@imprimeRelatorio');
+Route::get('pessoas/comprovante/{id}', 'ParticipantesController@imprimeComprovante');
 
 // Rotas para AJAX
 
