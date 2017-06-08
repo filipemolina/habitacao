@@ -103,7 +103,7 @@ $(function(){
 
         swal({
             title: "Atenção!",
-            text: "Você realmente deseja excluir o participante "+nome+" ?",
+            text: "Você realmente deseja excluir o(a) participante "+nome+" ?",
             type: "warning",
             showCancelButton: true,
             confirmButtonColor: "#DD6B55",

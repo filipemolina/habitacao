@@ -49,17 +49,27 @@ body {
 }
 
 .btn-cor-perigo {
-    background-image: linear-gradient(to bottom, #f75a36, #db200f);
+    background-image: linear-gradient(to bottom, #f54a44, #a3190f);
     border-color: #9e1000;
     color: #fff !important;
 }
 
 .btn-cor-perigo:active {
-    background-image: linear-gradient(to top, #f54a44, #a3190f);
+    background-image: linear-gradient(to top, #f75a36, #db200f);
+}
+
+.btn-cor-neutra {
+    background-image: linear-gradient(to bottom, #6b6b6b, #bdb9bd);
+    border-color: #9e1000;
+    color: #fff !important;
+}
+
+.btn-cor-neutra:active {
+    background-image: linear-gradient(to top, #949294, #cccccc);
 }
 
 .cor-padrao {
-    background-color: white;
+    background-image: linear-gradient(to bottom, #8241f9, #4e277b);
     color: #3D276B;
 }
 
