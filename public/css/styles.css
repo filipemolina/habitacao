@@ -289,8 +289,9 @@ table.tile_info.bairros {
     padding-right: 0 !important;
 }
 
-
-
+span.switchery.switchery-small {
+    margin-top: 5px;
+}
 
 
 

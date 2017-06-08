@@ -81,9 +81,9 @@ class ParticipantesController extends Controller
      */
     public function store(Request $request)
     {
-        echo "<pre>";
-        print_r($request->all());
-        exit;
+        // echo "<pre>";
+        // print_r($request->all());
+        // exit;
 
         ////////////////////////////////////////////////// Validação
 
@@ -110,9 +110,6 @@ class ParticipantesController extends Controller
             'coparticipante.nome'                   => 'required_with:coparticipante.cpf,coparticipante.bolsa_familia,coparticipante.rg,coparticipante.orgao_emissor_rg,coparticipante.emissao_rg,coparticipante.nascimento,coparticipante.sexo,coparticipante.necessidades_especiais,coparticipante.cep,coparticipante.logradouro,coparticipante.numero,coparticipante.bairro',
             'coparticipante.cpf'                    => 'required_with:coparticipante.nome|unique:coparticipantes,cpf',
             'coparticipante.bolsa_familia'          => 'required_with:coparticipante.nome',
-            'coparticipante.rg'                     => 'required_with:coparticipante.nome',
-            'coparticipante.orgao_emissor_rg'       => 'required_with:coparticipante.nome',
-            'coparticipante.emissao_rg'             => 'required_with:coparticipante.nome|date',
             'coparticipante.nascimento'             => 'required_with:coparticipante.nome|date',
             'coparticipante.sexo'                   => 'required_with:coparticipante.nome',
             'coparticipante.necessidades_especiais' => 'required_with:coparticipante.nome',
