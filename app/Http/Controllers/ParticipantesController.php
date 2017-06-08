@@ -508,11 +508,11 @@ class ParticipantesController extends Controller
     {
         // Imprimir o comprovante de cadastro
 
-        $participante = Participante::with('coparticipante', 'telefones', 'endereco', 'dependentes', 'coparticipante.telefones', 'coparticipante.endereco')->where("id", $id)->first()->get();
+        $participante = Participante::with('coparticipante', 'telefones', 'endereco', 'dependentes', 'coparticipante.telefones', 'coparticipante.endereco')->where("id", $id)->first();
 
         $pdf = PDF::loadView('pessoas.relatorios.comprovante', compact('participante'));
 
-        $pdf->stream();
+        return $pdf->stream();
 
     }
 
