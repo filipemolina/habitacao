@@ -79,26 +79,26 @@
 
 {{-- modal do botão excluir --}}
 
-			<div class="modal fade" id="modalexcluir" tabindex="-1" role="dialog">
-			  <div class="modal-dialog" role="document">
-			    <div class="modal-content">
-			      <div class="modal-header">
-			        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-			        <h4 class="modal-title">Excluir de usuário</h4>
-			      </div>
-			      <div class="modal-body">
-			        <h2>Você realmente desejar excluir o(a) usuário(a) <span id="nome_usuario"></span></h2>
-			      </div>
-			      <div class="modal-footer">
-			        <button type="button" id="btn-excluir-modal" class="btn btn-cor-perigo" data-dismiss="modal">Excluir</button>
-			        <button type="button" class="btn btn-cor-padrao" data-dismiss="modal" aria-label="Close">Fechar</button>
-			      </div>
-			      <input type="hidden" name="id" id="id_usuario">
-			      {{ method_field("DELETE") }}
-      			  {{ csrf_field() }}
-			    </div><!-- /.modal-content -->
-			  </div><!-- /.modal-dialog -->
-			</div><!-- /.modal -->
+	<div class="modal fade" id="modalexcluir" tabindex="-1" role="dialog">
+	  <div class="modal-dialog" role="document">
+	    <div class="modal-content">
+	      <div class="modal-header">
+	        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+	        <h4 class="modal-title">Excluir de usuário</h4>
+	      </div>
+	      <div class="modal-body">
+	        <h2>Você realmente desejar excluir o(a) usuário(a) <span id="nome_usuario"></span></h2>
+	      </div>
+	      <div class="modal-footer">
+	        <button type="button" id="btn-excluir-modal" class="btn btn-cor-perigo" data-dismiss="modal">Excluir</button>
+	        <button type="button" class="btn btn-cor-padrao" data-dismiss="modal" aria-label="Close">Fechar</button>
+	      </div>
+	      <input type="hidden" name="id" id="id_usuario">
+	      {{ method_field("DELETE") }}
+			  {{ csrf_field() }}
+	    </div><!-- /.modal-content -->
+	  </div><!-- /.modal-dialog -->
+	</div><!-- /.modal -->
 
 {{-- fim do modal do botão excluir --}}
 
