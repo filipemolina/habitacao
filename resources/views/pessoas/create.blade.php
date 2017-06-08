@@ -168,7 +168,7 @@
           <label class="col-md-1 control-label" for="necessidades_especiais">Deficiente</label>
           <div class="col-md-2">
             <select id="necessidades_especiais" name="necessidades_especiais" type="text" class="form-control input-md" >
-              <option value=" " disabled selected @if(!old('necessidades_especiais')) selected @endif>Selecione...</option>
+              <option value=" " selected @if(!old('necessidades_especiais')) selected @endif>Selecione...</option>
               <option value="1" @if(old('necessidades_especiais') == "1") selected="selected" @endif>Sim</option>
               <option value="0" @if(old('necessidades_especiais') == "0") selected="selected" @endif>Não</option>
             </select>
@@ -341,14 +341,14 @@
         </div>
 
         {{-- Bolsa Família --}}            
-        <label class="col-md-1 control-label" for="coparticipante[bolsa_familia]">Bolsa F.</label>  
-        <div class="col-md-2">
-          <select id="coparticipante[bolsa_familia]" name="coparticipante[bolsa_familia]" type="text" class="form-control input-md" >
-            <option value="" disabled @if(!old('coparticipante.bolsa_familia')) selected @endif>Selectione...</option>
-            <option value="1" @if(old('coparticipante.bolsa_familia') == "1") selected="selected" @endif>Possui</option>
-            <option value="0" @if(old('coparticipante.bolsa_familia') == "0") selected="selected" @endif>Não possui</option>
-          </select>
-        </div>
+        <label class="col-md-1 control-label" for="bolsa_familia">Bolsa F.</label>  
+          <div class="col-md-2">
+            <select id="bolsa_familia" name="bolsa_familia" type="text" class="form-control input-md" >
+              <option value="" disabled selected>Selecione...</option>
+              <option value="1" @if(old('bolsa_familia') == "1") selected="selected" @endif >Possui</option>
+              <option value="0" @if(old('bolsa_familia') == "0") selected="selected" @endif >Não possui</option>
+            </select>
+          </div>
 
       </div> {{-- FIM CPF, NIS/PIS e Bolsa Família --}}
 
@@ -398,14 +398,61 @@
         </div>
         
         {{-- Deficiente --}}
-        <label class="col-md-1 control-label" for="coparticipante[necessidades_especiais]">Deficiente</label>
-        <div class="col-md-2">
-          <select id="coparticipante[necessidades_especiais]" name="coparticipante[necessidades_especiais]" type="text" class="form-control input-md" >
-            <option value="" disabled @if(!old('coparticipante.necessidades_especiais')) selected @endif">Selecione...</option>
-            <option value="1" @if(old('coparticipante.necessidades_especiais') == "1") selected="selected" @endif>Sim</option>
-            <option value="0" @if(old('coparticipante.necessidades_especiais') == "0") selected="selected" @endif>Não</option>
-          </select>
-        </div>
+        <label class="col-md-1 control-label" for="necessidades_especiais">Deficiente</label>
+          <div class="col-md-2">
+            <select id="necessidades_especiais" name="necessidades_especiais" type="text" class="form-control input-md" >
+              <option value=" " selected @if(!old('necessidades_especiais')) selected @endif>Selecione...</option>
+              <option value="1" @if(old('necessidades_especiais') == "1") selected="selected" @endif>Sim</option>
+              <option value="0" @if(old('necessidades_especiais') == "0") selected="selected" @endif>Não</option>
+            </select>
+          </div>
+
+        <div class="col-md-3">
+            <select id="tipo_necessidade" name="tipo_deficiencia" type="text" class="form-control input-md" >
+              <option value=" " 
+                  @if(!old('necessidades_especiais')) 
+                      selected 
+                  @endif>Tipo de Deficiência
+              </option>
+
+              <option value="Microcefalia" 
+                  @if(old('necessidades_especiais') == "Microcefalia") 
+                      selected="selected" 
+                  @endif>Microcefalia
+              </option>
+
+              <option value="Deficiência Física" 
+                  @if(old('necessidades_especiais') == "Deficiência Física") 
+                      selected="selected" 
+                  @endif>Deficiência Física
+              </option>
+
+              <option value="Deficiência Auditiva" 
+                  @if(old('necessidades_especiais') == "Deficiência Auditiva") 
+                      selected="selected" 
+                  @endif>Deficiência Auditiva
+              </option>
+
+              <option value="Deficiência Visual" 
+                  @if(old('necessidades_especiais') == "Deficiência Visual") 
+                      selected="selected" 
+                  @endif>Deficiência Visual
+              </option>
+
+              <option value="Deficiência Mental" 
+                  @if(old('necessidades_especiais') == "Deficiência Mental") 
+                      selected="selected" 
+                  @endif>Deficiência Mental
+              </option>
+
+              <option value="Deficiência Mùltipla" 
+                  @if(old('necessidades_especiais') == "Deficiência Mùltipla") 
+                      selected="selected" 
+                  @endif>Deficiência Mùltipla
+              </option>             
+
+            </select>
+          </div>
 
       </div> {{-- Fim Data de Nascimento, Sexo, Deficiente --}}
 
@@ -553,14 +600,61 @@
         </div>
 
         {{-- Deficiente --}}
-        <label class="col-md-1 control-label" for="dependentes[0][necessidades_especiais]">Deficiente</label>
-        <div class="col-md-2">
-          <select name="dependentes[0][necessidades_especiais]" id="dependentes[0][necessidades_especiais]" type="text" placeholder="Necessidades Especiais" class="form-control input-md" >
-            <option value="" disabled @if(!old('dependentes.0.necessidades_especiais')) selected @endif>Selecione...</option>
-            <option value="1" @if(old('dependentes.0.necessidades_especiais') == "1") selected="selected" @endif>Sim</option>
-            <option value="0" @if(old('dependentes.0.necessidades_especiais') == "0") selected="selected" @endif>Não</option>
-          </select>
-        </div>      
+        <label class="col-md-1 control-label" for="necessidades_especiais">Deficiente</label>
+          <div class="col-md-2">
+            <select id="necessidades_especiais" name="necessidades_especiais" type="text" class="form-control input-md" >
+              <option value=" " selected @if(!old('necessidades_especiais')) selected @endif>Selecione...</option>
+              <option value="1" @if(old('necessidades_especiais') == "1") selected="selected" @endif>Sim</option>
+              <option value="0" @if(old('necessidades_especiais') == "0") selected="selected" @endif>Não</option>
+            </select>
+          </div>
+
+          <div class="col-md-3">
+            <select id="tipo_necessidade" name="tipo_deficiencia" type="text" class="form-control input-md" >
+              <option value=" " 
+                  @if(!old('necessidades_especiais')) 
+                      selected 
+                  @endif>Tipo de Deficiência
+              </option>
+
+              <option value="Microcefalia" 
+                  @if(old('necessidades_especiais') == "Microcefalia") 
+                      selected="selected" 
+                  @endif>Microcefalia
+              </option>
+
+              <option value="Deficiência Física" 
+                  @if(old('necessidades_especiais') == "Deficiência Física") 
+                      selected="selected" 
+                  @endif>Deficiência Física
+              </option>
+
+              <option value="Deficiência Auditiva" 
+                  @if(old('necessidades_especiais') == "Deficiência Auditiva") 
+                      selected="selected" 
+                  @endif>Deficiência Auditiva
+              </option>
+
+              <option value="Deficiência Visual" 
+                  @if(old('necessidades_especiais') == "Deficiência Visual") 
+                      selected="selected" 
+                  @endif>Deficiência Visual
+              </option>
+
+              <option value="Deficiência Mental" 
+                  @if(old('necessidades_especiais') == "Deficiência Mental") 
+                      selected="selected" 
+                  @endif>Deficiência Mental
+              </option>
+
+              <option value="Deficiência Mùltipla" 
+                  @if(old('necessidades_especiais') == "Deficiência Mùltipla") 
+                      selected="selected" 
+                  @endif>Deficiência Mùltipla
+              </option>             
+
+            </select>
+          </div>
       </div>  {{-- FIM Data de Nascimento, Sexo, Deficiente --}}
           
       <div class="col-md-11"></div>
