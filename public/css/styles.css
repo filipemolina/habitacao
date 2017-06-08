@@ -289,7 +289,13 @@ table.tile_info.bairros {
     padding-right: 0 !important;
 }
 
-
+.obrigatorio{
+    color:red;
+    position: absolute;
+    left: -5px;
+    top: 8px;
+    font-size: 17px;
+}
 
 
 
