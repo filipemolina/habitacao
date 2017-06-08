@@ -3,10 +3,10 @@
 
 	<div class="modal-dialog modal-lg">
 		
-		<a class="btn btn-circulo btn-default cor-padrao glyphicon glyphicon-remove" data-dismiss="modal"></a>
-		<a href="#" class="btn btn-circulo btn-default cor-padrao glyphicon glyphicon-print"></a>
-		{{-- <a href="#" class="btn btn-circulo btn-warning fa fa-pencil"></a>
-		<a href="#" class="btn btn-circulo btn-danger fa fa-trash"></a> --}}
+		<a data-toggle="tooltip" title="Fechar relatório" class="btn btn-circulo btn-cor-padrao glyphicon glyphicon-remove" data-dismiss="modal"></a>
+		<a href="#" data-toggle="tooltip" title="Imprimir relatório" class="btn btn-circulo btn-cor-padrao glyphicon glyphicon-print"></a>
+		{{-- <a href="#" class="btn btn-circulo btn-cor-padrao fa fa-pencil"></a>
+		<a href="#" class="btn btn-circulo btn-cor-perigo fa fa-trash"></a> --}}
       	
       	{{-- Título --}}
       	<div class="modal-header modal-content x_panel">
@@ -54,8 +54,8 @@
 
 								<tr>
 
-									<th></th>
-									<th class="semborda"></th>
+									<th class="hidden-print"></th>
+									<th class="semborda hidden-print"></th>
 
 								</tr>
 							</tbody>
@@ -81,8 +81,8 @@
 
 								<tr>
 
-										<th></th>
-										<th class="semborda"></th>
+										<th class="hidden-print"></th>
+										<th class="semborda hidden-print"></th>
 
 								</tr>
 							</tbody>
@@ -108,8 +108,8 @@
 
 									<tr>
 
-										<th></th>
-										<th class="semborda"></th>
+										<th class="hidden-print"></th>
+										<th class="semborda hidden-print"></th>
 
 									</tr>
 								</tbody>
@@ -135,8 +135,8 @@
 
 									<tr>
 
-										<th></th>
-										<th class="semborda"></th>
+										<th class="hidden-print"></th>
+										<th class="semborda hidden-print"></th>
 
 									</tr>
 								</tbody>
@@ -162,8 +162,8 @@
 
 									<tr>
 
-										<th></th>
-										<th class="semborda"></th>
+										<th class="hidden-print"></th>
+										<th class="semborda hidden-print"></th>
 
 									</tr>
 								</tbody>
@@ -178,10 +178,10 @@
 
 										<th class="col-md-1 table-bordered">Email</th>
 										<th class="col-md-5 no-bold semborda" id="email_modal"></th>
-										<th class="col-md-1	table-bordered">Tel.</th>
-										<th class="col-md-2 no-bold semborda" id="telefones[1][numero]"></th>
 										<th class="col-md-1 table-bordered">Cel.</th>
 										<th class="col-md-2 no-bold semborda" id="telefones[0][numero]"></th>
+										<th class="col-md-1	table-bordered">Tel.</th>
+										<th class="col-md-2 no-bold semborda" id="telefones[1][numero]"></th>		
 										<th class="col-md-1 semborda"></th>
 										<th class="col-md-1 semborda"></th>
 
@@ -189,8 +189,8 @@
 									
 									<tr>
 
-										<th></th>
-										<th class="semborda"></th>
+										<th class="hidden-print"></th>
+										<th class="semborda hidden-print"></th>
 
 									</tr>
 								</tbody>
@@ -246,8 +246,8 @@
 
 									<tr>
 
-										<th></th>
-										<th class="semborda"></th>
+										<th class="hidden-print"></th>
+										<th class="semborda hidden-print"></th>
 
 									</tr>
 
@@ -275,8 +275,8 @@
 
 								<tr>
 
-										<th></th>
-										<th class="semborda"></th>
+										<th class="hidden-print"></th>
+										<th class="semborda hidden-print"></th>
 
 								</tr>
 							</tbody>
@@ -302,8 +302,8 @@
 
 									<tr>
 
-										<th></th>
-										<th class="semborda"></th>
+										<th class="hidden-print"></th>
+										<th class="semborda hidden-print"></th>
 
 									</tr>
 								</tbody>
@@ -329,8 +329,8 @@
 
 									<tr>
 
-										<th></th>
-										<th class="semborda"></th>
+										<th class="hidden-print"></th>
+										<th class="semborda hidden-print"></th>
 
 									</tr>
 								</tbody>
@@ -358,8 +358,8 @@
 
 									<tr>
 
-										<th></th>
-										<th class="semborda"></th>
+										<th class="hidden-print"></th>
+										<th class="semborda hidden-print"></th>
 
 									</tr>
 								</tbody>
@@ -385,8 +385,8 @@
 
 									<tr>
 
-										<th></th>
-										<th class="semborda"></th>
+										<th class="hidden-print"></th>
+										<th class="semborda hidden-print"></th>
 
 									</tr>
 								</tbody>
@@ -440,8 +440,8 @@
 
 								<tr>
 
-									<th></th>
-									<th class="semborda"></th>
+									<th class="hidden-print"></th>
+									<th class="semborda hidden-print"></th>
 
 								</tr>
 							</tbody>
@@ -493,10 +493,10 @@
 			</div>
 		</div> {{-- FIM x_panel Renda --}}
 
-		<a class="btn btn-circulo btn-default btn-cons cor-padrao glyphicon glyphicon-remove" data-dismiss="modal"></a>
-		<a href="#" class="btn btn-circulo btn-default btn-cons cor-padrao glyphicon glyphicon-print"></a>
-		{{-- <a href="#" class="btn btn-circulo btn-warning fa fa-pencil"></a>
-		<a href="#" class="btn btn-circulo btn-danger fa fa-trash"></a> --}}
+		<a data-toggle="tooltip" title="Fechar relatório" class="btn btn-circulo btn-default btn-cor-padrao glyphicon glyphicon-remove" data-dismiss="modal"></a>
+		<a data-toggle="tooltip" title="Imprimir relatório" href="#" class="btn btn-circulo btn-cor-padrao glyphicon glyphicon-print"></a>
+		{{-- <a href="#" class="btn btn-circulo btn-cor-padrao fa fa-pencil"></a>
+		<a href="#" class="btn btn-circulo btn-cor-perigo fa fa-trash"></a> --}}
 
 	</div> {{-- FIM Modal Dialog --}}
 

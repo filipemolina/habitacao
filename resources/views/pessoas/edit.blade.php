@@ -63,8 +63,14 @@
         {{-- Nome --}}
         <div class="form-group">
           <label class="col-md-1 control-label" for="nome">Nome</label>
-          <div class="col-md-11">
+          <div class="col-md-7">
             <input value="{{ $pessoa->nome }}" id="nome" name="nome" type="text" placeholder="Informe o nome" class="form-control input-md nome" >
+          </div>
+          <div class="exibir" selected style="display:block;">
+            <label class="col-md-3 control-label" for="mulher_responsavel">Responsável familiar</label>
+            <div class="col-md-1">
+              <input type="checkbox" @if($pessoa->mulher_responsavel) checked @endif id="mulher_responsavel" name="mulher_responsavel" style="margin-top: 12px">
+            </div>
           </div>
         </div>
 
@@ -74,19 +80,19 @@
           {{-- CPF --}}      
           <label class="col-md-1 control-label" for="cpf">CPF</label>  
             <div class="col-md-2">
-              <input value="{{ $pessoa->cpf }}" id="cpf" name="cpf" type="text" placeholder="999.999.999-99" data-inputmask="'mask': '999.999.999-99'" class="form-control input-md cpf" >
+              <input value="{{ $pessoa->cpf }}" id="cpf" name="cpf" type="text" placeholder="999.999.999-99" data-inputmask="'mask': '999.999.999-99', 'numericInput': true" class="form-control input-md cpf" >
             </div>
 
           {{-- NIS/PIS --}}            
           <label class="col-md-1 control-label" for="nis">NIS/PIS</label>  
           <div class="col-md-2">
-            <input value="{{ $pessoa->nis }}" id="nis" name="nis" type="text" placeholder="999.999999.99-99" class="form-control input-md nis" >
+            <input value="{{ $pessoa->nis }}" id="nis" name="nis" type="text" placeholder="999.999999.99-99"  data-inputmask="'mask': '999.99999.99-9', 'numericInput': true"class="form-control input-md nis" >
           </div>
 
           {{-- Carteira de Trabalho --}}            
           <label class="col-md-1 control-label" for="ctps">CTPS</label>  
           <div class="col-md-2">
-            <input value="{{ $pessoa->ctps }}" id="ctps" name="ctps" type="text" placeholder="Cart. de Trabalho" class="form-control input-md carteira" >
+            <input value="{{ $pessoa->ctps }}" id="ctps" name="ctps" type="text" placeholder="Cart. de Trabalho" data-inputmask="'mask': '9999999 999-9', 'numericInput': true" class="form-control input-md carteira" >
           </div>
 
           {{-- Bolsa Família --}}            
@@ -108,7 +114,7 @@
           <!-- RG-->            
           <label class="col-md-1 control-label" for="rg">RG</label>
           <div class="col-md-2">
-            <input value="{{ $pessoa->rg }}" id="rg" name="rg" data-inputmask="'mask' : '99.999.999-9'" type="text" placeholder="99.999.999-9" class="form-control input-md rg" >
+            <input value="{{ $pessoa->rg }}" id="rg" name="rg" data-inputmask="'mask' : '99.999.999-9'" type="text" placeholder="99.999.999-9" data-inputmask="'mask': '99.999.999-9', 'numericInput': true" class="form-control input-md rg" >
           </div>
 
           <!-- Orgão Emissor do RG-->
@@ -155,6 +161,53 @@
               <option value="0" @if($pessoa->necessidades_especiais == "0") selected="selected" @endif>Não</option>
             </select>
           </div>
+
+          <div class="col-md-3">
+            <select id="tipo_necessidade" name="necessidades_especiais" type="text" class="form-control input-md" >
+              <option value=" " 
+                  @if(!$pessoa->tipo_deficiencia) 
+                      selected 
+                  @endif>Tipo de Deficiência
+              </option>
+
+              <option value="Microcefalia" 
+                  @if($pessoa->tipo_deficiencia == "Microcefalia") 
+                      selected="selected" 
+                  @endif>Microcefalia
+              </option>
+
+              <option value="Deficiência Física" 
+                  @if($pessoa->tipo_deficiencia == "Deficiência Física") 
+                      selected="selected" 
+                  @endif>Deficiência Física
+              </option>
+
+              <option value="Deficiência Auditiva" 
+                  @if($pessoa->tipo_deficiencia == "Deficiência Auditiva") 
+                      selected="selected" 
+                  @endif>Deficiência Auditiva
+              </option>
+
+              <option value="Deficiência Visual" 
+                  @if($pessoa->tipo_deficiencia == "Deficiência Visual") 
+                      selected="selected" 
+                  @endif>Deficiência Visual
+              </option>
+
+              <option value="Deficiência Mental" 
+                  @if($pessoa->tipo_deficiencia == "Deficiência Mental") 
+                      selected="selected" 
+                  @endif>Deficiência Mental
+              </option>
+
+              <option value="Deficiência Mùltipla" 
+                  @if($pessoa->tipo_deficiencia == "Deficiência Mùltipla") 
+                      selected="selected" 
+                  @endif>Deficiência Mùltipla
+              </option>             
+
+            </select>
+          </div>
         
         </div> {{-- Fim Data de Nascimento, Sexo, Deficiente --}}
 
@@ -162,12 +215,13 @@
         {{-- CEP, Município e Bairro --}}
         <div class="form-group">
 
-          <a href="http://www.buscacep.correios.com.br/sistemas/buscacep/" target="_blank" class="btn bnt-xs btn-primary col-md-1 glyphicon glyphicon-search" data-toggle="tooltip" title="Buscar CEP" formtarget="_blank" style="margin-right: 0;"></a>
-
           <!-- CEP-->
-          <label class="col-md-1 control-label" for="cep">CEP</label>
+          <label class="col-md-1 control-label" for="cep">
+            <a href="http://www.buscacep.correios.com.br/sistemas/buscacep/" target="_blank" class="btn btn-pn-circulo btn-cor-padrao glyphicon glyphicon-search" data-toggle="tooltip" title="Buscar CEP" formtarget="_blank" style="margin-right: 0; margin-bottom: 3px;"></a>
+            CEP
+          </label>
           <div class="col-md-2">
-            <input value="{{ $pessoa->endereco->cep }}" id="cep" name="endereco[cep]" type="text" data-inputmask="'mask' : '99.999-999'" placeholder="99999-999" class="form-control input-md cep" >
+            <input value="{{ $pessoa->endereco->cep }}" id="cep" name="endereco[cep]" type="text" placeholder="99999-999" data-inputmask="'mask': '99999-999', 'numericInput': true" class="form-control input-md cep" >
           </div>
 
           <!-- Município-->
@@ -219,14 +273,14 @@
           {{-- Celular --}}
           <label class="col-md-1 control-label" for="telefones[0][numero]">Celular</label>
           <div class="col-md-2">
-            <input value="{{ $pessoa->telefones[0]->numero }}" id="telefones[0][numero]" data-inputmask="'mask' : '(99) 99999-9999'" name="telefones[0][numero]" type="text" placeholder="(99) 9 9999-9999" class="form-control input-md celular">
+            <input value="{{ $pessoa->telefones[0]->numero }}" id="telefones[0][numero]" name="telefones[0][numero]" type="text" placeholder="(99) 9 9999-9999" data-inputmask="'mask': '(99) 9 9999-9999', 'numericInput': true" class="form-control input-md celular">
             <input type="hidden" name="telefones[0][tipo_telefone]" value="Celular">
           </div>
 
           {{-- Telefone --}}
           <label class="col-md-1 control-label" for="telefones[1][numero]">Tel.</label>
           <div class="col-md-2">
-            <input value="{{ $pessoa->telefones[1]->numero }}" id="telefones[1][numero]" data-inputmask="'mask' : '(99) 9999-9999'" name="telefones[1][numero]" type="text" placeholder="(99) 9999-9999" class="form-control input-md telefone">
+            <input value="{{ $pessoa->telefones[1]->numero }}" id="telefones[1][numero]" name="telefones[1][numero]" type="text" placeholder="(99) 9999-9999" data-inputmask="'mask': '(99) 9999-9999', 'numericInput': true" class="form-control input-md telefone">
             <input type="hidden" name="telefones[1][tipo_telefone]" value="Fixo">
           </div>
 
@@ -257,19 +311,19 @@
         {{-- CPF --}}
         <label class="col-md-1 control-label" for="coparticipante[cpf]">CPF</label>  
         <div class="col-md-2">
-          <input value="{{ $pessoa->coparticipante->cpf or "" }}" id="coparticipante[cpf]" data-inputmask="'mask' : '999.999.999-99'" name="coparticipante[cpf]" type="text" placeholder="999.999.999-99" class="form-control input-md cpf" >
+          <input value="{{ $pessoa->coparticipante->cpf or "" }}" id="coparticipante[cpf]" name="coparticipante[cpf]" type="text" placeholder="999.999.999-99" data-inputmask="'mask': '999.999.999-99', 'numericInput': true" class="form-control input-md cpf" >
         </div>
 
         {{-- NIS/PIS --}}            
         <label class="col-md-1 control-label" for="coparticipante[nis]">NIS/PIS</label>  
         <div class="col-md-2">
-          <input value="{{ $pessoa->coparticipante->nis or ""}}" id="coparticipante[nis]" name="coparticipante[nis]" type="text" placeholder="999.999999.99-99" class="form-control input-md nis" >
+          <input value="{{ $pessoa->coparticipante->nis or ""}}" id="coparticipante[nis]" name="coparticipante[nis]" type="text" placeholder="999.999999.99-99" data-inputmask="'mask': '999.99999.99-9', 'numericInput': true" class="form-control input-md nis" >
         </div>
 
         {{-- Carteira de Trabalho --}}            
         <label class="col-md-1 control-label" for="coparticipante[ctps]">CTPS</label>  
         <div class="col-md-2">
-          <input value="{{ $pessoa->coparticipante->ctps or ""}}" id="coparticipante[ctps]" name="coparticipante[ctps]" type="text" placeholder="Cart. de Trabalho" class="form-control input-md carteira" >
+          <input value="{{ $pessoa->coparticipante->ctps or ""}}" id="coparticipante[ctps]" name="coparticipante[ctps]" type="text" placeholder="Cart. de Trabalho" data-inputmask="'mask': '9999999 999-9', 'numericInput': true" class="form-control input-md carteira" >
         </div>
 
         {{-- Bolsa Família --}}            
@@ -303,7 +357,7 @@
         <!-- RG-->            
         <label class="col-md-1 control-label" for="coparticipante[rg]">RG</label>
         <div class="col-md-2">
-          <input value="{{ $pessoa->coparticipante->rg or "" }}" id="coparticipante[rg]" data-inputmask="'mask' : '99.999.999-9'" name="coparticipante[rg]" type="text" placeholder="99.999.999-9" class="form-control input-md rg" >
+          <input value="{{ $pessoa->coparticipante->rg or "" }}" id="coparticipante[rg]" name="coparticipante[rg]" type="text" placeholder="99.999.999-9" data-inputmask="'mask': '99.999.999-9', 'numericInput': true" class="form-control input-md rg" >
         </div>
 
         <!-- Orgão Emissor do RG-->
@@ -382,12 +436,13 @@
       {{-- CEP, Município e Bairro --}}
       <div class="form-group">
 
-        <button class="btn bnt-xs btn-primary duplicar-endereco col-md-1 glyphicon glyphicon-repeat" data-toggle="tooltip" title="Copiar endereço" style="margin-right: 0;"></button>
-
         <!-- CEP-->
-        <label class="col-md-1 control-label" for="coparticipante[endereco][cep]">CEP</label>
+        <label class="col-md-1 control-label" for="coparticipante[cep]">
+          <button class="btn btn-pn-circulo btn-cor-padrao duplicar-endereco glyphicon glyphicon-repeat" data-toggle="tooltip" title="Copiar endereço" style="margin-right: 0; margin-bottom: 3px;"></button>
+          CEP
+        </label>
         <div class="col-md-2">
-          <input value="{{ $pessoa->coparticipante->endereco->cep or ""}}" id="coparticipante[cep]" data-inputmask="'mask' : '99.999-999'" name="coparticipante[endereco][cep]" type="text" placeholder="99999-999" class="form-control input-md cep" >
+          <input value="{{ $pessoa->coparticipante->endereco->cep or ""}}" id="coparticipante[cep]" name="coparticipante[endereco][cep]" type="text" placeholder="99999-999" data-inputmask="'mask': '99.999-999', 'numericInput': true" class="form-control input-md cep" >
         </div>
 
         <!-- Município-->
@@ -466,7 +521,7 @@
       <div class="x_title"> 
         <div class="form-group">
           <div class="col-md-11"> Dependentes </div>
-            <button name="submit" value="clonar" class="btn btn-xs btn-primary glyphicon glyphicon-plus-sign clonar"></button>
+            <button name="submit" value="clonar" data-toggle="tooltip" title="Adicionar dependente" class="btn btn-pn-circulo btn-cor-padrao glyphicon glyphicon-plus clonar"></button>
         </div>
       </div>
 
@@ -540,7 +595,7 @@
           </div>  {{-- FIM Data de Nascimento, Sexo, Deficiente --}}
               
           <div class="col-md-11"></div>
-          <button name="submit" value="excluir" class="btn btn-xs btn-danger glyphicon glyphicon-trash excluir" selected></button>
+          <button name="submit" value="excluir" data-toggle="tooltip" title="Remover dependente" class="btn btn-circulo btn-cor-perigo glyphicon glyphicon-trash excluir" selected></button>
 
           </div> {{-- FIM panel_dependentes --}}
 
@@ -635,13 +690,19 @@
         {{-- Renda Familiar --}}
         <label class="col-md-1 control-label" for="renda_familiar">Renda</label>
         <div class="col-md-2">
-          <input value="{{ $pessoa->renda_familiar }}" id="renda_familiar" name="renda_familiar" type="text" placeholder="R$ 99999,99" class="form-control input-md cash" >
+          <input value="{{ $pessoa->renda_familiar }}" id="renda_familiar" name="renda_familiar" type="text" placeholder="R$ 99.999,99" data-inputmask="'mask': 'R$ 99.999,99', 'numericInput': true" class="form-control input-md cash" >
         </div>
 
         {{-- Faixa--}}
         <label class="col-md-1 control-label" for="faixa">Faixa</label>
         <div class="col-md-2">
           <input value="" id="faixa" name="faixa" type="text" placeholder="Classificação" class="form-control input-md" disabled selected style>
+        </div>
+
+        {{-- Código da Inscrição --}}
+        <label class="col-md-2 control-label" for="codigo_inscricao">Código da Inscrição</label>
+        <div class="col-md-2">
+          <input value="{{ old('codigo_inscricao') }}" id="codigo_inscricao" name="codigo_inscricao" type="text" class="form-control input-md" >
         </div>
 
       </div> {{-- FIM Renda Familiar e Faixa --}}
@@ -671,11 +732,11 @@
     {{-- Botões Enviar e Limpar --}}
     <div class="form-group">
       <label class="col-md-1 control-label" for="button1id">
-        <button id="button1id" type="submit" value="submit" name="button1id" class="btn btn-primary">Salvar</button>
+        <button id="button1id" type="submit" value="submit" name="button1id" data-toggle="tooltip" title="Salvar formulário" class="btn btn-lg-circulo btn-cor-padrao fa fa-floppy-o"></button>
       </label>
 
-      <label class="col-md-11 control-label" for="button1id">
-        <a class="btn btn-danger" href="{{ url( "pessoas" ) }}">Voltar</a>
+      <label class="col-md-11 control-label" for="button2id">
+        <a id="button2id" data-toggle="tooltip" title="Retonar a lista de pessoas" class="btn btn btn-lg-circulo btn-cor-perigo fa fa-arrow-left" href="{{ url( "pessoas" ) }}"></a>
       </label>
     </div>
   

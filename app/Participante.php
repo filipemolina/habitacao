@@ -27,6 +27,8 @@ class Participante extends Model
 		'nis',
 		'ctps',
 		'bolsa_familia',
+		'tipo_deficiencia',
+		'codigo_inscricao',
 	];
 
 	/**

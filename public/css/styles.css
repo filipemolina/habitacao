@@ -1,4 +1,8 @@
-/******************************** CSS Global *************************************************/
+/******************************** Global *************************************************/
+
+body {
+    font-size: 12px !important;
+}
 
 .btn-entrar {
 	float:none !important; 
@@ -6,23 +10,64 @@
 }
 
 .btn-circulo {
-  width: 30px;
-  height: 30px;
-  text-align: center;
-  padding: 6px 0;
-  font-size: 12px;
-  line-height: 1.428571429;
-  border-radius: 15px;
+    width: 30px;
+    height: 30px;
+    text-align: center;
+    padding: 6px 0;
+    font-size: 12px;
+    line-height: 1.428571428;
+    border-radius: 15px;
 }
+
+.btn-pn-circulo {
+    width: 21px;
+    height: 21px;
+    text-align: center;
+    padding: 4px 0;
+    font-size: 8px;
+    line-height: 1,2;
+    border-radius: 10px;
+}
+
+.btn-lg-circulo {
+    width: 40px;
+    height: 40px;
+    padding: 8px 12px;
+    font-size: 18px;
+    line-height: 1.06;
+    border-radius: 20px;
+}
+
+.btn-cor-padrao {
+    background-image: linear-gradient(to bottom, #8241f9, #4e277b);
+    border-color: #150a27;
+    color: #fff !important;
+}
+
+.btn-cor-padrao:active {
+    background-image: linear-gradient(to top, #8241f9, #7038cd);
+}
+
+.btn-cor-perigo {
+    background-image: linear-gradient(to bottom, #f75a36, #db200f);
+    border-color: #9e1000;
+    color: #fff !important;
+}
+
+.btn-cor-perigo:active {
+    background-image: linear-gradient(to top, #f54a44, #a3190f);
+}
+
 .cor-padrao {
     background-color: white;
     color: #3D276B;
 }
-.login_content h1:after, 
-.login_content h1:before{
+
+.login_content h1:after, .login_content h1:before{
 
 	background: none;
 }
+
 body.login {
 	background-color: rgba(191, 161, 95, 0.4);
 }
@@ -30,8 +75,14 @@ body.login {
 .dourado {
     color: #d0c1a1;
 }
+
 input[type=submit] {
 	color:black;
+}
+
+input, select {
+    border-radius:  10px !important;
+    font-size: 12px !important;
 }
 
 .topo {
@@ -54,15 +105,13 @@ input[type=submit] {
     text-shadow: 0 1px 0 #fff;
     min-width: 280px;
    }
-}
+
 h3.home {
 	text-align: left;
 	margin-top: -30px;
 	text-transform: capitalize;
     letter-spacing: .5px;
     font-weight: 700;
-    
-
 }
 
 .profile_info {
@@ -70,11 +119,13 @@ h3.home {
     width: 100%;
     float: left;
 }
+
 .body {
 	color: #3D276B;
     background: #3D276B;
     background: rgba(31,20,51,1);
 }
+
 .color_special1 {
     background: rgba(62,44,97,1) !important;
     background: -moz-linear-gradient(left, rgba(62,44,97,1) 0%, rgba(60,32,117,1) 12%, rgba(60,32,117,1) 22%, rgba(60,29,133,1) 38%, rgba(60,29,133,1) 53%, rgba(74,29,133,1) 69%, rgba(105,38,138,1) 100%) !important;
@@ -84,18 +135,19 @@ h3.home {
     background: -ms-linear-gradient(left, rgba(62,44,97,1) 0%, rgba(60,32,117,1) 12%, rgba(60,32,117,1) 22%, rgba(60,29,133,1) 38%, rgba(60,29,133,1) 53%, rgba(74,29,133,1) 69%, rgba(105,38,138,1) 100%) !important;
     background: linear-gradient(to right, rgba(62,44,97,1) 0%, rgba(60,32,117,1) 12%, rgba(60,32,117,1) 22%, rgba(60,29,133,1) 38%, rgba(60,29,133,1) 53%, rgba(74,29,133,1) 69%, rgba(105,38,138,1) 100%) !important;
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#3e2c61', endColorstr='#69268a', GradientType=1 ) !important;
-
 }
+
 .color_special2 {
     background: rgba(105,38,138,1);
-    background: -moz-linear-gradient(-45deg, rgba(105,38,138,1) 0%, rgba(74,29,133,1) 22%, rgba(60,29,133,1) 35%, rgba(60,29,133,1) 47%, rgba(60,32,117,1) 58%, rgba(60,32,117,1) 67%, rgba(60,32,117,0.9) 68%, rgba(60,32,117,0.98) 75%, rgba(125,106,163,1) 77%, rgba(255,255,255,1) 81%, rgba(255,255,255,1) 100%);
-    background: -webkit-gradient(left top, right bottom, color-stop(0%, rgba(105,38,138,1)), color-stop(22%, rgba(74,29,133,1)), color-stop(35%, rgba(60,29,133,1)), color-stop(47%, rgba(60,29,133,1)), color-stop(58%, rgba(60,32,117,1)), color-stop(67%, rgba(60,32,117,1)), color-stop(68%, rgba(60,32,117,0.9)), color-stop(75%, rgba(60,32,117,0.98)), color-stop(77%, rgba(125,106,163,1)), color-stop(81%, rgba(255,255,255,1)), color-stop(100%, rgba(255,255,255,1)));
-    background: -webkit-linear-gradient(-45deg, rgba(105,38,138,1) 0%, rgba(74,29,133,1) 22%, rgba(60,29,133,1) 35%, rgba(60,29,133,1) 47%, rgba(60,32,117,1) 58%, rgba(60,32,117,1) 67%, rgba(60,32,117,0.9) 68%, rgba(60,32,117,0.98) 75%, rgba(125,106,163,1) 77%, rgba(255,255,255,1) 81%, rgba(255,255,255,1) 100%);
-    background: -o-linear-gradient(-45deg, rgba(105,38,138,1) 0%, rgba(74,29,133,1) 22%, rgba(60,29,133,1) 35%, rgba(60,29,133,1) 47%, rgba(60,32,117,1) 58%, rgba(60,32,117,1) 67%, rgba(60,32,117,0.9) 68%, rgba(60,32,117,0.98) 75%, rgba(125,106,163,1) 77%, rgba(255,255,255,1) 81%, rgba(255,255,255,1) 100%);
-    background: -ms-linear-gradient(-45deg, rgba(105,38,138,1) 0%, rgba(74,29,133,1) 22%, rgba(60,29,133,1) 35%, rgba(60,29,133,1) 47%, rgba(60,32,117,1) 58%, rgba(60,32,117,1) 67%, rgba(60,32,117,0.9) 68%, rgba(60,32,117,0.98) 75%, rgba(125,106,163,1) 77%, rgba(255,255,255,1) 81%, rgba(255,255,255,1) 100%);
-    background: linear-gradient(135deg, rgba(105,38,138,1) 0%, rgba(74,29,133,1) 22%, rgba(60,29,133,1) 35%, rgba(60,29,133,1) 47%, rgba(60,32,117,1) 58%, rgba(60,32,117,1) 67%, rgba(60,32,117,0.9) 68%, rgba(60,32,117,0.98) 75%, rgba(125,106,163,1) 77%, rgba(255,255,255,1) 81%, rgba(255,255,255,1) 100%);
-    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#69268a', endColorstr='#ffffff', GradientType=1 );
+    background: -moz-linear-gradient(-45deg, rgba(105,38,138,1) 0%, rgba(74,29,133,1) 22%, rgba(60,29,133,1) 35%, rgba(60,29,133,1) 47%, rgba(60,32,117,1) 58%, rgba(113,93,155,1) 67%, rgba(119,99,159,0.9) 68%, rgba(125,106,163,0.91) 69%, rgba(190,181,209,0.98) 75%, rgba(212,205,224,1) 77%, rgba(255,255,255,1) 81%, rgba(255,255,255,1) 100%);
+    background: -webkit-gradient(left top, right bottom, color-stop(0%, rgba(105,38,138,1)), color-stop(22%, rgba(74,29,133,1)), color-stop(35%, rgba(60,29,133,1)), color-stop(47%, rgba(60,29,133,1)), color-stop(58%, rgba(60,32,117,1)), color-stop(67%, rgba(113,93,155,1)), color-stop(68%, rgba(119,99,159,0.9)), color-stop(69%, rgba(125,106,163,0.91)), color-stop(75%, rgba(190,181,209,0.98)), color-stop(77%, rgba(212,205,224,1)), color-stop(81%, rgba(255,255,255,1)), color-stop(100%, rgba(255,255,255,1)));
+    background: -webkit-linear-gradient(-45deg, rgba(105,38,138,1) 0%, rgba(74,29,133,1) 22%, rgba(60,29,133,1) 35%, rgba(60,29,133,1) 47%, rgba(60,32,117,1) 58%, rgba(113,93,155,1) 67%, rgba(119,99,159,0.9) 68%, rgba(125,106,163,0.91) 69%, rgba(190,181,209,0.98) 75%, rgba(212,205,224,1) 77%, rgba(255,255,255,1) 81%, rgba(255,255,255,1) 100%);
+    background: -o-linear-gradient(-45deg, rgba(105,38,138,1) 0%, rgba(74,29,133,1) 22%, rgba(60,29,133,1) 35%, rgba(60,29,133,1) 47%, rgba(60,32,117,1) 58%, rgba(113,93,155,1) 67%, rgba(119,99,159,0.9) 68%, rgba(125,106,163,0.91) 69%, rgba(190,181,209,0.98) 75%, rgba(212,205,224,1) 77%, rgba(255,255,255,1) 81%, rgba(255,255,255,1) 100%);
+    background: -ms-linear-gradient(-45deg, rgba(105,38,138,1) 0%, rgba(74,29,133,1) 22%, rgba(60,29,133,1) 35%, rgba(60,29,133,1) 47%, rgba(60,32,117,1) 58%, rgba(113,93,155,1) 67%, rgba(119,99,159,0.9) 68%, rgba(125,106,163,0.91) 69%, rgba(190,181,209,0.98) 75%, rgba(212,205,224,1) 77%, rgba(255,255,255,1) 81%, rgba(255,255,255,1) 100%);
+    background: linear-gradient(135deg, rgba(105,38,138,1) 0%, rgba(74,29,133,1) 22%, rgba(60,29,133,1) 35%, rgba(60,29,133,1) 47%, rgba(60,32,117,1) 58%, rgba(113,93,155,1) 67%, rgba(119,99,159,0.9) 68%, rgba(125,106,163,0.91) 69%, rgba(190,181,209,0.98) 75%, rgba(212,205,224,1) 77%, rgba(255,255,255,1) 81%, rgba(255,255,255,1) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#69268a', endColorstr='#ffffff', GradientType=1 );    
 }
+
 .color_special3 {
     background: rgba(255,255,255,1);
     background: -moz-linear-gradient(left, rgba(255,255,255,1) 0%, rgba(246,246,246,1) 47%, rgba(237,237,237,1) 100%);
@@ -106,6 +158,7 @@ h3.home {
     background: linear-gradient(to right, rgba(255,255,255,1) 0%, rgba(246,246,246,1) 47%, rgba(237,237,237,1) 100%);
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#ededed', GradientType=1 );
 }
+
 .color_special4 {
     background: rgba(62,44,97,1) !important;
     background: -moz-linear-gradient(left, rgba(62,44,97,1) 0%, rgba(60,32,117,1) 2%, rgba(60,32,117,1) 4%, rgba(60,29,133,1) 7%, rgba(60,29,133,1) 10%, rgba(74,29,133,1) 13%, rgba(105,38,138,1) 20%, rgba(105,38,138,1) 100%) !important;
@@ -116,6 +169,7 @@ h3.home {
     background: linear-gradient(to right, rgba(62,44,97,1) 0%, rgba(60,32,117,1) 2%, rgba(60,32,117,1) 4%, rgba(60,29,133,1) 7%, rgba(60,29,133,1) 10%, rgba(74,29,133,1) 13%, rgba(105,38,138,1) 20%, rgba(105,38,138,1) 100%) !important;
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#3e2c61', endColorstr='#69268a', GradientType=1 ) !important;
 }
+
 .color_fundo {
     background: rgba(248,244,237,1) !important;
     background: -moz-linear-gradient(left, rgba(248,244,237,1) 0%, rgba(255,255,255,1) 50%, rgba(248,244,237,1) 100%) !important;
@@ -126,17 +180,20 @@ h3.home {
     background: linear-gradient(to right, rgba(248,244,237,1) 0%, rgba(255,255,255,1) 50%, rgba(248,244,237,1) 100%) !important;
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f8f4ed', endColorstr='#f8f4ed', GradientType=1 ) !important;
 }
+
 a {
     color: #3D276B;
   }
 
-  .nav.side-menu>li.active>a {
+.nav.side-menu>li.active>a {
     text-shadow: rgba(0,0,0,.25) 0 -1px 0;
     background: rgba(255,255,255,0.25);
 }
+
 .nav.side-menu>li.active, .nav.side-menu>li.current-page {
     border-right: none;
 }
+
 .col-md-3.left_col {
     background-color: #3d276b;
 }
@@ -189,10 +246,8 @@ table.tile_info.bairros {
     overflow-y: scroll;
 }
 
-.panel_toolbox { min-width: auto !important; }
-
-input, select {
-    border-radius: 10px !important;
+.panel_toolbox { 
+    min-width: auto !important;
 }
 
 .alert-branco {
@@ -228,23 +283,35 @@ input, select {
 .cinza {
     background: #F7F7F7;
 }
-input, select {
-    border-radius: 15px !important;
-}
 
 /*Para INPUT tipo DATE caber em DIV de COL-MD-2*/
 .global_data {
-    padding-right: 0;
-    padding-left:  5px;
+    padding-right: 0 !important;
 }
 
-/******************************** CSS Pessoas *************************************************/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/******************************** Pessoas *************************************************/
 
 
 /* Centralização do texto para inputs menores*/
 
+div.x_content.dependente {
+    display: none;
+}
+
 #participante, #co-participante, #dependentes, #renda-familiar {
     padding: 10px 15px;
 }
-
-div.x_content.dependente { display: none; }

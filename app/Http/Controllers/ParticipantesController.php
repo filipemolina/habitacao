@@ -89,10 +89,6 @@ class ParticipantesController extends Controller
 
             'nome'                                  => 'required',
             'cpf'                                   => 'required|unique:participantes',
-            'bolsa_familia'                         => 'required',
-            'rg'                                    => 'required',
-            'orgao_emissor_rg'                      => 'required',
-            'emissao_rg'                            => 'date',
             'nascimento'                            => 'date',
             'sexo'                                  => 'required',
             'necessidades_especiais'                => 'required',
@@ -102,7 +98,6 @@ class ParticipantesController extends Controller
             'bairro'                                => 'required',
             'renda_familiar'                        => 'required',
             'tempo_residencia'                      => 'date',
-            'telefones.*.numero'                    => 'required',
 
             // Coparticipante
             // O campo nome é totalmente opcional. Entretanto, caso este seja preenchido
@@ -137,7 +132,33 @@ class ParticipantesController extends Controller
 
         $participante = Participante::create($request->except('coparticipante'));
 
-        $participante->renda_familiar = str_replace("R$ ", "", $participante->renda_familiar);
+        // Renda Familiar
+
+        $participante->renda_familiar = str_replace(["R", "$", "_", " "],  "", 
+                                            str_replace(",", ".", 
+                                                str_replace(".", "", $request->renda_familiar)
+                                            )
+                                        );
+
+        // Verificar se o participante é idoso
+
+        if(date('Y') - date('Y', strtotime($participante->nascimento)) >= 65)
+        {
+            $participante->idoso = true;
+        }
+
+        // Código de inscrição
+
+        if($request->codigo_inscricao == "")
+        {
+            // Obter o último código de inscrição criado
+
+            $maior = Participante::max("codigo_inscricao");
+
+            $proximo = $maior + 1;
+
+            $participante->codigo_inscricao = $proximo;
+        }
 
         $participante->save();
 
@@ -185,7 +206,7 @@ class ParticipantesController extends Controller
             }
         }
 
-        return redirect('/pessoas/create')->with('sucesso', 'Usuário cadastrado com sucesso');
+        return redirect('/pessoas/create')->with('sucesso', "Usuário cadastrado com sucesso. Código da inscriçao: <span style='text-transform: uppercase; font-weight: bold; font-size: 16px;'>$participante->codigo_inscricao</span>");
     }
 
     /**
@@ -260,9 +281,6 @@ class ParticipantesController extends Controller
             'coparticipante.nome'                   => 'required_with:coparticipante.cpf,coparticipante.bolsa_familia,coparticipante.rg,coparticipante.orgao_emissor_rg,coparticipante.emissao_rg,coparticipante.nascimento,coparticipante.sexo,coparticipante.necessidades_especiais,coparticipante.cep,coparticipante.logradouro,coparticipante.numero,coparticipante.bairro',
             'coparticipante.cpf'                    => 'required_with:coparticipante.nome',
             'coparticipante.bolsa_familia'          => 'required_with:coparticipante.nome',
-            'coparticipante.rg'                     => 'required_with:coparticipante.nome',
-            'coparticipante.orgao_emissor_rg'       => 'required_with:coparticipante.nome',
-            'coparticipante.emissao_rg'             => 'required_with:coparticipante.nome|date',
             'coparticipante.nascimento'             => 'required_with:coparticipante.nome|date',
             'coparticipante.sexo'                   => 'required_with:coparticipante.nome',
             'coparticipante.necessidades_especiais' => 'required_with:coparticipante.nome',
@@ -284,6 +302,17 @@ class ParticipantesController extends Controller
 
         $participante = Participante::find($id);
         $participante->update($request->all());
+
+        if(date('Y') - date('Y', strtotime($participante->nascimento)) >= 65)
+        {
+            $participante->idoso = true;
+        }
+        else
+        {
+            $participante->idoso = false;
+        }
+
+        $participante->save();
 
         // Atualizar endereço
 
@@ -343,16 +372,7 @@ class ParticipantesController extends Controller
             }
         }
 
-        // Alterar os dependentes que já existem ou adicionar novos
-
-        foreach($request->dependentes as $dependente)
-        {
-            $participante->dependentes()->updateOrCreate(
-                ['participante_id' => $participante->id, 'nome' => $dependente['nome']],
-                $dependente
-            );
-
-        }
+        $dependentes_novos = $request->dependentes ?: [];
 
         // Retirar os dependentes que foram excluídos
 
@@ -361,10 +381,21 @@ class ParticipantesController extends Controller
             // Caso o dependente não exista no vetor da $request, é por que ele foi deletado
             // pelo usuário que estava alterando esse cadastro. Logo deve ser deletado do cadastro
 
-            if(!$this->existeNoVetor($dependente->nome, $request->dependentes))
+            if(!$this->existeNoVetor($dependente->nome, $dependentes_novos))
             {
                 $dependente->delete();
             }
+        }
+
+        // Alterar os dependentes que já existem ou adicionar novos
+
+        foreach($dependentes_novos as $dependente)
+        {
+            $participante->dependentes()->updateOrCreate(
+                ['participante_id' => $participante->id, 'nome' => $dependente['nome']],
+                $dependente
+            );
+
         }
 
         return redirect("/pessoas/$participante->id/edit")->with('sucesso', "Participante alterado com sucesso");
@@ -413,9 +444,9 @@ class ParticipantesController extends Controller
 
         // Os botões de ação da tabela variam de acordo com o 'role' do usuário atual.
 
-        $padrao = "<a class='btn btn-success  btn-circulo' data-toggle='modal' data-target='#modal_pessoas_show' data-id='{id}' href='#'><i class='fa fa-eye'></i></a>";
+        $padrao = "<a data-title='Visualizar' class='btn btn-cor-padrao  btn-circulo' data-toggle='modal' data-target='#modal_pessoas_show' data-id='{id}' href='#'><i class='fa fa-eye'></i></a>";
 
-        $supervisor_master = "<a class='btn btn-success  btn-circulo' data-toggle='modal' data-target='#modal_pessoas_show' data-id='{id}' href='#'><i class='fa fa-eye'></i></a><a class='btn btn-warning  btn-circulo' href='".url("pessoas/{id}/edit")."'><i class='fa fa-pencil'></i></a><a class='btn btn-danger btn-excluir btn-circulo'  href='#'' data-toggle='modal' data-nome='{nome}' data-id='{id}' data-target='#modalexcluir'><i class='fa fa-trash'></i></a>";
+        $supervisor_master = "<a title='Visualizar' class='btn btn-cor-padrao  btn-circulo' data-toggle='modal' data-target='#modal_pessoas_show' data-id='{id}' href='#'><i class='fa fa-eye'></i></a><a title='Editar' class='btn btn-cor-padrao  btn-circulo' href='".url("pessoas/{id}/edit")."'><i class='fa fa-pencil'></i></a><a title='Excluir' class='btn btn-cor-perigo btn-excluir btn-circulo'  href='#'' data-nome='{nome}' data-id='{id}'><i class='fa fa-trash'></i></a>";
 
         foreach($participantes as $participante)
         {
@@ -496,12 +527,15 @@ class ParticipantesController extends Controller
 
         $titulo = [
 
-            'geral'       => "EM ORDEM ALFABÉTICA",
-            'faixa'       => "POR FAIXA DE INSCRIÇÃO",
-            'idade'       => "POR IDADE",
-            'sexo'        => "Por Sexo",
-            'dependentes' => "Por Número de Dependentes",
-            'bairro'      => "Por Bairro",
+            'geral'              => "EM ORDEM ALFABÉTICA",
+            'faixa'              => "POR FAIXA DE INSCRIÇÃO",
+            'idade'              => "POR IDADE",
+            'sexo'               => "Por Sexo",
+            'dependentes'        => "Por Número de Dependentes",
+            'bairro'             => "Por Bairro",
+            'tipo_deficiencia'   => "Por Tipo de Deficiência",
+            'idosos'             => "de participantes idosos",
+            'mulher_responsavel' => "de Mulheres Chefes de Família",
 
         ];
 
@@ -534,6 +568,8 @@ class ParticipantesController extends Controller
         if($request->ordem_relatorio == 'geral')
             return $this->incluirFaixaNaQuery($query)->orderBy('nome', 'asc')->get();
 
+        // Faixa de Inscrição
+
         if($request->ordem_relatorio == 'faixa')
             return $this->incluirFaixaNaQuery($query)->orderByRaw("faixa, nome")->get();
 
@@ -550,13 +586,7 @@ class ParticipantesController extends Controller
         // Dependentes
 
         if($request->ordem_relatorio == 'dependentes')
-            // return $query->select(DB::raw('participantes.*, count(dependentes.id)'))
-            //             ->orderByRaw('count(dependentes.id) DESC, participantes.nome ASC')
-            //             ->groupBy('participantes.id')
-            //             ->join('dependentes', 'participantes.id', '=', 'dependentes.participante_id')
-            //             ->get();
             return $this->queryDependentes($query);
-
 
         // Bairro
 
@@ -564,6 +594,21 @@ class ParticipantesController extends Controller
             return $this->incluirFaixaNaQuery($query)->get()->sortBy(function($participante){
                 return $participante->endereco->bairro;
             });
+
+        // Relatório por tipo de deficiência
+
+        if($request->ordem_relatorio == "tipo_deficiencia")
+            return $this->incluirFaixaNaQuery($query)->where('necessidades_especiais', 1)->orderBy("tipo_deficiencia")->get();
+
+        // Relatório por participantes idosos
+
+        if($request->ordem_relatorio == "idosos")
+            return $this->incluirFaixaNaQuery($query)->where('idoso', 1)->orderBy("nascimento", 'ASC')->get();
+
+        // Relatório por mulher 
+
+        if($request->ordem_relatorio == "mulher_responsavel")
+            return $this->incluirFaixaNaQuery($query)->where('mulher_responsavel', 1)->orderBy("nome")->get();
     }
 
     /**
@@ -638,6 +683,10 @@ class ParticipantesController extends Controller
         // PNE
         if(array_key_exists('pne', $cabecalhos) !== false)
             $pessoa['pne'] = $participante->necessidades_especiais ? "Sim" : "Não";
+
+        // Tipo de Deficiência
+        if(array_key_exists('tipo_deficiencia', $cabecalhos) !== false)
+            $pessoa['tipo_deficiencia'] = $participante->tipo_deficiencia;
 
         // Coparticipante
         if(array_key_exists('coparticipante', $cabecalhos) !== false)

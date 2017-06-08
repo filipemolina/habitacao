@@ -94,16 +94,16 @@
 					
 						<select name="admin" class="form-control" id="tipodeususario">
 							<option value="">Selecione</option>
-							<option value="2" @if($usuario->admin) selected="selected" @endif >Master</option>
-							<option value="1" @if($usuario->admin) selected="selected" @endif >Supervisor</option>
-							<option value="0" @if(!$usuario->admin) selected="selected" @endif >Básico</option>
+							<option value="Master" @if($usuario->admin == "Master") selected @endif >Master</option>
+							<option value="Supervisor" @if($usuario->admin == "Supervisor") selected @endif >Supervisor</option>
+							<option value="Padrão" @if($usuario->admin == "Padrão") selected @endif >Padrão</option>
 						</select>
 
 					</div>
 				</div>	
 				<div class="form-group" style="text-align: center;">
-					<button type="submit" value="submit" class="btn btn-primary">Enviar</button>
-					<a class="btn btn-danger" href="{{ url( "users" ) }}">Voltar</a>
+					<button type="submit" value="submit" data-toggle="tooltip" title="Salvar alterações" class="btn btn-lg-circulo btn-cor-padrao fa fa-floppy-o"></button>
+					<a data-toggle="tooltip" title="Retonar a lista de usuários" class="btn btn btn-lg-circulo btn-cor-perigo fa fa-arrow-left" href="{{ url( "users" ) }}"></a>
 				</div>
 				
 			</form>

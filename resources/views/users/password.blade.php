@@ -90,12 +90,12 @@
 					<label for="novasenha_confirmation" class="col-sm-4 control-label">Confirmar Senha</label>
 
 					<div class="col-sm-4">
-						<input name="novasenha_confirmation" type="password" class="form-control" id="senha" placeholder="Confirmar Senha">
+						<input name="novasenha_confirmation" type="password" class="form-control" id="novasenha_confirmation" placeholder="Confirmar Senha">
 					</div>
 				</div>
 
 				<div class="form-group" style="text-align: center;">
-                    <button type="submit" value="submit" class="btn btn-primary">Enviar</button>
+                    <button type="submit" value="submit" data-toggle="tooltip" title="Salvar nova senha" class="btn btn-lg-circulo btn-cor-padrao fa fa-floppy-o"></button>
            		 </div>
 
 				

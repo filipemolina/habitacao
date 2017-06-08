@@ -36,7 +36,7 @@ Lista de Pessoas
                     <th>Idade</th>
                     <th>Sexo</th>
                     <th>PNE</th>
-                    <th>Co-participante?</th>
+                    <th>Co-participante</th>
                     <th>Dependentes</th>
                     <th>Bairro</th>
                     <th>Ações</th>
@@ -61,14 +61,14 @@ Lista de Pessoas
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title">Excluir <span id="nome_participante"></span></h4>
+        <h4 class="modal-title">Exclusão de cadastro</h4>
       </div>
       <div class="modal-body">
-        <p>Realmente Desejar Excluir?</p>
+        <h2>Realmente Desejar Excluir o cadastro de <span id="nome_participante"></span>?</h2>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-danger" id="btn-excluir-modal" data-dismiss="modal">Excluir</button>
-        <button type="button" class="btn btn-primary" data-dismiss="modal" aria-label="Close">Fechar</button>
+        <button type="button" class="btn btn-cor-perigo" id="btn-excluir-modal" data-dismiss="modal">Excluir</button>
+        <button type="button" class="btn btn-cor-padrao" data-dismiss="modal" aria-label="Close">Fechar</button>
       </div>
       <input type="hidden" name="id" id="id_participante">
       {{ method_field("DELETE") }}
@@ -91,21 +91,21 @@ Lista de Pessoas
 
 <!-- Datatables -->
 <script src="{{ asset('js/jQuery.print.js') }}"></script>
-<script src="{{ asset('vendors/jszip/dist/jszip.min.js') }}"></script>
-<script src="{{ asset('vendors/pdfmake/build/vfs_fonts.js') }}"></script>
-<script src="{{ asset('vendors/pdfmake/build/pdfmake.min.js') }}"></script>
 <script src="{{ asset('vendors/datatables.net/js/jquery.dataTables.min.js') }}"></script>
-<script src="{{ asset('vendors/datatables.net-buttons/js/buttons.print.min.js') }}"></script>
-<script src="{{ asset('vendors/datatables.net-buttons/js/buttons.html5.min.js') }}"></script>
-<script src="{{ asset('vendors/datatables.net-buttons/js/buttons.flash.min.js') }}"></script>
 <script src="{{ asset('vendors/datatables.net-bs/js/dataTables.bootstrap.min.js') }}"></script>
 <script src="{{ asset('vendors/datatables.net-buttons/js/dataTables.buttons.min.js') }}"></script>
-<script src="{{ asset('vendors/datatables.net-scroller/js/dataTables.scroller.min.js') }}"></script>
-<script src="{{ asset('vendors/datatables.net-keytable/js/dataTables.keyTable.min.js') }}"></script>
 <script src="{{ asset('vendors/datatables.net-buttons-bs/js/buttons.bootstrap.min.js') }}"></script>
-<script src="{{ asset('vendors/datatables.net-responsive-bs/js/responsive.bootstrap.js') }}"></script>
-<script src="{{ asset('vendors/datatables.net-responsive/js/dataTables.responsive.min.js') }}"></script>
+<script src="{{ asset('vendors/datatables.net-buttons/js/buttons.flash.min.js') }}"></script>
+<script src="{{ asset('vendors/datatables.net-buttons/js/buttons.html5.min.js') }}"></script>
+<script src="{{ asset('vendors/datatables.net-buttons/js/buttons.print.min.js') }}"></script>
 <script src="{{ asset('vendors/datatables.net-fixedheader/js/dataTables.fixedHeader.min.js') }}"></script>
+<script src="{{ asset('vendors/datatables.net-keytable/js/dataTables.keyTable.min.js') }}"></script>
+<script src="{{ asset('vendors/datatables.net-responsive/js/dataTables.responsive.min.js') }}"></script>
+<script src="{{ asset('vendors/datatables.net-responsive-bs/js/responsive.bootstrap.js') }}"></script>
+<script src="{{ asset('vendors/datatables.net-scroller/js/dataTables.scroller.min.js') }}"></script>
+<script src="{{ asset('vendors/jszip/dist/jszip.min.js') }}"></script>
+<script src="{{ asset('vendors/pdfmake/build/pdfmake.min.js') }}"></script>
+<script src="{{ asset('vendors/pdfmake/build/vfs_fonts.js') }}"></script>
 
 @include('includes.pessoas.index.scripts')
 
