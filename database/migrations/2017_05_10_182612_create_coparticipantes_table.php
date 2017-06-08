@@ -29,14 +29,12 @@ class CreateCoparticipantesTable extends Migration
                             'Avós','Bisavós','Bisneto(a)','Companheiro(a)',
                             'Cônjuge','Enteado(a)','Ex-esposa','Filho(a)',
                             'Irmão(ã)','Neto(a)','Pais','Outras'
-                        ]);
-
-
-            
-            $table->string('email',100)                 ->nullable();
+                        ]);            
+            $table->string('email',100)->nullable();
             $table->boolean('necessidades_especiais');
-            $table->char('nis',11)                      ->nullable();
-            $table->char('ctps',11)                     ->nullable();
+            $table->string('tipo_deficiencia')->nullable();
+            $table->char('nis',11)->nullable();
+            $table->char('ctps',11)->nullable();
             $table->boolean('bolsa_familia');
             $table->integer('participante_id')->unsigned();
 

@@ -28,7 +28,7 @@ class CreateDependentesTable extends Migration
                         ]);
 
             $table->boolean('necessidades_especiais');
-            
+            $table->string('tipo_deficiencia')->nullable();
 
             $table->integer('participante_id')->unsigned();
 

@@ -9,6 +9,14 @@
 
     });
 
+    // Switchery
+
+    var check = document.querySelector("#mulher_responsavel");
+    var init = new Switchery(check, {
+        color : "#3D276B",
+        size  : 'small',
+    });
+
     // Ligar ou desligar o select de tipos de necessidades especiais
 
     if($("#necessidades_especiais").val() == 0)
@@ -18,6 +26,15 @@
     else
     {
         $("#tipo_necessidade").prop('disabled', false);
+    }
+
+    if($("#necessidades_especiais_coparticipante").val() == 0)
+    {
+        $("#tipo_necessidade_participante").prop('disabled', true);
+    }
+    else
+    {
+        $("#tipo_necessidade_participante").prop('disabled', false);
     }
 
     // Contador de dependentes, 
@@ -101,7 +118,12 @@
             .parent().parent().parent().find("select[name='dependentes[0][necessidades_especiais]']")
                 .attr("name", "dependentes["+cont+"][necessidades_especiais]")
                 .attr("id", "dependentes["+cont+"][necessidades_especiais]")
-                .val("")
+                .find("option:first-child").attr('selected', true)
+
+            .parent().parent().parent().find("select[name='dependentes[0][tipo_deficiencia]']")
+                .attr("name", "dependentes["+cont+"][tipo_deficiencia]")
+                .attr("id", "dependentes["+cont+"][tipo_deficiencia]")
+                .find("option:first-child").attr('selected', true)
 
             .parent().parent().parent().find("select[name='dependentes[0][parentesco]']")
                 .attr("name", "dependentes["+cont+"][parentesco]")
@@ -194,6 +216,32 @@
             else 
                 
                 $("#tipo_necessidade").prop("disabled", true); 
+        });
+
+        $("select#necessidades_especiais_coparticipante").change(function(){
+
+            if($(this).val() == 1)
+            {
+                $("#tipo_necessidade_coparticipante").prop('disabled', false);
+            }
+            else
+            {
+                $("#tipo_necessidade_coparticipante").prop('disabled', true);
+            }
+
+        });
+
+        $("body").on("change", "select.pne_dependentes", function(){
+
+            if($(this).val() == 1)
+            {
+                $(this).parent().parent().find(".tipo_deficiencia").prop('disabled', false);
+            }
+            else
+            {
+                $(this).parent().parent().find(".tipo_deficiencia").prop('disabled', true);
+            }
+
         });
 
     });
