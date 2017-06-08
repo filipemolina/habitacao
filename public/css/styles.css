@@ -293,6 +293,14 @@ span.switchery.switchery-small {
     margin-top: 5px;
 }
 
+.obrigatorio{
+    color:red;
+    position: absolute;
+    left: -5px;
+    top: 8px;
+    font-size: 17px;
+}
+
 
 
 
