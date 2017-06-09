@@ -15,32 +15,34 @@
     <link href="{{ asset("css/font-awesome.min.css") }}" rel="stylesheet">
     <!-- Custom Theme Style -->
     <link href="{{ asset("css/gentelella.min.css") }}" rel="stylesheet">
+    <!-- css do projeto -->
+    <link href="{{ asset("css/styles.css") }}" rel="stylesheet"> 
 </head>
 
 <body class="nav-md">
-<div class="container body">
+<div class="container">
     <div class="main_container">
         <!-- page content -->
         <div class="col-md-12">
             <div class="col-middle">
                 <div class="text-center text-center">
-                    <h1 class="error-number">404</h1>
-                    <h2>Sorry but we couldn't find this page</h2>
-                    <p>This page you are looking for does not exist <a href="#">Report this?</a>
+                    <h1 class="error-number">Página não localizada</h1>
+                    <p>ERRO 404</p>
+                    <h3>Pedimos desculpas pelo erro, mas a página deseja não foi encontrada</h3>
+                    <h4>Talvez não seja possível exibir a página solicitada devido à um dos seguintes motivos:</h4>
+                    <tr>
+                        <li>A página que procura possívelmente não existe</li>
+                        <li>Link de favoritos desatualizado</li>
+                        <li>Um mecanismo de busca que possua uma referência</h2></li>
+                        <li>URL digitada erradamente</li>
+                    </tr>
+                    <h3>
+                        <a href="http://localhost:8000" class="btn btn-cor-padrao-hover" >Clique aqui</a>, para retornar a página inicial.
+                    </h3>
+                    <p>
+                        Caso o problema persista,<a href="http://suporte.mesquita.rj.gov.br" class="btn-sm btn-cor-padrao-hover">clique aqui</a>, para entrar em contato com a equipe de desenvolvimento
                     </p>
-                    <div class="mid_center">
-                        <h3>Search</h3>
-                        <form>
-                            <div class="col-xs-12 form-group pull-right top_search">
-                                <div class="input-group">
-                                    <input type="text" class="form-control" placeholder="Search for...">
-                                    <span class="input-group-btn">
-                              <button class="btn btn-default" type="button">Go!</button>
-                          </span>
-                                </div>
-                            </div>
-                        </form>
-                    </div>
+                    
                 </div>
             </div>
         </div>
