@@ -125,10 +125,10 @@
                 .attr("id", "dependentes["+cont+"][tipo_deficiencia]")
                 .find("option:first-child").attr('selected', true)
 
-            .parent().parent().parent().find("select[name='dependentes[0][parentesco]']")
+            .parent().parent().parent().parent().find("select[name='dependentes[0][parentesco]']")
                 .attr("name", "dependentes["+cont+"][parentesco]")
                 .attr("id", "dependentes["+cont+"][parentesco]")
-                .val("");
+                .find("option:first-child").attr('selected', true);
 
             // Incrementar o contador de dependentes
 

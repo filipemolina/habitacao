@@ -18,7 +18,7 @@ class CreateParticipantesTable extends Migration
            
             $table->string('nome',100); 
             $table->enum('sexo',['Feminino', 'Masculino', 'Outros']);
-            $table->char('cpf',14);
+            $table->char('cpf',20);
             $table->date('nascimento');
             $table->string('rg',20)->nullable();
             $table->date('emissao_rg');
@@ -29,10 +29,10 @@ class CreateParticipantesTable extends Migration
             $table->date('tempo_residencia');
             $table->boolean('necessidades_especiais');
             $table->string('tipo_deficiencia')->nullable();
-            $table->char('nis',11)->nullable();
-            $table->char('ctps',11)->nullable();
+            $table->char('nis',20)->nullable();
+            $table->char('ctps',20)->nullable();
             $table->boolean('bolsa_familia');
-            $table->string('codigo_inscricao', 10);
+            $table->integer('codigo_inscricao');
             $table->boolean('idoso')->default(false);
 
             $table->softDeletes();

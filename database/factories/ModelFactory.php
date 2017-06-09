@@ -72,8 +72,8 @@ $factory->define(App\Participante::class, function(Faker\Generator $faker) {
 
 		'nome'                    => $faker->name,
 		'cpf'                     => $faker->cpf,
-		'nis'                     => $faker->randomNumber(9), // Número de Dígitos
-		'ctps'                    => $faker->randomNumber(9),
+		'nis'                     => $faker->numerify("###.#####.##-#"), // Número de Dígitos
+		'ctps'                    => $faker->numerify("####### ##-#"),
 		'bolsa_familia'           => $faker->boolean,
 		'sexo'                    => $sexo,
 		'nascimento'              => $nascimento,
@@ -110,8 +110,8 @@ $factory->define(App\Coparticipante::class, function(Faker\Generator $faker) {
 		'parentesco'              => $faker->randomElement(['Pai', 'Mãe', 'Filho(a)', 'Sobrinho(a)', 'Neto(a)']),
 		'email'                   => $faker->email,
 		'necessidades_especiais'  => $faker->boolean(10), // Chance de 10% de sair True
-		'nis'                     => $faker->numerify("#### #### ####"), // Número de Dígitos
-		'ctps'                    => $faker->numerify("### ### ###"),
+		'nis'                     => $faker->numerify("###.#####.##-#"), // Número de Dígitos
+		'ctps'                    => $faker->numerify("####### ##-#"),
 		'bolsa_familia'           => $faker->boolean,
 
 
