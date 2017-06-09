@@ -75,13 +75,13 @@
         <div class="form-group">
           <label class="col-md-1 control-label" for="nome">Nome</label>
           <div class="col-md-7">
-            <input value="{{ old('nome') }}" id="nome" name="nome" type="text" placeholder="Informe o nome" class="form-control input-md nome" > <span class="obrigatorio">*</span>
+            <input value="{{ old('nome') }}" id="nome" name="nome" type="text" placeholder="Informe o nome" class="form-control input-md nome"><span class="obrigatorio">*</span>
           </div>
           
           <div class="exibir">
             <label class="col-md-3 control-label" for="mulher_responsavel">Responsável familiar</label>
             <div class="col-md-1">
-              <input type="checkbox" @if(old('mulher_responsavel')) checked @endif id="mulher_responsavel" name="mulher_responsavel"  style="margin-top: 12px"> <span class="obrigatorio">*</span>
+              <input type="checkbox" @if(old('mulher_responsavel')) checked @endif id="mulher_responsavel" name="mulher_responsavel"  style="margin-top: 12px" data-switchery="true"><span style="margin-top: -4px;margin-left: -56px" class="obrigatorio">*</span>
             </div>
           </div>
         </div>
@@ -92,7 +92,7 @@
           {{-- CPF --}}      
           <label class="col-md-1 control-label" for="cpf">CPF</label>  
             <div class="col-md-2">
-              <input value="{{ old('cpf') }}" id="cpf" name="cpf" type="text" placeholder="999.999.999-99" data-inputmask="'mask': '999.999.999-99', 'numericInput': true" class="form-control input-md cpf" > <span class="obrigatorio">*</span>
+              <input value="{{ old('cpf') }}" id="cpf" name="cpf" type="text" placeholder="999.999.999-99" data-inputmask="'mask': '999.999.999-99', 'numericInput': true" class="form-control input-md cpf"><span class="obrigatorio">*</span>
             </div>
 
           {{-- NIS/PIS --}}            
@@ -109,12 +109,12 @@
 
           {{-- Bolsa Família --}}            
           <label class="col-md-1 control-label" for="bolsa_familia">Bolsa F.</label>  
-          <div class="col-md-2"> <span class="obrigatorio">*</span>
+          <div class="col-md-2">
             <select id="bolsa_familia" name="bolsa_familia" type="text" class="form-control input-md" >
               <option value="" disabled selected>Selecione...</option>
               <option value="1" @if(old('bolsa_familia') == "1") selected="selected" @endif >Possui</option>
               <option value="0" @if(old('bolsa_familia') == "0") selected="selected" @endif >Não possui</option>
-            </select>
+            </select><span class="obrigatorio">*</span>
           </div>
 
         </div> {{-- FIM CPF, NIS/PIS e Bolsa Família --}}
@@ -148,30 +148,30 @@
         <div class="form-group">
 
           {{-- Data de Nascimento --}}
-          <label class="col-md-1 control-label" for="nascimento">Nascimento</label>  
+          <label class="col-md-1 control-label" for="nascimento" data-toggle="tooltip" title="Data de nascimento">Nasc.</label>  
           <div class="col-md-2">
             <input value="{{ old('nascimento') }}" id="nascimento" name="nascimento" type="date" class="form-control input-md global_data" > <span class="obrigatorio">*</span>
           </div>
 
           {{-- Sexo   --}}
           <label class="col-md-1 control-label" for="sexo">Sexo</label>
-          <div class="col-md-2"> <span class="obrigatorio">*</span>
+          <div class="col-md-2">
             <select id="sexo" name="sexo" type="text" class="form-control input-md" >
               <option value="" disabled selected>Selecione...</option>
               <option value="Masculino" @if(old('sexo') == "Masculino") selected="selected" @endif>Masculino</option>
               <option value="Feminino" @if(old('sexo') == "Feminino") selected="selected" @endif>Feminino</option>
               <option value="Outros" @if(old('sexo') == "Outros") selected="selected" @endif>Outros</option>
-            </select>
+            </select><span class="obrigatorio">*</span>
           </div>
 
           {{-- Deficiente --}}
           <label class="col-md-1 control-label" for="necessidades_especiais">Deficiente</label>
-          <div class="col-md-2"> <span class="obrigatorio">*</span>
+          <div class="col-md-2">
             <select id="necessidades_especiais" name="necessidades_especiais" type="text" class="form-control input-md" > 
               <option value=" " selected @if(!old('necessidades_especiais')) selected @endif>Selecione...</option>
               <option value="1" @if(old('necessidades_especiais') == "1") selected="selected" @endif>Sim</option>
               <option value="0" @if(old('necessidades_especiais') == "0") selected="selected" @endif>Não</option>
-            </select>
+            </select><span class="obrigatorio">*</span>
           </div>
 
           <div class="col-md-3">
@@ -235,7 +235,7 @@
           CEP
           </label>
           <div class="col-md-2">
-            <input value="{{ old('cep') }}" id="cep" name="cep" type="text" placeholder="99999-999" data-inputmask="'mask': '99999-999', 'numericInput': true" class="form-control input-md cep" > <span class="obrigatorio">*</span>
+            <input value="{{ old('cep') }}" id="cep" name="cep" type="text" placeholder="99999-999" data-inputmask="'mask': '99999-999', 'numericInput': true" class="form-control input-md cep" > {{-- <span class="obrigatorio">*</span> --}}
           </div>
 
           <!-- Município-->
@@ -247,7 +247,7 @@
           {{-- Bairro --}}
           <label class="col-md-1 control-label" for="bairro">Bairro</label>
           <div class="col-md-2">
-            <input value="{{ old('bairro') }}" id="bairro" name="bairro" type="text" placeholder="Centro" class="form-control input-md"> <span class="obrigatorio">*</span>
+            <input value="{{ old('bairro') }}" id="bairro" name="bairro" type="text" placeholder="Centro" class="form-control input-md"><span class="obrigatorio">*</span>
           </div>
 
         </div> {{-- FIM CEP, Munícipio e Bairro--}}
@@ -256,7 +256,7 @@
         <div class="form-group">
 
           <!-- Logradouro ...Av...Rua....etc-->
-          <label class="col-md-1 control-label" for="logradouro">Logradouro</label>
+          <label class="col-md-1 control-label" for="logradouro" data-toggle="tooltip" title="Logradouro">Log.</label>
           <div class="col-md-3">
             <input value="{{ old('logradouro') }}"  id="logradouro" name="logradouro" type="text" placeholder="Av, Rua, Travessa..." class="form-control input-md"> <span class="obrigatorio">*</span>
           </div>
@@ -286,8 +286,8 @@
 
           {{-- Celular --}}
           <label class="col-md-1 control-label" for="telefones[0][numero]">Cel.</label>
-          <div class="col-md-2"> <span class="obrigatorio">*</span>
-            <input value="{{ old('telefones.0.numero') }}" id="telefones[0][numero]" name="telefones[0][numero]" type="text" placeholder="(99) 9 9999-9999" data-inputmask="'mask': '(99) 9 9999-9999'" class="form-control input-md celular">
+          <div class="col-md-2">
+            <input value="{{ old('telefones.0.numero') }}" id="telefones[0][numero]" name="telefones[0][numero]" type="text" placeholder="(99) 9 9999-9999" data-inputmask="'mask': '(99) 9 9999-9999'" class="form-control input-md celular"><span class="obrigatorio">*</span>
             <input type="hidden" name="telefones[0][tipo_telefone]" value="Celular">
           </div>
 
@@ -315,11 +315,11 @@
         <div class="form-group">
         <label class="col-md-1 control-label" for="coparticipante[nome]">Nome</label>
           <div class="col-md-7">
-            <input value="{{ old('coparticipante.nome') }}" id="coparticipante[nome]" name="coparticipante[nome]" type="text" placeholder="Informe o nome" class="form-control input-md nome" > <span class="obrigatorio">*</span>
+            <input value="{{ old('coparticipante.nome') }}" id="coparticipante[nome]" name="coparticipante[nome]" type="text" placeholder="Informe o nome" class="form-control input-md nome"><span class="obrigatorio">*</span>
           </div>
 
-          <label class="col-md-1 control-label" for="coparticipante.parentesco">Parentesco</label>
-          <div class="col-md-2">  <span class="obrigatorio">*</span>
+          <label class="col-md-2 control-label" for="coparticipante.parentesco">Parentesco</label>
+          <div class="col-md-2">
             <select name="coparticipante[parentesco]" id="coparticipante[parentesco]" type="text" placeholder="Necessidades Especiais" class="form-control input-md" >
               <option value="" disabled @if(!old('coparticipante.parentesco')) selected @endif>Selecione...</option>
             <option value="1" @if(old('coparticipante.parentesco') == "1") selected="selected" @endif>Avô(ó)</option>
@@ -334,7 +334,7 @@
             <option value="10" @if(old('coparticipante.parentesco') == "10") selected="selected" @endif>Neto(a)</option>
             <option value="11" @if(old('coparticipante.parentesco') == "11") selected="selected" @endif>Pais</option>
             <option value="12" @if(old('coparticipante.parentesco') == "12") selected="selected" @endif>Outras</option>
-            </select>
+            </select><span class="obrigatorio">*</span>
           </div>
         </div>
 
@@ -363,12 +363,12 @@
 
         {{-- Bolsa Família --}}            
         <label class="col-md-1 control-label" for="bolsa_familia">Bolsa F.</label>  
-          <div class="col-md-2"><span class="obrigatorio">*</span>
+          <div class="col-md-2">
             <select id="bolsa_familia_coparticipante" name="coparticipante[bolsa_familia]" type="text" class="form-control input-md" >
               <option value="" disabled selected>Selecione...</option>
               <option value="1" @if(old('bolsa_familia') == "1") selected="selected" @endif >Possui</option>
               <option value="0" @if(old('bolsa_familia') == "0") selected="selected" @endif >Não possui</option>
-            </select>
+            </select><span class="obrigatorio">*</span>
           </div>
 
       </div> {{-- FIM CPF, NIS/PIS e Bolsa Família --}}
@@ -402,31 +402,31 @@
       <div class="form-group">
 
         {{-- Data de Nascimento --}}
-        <label class="col-md-1 control-label" for="coparticipante[nascimento]">Nascimento</label>  
+        <label class="col-md-1 control-label" for="coparticipante[nascimento]"data-toggle="tooltip" title="Data de nascimento">Nasc.</label>  
         <div class="col-md-2">
           <input value="{{ old('coparticipante.nascimento') }}" id="coparticipante[nascimento]" name="coparticipante[nascimento]" type="date" placeholder="01 / 01 / 2000" class="form-control input-md global_data" > <span class="obrigatorio">*</span>
         </div>
 
         {{-- Sexo   --}}
         <label class="col-md-1 control-label" for="coparticipante[sexo]">Sexo</label>
-        <div class="col-md-2"> <span class="obrigatorio">*</span>
+        <div class="col-md-2">
           <select id="coparticipante[sexo]" name="coparticipante[sexo]" type="text" class="form-control input-md" >
             <option value="" disabled @if(!old('coparticipante.sexo')) selected @endif>Selecione...</option>
             <option value="Masculino" @if(old('coparticipante.sexo') == "Masculino") selected="selected" @endif>Masculino</option>
             <option value="Feminino" @if(old('coparticipante.sexo') == "Feminino") selected="selected" @endif>Feminino</option>
             <option value="Outros" @if(old('coparticipante.sexo') == "Outros") selected="selected" @endif>Outros</option>
-          </select>
+          </select><span class="obrigatorio">*</span>
         </div>
         
         {{-- Deficiente --}}
         <label class="col-md-1 control-label" for="necessidades_especiais">Deficiente</label>
 
-          <div class="col-md-2"><span class="obrigatorio">*</span>
+          <div class="col-md-2">
             <select id="necessidades_especiais_coparticipante" name="coparticipante[necessidades_especiais]" type="text" class="form-control input-md" >
               <option value=" " selected @if(!old('coparticipante[necessidades_especiais]')) selected @endif>Selecione...</option>
               <option value="1" @if(old('coparticipante[necessidades_especiais]') == "1") selected="selected" @endif>Sim</option>
               <option value="0" @if(old('coparticipante[necessidades_especiais]') == "0") selected="selected" @endif>Não</option>
-            </select>
+            </select><span class="obrigatorio">*</span>
           </div>
 
         <div class="col-md-3">
@@ -489,7 +489,7 @@
         </label>
 
         <div class="col-md-2">
-          <input value="{{ old('coparticipante.cep') }}" id="coparticipante[cep]" name="coparticipante[cep]" type="text" placeholder="99999-999" data-inputmask="'mask': '99.999-999', 'numericInput': true" class="form-control input-md cep" > <span class="obrigatorio">*</span>
+          <input value="{{ old('coparticipante.cep') }}" id="coparticipante[cep]" name="coparticipante[cep]" type="text" placeholder="99999-999" data-inputmask="'mask': '99.999-999', 'numericInput': true" class="form-control input-md cep"><span class="obrigatorio">*</span>
         </div>
 
         <!-- Município-->
@@ -511,7 +511,7 @@
       <div class="form-group">
 
         {{-- Logradouro ...Av...Rua....etc --}}
-        <label class="col-md-1 control-label" for="coparticipante[logradouro]">Logradouro</label>
+        <label class="col-md-1 control-label" for="coparticipante[logradouro]" data-toggle="tooltip" title="Logradouro">Log.</label>
         <div class="col-md-3">
           <input value="{{ old('coparticipante.logradouro') }}" id="coparticipante[logradouro]" name="coparticipante[logradouro]" type="text" placeholder="Av, Rua, Travessa..." class="form-control input-md"> <span class="obrigatorio">*</span>
         </div>
@@ -577,11 +577,11 @@
         {{-- Nome --}}
         <div class="form-group">
           <label class="col-md-1 control-label" for="dependentes[0][nome]">Nome</label>
-          <div class="col-md-7"> <span class="obrigatorio">*</span>
-            <input value="{{ old('dependentes.0.nome') }}" name="dependentes[0][nome]" id="dependentes[0][nome]" type="text" placeholder="Informe o nome" class="form-control input-md" > 
+          <div class="col-md-7">
+            <input value="{{ old('dependentes.0.nome') }}" name="dependentes[0][nome]" id="dependentes[0][nome]" type="text" placeholder="Informe o nome" class="form-control input-md" ><span class="obrigatorio">*</span>
           </div>
 
-          <label class="col-md-1 control-label" for="dependentes.0.parentesco">Parentesco</label>
+          <label class="col-md-1 control-label" for="dependentes.0.parentesco" data-toggle="tooltip" title="Parentesco">Parent.</label>
           <div class="col-md-2">
             <select name="dependentes[0][parentesco]" id="dependentes[0][parentesco]" type="text" placeholder="Necessidades Especiais" class="form-control input-md" > <span class="obrigatorio">*</span>
               <option value="" disabled @if(!old('dependentes.0.parentesco')) selected @endif>Selecione...</option>
@@ -597,7 +597,7 @@
             <option value="10" @if(old('dependentes.0.parentesco') == "10") selected="selected" @endif>Neto(a)</option>
             <option value="11" @if(old('dependentes.0.parentesco') == "11") selected="selected" @endif>Pais</option>
             <option value="12" @if(old('dependentes.0.parentesco') == "12") selected="selected" @endif>Outras</option>
-            </select>
+            </select><span class="obrigatorio">*</span>
           </div>
         </div>
       
@@ -605,40 +605,40 @@
         <div class="form-group">
 
         {{-- Data de Nascimento --}}
-        <label class="col-md-1 control-label" for="dependentes[0][nascimento]">Nascimento</label>  
+        <label class="col-md-1 control-label" for="dependentes[0][nascimento]" data-toggle="tooltip" title="Data de nascimento">Nasc.</label>  
         <div class="col-md-2">
           <input value="{{ old('dependentes.0.nascimento') }}" name="dependentes[0][nascimento]" type="date" placeholder="01/01/2000" class="form-control input-md global_data" > <span class="obrigatorio">*</span>
         </div>
 
         {{-- Sexo   --}}
         <label class="col-md-1 control-label" for="dependentes[0][sexo]">Sexo</label>
-        <div class="col-md-2"> <span class="obrigatorio">*</span>
+        <div class="col-md-2">
           <select name="dependentes[0][sexo]" id="dependentes[0][sexo]" type="text" placeholder="Sexo" class="form-control input-md" >
             <option value="" disabled @if(!old('dependentes.0.sexo')) selected @endif>Selecione...</option>
             <option value="Masculino" @if(old('dependentes.0.sexo') == "Masculino") selected="selected" @endif>Masculino</option>
             <option value="Feminino" @if(old('dependentes.0.sexo') == "Feminino") selected="selected" @endif>Feminino</option>
             <option value="Outros" @if(old('dependentes.0.sexo') == "Outros") selected="selected" @endif>Outros</option>
-          </select>
+          </select><span class="obrigatorio">*</span>
         </div>
 
         {{-- Deficiente --}}
 
         <label class="col-md-1 control-label" for="dependentes[0][necessidades_especiais]">Deficiente</label>
-          <div class="col-md-2"><span class="obrigatorio">*</span>
+          <div class="col-md-2">
             <select name="dependentes[0][necessidades_especiais]" type="text" class="form-control pne_dependentes input-md" >
               <option value=" " selected @if(!old('necessidades_especiais')) selected @endif>Selecione...</option>
               <option value="1" @if(old('necessidades_especiais') == "1") selected="selected" @endif>Sim</option>
               <option value="0" @if(old('necessidades_especiais') == "0") selected="selected" @endif>Não</option>
-            </select>
+            </select><span class="obrigatorio">*</span>
           </div>
 
-          <div class="col-md-3">
+          <div class="col-md-2">
 
             <select name="dependentes[0][tipo_deficiencia]" type="text" class="form-control tipo_deficiencia input-md" ><span class="obrigatorio">*</span>
               <option value=" " 
                   @if(!old('dependentes[0][tipo_deficiencia]')) 
                       selected 
-                  @endif>Tipo de Deficiência
+                  @endif>Tipos
               </option>
 
               <option value="Microcefalia" 
@@ -650,31 +650,31 @@
               <option value="Deficiência Física" 
                   @if(old('dependentes[0][tipo_deficiencia]') == "Deficiência Física") 
                       selected="selected" 
-                  @endif>Deficiência Física
+                  @endif>Física
               </option>
 
               <option value="Deficiência Auditiva" 
                   @if(old('dependentes[0][tipo_deficiencia]') == "Deficiência Auditiva") 
                       selected="selected" 
-                  @endif>Deficiência Auditiva
+                  @endif>Auditiva
               </option>
 
               <option value="Deficiência Visual" 
                   @if(old('dependentes[0][tipo_deficiencia]') == "Deficiência Visual") 
                       selected="selected" 
-                  @endif>Deficiência Visual
+                  @endif>Visual
               </option>
 
               <option value="Deficiência Mental" 
                   @if(old('dependentes[0][tipo_deficiencia]') == "Deficiência Mental") 
                       selected="selected" 
-                  @endif>Deficiência Mental
+                  @endif>Mental
               </option>
 
               <option value="Deficiência Mùltipla" 
                   @if(old('dependentes[0][tipo_deficiencia]') == "Deficiência Mùltipla") 
                       selected="selected" 
-                  @endif>Deficiência Mùltipla
+                  @endif>Mùltipla
               </option>             
 
             </select>
@@ -705,8 +705,8 @@
 
         {{-- Renda Familiar --}}
         <label class="col-md-1 control-label" for="renda_familiar">Renda</label>
-        <div class="col-md-2"> <span class="obrigatorio">*</span>
-          <input value="{{ old('renda_familiar') }}" id="renda_familiar" name="renda_familiar" type="text" placeholder="R$ 99.999,99" data-inputmask="'mask': 'R$ 99.999,99', 'numericInput' : true" class="form-control input-md cash" >
+        <div class="col-md-2">
+          <input value="{{ old('renda_familiar') }}" id="renda_familiar" name="renda_familiar" type="text" placeholder="R$ 99.999,99" data-inputmask="'mask': 'R$ 99.999,99', 'numericInput' : true" class="form-control input-md cash"><span class="obrigatorio">*</span>
         </div>
 
         {{-- Faixa--}}
@@ -718,7 +718,7 @@
         {{-- Código da Inscrição --}}
         <label class="col-md-2 control-label" for="codigo_inscricao">Código da Inscrição</label>
         <div class="col-md-2">
-          <input value="{{ old('codigo_inscricao') }}" id="codigo_inscricao" name="codigo_inscricao" type="text" class="form-control input-md" >
+          <input value="{{ old('codigo_inscricao') }}" id="codigo_inscricao" name="codigo_inscricao" type="text" class="form-control input-md" disabled selected style>
         </div>
 
       </div> {{-- FIM Renda Familiar e Faixa --}}
@@ -727,7 +727,7 @@
       <div class="form-group">
 
         {{-- Tempo de residência --}}
-        <label class="col-md-1 control-label" for="inicio-residencia">Início</label>
+        <label class="col-md-1 control-label" for="inicio-residencia" data-toggle="tooltip" title="Tempo de residência">Início</label>
         <div class="col-md-2">
           <input value="{{ old('inicio-residencia') }}" id="inicio-residencia" name="tempo_residencia" type="date" placeholder="01 / 01 / 2000" class="form-control input-md global_data" > <span class="obrigatorio">*</span>
         </div>
