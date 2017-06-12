@@ -43,17 +43,18 @@ body {
     border-color: #150a27 ;
     color: #fff !important;
 }
+
+.btn-cor-padrao:active {
+    background-image: linear-gradient(to top, #8241f9, #7038cd);
+}
+
 .btn-cor-padrao-hover:hover {
     background-image: linear-gradient(to bottom, #8241f9, #4e277b);
     border-color: #150a27 ;
     color: #fff !important;
 }
 
-.btn-cor-padrao:active {
-    background-image: linear-gradient(to top, #8241f9, #7038cd);
-}
-
-.btn-cor-padrao:active {
+.btn-cor-padrao-hover:active {
     background-image: linear-gradient(to top, #8241f9, #7038cd);
 }
 
@@ -325,13 +326,6 @@ span.switchery.switchery-small {
 
 
 
-
-
-
-
-
-
-
 /******************************** Pessoas *************************************************/
 
 
@@ -343,4 +337,14 @@ div.x_content.dependente {
 
 #participante, #co-participante, #dependentes, #renda-familiar {
     padding: 10px 15px;
+}
+
+
+
+
+
+/*****************************************Alterações Bootstrap*****************************/
+
+.form-control:focus {
+    box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(61, 39, 107,.8) !important;
 }

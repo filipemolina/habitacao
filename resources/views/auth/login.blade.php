@@ -16,7 +16,7 @@
     <!-- Custom Theme Style -->
     <link href="{{ asset("css/gentelella.min.css") }}" rel="stylesheet">
     <!-- css do projeto -->
-        <link href="{{ asset("css/styles.css") }}" rel="stylesheet"> 
+    <link href="{{ asset("css/styles.css") }}" rel="stylesheet"> 
 
 </head>
 

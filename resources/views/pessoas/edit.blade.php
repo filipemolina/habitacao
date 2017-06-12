@@ -721,7 +721,7 @@
         {{-- Código da Inscrição --}}
         <label class="col-md-2 control-label" for="codigo_inscricao">Código da Inscrição</label>
         <div class="col-md-2">
-          <input value="{{ old('codigo_inscricao') }}" id="codigo_inscricao" name="codigo_inscricao" type="text" class="form-control input-md" disabled selected style>
+          <input value="{{ old('codigo_inscricao') }}" id="codigo_inscricao" name="codigo_inscricao" type="text" class="form-control input-md" disabled selected style="">
         </div>
 
       </div> {{-- FIM Renda Familiar e Faixa --}}

@@ -7,7 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     
-    <title>Gentellela Alela! | </title>
+    <title>Habitação | Erro 404 </title>
     
     <!-- Bootstrap -->
     <link href="{{ asset("css/bootstrap.min.css") }}" rel="stylesheet">
@@ -19,30 +19,53 @@
     <link href="{{ asset("css/styles.css") }}" rel="stylesheet"> 
 </head>
 
-<body class="nav-md">
+<body class="nav-md color_special3">
 <div class="container">
     <div class="main_container">
         <!-- page content -->
+        <div class="color_special1" style="width:100%; height:150px; text-align: center;">
+            <img class="logo_topo" src="{{ asset("img/logoretangular.jpg") }}">
+        </div>
         <div class="col-md-12">
             <div class="col-middle">
-                <div class="text-center text-center">
+                <div class="text-center">
                     <h1 class="error-number">Página não localizada</h1>
                     <p>ERRO 404</p>
                     <h3>Pedimos desculpas pelo erro, mas a página deseja não foi encontrada</h3>
-                    <h4>Talvez não seja possível exibir a página solicitada devido à um dos seguintes motivos:</h4>
-                    <tr>
-                        <li>A página que procura possívelmente não existe</li>
-                        <li>Link de favoritos desatualizado</li>
-                        <li>Um mecanismo de busca que possua uma referência</h2></li>
-                        <li>URL digitada erradamente</li>
-                    </tr>
+                    <div class="col-md-4"></div>
+                    <div class="col-md-4">
+                        <table class="table text-left">
+                            <thead>
+                                Talvez não seja possível exibir a página solicitada devido à um dos seguintes motivos:
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <th scope="row">*</th>
+                                    <td class="bg-primary">A página que procura possívelmente não existe</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">*</th>
+                                    <td class="table-info">O link de favoritos está desatualizado</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">*</th>
+                                    <td class="table-active">Um mecanismo de busca que possua uma referência inadequada</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">*</th>
+                                    <td class="table-info">A URL foi digitada incorretamente</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="col-md-12">
                     <h3>
                         <a href="http://localhost:8000" class="btn btn-cor-padrao-hover" >Clique aqui</a>, para retornar a página inicial.
                     </h3>
                     <p>
                         Caso o problema persista,<a href="http://suporte.mesquita.rj.gov.br" class="btn-sm btn-cor-padrao-hover">clique aqui</a>, para entrar em contato com a equipe de desenvolvimento
                     </p>
-                    
+                    </div>
                 </div>
             </div>
         </div>

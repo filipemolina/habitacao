@@ -727,7 +727,7 @@
       <div class="form-group">
 
         {{-- Tempo de residência --}}
-        <label class="col-md-1 control-label" for="inicio-residencia" data-toggle="tooltip" title="Tempo de residência">Início</label>
+        <label class="col-md-1 control-label" for="inicio-residencia" data-toggle="tooltip" title="Tempo de residência  ">Início</label>
         <div class="col-md-2">
           <input value="{{ old('inicio-residencia') }}" id="inicio-residencia" name="tempo_residencia" type="date" placeholder="01 / 01 / 2000" class="form-control input-md global_data" > <span class="obrigatorio">*</span>
         </div>
