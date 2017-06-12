@@ -77,15 +77,15 @@ $(function(){
 
     // Botão de imprimir do overlay de visualização
 
-    $(".btn.glyphicon-print").click(function(e){
+    // $(".btn.glyphicon-print").click(function(e){
 
-        e.preventDefault();
+    //     e.preventDefault();
 
-        $(".modal-lg").print({
-          stylesheet : "{{ asset("css/print.css") }}"
-        });
+    //     $(".modal-lg").print({
+    //       stylesheet : "{{ asset("css/print.css") }}"
+    //     });
 
-    });
+    // });
 
     ///////////////////// Excluir usando SweetAlert
 
@@ -109,8 +109,9 @@ $(function(){
             confirmButtonClass: "btn-danger",
             confirmButtonText: "Sim, exclua!",
             cancelButtonText: "Cancelar",
+            confirmButtonClass: 'btn-danger',
             closeOnConfirm: false,
-            closeOnCancel: false
+            closeOnCancel: false,
         },
         function(isConfirm){
             if (isConfirm) {
@@ -136,12 +137,18 @@ $(function(){
                         title : "Excluído!",
                         text  : "O participante " + nome + "foi excluído do cadastro.",
                         type  : "success",
+                        confirmButtonClass: "btn-cor-padrao"
                     
                     });
                 });
             } else {
 
-                swal("Cancelado", "O participante "+nome+" permanece no cadastro.", "error");
+                swal({
+                  title : "Cancelado",
+                  text: "O participante " + nome + " permanece no cadastro.",
+                  type : 'error',
+                  confirmButtonClass : "btn-cor-padrao",
+                });
 
             }
         });
@@ -270,6 +277,12 @@ $(function(){
                             .html(dados.dependentes[i].necessidades_especiais ? "Sim" : "Não");
 
             }
+
+            // Link de Imprimir
+
+            $("a.glyphicon-print")
+                .attr('href', "{{ url("/pessoas/comprovante") }}/"+ dados.id)
+                .attr('target', "_blank");
 
         });
 

@@ -20,7 +20,7 @@ class CreateCoparticipantesTable extends Migration
             $table->enum('sexo',['Feminino', 'Masculino', 'Outros']);
             
 
-            $table->char('cpf',14);
+            $table->char('cpf',20);
             $table->date('nascimento');
             $table->string('rg',20);
             $table->date('emissao_rg');
@@ -33,8 +33,8 @@ class CreateCoparticipantesTable extends Migration
             $table->string('email',100)->nullable();
             $table->boolean('necessidades_especiais');
             $table->string('tipo_deficiencia')->nullable();
-            $table->char('nis',11)->nullable();
-            $table->char('ctps',11)->nullable();
+            $table->char('nis',20)->nullable();
+            $table->char('ctps',20)->nullable();
             $table->boolean('bolsa_familia');
             $table->integer('participante_id')->unsigned();
 

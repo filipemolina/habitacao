@@ -121,69 +121,73 @@
 
 		{{-----------------------------------Informações do Coparticipante ------------------------------------}}
 
-		<table style=" width: 100%; margin-top: 15px;">
+		@if(count($participante->coparticipante) > 0)
 
-			<thead>
-				
-				<tr>
-					<th colspan="3" style="font-size: 18px; font-weight: bold; text-align: center; background-color: #3D276B; color: #fff;">COPARTICIPANTE</th>
-				</tr>
+			<table style=" width: 100%; margin-top: 15px;">
 
-			</thead>
+				<thead>
+					
+					<tr>
+						<th colspan="3" style="font-size: 18px; font-weight: bold; text-align: center; background-color: #3D276B; color: #fff;">COPARTICIPANTE</th>
+					</tr>
 
-			<tbody>
+				</thead>
 
-				<tr>
-					<td colspan="3" style="padding-top: 10px;"></td>
-				</tr>
-				
-				<tr style="font-size: 14px; margin-top: 10px">
-				
-					<td>
-						<span class="bold">Nome: </span> {{ $participante->coparticipante->nome }}
-					</td>
+				<tbody>
 
-					<td>
-						<span class="bold">CPF: </span> {{ $participante->coparticipante->cpf }}
-					</td>
+					<tr>
+						<td colspan="3" style="padding-top: 10px;"></td>
+					</tr>
+					
+					<tr style="font-size: 14px; margin-top: 10px">
+					
+						<td>
+							<span class="bold">Nome: </span> {{ $participante->coparticipante->nome }}
+						</td>
 
-					<td>
-						<span class="bold">Nascimento: </span> {{ implode("/",array_reverse(explode("-",$participante->coparticipante->nascimento))) }}
-					</td>
+						<td>
+							<span class="bold">CPF: </span> {{ $participante->coparticipante->cpf }}
+						</td>
 
-				</tr>
+						<td>
+							<span class="bold">Nascimento: </span> {{ implode("/",array_reverse(explode("-",$participante->coparticipante->nascimento))) }}
+						</td>
 
-				<tr style="font-size: 14px">
+					</tr>
 
-					<td colspan="2">
-						<span class="bold">Endereco: </span> {{ $participante->coparticipante->endereco->logradouro }} nª {{ $participante->coparticipante->endereco->numero }} - {{ $participante->coparticipante->endereco->bairro }} - Mesquita
-					</td>
+					<tr style="font-size: 14px">
 
-					<td>
-						<span class="bold">CEP: </span>{{ $participante->coparticipante->endereco->cep }}
-					</td>
+						<td colspan="2">
+							<span class="bold">Endereco: </span> {{ $participante->coparticipante->endereco->logradouro }} nª {{ $participante->coparticipante->endereco->numero }} - {{ $participante->coparticipante->endereco->bairro }} - Mesquita
+						</td>
 
-				</tr>
+						<td>
+							<span class="bold">CEP: </span>{{ $participante->coparticipante->endereco->cep }}
+						</td>
 
-				<tr style="font-size: 14px">
+					</tr>
 
-					<td>
-						<span class="bold">Celular: </span> {{ $participante->coparticipante->telefones[0]->numero or "" }}
-					</td>
+					<tr style="font-size: 14px">
 
-					<td>
-						<span class="bold">Residencial: </span> {{ $participante->coparticipante->telefones[1]->numero or "" }}
-					</td>
+						<td>
+							<span class="bold">Celular: </span> {{ $participante->coparticipante->telefones[0]->numero or "" }}
+						</td>
 
-					<td>
-						<span class="bold">Necessidades Especiais: </span> {{ $participante->necessidades_especiais ? "Sim" : "Não" }}
-					</td>
+						<td>
+							<span class="bold">Residencial: </span> {{ $participante->coparticipante->telefones[1]->numero or "" }}
+						</td>
 
-				</tr>
+						<td>
+							<span class="bold">Necessidades Especiais: </span> {{ $participante->necessidades_especiais ? "Sim" : "Não" }}
+						</td>
 
-			</tbody>
+					</tr>
 
-		</table>
+				</tbody>
+
+			</table>
+
+		@endif
 
 		{{-----------------------------------Informações dos Dependentes ------------------------------------}}
 
@@ -256,7 +260,7 @@
 				<tr style="font-size: 14px; margin-top: 10px; border-bottom: 2px solid #000;">
 					
 					<td style="text-align: center; width: 58%;">
-						<span class="bold">Renda: </span> {{ $participante->renda_familiar }}
+						<span class="bold">Renda: </span>R$ {{ number_format($participante->renda_familiar, 2) }}
 					</td>
 
 					<td style="text-align: center">

@@ -81,10 +81,6 @@ class ParticipantesController extends Controller
      */
     public function store(Request $request)
     {
-        // echo "<pre>";
-        // print_r($request->all());
-        // exit;
-
         ////////////////////////////////////////////////// Validação
 
         $this->validate($request, [
@@ -96,10 +92,10 @@ class ParticipantesController extends Controller
             'nascimento'                            => 'date',
             'sexo'                                  => 'required',
             'necessidades_especiais'                => 'required',
-            'cep'                                   => 'required',
-            'logradouro'                            => 'required',
-            'numero'                                => 'required',
-            'bairro'                                => 'required',
+            'endereco.cep'                          => 'required',
+            'endereco.logradouro'                   => 'required',
+            'endereco.numero'                       => 'required',
+            'endereco.bairro'                       => 'required',
             'renda_familiar'                        => 'required',
             'tempo_residencia'                      => 'date',
 
@@ -113,10 +109,10 @@ class ParticipantesController extends Controller
             'coparticipante.nascimento'             => 'required_with:coparticipante.nome|date',
             'coparticipante.sexo'                   => 'required_with:coparticipante.nome',
             'coparticipante.necessidades_especiais' => 'required_with:coparticipante.nome',
-            'coparticipante.cep'                    => 'required_with:coparticipante.nome',
-            'coparticipante.logradouro'             => 'required_with:coparticipante.nome',
-            'coparticipante.numero'                 => 'required_with:coparticipante.nome',
-            'coparticipante.bairro'                 => 'required_with:coparticipante.nome',
+            'coparticipante.endereco.cep'           => 'required_with:coparticipante.nome',
+            'coparticipante.endereco.logradouro'    => 'required_with:coparticipante.nome',
+            'coparticipante.endereco.numero'        => 'required_with:coparticipante.nome',
+            'coparticipante.endereco.bairro'        => 'required_with:coparticipante.nome',
 
             // Dependentes
             'dependentes.*.nome'                    => 'required_with:dependentes.*.parentesco,dependentes.*.nascimento,dependentes.*.nascimento,dependentes.*.sexo,dependentes.*.necessidades_especiais',
@@ -176,7 +172,7 @@ class ParticipantesController extends Controller
 
         // Endereço do Participante
 
-        $participante->endereco()->save(new Endereco($request->all()));
+        $participante->endereco()->save(new Endereco($request->endereco));
 
         // Dependentes
 
@@ -201,7 +197,7 @@ class ParticipantesController extends Controller
 
             // Endereço do Coparticipante
 
-            $coparticipante->endereco()->save(new Endereco($request->input('coparticipante')));
+            $coparticipante->endereco()->save(new Endereco($request->coparticipante['endereco']));
 
             // Telefones do Coparticipante
 
@@ -211,7 +207,7 @@ class ParticipantesController extends Controller
             }
         }
 
-        return redirect('/pessoas/create')->with('sucesso', "Usuário cadastrado com sucesso. Código da inscriçao: <span style='text-transform: uppercase; font-weight: bold; font-size: 16px;'>$participante->codigo_inscricao</span>");
+        return redirect('/pessoas/create')->with('sucesso', "Usuário cadastrado com sucesso. Código da inscriçao : <span style='font-weight: bold; font-size: 16px'>$participante->codigo_inscricao</span><br><a target='_blank' style=' font-weight: bold; text-transform: uppercase' href='".url("/pessoas/comprovante/$participante->id")."'>Clique aqui para imprirmir o comprovante de inscrição</a>");
     }
 
     /**
@@ -263,10 +259,6 @@ class ParticipantesController extends Controller
                     'required',
                     Rule::unique('participantes')->ignore($id)
             ],
-            'bolsa_familia'                         => 'required',
-            'rg'                                    => 'required',
-            'orgao_emissor_rg'                      => 'required',
-            'emissao_rg'                            => 'date',
             'nascimento'                            => 'date',
             'sexo'                                  => 'required',
             'necessidades_especiais'                => 'required',
@@ -276,8 +268,6 @@ class ParticipantesController extends Controller
             'endereco.bairro'                       => 'required',
             'renda_familiar'                        => 'required',
             'tempo_residencia'                      => 'date',
-            'telefones.*.numero'                    => 'required',
-            'inicio-residencia'                     => 'required',
 
             // Coparticipante
             // O campo nome é totalmente opcional. Entretanto, caso este seja preenchido
@@ -307,6 +297,20 @@ class ParticipantesController extends Controller
 
         $participante = Participante::find($id);
         $participante->update($request->all());
+
+        // Renda Familiar
+
+        $participante->renda_familiar = str_replace(["R", "$", "_", " "],  "", 
+                                            str_replace(",", ".", 
+                                                str_replace(".", "", $request->renda_familiar)
+                                            )
+                                        );
+
+        // Verificar se o participante é mulher chefe de família
+
+        $participante->mulher_responsavel = $request->mulher_responsavel ? 1 : 0;
+
+        // Verificar se o participante é idoso
 
         if(date('Y') - date('Y', strtotime($participante->nascimento)) >= 65)
         {
@@ -513,8 +517,6 @@ class ParticipantesController extends Controller
         $pdf = PDF::loadView('pessoas.relatorios.comprovante', compact('participante'));
 
         return $pdf->stream();
-
-        // return view('pessoas.relatorios.comprovante', compact('participante'));
 
     }
 

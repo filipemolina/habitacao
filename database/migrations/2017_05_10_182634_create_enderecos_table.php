@@ -17,7 +17,7 @@ class CreateEnderecosTable extends Migration
             $table->increments('id');
 
             $table->string('logradouro',100);
-            $table->unsignedTinyInteger('numero');
+            $table->unsignedMediumInteger('numero');
             $table->string('complemento',10)->nullable();
             $table->char('cep',10);
             $table->string('bairro',20);
