@@ -106,7 +106,7 @@
 
           {{-- Bolsa Família --}}            
           <label class="col-md-1 control-label" for="bolsa_familia">Bolsa F.</label>  
-          <div class="col-md-2"> <span class="obrigatorio">*</span>
+          <div class="col-md-2">
             <select id="bolsa_familia" name="bolsa_familia" type="text" class="form-control input-md" >
               <option value="" selected>Selecione...</option>
               <option value="1" @if($pessoa->bolsa_familia == "1") selected="selected" @endif >Possui</option>
@@ -381,7 +381,7 @@
 
         {{-- Bolsa Família --}}            
         <label class="col-md-1 control-label" for="bolsa_familia">Bolsa F.</label>  
-          <div class="col-md-2"><span class="obrigatorio">*</span>
+          <div class="col-md-2">
             <select id="bolsa_familia_coparticipante" name="coparticipante[bolsa_familia]" type="text" class="form-control input-md" >
               <option value="">Selecione...</option>
               
