@@ -443,9 +443,9 @@
 
               @if(count($pessoa->coparticipante) > 0)
     
-                <option value="Masculino" @if($pessoa->coparticipante->sexo) == "Masculino") selected="selected" @endif>Masculino</option>
-                <option value="Feminino" @if($pessoa->coparticipante->sexo) == "Feminino") selected="selected" @endif>Feminino</option>
-                <option value="Outros" @if($pessoa->coparticipante->sexo) == "Outros") selected="selected" @endif>Outros</option>
+                <option value="Masculino" @if($pessoa->coparticipante->sexo == "Masculino") selected="selected" @endif>Masculino</option>
+                <option value="Feminino" @if($pessoa->coparticipante->sexo == "Feminino") selected="selected" @endif>Feminino</option>
+                <option value="Outros" @if($pessoa->coparticipante->sexo == "Outros") selected="selected" @endif>Outros</option>
 
               @else
 
@@ -685,7 +685,7 @@
             <label class="col-md-1 control-label" for="dependentes[{{ $i }}][sexo]">Sexo</label>
             <div class="col-md-2">
               <select name="dependentes[{{ $i }}][sexo]" id="dependentes[{{ $i }}][sexo]" type="text" placeholder="Sexo" class="form-control input-md" >
-                <option value="" disabled @if(!$dependente->sexo) selected @endif>Selecione...</option>
+                <option value="">Selecione...</option>
                 <option value="Masculino" @if($dependente->sexo == "Masculino") selected="selected" @endif>Masculino</option>
                 <option value="Feminino" @if($dependente->sexo == "Feminino") selected="selected" @endif>Feminino</option>
                 <option value="Outros" @if($dependente->sexo == "Outros") selected="selected" @endif>Outros</option>
