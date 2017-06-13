@@ -45,8 +45,33 @@
 
     function calculaFaixa(salario){
 
-        var valor = parseFloat(salario.replace('R$ ', '').replace(',', '.').replace('_', ''));
+        // var valor = parseFloat(salario.replace('R$ ', '').replace(".", "").replace(',', '.').replace('_', ''));
 
+        // console.log(valor);
+
+        var valor = "";
+
+        console.log("Salario");
+        console.log(salario);
+        console.log("Valor 1");
+
+        valor = salario.replace("R$ ", "");
+
+        console.log(valor);
+
+        valor = valor.replace(".", "");
+
+        console.log("Valor 2");
+        console.log(valor);
+
+        valor = valor.replace(",", ".");
+
+        console.log("Valor 3");
+        console.log(valor);
+
+        valor = valor.replace(/_/g, "");
+
+        console.log("Valor 4");
         console.log(valor);
 
         var faixa = 0;
