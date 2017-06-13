@@ -55,7 +55,7 @@
 
     @endif
 
-    <h2> Cadastro de Pessoa </h2>
+    <h2> Alterar Pessoa </h2>
 
     <form id="cadastro_pessoa" class="form-horizontal" method="post" action="{{ url("/pessoas/$pessoa->id") }}">
 
