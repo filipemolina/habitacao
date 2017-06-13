@@ -47,6 +47,8 @@
 
         var valor = parseFloat(salario.replace('R$ ', '').replace(',', '.').replace('_', ''));
 
+        console.log(valor);
+
         var faixa = 0;
 
         if(valor <= 1800)
