@@ -472,6 +472,7 @@ class ParticipantesController extends Controller
                 'coparticipante'         => count($participante->coparticipante) ? "Sim" : "Não",
                 'dependentes'            => count($participante->dependentes),
                 'bairro'                 => $participante->endereco->bairro,
+                'codigo'                 => $participante->codigo_inscricao,
                 'acoes'                  => $acoes,
             ]);
         }
@@ -524,10 +525,6 @@ class ParticipantesController extends Controller
 
     public function imprimeRelatorio(Request $request)
     {
-        // echo "<pre>";
-        // print_r($request->toArray());
-        // exit;
-
         // Validar
 
         $this->validate($request, [
@@ -594,7 +591,7 @@ class ParticipantesController extends Controller
         // Faixa de Inscrição
 
         if($request->ordem_relatorio == 'faixa')
-            return $this->incluirFaixaNaQuery($query)->orderByRaw("faixa, nome")->get();
+            return $this->incluirFaixaNaQuery($query)->orderByRaw("faixa, renda_familiar")->get();
 
         // Idade
 

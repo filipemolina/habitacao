@@ -88,20 +88,25 @@
 
           {{-- CPF --}}      
           <label class="col-md-1 control-label" for="cpf">CPF</label>  
-            <div class="col-md-2">
-              <input value="{{ old('cpf') }}" id="cpf" name="cpf" type="text" placeholder="999.999.999-99" data-inputmask="'mask': '999.999.999-99', 'numericInput': true" class="form-control input-md cpf" > <span class="obrigatorio">*</span>
-            </div>
-
-          {{-- NIS/PIS --}}            
-          <label class="col-md-1 control-label" for="nis">NIS/PIS</label>  
           <div class="col-md-2">
-            <input value="{{ old('nis') }}" id="nis" name="nis" type="text" placeholder="999.999999.99-99" data-inputmask="'mask': '999.99999.99-9', 'numericInput': true" class="form-control input-md nis" >
+            <input value="{{ old('cpf') }}" id="cpf" name="cpf" type="text" placeholder="999.999.999-99" data-inputmask="'mask': '999.999.999-99', 'numericInput': true" class="form-control input-md cpf" > <span class="obrigatorio">*</span>
           </div>
 
-          {{-- Carteira de Trabalho --}}            
-          <label class="col-md-1 control-label" for="ctps">CTPS</label>  
+          {{-- Data de Nascimento --}}
+          <label class="col-md-1 control-label" for="nascimento">Nascimento</label>  
           <div class="col-md-2">
-            <input value="{{ old('ctps') }}" id="ctps" name="ctps" type="text" placeholder="9999999 999-9" data-inputmask="'mask': '9999999 999-9', 'numericInput': true" class="form-control input-md carteira" >
+            <input value="{{ old('nascimento') }}" id="nascimento" name="nascimento" type="date" class="form-control input-md global_data" > <span class="obrigatorio">*</span>
+          </div>
+
+          {{-- Sexo   --}}
+          <label class="col-md-1 control-label" for="sexo">Sexo</label>
+          <div class="col-md-2"> <span class="obrigatorio">*</span>
+            <select id="sexo" name="sexo" type="text" class="form-control input-md" >
+              <option value="" disabled selected>Selecione...</option>
+              <option value="Masculino" @if(old('sexo') == "Masculino") selected="selected" @endif>Masculino</option>
+              <option value="Feminino" @if(old('sexo') == "Feminino") selected="selected" @endif>Feminino</option>
+              <option value="Outros" @if(old('sexo') == "Outros") selected="selected" @endif>Outros</option>
+            </select>
           </div>
 
           {{-- Bolsa Família --}}            
@@ -126,16 +131,16 @@
             <input value="{{ old('rg') }}" id="rg" name="rg" placeholder="99.999.999-9" data-inputmask="'mask': '99.999.999-9', 'numericInput': true" class="form-control input-md rg" >
           </div>
 
-          <!-- Orgão Emissor do RG-->
-          <label class="col-md-1 control-label" for="orgao_emissor_rg">Orgão</label>  
-          <div class="col-md-2">
-            <input value="{{ old('orgao_emissor_rg') }}" id="orgao_emissor_rg" name="orgao_emissor_rg" type="text" placeholder="Orgão Emissor" class="form-control input-md" >
-          </div>
-
           <!-- Data de Emissão do RG-->
           <label class="col-md-1 control-label" for="emissao_rg">Emissão</label>  
           <div class="col-md-2">
             <input value="{{ old('emissao_rg') }}" id="emissao_rg" name="emissao_rg" type="date" class="form-control input-md global_data" >
+          </div>
+
+          <!-- Orgão Emissor do RG-->
+          <label class="col-md-1 control-label" for="orgao_emissor_rg">Orgão</label>  
+          <div class="col-md-2">
+            <input value="{{ old('orgao_emissor_rg') }}" id="orgao_emissor_rg" name="orgao_emissor_rg" type="text" placeholder="Orgão Emissor" class="form-control input-md" >
           </div>
 
         </div> {{-- FIM RG, Orgão Emissor do RG e Data de Emissão do RG --}}
@@ -144,21 +149,16 @@
         {{-- Data de Nascimento, Sexo, Deficiente --}}
         <div class="form-group">
 
-          {{-- Data de Nascimento --}}
-          <label class="col-md-1 control-label" for="nascimento">Nascimento</label>  
+          {{-- NIS/PIS --}}            
+          <label class="col-md-1 control-label" for="nis">NIS/PIS</label>  
           <div class="col-md-2">
-            <input value="{{ old('nascimento') }}" id="nascimento" name="nascimento" type="date" class="form-control input-md global_data" > <span class="obrigatorio">*</span>
+            <input value="{{ old('nis') }}" id="nis" name="nis" type="text" placeholder="999.999999.99-99" data-inputmask="'mask': '999.99999.99-9', 'numericInput': true" class="form-control input-md nis" >
           </div>
 
-          {{-- Sexo   --}}
-          <label class="col-md-1 control-label" for="sexo">Sexo</label>
-          <div class="col-md-2"> <span class="obrigatorio">*</span>
-            <select id="sexo" name="sexo" type="text" class="form-control input-md" >
-              <option value="" disabled selected>Selecione...</option>
-              <option value="Masculino" @if(old('sexo') == "Masculino") selected="selected" @endif>Masculino</option>
-              <option value="Feminino" @if(old('sexo') == "Feminino") selected="selected" @endif>Feminino</option>
-              <option value="Outros" @if(old('sexo') == "Outros") selected="selected" @endif>Outros</option>
-            </select>
+          {{-- Carteira de Trabalho --}}            
+          <label class="col-md-1 control-label" for="ctps">CTPS</label>  
+          <div class="col-md-2">
+            <input value="{{ old('ctps') }}" id="ctps" name="ctps" type="text" placeholder="9999999 999-9" data-inputmask="'mask': '9999999 999-9', 'numericInput': true" class="form-control input-md carteira" >
           </div>
 
           {{-- Deficiente --}}
@@ -346,16 +346,21 @@
           <input value="{{ old('coparticipante[cpf]') }}" id="coparticipante[cpf]" name="coparticipante[cpf]" type="text" placeholder="999.999.999-99" data-inputmask="'mask': '999.999.999-99', 'numericInput': true" class="form-control input-md cpf" > <span class="obrigatorio">*</span>
         </div>
 
-        {{-- NIS/PIS --}}            
-        <label class="col-md-1 control-label" for="coparticipante[nis]">NIS/PIS</label>  
+        {{-- Data de Nascimento --}}
+        <label class="col-md-1 control-label" for="coparticipante[nascimento]">Nascimento</label>  
         <div class="col-md-2">
-          <input value="{{ old('coparticipante[nis]') }}" id="coparticipante[nis]" name="coparticipante[nis]" type="text" placeholder="999.999999.99-99" data-inputmask="'mask': '999.99999.99-9', 'numericInput': true" class="form-control input-md nis" >
+          <input value="{{ old('coparticipante[nascimento]') }}" id="coparticipante[nascimento]" name="coparticipante[nascimento]" type="date" placeholder="01 / 01 / 2000" class="form-control input-md global_data" > <span class="obrigatorio">*</span>
         </div>
 
-        {{-- Carteira de Trabalho --}}            
-        <label class="col-md-1 control-label" for="coparticipante[ctps]">CTPS</label>  
-        <div class="col-md-2">
-          <input value="{{ old('coparticipante[ctps]') }}" id="coparticipante[ctps]" name="coparticipante[ctps]" type="text" placeholder="Cart. de Trabalho" data-inputmask="'mask': '9999999 999-9', 'numericInput': true" class="form-control input-md carteira" >
+        {{-- Sexo   --}}
+        <label class="col-md-1 control-label" for="coparticipante[sexo]">Sexo</label>
+        <div class="col-md-2"> <span class="obrigatorio">*</span>
+          <select id="coparticipante[sexo]" name="coparticipante[sexo]" type="text" class="form-control input-md" >
+            <option value="" disabled @if(!old('coparticipante[sexo]')) selected @endif>Selecione...</option>
+            <option value="Masculino" @if(old('coparticipante[sexo]') == "Masculino") selected="selected" @endif>Masculino</option>
+            <option value="Feminino" @if(old('coparticipante[sexo]') == "Feminino") selected="selected" @endif>Feminino</option>
+            <option value="Outros" @if(old('coparticipante[sexo]') == "Outros") selected="selected" @endif>Outros</option>
+          </select>
         </div>
 
         {{-- Bolsa Família --}}            
@@ -380,16 +385,16 @@
           <input value="{{ old('coparticipante[rg]') }}" id="coparticipante[rg]" name="coparticipante[rg]" type="text" placeholder="99.999.999-9" data-inputmask="'mask': '99.999.999-9', 'numericInput': true" class="form-control input-md rg" >
         </div>
 
-        <!-- Orgão Emissor do RG-->
-        <label class="col-md-1 control-label" for="coparticipante[orgao_emissor_rg]">Orgão</label>  
-        <div class="col-md-2">
-          <input value="{{ old('coparticipante[orgao_emissor_rg]') }}" id="coparticipante[orgao_emissor_rg]" name="coparticipante[orgao_emissor_rg]" type="text" placeholder="Orgão Emissor" class="form-control input-md" >
-        </div>
-
         <!-- Data de Emissão do RG-->
         <label class="col-md-1 control-label" for="coparticipante[emissao_rg]">Emissão</label>  
         <div class="col-md-2">
           <input value="{{ old('coparticipante[emissao_rg]') }}" id="coparticipante[emissao_rg]" name="coparticipante[emissao_rg]" type="date" placeholder="Data de Emissão" class="form-control input-md global_data" >
+        </div>
+
+        <!-- Orgão Emissor do RG-->
+        <label class="col-md-1 control-label" for="coparticipante[orgao_emissor_rg]">Orgão</label>  
+        <div class="col-md-2">
+          <input value="{{ old('coparticipante[orgao_emissor_rg]') }}" id="coparticipante[orgao_emissor_rg]" name="coparticipante[orgao_emissor_rg]" type="text" placeholder="Orgão Emissor" class="form-control input-md" >
         </div>
             
       </div> {{-- FIM RG, Orgão Emissor do RG e Data de Emissão do RG --}}
@@ -398,21 +403,16 @@
       {{-- Data de Nascimento, Sexo, Deficiente --}}
       <div class="form-group">
 
-        {{-- Data de Nascimento --}}
-        <label class="col-md-1 control-label" for="coparticipante[nascimento]">Nascimento</label>  
+        {{-- NIS/PIS --}}            
+        <label class="col-md-1 control-label" for="coparticipante[nis]">NIS/PIS</label>  
         <div class="col-md-2">
-          <input value="{{ old('coparticipante[nascimento]') }}" id="coparticipante[nascimento]" name="coparticipante[nascimento]" type="date" placeholder="01 / 01 / 2000" class="form-control input-md global_data" > <span class="obrigatorio">*</span>
+          <input value="{{ old('coparticipante[nis]') }}" id="coparticipante[nis]" name="coparticipante[nis]" type="text" placeholder="999.999999.99-99" data-inputmask="'mask': '999.99999.99-9', 'numericInput': true" class="form-control input-md nis" >
         </div>
 
-        {{-- Sexo   --}}
-        <label class="col-md-1 control-label" for="coparticipante[sexo]">Sexo</label>
-        <div class="col-md-2"> <span class="obrigatorio">*</span>
-          <select id="coparticipante[sexo]" name="coparticipante[sexo]" type="text" class="form-control input-md" >
-            <option value="" disabled @if(!old('coparticipante[sexo]')) selected @endif>Selecione...</option>
-            <option value="Masculino" @if(old('coparticipante[sexo]') == "Masculino") selected="selected" @endif>Masculino</option>
-            <option value="Feminino" @if(old('coparticipante[sexo]') == "Feminino") selected="selected" @endif>Feminino</option>
-            <option value="Outros" @if(old('coparticipante[sexo]') == "Outros") selected="selected" @endif>Outros</option>
-          </select>
+        {{-- Carteira de Trabalho --}}            
+        <label class="col-md-1 control-label" for="coparticipante[ctps]">CTPS</label>  
+        <div class="col-md-2">
+          <input value="{{ old('coparticipante[ctps]') }}" id="coparticipante[ctps]" name="coparticipante[ctps]" type="text" placeholder="Cart. de Trabalho" data-inputmask="'mask': '9999999 999-9', 'numericInput': true" class="form-control input-md carteira" >
         </div>
         
         {{-- Deficiente --}}

@@ -39,6 +39,7 @@ Lista de Pessoas
                     <th>Co-participante</th>
                     <th>Dependentes</th>
                     <th>Bairro</th>
+                    <th>Código</th>
                     <th>Ações</th>
                 </tr>           
 
