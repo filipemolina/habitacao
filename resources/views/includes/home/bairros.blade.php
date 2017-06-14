@@ -5,19 +5,18 @@
             <ul class="nav navbar-right panel_toolbox">
                 
                 <li>
-                    <a class="collapse-link"><i class="fa fa-chevron-up btn btn-pn-circulo btn-cor-padrao"></i></a>
+                    <a class="collapse-link" data-toggle="tooltip" title="Reduzir / Expandir"><i class="fa fa-chevron-up btn btn-pn-circulo btn-cor-padrao"></i></a>
                 </li>
 
                 <li class="dropdown">
-
-                    {{-- Link para gerar relatórios apenas se for usuário Master --}}
+                    {{-- Link para gerar relatórios apenas se for Master --}}
 
                     @if(Auth::user()->admin == "Master")
-
-                        <a href="#" class="dropdown-toggle relatorio" data-ordem="bairro" role="button" aria-expanded="false"><i class="fa fa-eye" style="color: #3D276B"></i></a>
-
-                    @endif
                     
+                        <a href="#" class="dropdown-toggle relatorio" data-ordem="sexo" role="button" aria-expanded="false" data-toggle="tooltip" title="Relatório"><i class="fa fa-file btn btn-pn-circulo btn-cor-padrao" style="color: #3D276B"></i></a>
+                    
+                    @endif
+
                 </li>
             </ul>
             <div class="clearfix"></div>

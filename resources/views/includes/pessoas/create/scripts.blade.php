@@ -147,16 +147,16 @@
         // Limpar campos da div
 
         // Limpar divs de Participanete e Co-participante
-        $(document).on("click", "button.limpar1", function(e){
+        $(document).on("click", "a.limpar1", function(e){
 
           e.preventDefault();
 
-          $(this).parent().parent().parent().find("input, select").val('');
+          $(this).parent().parent().parent().parent().find("input, select").val('');
 
         });
 
         // Limpar divs de Dependentes
-        $(document).on("click", "button.limpar2", function(e){
+        $(document).on("click", "a.limpar2", function(e){
 
           e.preventDefault();
 

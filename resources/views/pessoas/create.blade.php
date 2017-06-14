@@ -67,21 +67,22 @@
       <div class="x_panel modal-content" id="participante">
         
         <div class="x_title">
-          <div class="col-md-10"> Participante </div>
+          <h2> Participante </h2>
 
-            <div class="col-md-1">
-              <a class="collapse-link">
-                <i class="fa fa-chevron-up btn btn-pn-circulo btn-cor-padrao"></i>
-              </a>
-            </div>
-
-            <div class="col-md-1">
-              <button class="btn btn-pn-circulo btn-cor-perigo limpar1" data-toggle="tooltip" title="Limpar campos" value="limpar1"><i class="fa fa-times"></i></button>
+            <ul class="nav navbar-right panel_toolbox">
             
-            </div>
+              <li>
+                <a class="collapse-link" data-toggle="tooltip" title="Reduzir / Expandir"><i class="fa fa-chevron-up btn btn-pn-circulo btn-cor-padrao"></i></a>
+              <li>
+
+              <li>
+                <a class="limpar1" data-toggle="tooltip" title="Limpar campos" value="limpar1"><i class="fa fa-times btn btn-pn-circulo btn-cor-perigo"></i></a>
+              </li>
+
+            </ul>
 
             <div class="clearfix"></div>
-          
+
         </div>
 
         <div class="x_content">
@@ -247,7 +248,7 @@
 
           <!-- CEP-->
           <label class="col-md-1 control-label" for="cep">
-          <a href="http://www.buscacep.correios.com.br/sistemas/buscacep/" target="_blank" class="btn btn-pn-circulo btn-cor-padrao glyphicon glyphicon-search" data-toggle="tooltip" title="Buscar CEP" formtarget="_blank" style="margin-right: 0; margin-bottom: 3px;"></a>
+          <a href="http://www.buscacep.correios.com.br/sistemas/buscacep/" target="_blank" data-toggle="tooltip" title="Buscar CEP" formtarget="_blank" style="margin-right: 0; margin-bottom: 3px;"><i class="btn btn-pn-circulo btn-cor-padrao glyphicon glyphicon-search" style="margin-top: -10px;"></i></a>
           CEP
           </label>
           <div class="col-md-2">
@@ -329,17 +330,19 @@
         
         <div class="x_title">
 
-            <div class="col-md-10">Co-Participante</div>
+            <h2>Co-Participante</h2>
 
-            <div class="col-md-1">
-              <a class="collapse-link">
-                <i class="fa fa-chevron-up btn btn-pn-circulo btn-cor-padrao"></i>
-              </a>
-            </div>
+            <ul class="nav navbar-right panel_toolbox">
+            
+              <li>
+                <a class="collapse-link" data-toggle="tooltip" title="Reduzir / Expandir"><i class="fa fa-chevron-up btn btn-pn-circulo btn-cor-padrao"></i></a>
+              <li>
 
-            <div class="col-md-1">
-              <button class="btn btn-pn-circulo btn-cor-perigo limpar1" data-toggle="tooltip" title="Limpar campos" value="limpar1"><i class="fa fa-times"></i></button>
-            </div>
+              <li>
+                <a class="limpar1" data-toggle="tooltip" title="Limpar campos" value="limpar1"><i class="fa fa-times btn btn-pn-circulo btn-cor-perigo"></i></a>
+              </li>
+
+            </ul>
 
             <div class="clearfix"></div>
 
@@ -520,7 +523,7 @@
 
         <!-- CEP-->
         <label class="col-md-1 control-label" for="coparticipante[cep]">
-          <button class="btn btn-pn-circulo btn-cor-padrao duplicar-endereco glyphicon glyphicon-repeat" data-toggle="tooltip" title="Copiar endereço" style="margin-right: 0; margin-bottom: 3px;"></button>
+          <a class="duplicar-endereco" data-toggle="tooltip" title="Copiar endereço" style="margin-right: 0; margin-bottom: 3px;"><i class="btn btn-pn-circulo btn-cor-padrao glyphicon glyphicon-repeat" style="margin-top: -10px;"></i></a>
           CEP
         </label>
 
@@ -604,18 +607,22 @@
     <div class="x_panel modal-content" id="dependentes">
       
       <div class="x_title">
+        
+        <h2> Dependentes </h2>
 
-        <div class="col-md-10"> Dependentes </div>
+        <ul class="nav navbar-right panel_toolbox">
 
-        <div class="col-md-1">
-          <a class="collapse-link">
-            <i class="fa fa-chevron-up btn btn-pn-circulo btn-cor-padrao"></i>
-          </a>
-        </div>
+          <li>
+            <a class="collapse-link" data-toggle="tooltip" title="Reduzir / Expandir">
+              <i class="fa fa-chevron-up btn btn-pn-circulo btn-cor-padrao"></i>
+            </a>
+          </li>
 
-        <div class="col-md-1">
-          <button name="submit" value="clonar" data-toggle="tooltip" title="Adicionar dependente" class="btn btn-pn-circulo btn-cor-padrao clonar"><i class="glyphicon glyphicon-plus"></i></button>
-        </div>
+          <li>
+            <a name="submit" value="clonar" data-toggle="tooltip" title="Adicionar dependente" class="clonar"><i class="fa fa-plus btn btn-pn-circulo btn-cor-padrao"></i></a>
+          </li>
+
+        </ul>
 
         <div class="clearfix"></div>
 
@@ -656,7 +663,7 @@
             </div>
 
             <div class="col-md-1">
-              <button class="btn btn-pn-circulo btn-cor-perigo limpar2" data-toggle="tooltip" title="Limpar campos" value="limpar2" style="margin-top: 7px;margin-left: 45px;"><i class="fa fa-times"></i></button>
+              <a class="limpar2" data-toggle="tooltip" title="Limpar campos" value="limpar2"><i class="btn btn-pn-circulo btn-cor-perigo fa fa-times" style="margin-top: 5px;margin-left: 10px;"></i></a>
             
             </div>
           </div>
@@ -761,17 +768,19 @@
       {{-- <div class="x_title"> Renda familiar e tempo de residência em Mesquita </div> --}}
       <div class="x_title"> 
 
-        <div class="col-md-10">Informações Adicionais</div>
+        <h2>Informações Adicionais</h2>
 
-        <div class="col-md-1">
-          <a class="collapse-link">
-            <i class="fa fa-chevron-up btn btn-pn-circulo btn-cor-padrao"></i>
-          </a>
-        </div>
+        <ul class="nav navbar-right panel_toolbox">
+            
+              <li>
+                <a class="collapse-link" data-toggle="tooltip" title="Reduzir / Expandir"><i class="fa fa-chevron-up btn btn-pn-circulo btn-cor-padrao"></i></a>
+              <li>
 
-        <div class="col-md-1">
-          <button class="btn btn-pn-circulo btn-cor-perigo limpar1" data-toggle="tooltip" title="Limpar campos" value="limpar1"><i class="fa fa-times"></i></button>
-        </div>
+              <li>
+                <a class="limpar1" data-toggle="tooltip" title="Limpar campos" value="limpar1"><i class="fa fa-times btn btn-pn-circulo btn-cor-perigo"></i></a>
+              </li>
+
+            </ul>
 
         <div class="clearfix"></div>
 
@@ -827,15 +836,21 @@
     </br>
 
     {{-- Botões Enviar e Limpar --}}
-    <div class="form-group">
+    <ul class="nav navbar-right panel_toolbox">
+      
+    <li>
       <label class="col-md-1 control-label" for="button1id">
-        <button id="button1id" type="submit" value="submit" name="button1id" data-toggle="tooltip" title="Salvar formulário" class="btn btn-lg-circulo btn-cor-padrao fa fa-floppy-o"></button>
+        <button id="button1id" type="submit" value="submit" name="button1id" data-toggle="tooltip" title="Salvar formulário" class="btn btn-lg-circulo btn-cor-padrao"><i class="glyphicon glyphicon-ok" style="margin-left: -2px;"></i></button>
       </label>
+    </li>
 
+    <li>
       <label class="col-md-11 control-label" for="button2id">
         <button id="button2id" type="reset" value="reset" name="button2id" data-toggle="tooltip" title="Limpar formulário" class="btn btn btn-lg-circulo btn-cor-perigo fa fa-times"></button>
       </label>
-    </div>
+    </li>
+
+    </ul>
   
   </form> {{-- FIM cadastro_pessoa --}}
     

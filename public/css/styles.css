@@ -17,26 +17,28 @@ body {
     font-size: 12px;
     line-height: 1.428571428;
     border-radius: 15px;
+    border-width: 0;
 }
 
 .btn-pn-circulo {
-    width: 21px;
-    height: 21px;
+    width: 23px;
+    height: 23px;
     text-align: center;
     padding: 4px 0;
-    font-size: 10px;
-    line-height: 1,2;
-    border-radius: 10px;
-    content:"\e045";
+    font-size: 13px;
+    line-height: 1,3;
+    border-radius: 11px;
+    border-width: 0;
 }
 
 .btn-lg-circulo {
     width: 40px;
     height: 40px;
     padding: 8px 12px;
-    font-size: 18px;
+    font-size: 22px;
     line-height: 1.06;
     border-radius: 20px;
+    border-width: 0;
 }
 
 .btn-cor-padrao {
@@ -354,10 +356,12 @@ div.x_content.dependente {
 
 /*****************************************Alterações Bootstrap*****************************/
 
-.form-control:focus {
-    box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(61, 39, 107,.8) !important;
-}
-
 .nav_title {
     background: none !important;
+}
+
+.form-control:focus {
+    -webkit-box-shadow: 1px 1px 20px -3px #3D276B !important;
+    -moz-box-shadow:    1px 1px 20px -3px #3D276B !important;
+    box-shadow:         1px 1px 20px -3px #3D276B !important;
 }

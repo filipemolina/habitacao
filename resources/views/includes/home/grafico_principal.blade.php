@@ -11,7 +11,7 @@
             <ul class="nav navbar-right panel_toolbox">
                 
                 <li>
-                    <a class="collapse-link"><i class="fa fa-chevron-up btn btn-pn-circulo btn-cor-padrao"></i></a>
+                    <a class="collapse-link" data-toggle="tooltip" title="Reduzir / Expandir"><i class="fa fa-chevron-up btn btn-pn-circulo btn-cor-padrao"></i></a>
                 </li>
 
                 <li class="dropdown">
@@ -19,7 +19,7 @@
 
                     @if(Auth::user()->admin == "Master")
                     
-                        <a href="#" class="dropdown-toggle relatorio" data-ordem="sexo" role="button" aria-expanded="false"><i class="fa fa-file-text btn btn-pn-circulo btn-cor-padrao" style="color: #3D276B"></i></a>
+                        <a href="#" class="dropdown-toggle relatorio" data-ordem="sexo" role="button" aria-expanded="false" data-toggle="tooltip" title="Relatório"><i class="fa fa-file btn btn-pn-circulo btn-cor-padrao" style="color: #3D276B"></i></a>
                     
                     @endif
 
