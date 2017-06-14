@@ -472,6 +472,7 @@ class ParticipantesController extends Controller
                 'coparticipante'         => count($participante->coparticipante) ? "Sim" : "Não",
                 'dependentes'            => count($participante->dependentes),
                 'bairro'                 => $participante->endereco->bairro,
+                'codigo'                 => $participante->codigo_inscricao,
                 'acoes'                  => $acoes,
             ]);
         }
