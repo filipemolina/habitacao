@@ -70,8 +70,9 @@
           <div class="col-md-10"> Participante </div>
 
             <div class="col-md-1">
-              <input type="checkbox" @if(old('collapse1')) checked @endif class="collapse-link">
-
+              <a class="collapse-link">
+                <i class="fa fa-chevron-up btn btn-pn-circulo btn-cor-padrao"></i>
+              </a>
             </div>
 
             <div class="col-md-1">
@@ -126,7 +127,7 @@
           <label class="col-md-1 control-label" for="bolsa_familia">Bolsa F.</label>  
           <div class="col-md-2">
             <select id="bolsa_familia" name="bolsa_familia" type="text" class="form-control input-md">
-              <option value=" " disabled selected>Selecione...</option>
+              <option value="" disabled selected>Selecione...</option>z
               <option value="1" @if(old('bolsa_familia') == "1") selected="selected" @endif >Possui</option>
               <option value="0" @if(old('bolsa_familia') == "0") selected="selected" @endif >Não possui</option>
             </select><span class="obrigatorio">*</span>
@@ -183,7 +184,7 @@
           <label class="col-md-1 control-label" for="necessidades_especiais" data-toggle="tooltip" title="Necessidades especias">Nesc.</label>
           <div class="col-md-2">
             <select id="necessidades_especiais" name="necessidades_especiais" type="text" class="form-control input-md" > 
-              <option value=" " selected @if(!old('necessidades_especiais')) disabled selected @endif>Selecione...</option>
+              <option value="" selected @if(!old('necessidades_especiais')) disabled selected @endif>Selecione...</option>
               <option value="1" @if(old('necessidades_especiais') == "1") selected="selected" @endif>Sim</option>
               <option value="0" @if(old('necessidades_especiais') == "0") selected="selected" @endif>Não</option>
             </select><span class="obrigatorio">*</span>
@@ -191,7 +192,7 @@
 
           <div class="col-md-2">
             <select id="tipo_necessidade" name="tipo_deficiencia" type="text" class="form-control input-md" >
-              <option value=" " 
+              <option value="" 
                   @if(!old('tipo_deficiencia')) 
                       disabled selected 
                   @endif>Tipos...
@@ -236,7 +237,7 @@
             </select>
           </div>
         
-        </div> {{-- Fim Data de Nascimento, Sexo, Deficiente --}}
+        </div> {{-- Fim Data de Nascimento, Sexo, Necessidades especias --}}
 
 
         {{-- CEP, Munícipio e Bairro --}}
@@ -315,7 +316,7 @@
 
         </div> {{-- FIM Email, Celular e Telefone --}}
 
-        </div> {{-- FIM x-content --}}
+        </div> {{-- FIM x_content --}}
 
       </div> {{-- fim Participante --}}
 
@@ -331,13 +332,13 @@
             <div class="col-md-10">Co-Participante</div>
 
             <div class="col-md-1">
-              <input type="checkbox" @if(old('collapse1')) checked @endif id="collapse1" name="collapse1" class="collapse-link" data-switchery="true">
-
+              <a class="collapse-link">
+                <i class="fa fa-chevron-up btn btn-pn-circulo btn-cor-padrao"></i>
+              </a>
             </div>
 
             <div class="col-md-1">
               <button class="btn btn-pn-circulo btn-cor-perigo limpar1" data-toggle="tooltip" title="Limpar campos" value="limpar1"><i class="fa fa-times"></i></button>
-            
             </div>
 
             <div class="clearfix"></div>
@@ -400,7 +401,7 @@
         <label class="col-md-1 control-label" for="bolsa_familia">Bolsa F.</label>  
           <div class="col-md-2">
             <select id="bolsa_familia_coparticipante" name="coparticipante[bolsa_familia]" type="text" class="form-control input-md" >
-              <option value=" " disabled selected>Selecione...</option>
+              <option value="" disabled selected>Selecione...</option>
               <option value="1" @if(old('coparticipante[bolsa_familia]') == "1") selected="selected" @endif >Possui</option>
               <option value="0" @if(old('coparticipante[bolsa_familia]') == "0") selected="selected" @endif >Não possui</option>
             </select>
@@ -433,7 +434,7 @@
       </div> {{-- FIM RG, Orgão Emissor do RG e Data de Emissão do RG --}}
 
 
-      {{-- Data de Nascimento, Sexo, Deficiente --}}
+      {{-- Data de Nascimento, Sexo, Necessidades especias --}}
       <div class="form-group">
 
         {{-- Data de Nascimento --}}
@@ -446,19 +447,19 @@
         <label class="col-md-1 control-label" for="coparticipante[sexo]">Sexo</label>
         <div class="col-md-2">
           <select id="coparticipante[sexo]" name="coparticipante[sexo]" type="text" class="form-control input-md">
-            <option value=" " disabled selected @if(!old('coparticipante.sexo')) @endif>Selecione...</option>
+            <option value="" disabled selected @if(!old('coparticipante.sexo')) @endif>Selecione...</option>
             <option value="Masculino" @if(old('coparticipante.sexo') == "Masculino") selected="selected" @endif>Masculino</option>
             <option value="Feminino" @if(old('coparticipante.sexo') == "Feminino") selected="selected" @endif>Feminino</option>
             <option value="Outros" @if(old('coparticipante.sexo') == "Outros") selected="selected" @endif>Outros</option>
           </select><span class="obrigatorio">*</span>
         </div>
         
-        {{-- Deficiente --}}
+        {{-- Necessidades especias --}}
         <label class="col-md-1 control-label" for="necessidades_especiais" data-toggle="tooltip" title="Necessidades especias">Nesc.</label>
 
           <div class="col-md-2">
             <select id="necessidades_especiais_coparticipante" name="coparticipante[necessidades_especiais]" type="text" class="form-control input-md" >
-              <option value=" " disabled selected @if(!old('coparticipante[necessidades_especiais]')) selected @endif>Selecione...</option>
+              <option value="" disabled selected @if(!old('coparticipante[necessidades_especiais]')) selected @endif>Selecione...</option>
               <option value="1" @if(old('coparticipante[necessidades_especiais]') == "1") selected="selected" @endif>Sim</option>
               <option value="0" @if(old('coparticipante[necessidades_especiais]') == "0") selected="selected" @endif>Não</option>
             </select><span class="obrigatorio">*</span>
@@ -466,7 +467,7 @@
 
         <div class="col-md-2">
             <select id="tipo_necessidade_coparticipante" name="coparticipante[tipo_deficiencia]" type="text" class="form-control input-md" >
-              <option value=" " 
+              <option value="" 
                   @if(!old('coparticipante[tipo_deficiencia]')) 
                       disabled selected
                   @endif>Tipos...
@@ -511,7 +512,7 @@
             </select>
           </div>
 
-      </div> {{-- Fim Data de Nascimento, Sexo, Deficiente --}}
+      </div> {{-- Fim Data de Nascimento, Sexo, Necesidades especias --}}
 
 
       {{-- CEP, Município e Bairro --}}
@@ -607,7 +608,9 @@
         <div class="col-md-10"> Dependentes </div>
 
         <div class="col-md-1">
-          <input type="checkbox" @if(old('collapse1')) checked @endif id="collapse1" name="collapse1" class="collapse-link" data-switchery="true">
+          <a class="collapse-link">
+            <i class="fa fa-chevron-up btn btn-pn-circulo btn-cor-padrao"></i>
+          </a>
         </div>
 
         <div class="col-md-1">
@@ -617,10 +620,10 @@
         <div class="clearfix"></div>
 
       </div>
+      
+      <div class="x_content">
         
-      <div class="x_panel panel_dependentes">
-
-        <div class="x_content">
+        <div class="x_panel panel_dependentes">
       
           {{-- Nome --}}
           <div class="form-group">
@@ -658,7 +661,7 @@
             </div>
           </div>
         
-          {{-- Data de Nascimento, Sexo, Deficiente --}}
+          {{-- Data de Nascimento, Sexo, Necesidades Especias --}}
           <div class="form-group">
 
           {{-- Data de Nascimento --}}
@@ -678,12 +681,12 @@
             </select><span class="obrigatorio">*</span>
           </div>
 
-          {{-- Deficiente --}}
+          {{-- Necessidades especias --}}
 
           <label class="col-md-1 control-label" for="dependentes[0][necessidades_especiais]" data-toggle="tooltip" title="Necessidades especias">Nesc.</label>
             <div class="col-md-2">
               <select name="dependentes[0][necessidades_especiais]" type="text" class="form-control pne_dependentes input-md" >
-                <option value=" " disabled selected @if(!old('dependentes[0][necessidades_especiais]')) selected @endif>Selecione...</option>
+                <option value="" disabled selected @if(!old('dependentes[0][necessidades_especiais]')) selected @endif>Selecione...</option>
                 <option value="1" @if(old('dependentes[0][necessidades_especiais]') == "1") selected="selected" @endif>Sim</option>
                 <option value="0" @if(old('dependentes[0][necessidades_especiais]') == "0") selected="selected" @endif>Não</option>
               </select><span class="obrigatorio">*</span>
@@ -692,7 +695,7 @@
             <div class="col-md-2">
 
               <select name="dependentes[0][tipo_deficiencia]" type="text" class="form-control tipo_deficiencia input-md" ><span class="obrigatorio">*</span>
-                <option value=" " 
+                <option value="" 
                     @if(!old('dependentes[0][tipo_deficiencia]')) 
                         disabled selected 
                     @endif>Tipos...
@@ -736,16 +739,16 @@
 
               </select>
             </div>
-        </div> {{-- FIM Data de Nascimento, Sexo, Deficiente --}}
-        </div> {{-- FIM x_content --}}
+        </div> {{-- FIM Data de Nascimento, Sexo, Necessidades especias --}}
           
-      <div class="col-md-11"></div>
-      <button name="submit" value="excluir" data-toggle="tooltip" title="Remover dependente" class="btn btn-circulo btn-cor-perigo glyphicon glyphicon-trash excluir" selected style="display:none;"></button>
+        <div class="col-md-11"></div>
+        <button name="submit" value="excluir" data-toggle="tooltip" title="Remover dependente" class="btn btn-circulo btn-cor-perigo glyphicon glyphicon-trash excluir" selected style="display:none;"></button>
 
-      </div> {{-- FIM panel_dependentes --}}
+        </div> {{-- FIM panel_dependentes --}}
 
-      <div class="div-clone"></div> {{-- Clonagem da div panel_dependentes --}}
+        <div class="div-clone"></div> {{-- Clonagem da div panel_dependentes --}}
 
+      </div> {{-- FIM x_content --}}
     </div> {{-- FIM Dependentes --}}
 
 
@@ -756,47 +759,67 @@
 
     <div class="x_panel modal-content" id="renda-familiar">
       {{-- <div class="x_title"> Renda familiar e tempo de residência em Mesquita </div> --}}
-      <div class="x_title"> Informações Adicionais</div>
+      <div class="x_title"> 
+
+        <div class="col-md-10">Informações Adicionais</div>
+
+        <div class="col-md-1">
+          <a class="collapse-link">
+            <i class="fa fa-chevron-up btn btn-pn-circulo btn-cor-padrao"></i>
+          </a>
+        </div>
+
+        <div class="col-md-1">
+          <button class="btn btn-pn-circulo btn-cor-perigo limpar1" data-toggle="tooltip" title="Limpar campos" value="limpar1"><i class="fa fa-times"></i></button>
+        </div>
+
+        <div class="clearfix"></div>
+
+
+      </div>
       
-      {{-- Renda Familiar, Tempo de residência e Faixa --}}
-      <div class="form-group">
+      <div class="x_content">
 
-        {{-- Renda Familiar --}}
-        <label class="col-md-1 control-label" for="renda_familiar">Renda</label>
-        <div class="col-md-2">
-          <input value="{{ old('renda_familiar') }}" id="renda_familiar" name="renda_familiar" type="text" placeholder="R$ 99.999,99" data-inputmask="'mask': 'R$ 99.999,99', 'numericInput' : true" class="form-control input-md cash"><span class="obrigatorio">*</span>
-        </div>
+        {{-- Renda Familiar, Tempo de residência e Faixa --}}
+        <div class="form-group">
 
-        {{-- Faixa--}}
-        <label class="col-md-1 control-label" for="faixa">Faixa</label>
-        <div class="col-md-2">
-          <input value="{{ old('') }}" id="faixa" name="faixa" type="text" placeholder="Classificação" class="form-control input-md" disabled selected style>
-        </div>
+          {{-- Renda Familiar --}}
+          <label class="col-md-1 control-label" for="renda_familiar">Renda</label>
+          <div class="col-md-2">
+            <input value="{{ old('renda_familiar') }}" id="renda_familiar" name="renda_familiar" type="text" placeholder="R$ 99.999,99" data-inputmask="'mask': 'R$ 99.999,99', 'numericInput' : true" class="form-control input-md cash"><span class="obrigatorio">*</span>
+          </div>
 
-        {{-- Código da Inscrição --}}
-        <label class="col-md-2 control-label" for="codigo_inscricao">Código da Inscrição</label>
-        <div class="col-md-2">
-          <input value="{{ old('codigo_inscricao') }}" id="codigo_inscricao" name="codigo_inscricao" type="text" class="form-control input-md" disabled selected style>
-        </div>
+          {{-- Faixa--}}
+          <label class="col-md-1 control-label" for="faixa">Faixa</label>
+          <div class="col-md-2">
+            <input value="{{ old('') }}" id="faixa" name="faixa" type="text" placeholder="Classificação" class="form-control input-md" disabled selected style>
+          </div>
 
-      </div> {{-- FIM Renda Familiar e Faixa --}}
-      
-      {{-- Tempo de residência --}}
-      <div class="form-group">
+          {{-- Código da Inscrição --}}
+          <label class="col-md-2 control-label" for="codigo_inscricao">Código da Inscrição</label>
+          <div class="col-md-2">
+            <input value="{{ old('codigo_inscricao') }}" id="codigo_inscricao" name="codigo_inscricao" type="text" class="form-control input-md" disabled selected style>
+          </div>
 
+        </div> {{-- FIM Renda Familiar e Faixa --}}
+        
         {{-- Tempo de residência --}}
-        <label class="col-md-1 control-label" for="inicio-residencia" data-toggle="tooltip" title="Tempo de residência  ">Início</label>
-        <div class="col-md-2">
-          <input value="{{ old('inicio-residencia') }}" id="inicio-residencia" name="tempo_residencia" type="date" placeholder="01 / 01 / 2000" class="form-control input-md global_data" > <span class="obrigatorio">*</span>
-        </div>
+        <div class="form-group">
 
-        {{-- Faixa--}}
-        <label class="col-md-1 control-label" for="periodo">Período</label>
-        <div class="col-md-2">
-          <input value="{{ old('') }}" id="periodo" name="periodo" type="text" placeholder="Classificação" class="form-control input-md" disabled selected style>
-        </div>
+          {{-- Tempo de residência --}}
+          <label class="col-md-1 control-label" for="inicio-residencia" data-toggle="tooltip" title="Tempo de residência  ">Início</label>
+          <div class="col-md-2">
+            <input value="{{ old('inicio-residencia') }}" id="inicio-residencia" name="tempo_residencia" type="date" placeholder="01 / 01 / 2000" class="form-control input-md global_data" > <span class="obrigatorio">*</span>
+          </div>
 
-      </div> {{-- Tempo de residência --}}
+          {{-- Faixa--}}
+          <label class="col-md-1 control-label" for="periodo">Período</label>
+          <div class="col-md-2">
+            <input value="{{ old('') }}" id="periodo" name="periodo" type="text" placeholder="Classificação" class="form-control input-md" disabled selected style>
+          </div>
+
+        </div> {{-- Tempo de residência --}}
+      </div> {{-- FIM x_content --}}
 
 
     </div> {{-- FIM renda-familiar --}}

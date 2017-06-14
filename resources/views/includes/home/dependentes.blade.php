@@ -1,8 +1,13 @@
-<div class="col-md-6 col-sm-6 col-xs-12 modal-content">
-    <div class="x_panel tile fixed_height_320">
+<div class="col-md-6 col-sm-6 col-xs-12">
+    <div class="x_panel tile fixed_height_320 modal-content">
         <div class="x_title">
             <h2>Dependentes</h2>
             <ul class="nav navbar-right panel_toolbox">
+                
+                <li>
+                    <a class="collapse-link"><i class="fa fa-chevron-up btn btn-pn-circulo btn-cor-padrao"></i></a>
+                </li>
+
                 <li class="dropdown">
     
                     {{-- Link para gerar relatórios apenas se for usuário Master --}}

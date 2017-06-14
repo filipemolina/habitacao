@@ -24,7 +24,7 @@ body {
     height: 21px;
     text-align: center;
     padding: 4px 0;
-    font-size: 8px;
+    font-size: 10px;
     line-height: 1,2;
     border-radius: 10px;
     content:"\e045";
@@ -319,6 +319,16 @@ span.switchery.switchery-small {
     margin-top: -34px;
     margin-left: -19px;
     font-size: 17px;
+}
+
+.vidro {
+    opacity: 0.3;
+    transition-property: opacity;
+    transition-duration: 0.3s;
+}
+
+.vidro:hover {
+    opacity: 1;
 }
 
 
