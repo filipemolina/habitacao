@@ -54,13 +54,13 @@
 							    <td>{{ $usuario->email }}</td>
 							    <td>{{ $usuario->admin }}</td>
 							    <td class="actions">
-				                  	<a data-toggle="tooltip" title="Alterar" class="btn btn-cor-padrao btn-circulo btn-xs" href="{{ url("users/$usuario->id/edit") }}"><i class="fa fa-pencil"></i></a>
+				                  	<a data-toggle="tooltip" title="Alterar" class="btn btn-cor-padrao btn-pn-circulo btn-xs" href="{{ url("users/$usuario->id/edit") }}"><i class="fa fa-pencil"></i></a>
 
 									{{-- Não deixar o usuário deletar a si mesmo --}}
 	
 									@if(Auth::user()->id != $usuario->id)
 
-				                  		<a data-toggle="tooltip" title="Excluir" class="btn btn-excluir btn-cor-perigo btn-circulo btn-xs"  data-id="{{$usuario->id}}" data-nome="{{ $usuario->name }}" href="#" data-toggle="modal" data-target="#modalexcluir"><i class="fa fa-trash"></i></a>
+				                  		<a data-toggle="tooltip" title="Excluir" class="btn btn-excluir btn-cor-perigo btn-pn-circulo btn-xs"  data-id="{{$usuario->id}}" data-nome="{{ $usuario->name }}" href="#" data-toggle="modal" data-target="#modalexcluir"><i class="fa fa-times"></i></a>
 
 				                  	@endif
 				                </td>
@@ -101,7 +101,6 @@
 	</div><!-- /.modal -->
 
 {{-- fim do modal do botão excluir --}}
-
 
 @endsection
 

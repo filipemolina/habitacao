@@ -144,6 +144,26 @@
 
         });
 
+        // Limpar campos da div
+
+        // Limpar divs de Participanete e Co-participante
+        $(document).on("click", "a.limpar1", function(e){
+
+          e.preventDefault();
+
+          $(this).parent().parent().parent().parent().find("input, select").val('');
+
+        });
+
+        // Limpar divs de Dependentes
+        $(document).on("click", "a.limpar2", function(e){
+
+          e.preventDefault();
+
+          $(this).parent().parent().parent().find("input, select").val('');
+
+        });
+
         ////////////////////////////////////// Fazer a busca por CEP
 
         // Utilizo aqui o webservice viacep.com.br
