@@ -1,4 +1,4 @@
-<div class="col-md-12 col-sm-12 col-xs-12">
+<div class="col-md-12 col-sm-12 col-xs-12 modal-content">
     <div class="dashboard_graph x_panel">
 
         {{---------------------------------- Gráfico Principal ----------------------------------}}

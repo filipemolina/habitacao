@@ -17,12 +17,6 @@
         size  : 'small',
     });
 
-    var check = document.querySelector("#collapse1");
-    var init = new Switchery(check, {
-        color : "#3D276B",
-        size  : 'small',
-    });
-
     // Ligar ou desligar o select de tipos de necessidades especiais
 
     if($("#necessidades_especiais").val() == 0)
@@ -147,6 +141,26 @@
           e.preventDefault();
 
           $(this).parent().remove();
+
+        });
+
+        // Limpar campos da div
+
+        // Limpar divs de Participanete e Co-participante
+        $(document).on("click", "button.limpar1", function(e){
+
+          e.preventDefault();
+
+          $(this).parent().parent().parent().find("input, select").val('');
+
+        });
+
+        // Limpar divs de Dependentes
+        $(document).on("click", "button.limpar2", function(e){
+
+          e.preventDefault();
+
+          $(this).parent().parent().parent().find("input, select").val('');
 
         });
 

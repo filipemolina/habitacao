@@ -1,4 +1,4 @@
-<div class="col-md-6 col-sm-6 col-xs-12">
+<div class="col-md-6 col-sm-6 col-xs-12 modal-content">
     <div class="x_panel tile fixed_height_320">
         <div class="x_title">
             <h2>Dependentes</h2>

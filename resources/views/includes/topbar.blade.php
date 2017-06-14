@@ -1,6 +1,6 @@
 <!-- top navigation -->
 <div class="top_nav">
-    <div class="nav_menu color_special2">
+    <div class="nav_menu color_special2 modal-content" style="margin-top:5px;margin-left:2px;border-bottom:none;width:98%;">
         <nav>
             <div class="nav toggle">
                 <a id="menu_toggle"><i class="fa fa-bars" style="color: white;"></i></a>

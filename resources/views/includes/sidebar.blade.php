@@ -1,6 +1,6 @@
-<div class="col-md-3 left_col color_special1">
+<div class="col-md-3 left_col color_special1 modal-content" style="margin-top: 5px; margin-left: none;">
     <div class="left_col scroll-view color_special1">
-        <div class="navbar nav_title color_special1" style="border: 0;">
+        <div class="navbar nav_title" style="border: 0;">
            <a href="{{ url('/') }}" class="site_title"><i class="fa fa-home"></i> <span>Habitação</span></a>
         </div>
         
