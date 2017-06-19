@@ -1,4 +1,4 @@
-{{------------------------------------ CO-Participante ------------------------------------}}
+{{---------------------------------- CO-Participante ------------------------------------}}
       <div class="x_panel modal-content" id="co-participante">
         
         <div class="x_title">
@@ -19,7 +19,7 @@
 
             <div class="clearfix"></div>
 
-         </div>
+         </div> {{-- FIM x_title --}}
 
         <div class="x_content">
 
@@ -63,20 +63,20 @@
         </div>
 
         {{-- Data de Nascimento --}}
-        <label class="col-md-1 control-label" for="coparticipante[nascimento]">Nascimento</label>  
+        <label class="col-md-1 control-label" for="coparticipante[nascimento]" data-toogle="tooltip" title="Nascimento">Nasc.</label>  
         <div class="col-md-2">
           <input value="{{ old('coparticipante[nascimento]') }}" id="coparticipante[nascimento]" name="coparticipante[nascimento]" type="date" placeholder="01 / 01 / 2000" class="form-control input-md global_data" > <span class="obrigatorio">*</span>
         </div>
 
         {{-- Sexo   --}}
         <label class="col-md-1 control-label" for="coparticipante[sexo]">Sexo</label>
-        <div class="col-md-2"> <span class="obrigatorio">*</span>
+        <div class="col-md-2">
           <select id="coparticipante[sexo]" name="coparticipante[sexo]" type="text" class="form-control input-md" >
             <option value="" disabled @if(!old('coparticipante[sexo]')) selected @endif>Selecione...</option>
             <option value="Masculino" @if(old('coparticipante[sexo]') == "Masculino") selected="selected" @endif>Masculino</option>
             <option value="Feminino" @if(old('coparticipante[sexo]') == "Feminino") selected="selected" @endif>Feminino</option>
             <option value="Outros" @if(old('coparticipante[sexo]') == "Outros") selected="selected" @endif>Outros</option>
-          </select>
+          </select><span class="obrigatorio">*</span>
         </div>
 
         {{-- Bolsa Família --}}            
@@ -270,4 +270,4 @@
       </div> {{-- FIM Email, Celular e Telefone --}}
       </div> {{-- FIM x_content --}}
 
-    </div> {{-- fim Co-participante --}}
+    </div> {{-- fim Co-participante  --}}

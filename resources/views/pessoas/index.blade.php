@@ -25,7 +25,7 @@ Lista de Pessoas
 </div>
 
 <div class="col-md-12 col-sm-12 col-xs-12">
-    <div class="x_panel">
+    <div class="x_panel modal-content">
         <div class="x_content">
             <table class="table table-striped" id="dataTable">
 
@@ -36,7 +36,7 @@ Lista de Pessoas
                     <th>Idade</th>
                     <th>Sexo</th>
                     <th>PNE</th>
-                    <th>Co-participante</th>
+                    <th data-toggle title="Co-participante">Co-part.</th>
                     <th>Dependentes</th>
                     <th>Bairro</th>
                     <th>Código</th>

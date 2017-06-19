@@ -48,7 +48,7 @@
         <div class="clearfix"></div>
       </div>
       
-      <div class="x_panel">
+      <div class="x_panel modal-content">
         
         <div class="x_title"> Opções </div>
         

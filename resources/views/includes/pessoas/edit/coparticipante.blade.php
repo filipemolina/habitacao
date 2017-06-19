@@ -1,8 +1,24 @@
-{{------------------------------------ CO-Participante ------------------------------------}}
+ {{---------------------------------- CO-Participante ---------------------------------- --}}
 
-      <div class="x_panel" id="co-participante">
+      <div class="x_panel modal-content" id="co-participante">
         
-        <div class="x_title"> Co-Participante </div>
+        <div class="x_title">
+          
+          <h2> Co-Participante </h2>
+
+          <ul class="nav navbar-right panel_toolbox">
+            
+              <li>
+                <a class="collapse-link" data-toggle="tooltip" title="Reduzir / Expandir"><i class="fa fa-chevron-up btn btn-pn-circulo btn-cor-padrao"></i></a>
+              <li>
+
+          </ul>
+
+            <div class="clearfix"></div>
+
+        </div> {{-- FIM x_title --}}
+
+        <div class="x_content">
 
         {{-- Nome --}}
         <div class="form-group">
@@ -31,7 +47,7 @@
             </div>
           </div>
         
-        {{-- CPF, NIS/PIS, Bolsa Família e Carteira de trabalho --}}
+        {{-- CPF, Nascimento, Sexo e Bolsa Família --}}
         <div class="form-group">
 
         {{-- CPF --}}
@@ -39,68 +55,6 @@
         <div class="col-md-2">
           <input value="{{ $pessoa->coparticipante->cpf or "" }}" id="coparticipante[cpf]" name="coparticipante[cpf]" type="text" placeholder="999.999.999-99" data-inputmask="'mask': '999.999.999-99', 'numericInput': true" class="form-control input-md cpf"><span class="obrigatorio">*</span>
         </div>
-
-        {{-- NIS/PIS --}}            
-        <label class="col-md-1 control-label" for="coparticipante[nis]">NIS/PIS</label>  
-        <div class="col-md-2">
-          <input value="{{ $pessoa->coparticipante->nis or "" }}" id="coparticipante[nis]" name="coparticipante[nis]" type="text" placeholder="999.999999.99-99" data-inputmask="'mask': '999.99999.99-9', 'numericInput': true" class="form-control input-md nis" >
-        </div>
-
-        {{-- Carteira de Trabalho --}}            
-        <label class="col-md-1 control-label" for="coparticipante[ctps]">CTPS</label>  
-        <div class="col-md-2">
-          <input value="{{ $pessoa->coparticipante->ctps or "" }}" id="coparticipante[ctps]" name="coparticipante[ctps]" type="text" placeholder="Cart. de Trabalho" data-inputmask="'mask': '9999999 999-9', 'numericInput': true" class="form-control input-md carteira" >
-        </div>
-
-        {{-- Bolsa Família --}}            
-        <label class="col-md-1 control-label" for="bolsa_familia">Bolsa F.</label>  
-          <div class="col-md-2">
-            <select id="bolsa_familia_coparticipante" name="coparticipante[bolsa_familia]" type="text" class="form-control input-md" >
-              <option value="">Selecione...</option>
-              
-              @if(count($pessoa->coparticipante) > 0)
-
-                <option value="1" @if($pessoa->coparticipante->bolsa_familia == "1") selected="selected" @endif >Possui</option>
-                <option value="0" @if($pessoa->coparticipante->bolsa_familia == "0") selected="selected" @endif >Não possui</option>
-
-              @else
-
-                <option value="1">Possui</option>
-                <option value="0">Não possui</option>
-
-              @endif
-            </select>
-          </div>
-
-      </div> {{-- FIM CPF, NIS/PIS e Bolsa Família --}}
-
-
-      {{-- RG, Data de Emissão do RG, Orgão Emissor do RG --}}
-      <div class="form-group">
-
-        <!-- RG-->            
-        <label class="col-md-1 control-label" for="coparticipante[rg]">RG</label>
-        <div class="col-md-2">
-          <input value="{{ $pessoa->coparticipante->rg or "" }}" id="coparticipante[rg]" name="coparticipante[rg]" type="text" placeholder="99.999.999-9" class="form-control input-md rg" >
-        </div>
-
-        <!-- Orgão Emissor do RG-->
-        <label class="col-md-1 control-label" for="coparticipante[orgao_emissor_rg]">Orgão</label>  
-        <div class="col-md-2">
-          <input value="{{ $pessoa->coparticipante->orgao_emissor_rg or "" }}" id="coparticipante[orgao_emissor_rg]" name="coparticipante[orgao_emissor_rg]" type="text" placeholder="Orgão Emissor" class="form-control input-md" >
-        </div>
-
-        <!-- Data de Emissão do RG-->
-        <label class="col-md-1 control-label" for="coparticipante[emissao_rg]">Emissão</label>  
-        <div class="col-md-2">
-          <input value="{{ $pessoa->coparticipante->emissao_rg or "" }}" id="coparticipante[emissao_rg]" name="coparticipante[emissao_rg]" type="date" placeholder="Data de Emissão" class="form-control input-md global_data" >
-        </div>
-            
-      </div> {{-- FIM RG, Orgão Emissor do RG e Data de Emissão do RG --}}
-
-
-      {{-- Data de Nascimento, Sexo, Deficiente --}}
-      <div class="form-group">
 
         {{-- Data de Nascimento --}}
         <label class="col-md-1 control-label" for="coparticipante[nascimento]" data-toggle="tooltip" title="Data de nascimento">Nasc.</label>
@@ -110,7 +64,7 @@
 
         {{-- Sexo   --}}
         <label class="col-md-1 control-label" for="coparticipante[sexo]">Sexo</label>
-        <div class="col-md-2"> <span class="obrigatorio">*</span>
+        <div class="col-md-2">
           <select id="coparticipante[sexo]" name="coparticipante[sexo]" type="text" class="form-control input-md">
             <option value="" disabled selected>Selecione...</option>
 
@@ -127,7 +81,69 @@
                 <option value="Outros">Outros</option>
 
               @endif
-          </select>
+          </select><span class="obrigatorio">*</span>
+        </div>
+
+        {{-- Bolsa Família --}}            
+        <label class="col-md-1 control-label" for="bolsa_familia">Bolsa F.</label>  
+          <div class="col-md-2">
+            <select id="bolsa_familia_coparticipante" name="" ame="coparticipante[bolsa_familia]" type="text" class="form-control input-md" >
+              <option value="">Selecione...</option>
+              
+              @if(count($pessoa->coparticipante) > 0)
+
+                <option value="1" @if($pessoa->coparticipante->bolsa_familia == "1") selected="selected" @endif >Possui</option>
+                <option value="0" @if($pessoa->coparticipante->bolsa_familia == "0") selected="selected" @endif >Não possui</option>
+
+              @else
+
+                <option value="1">Possui</option>
+                <option value="0">Não possui</option>
+
+              @endif
+            </select><span class="obrigatorio">*</span>
+          </div>
+
+      </div> {{-- FIM CPF, Nascimento, Sexo e Bolsa Família --}}
+
+
+      {{-- RG, Data de Emissão do RG, Orgão Emissor do RG --}}
+      <div class="form-group">
+
+        <!-- RG-->            
+        <label class="col-md-1 control-label" for="coparticipante[rg]">RG</label>
+        <div class="col-md-2">
+          <input value="{{ $pessoa->coparticipante->rg or "" }}" id="coparticipante[rg]" name="coparticipante[rg]" type="text" placeholder="99.999.999-9" class="form-control input-md rg" >
+        </div>
+
+        <!-- Data de Emissão do RG-->
+        <label class="col-md-1 control-label" for="coparticipante[emissao_rg]">Emissão</label>  
+        <div class="col-md-2">
+          <input value="{{ $pessoa->coparticipante->emissao_rg or "" }}" id="coparticipante[emissao_rg]" name="coparticipante[emissao_rg]" type="date" placeholder="Data de Emissão" class="form-control input-md global_data" >
+        </div>
+
+        <!-- Orgão Emissor do RG-->
+        <label class="col-md-1 control-label" for="coparticipante[orgao_emissor_rg]">Orgão</label>  
+        <div class="col-md-2">
+          <input value="{{ $pessoa->coparticipante->orgao_emissor_rg or "" }}" id="coparticipante[orgao_emissor_rg]" name="coparticipante[orgao_emissor_rg]" type="text" placeholder="Orgão Emissor" class="form-control input-md" >
+        </div>
+            
+      </div> {{-- FIM RG, Data de Emissão do RG e Orgão Emissor do RG --}}
+
+
+      {{-- NIS, Carteira e Deficiente --}}
+      <div class="form-group">
+
+        {{-- NIS/PIS --}}            
+        <label class="col-md-1 control-label" for="coparticipante[nis]">NIS/PIS</label>  
+        <div class="col-md-2">
+          <input value="{{ $pessoa->coparticipante->nis or "" }}" id="coparticipante[nis]" name="coparticipante[nis]" type="text" placeholder="999.999999.99-99" data-inputmask="'mask': '999.99999.99-9', 'numericInput': true" class="form-control input-md nis" >
+        </div>
+
+        {{-- Carteira de Trabalho --}}            
+        <label class="col-md-1 control-label" for="coparticipante[ctps]">CTPS</label>  
+        <div class="col-md-2">
+          <input value="{{ $pessoa->coparticipante->ctps or "" }}" id="coparticipante[ctps]" name="coparticipante[ctps]" type="text" placeholder="Cart. de Trabalho" data-inputmask="'mask': '9999999 999-9', 'numericInput': true" class="form-control input-md carteira" >
         </div>
         
         {{-- Deficiente --}}
@@ -213,7 +229,7 @@
             </select>
           </div>
 
-      </div> {{-- Fim Data de Nascimento, Sexo, Deficiente --}}
+      </div> {{-- Fim NIS, Carteira e Deficiente --}}
 
 
       {{-- CEP, Município e Bairro --}}
@@ -221,7 +237,7 @@
 
         <!-- CEP-->
         <label class="col-md-1 control-label" for="coparticipante[cep]">
-          <button class="btn btn-pn-circulo btn-cor-padrao duplicar-endereco glyphicon glyphicon-repeat" data-toggle="tooltip" title="Copiar endereço" style="margin-right: 0; margin-bottom: 3px;"></button>
+          <a class="duplicar-endereco" data-toggle="tooltip" title="Copiar endereço" style="margin-right: 0; margin-bottom: 3px;"><i class="btn btn-pn-circulo btn-cor-padrao glyphicon glyphicon-repeat" style="margin-top: -10px;"></i></a>
           CEP
         </label>
 
@@ -291,5 +307,6 @@
         </div>
 
       </div> {{-- FIM Email, Celular e Telefone --}}
+      </div> {{-- Fim x_content --}}
     
     </div> {{-- fim Co-participante --}}
