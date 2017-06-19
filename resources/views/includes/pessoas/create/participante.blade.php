@@ -49,7 +49,7 @@
           </div>
 
           {{-- Data de Nascimento --}}
-          <label class="col-md-1 control-label" for="nascimento">Nascimento</label>  
+          <label class="col-md-1 control-label" for="nascimento" data-toggle="tooltip" title="Nascimento">Nasc.</label>  
           <div class="col-md-2">
             <input value="{{ old('nascimento') }}" id="nascimento" name="nascimento" type="date" class="form-control input-md global_data" > <span class="obrigatorio">*</span>
           </div>
@@ -239,9 +239,9 @@
 
           {{-- Celular --}}
           <label class="col-md-1 control-label" for="telefones[0][numero]">Cel.</label>
-          <div class="col-md-2"> <span class="obrigatorio">*</span>
+          <div class="col-md-2">
             <input value="{{ old('telefones[0][numero]') }}" id="telefones[0][numero]" name="telefones[0][numero]" type="text" placeholder="(99) 99999-9999" data-inputmask="'mask': '(99) 99999-9999'" class="form-control input-md celular">
-            <input type="hidden" name="telefones[0][tipo_telefone]" value="Celular">
+            <input type="hidden" name="telefones[0][tipo_telefone]" value="Celular"><span class="obrigatorio">*</span>
           </div>
 
           {{-- Telefone --}}
