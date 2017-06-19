@@ -26,13 +26,24 @@
         {{-- Nome --}}
         <div class="form-group">
           <label class="col-md-1 control-label" for="nome">Nome</label>
-          <div class="col-md-7">
+          <div class="col-md-5">
             <input value="{{ old('nome') }}" id="nome" name="nome" type="text" placeholder="Informe o nome" class="form-control input-md nome" ><span class="obrigatorio">*</span>
           </div>
+
+        {{-- Sexo   --}}
+        <label class="col-md-1 control-label" for="sexo">Sexo</label>
+        <div class="col-md-2"> 
+          <select id="sexo" name="sexo" type="text" class="form-control input-md" >
+            <option value="" disabled selected>Selecione...</option>
+            <option value="Masculino" @if(old('sexo') == "Masculino") selected="selected" @endif>Masculino</option>
+            <option value="Feminino" @if(old('sexo') == "Feminino") selected="selected" @endif>Feminino</option>
+            <option value="Outros" @if(old('sexo') == "Outros") selected="selected" @endif>Outros</option>
+          </select><span class="obrigatorio">*</span>
+        </div>
           
         {{-- Responsável familiar --}}
         <div class="exibir">
-            <label class="col-md-3 control-label" for="mulher_responsavel">Responsável familiar</label>
+            <label class="col-md-2 control-label" for="mulher_responsavel">Responsável familiar</label>
             <div class="col-md-1">
               <input type="checkbox" @if(old('mulher_responsavel')) checked @endif id="mulher_responsavel" name="mulher_responsavel"  style="margin-top: 12px" data-switchery="true"><span style="margin-top: -4px;margin-left: -56px" class="obrigatorio">*</span>
             </div>
@@ -54,25 +65,19 @@
             <input value="{{ old('nascimento') }}" id="nascimento" name="nascimento" type="date" class="form-control input-md global_data" > <span class="obrigatorio">*</span>
           </div>
 
-          {{-- Sexo   --}}
-          <label class="col-md-1 control-label" for="sexo">Sexo</label>
-          <div class="col-md-2"> 
-            <select id="sexo" name="sexo" type="text" class="form-control input-md" >
-              <option value="" disabled selected>Selecione...</option>
-              <option value="Masculino" @if(old('sexo') == "Masculino") selected="selected" @endif>Masculino</option>
-              <option value="Feminino" @if(old('sexo') == "Feminino") selected="selected" @endif>Feminino</option>
-              <option value="Outros" @if(old('sexo') == "Outros") selected="selected" @endif>Outros</option>
-            </select><span class="obrigatorio">*</span>
-          </div>
-
           {{-- Bolsa Família --}}            
           <label class="col-md-1 control-label" for="bolsa_familia">Bolsa F.</label>  
           <div class="col-md-2">
-            <select id="bolsa_familia" name="bolsa_familia" type="text" class="form-control input-md" >
-              <option value="" selected>Selecione...</option>
-              <option value="1" @if(old('bolsa_familia') == "1") selected="selected" @endif >Possui</option>
-              <option value="0" @if(old('bolsa_familia') == "0") selected="selected" @endif >Não possui</option>
+              <select id="bolsa_familia" name="bolsa_familia" type="text" class="form-control input-md" > 
+              <option value="0" selected @if(!old('bolsa_familia')) disabled selected @endif>Selecione...</option>
+              <option value="1" @if(old('bolsa_familia') == "1") selected="selected" @endif>Sim</option>
+              <option value="0" @if(old('bolsa_familia') == "0") selected="selected" @endif>Não</option>
             </select><span class="obrigatorio">*</span>
+          </div>
+
+          {{-- Renda bolsa família --}}
+          <div class="col-md-2">
+            <input value="{{ old('bolsa_renda') }}" id="bolsa_renda" name="bolsa_renda" type="text" placeholder="R$ 99.999,99" data-inputmask="'mask': 'R$ 99.999,99', 'numericInput' : true" class="form-control input-md">
           </div>
 
         </div> {{-- FIM CPF, NIS/PIS e Bolsa Família --}}

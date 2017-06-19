@@ -16,6 +16,19 @@
         color : "#3D276B",
         size  : 'small',
     });
+    
+    // Ligar ou desligar o input de renda
+
+    // if($("#bolsa_familia").val() == 0)
+    // {
+    //     $("#bolsa_renda").prop('disabled', true);
+    //     console.log('BLOCK');
+    // }
+    // else
+    // {
+    //     $("#bolsa_renda").prop('disabled', false);
+    //     console.log('FREE');
+    // }    
 
     // Ligar ou desligar o select de tipos de necessidades especiais
 
