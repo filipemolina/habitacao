@@ -66,6 +66,7 @@ $(function(){
           { data : 'coparticipante', name : 'coparticipante' },
           { data : 'dependentes', name : 'dependentes' },
           { data : 'bairro', name : 'bairro' },
+          { data : 'codigo', name : 'codigo' },
           { data : 'acoes', name : 'acoes' },
 
         ],

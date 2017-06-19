@@ -45,7 +45,7 @@
 
     function calculaFaixa(salario){
 
-        var valor = parseFloat(salario.replace('R$ ', '').replace(',', '.').replace('_', ''));
+        var valor = parseFloat(salario.replace('R$ ', '').replace(".", "").replace(',', '.').replace(/_/g, ''));
 
         var faixa = 0;
 

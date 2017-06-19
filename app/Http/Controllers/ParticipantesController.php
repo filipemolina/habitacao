@@ -105,7 +105,6 @@ class ParticipantesController extends Controller
 
             'coparticipante.nome'                   => 'required_with:coparticipante.cpf,coparticipante.bolsa_familia,coparticipante.rg,coparticipante.orgao_emissor_rg,coparticipante.emissao_rg,coparticipante.nascimento,coparticipante.sexo,coparticipante.necessidades_especiais,coparticipante.cep,coparticipante.logradouro,coparticipante.numero,coparticipante.bairro',
             'coparticipante.cpf'                    => 'required_with:coparticipante.nome|unique:coparticipantes,cpf',
-            'coparticipante.bolsa_familia'          => 'required_with:coparticipante.nome',
             'coparticipante.nascimento'             => 'required_with:coparticipante.nome|date',
             'coparticipante.sexo'                   => 'required_with:coparticipante.nome',
             'coparticipante.necessidades_especiais' => 'required_with:coparticipante.nome',
@@ -275,7 +274,6 @@ class ParticipantesController extends Controller
 
             'coparticipante.nome'                   => 'required_with:coparticipante.cpf,coparticipante.bolsa_familia,coparticipante.rg,coparticipante.orgao_emissor_rg,coparticipante.emissao_rg,coparticipante.nascimento,coparticipante.sexo,coparticipante.necessidades_especiais,coparticipante.cep,coparticipante.logradouro,coparticipante.numero,coparticipante.bairro',
             'coparticipante.cpf'                    => 'required_with:coparticipante.nome',
-            'coparticipante.bolsa_familia'          => 'required_with:coparticipante.nome',
             'coparticipante.nascimento'             => 'required_with:coparticipante.nome|date',
             'coparticipante.sexo'                   => 'required_with:coparticipante.nome',
             'coparticipante.necessidades_especiais' => 'required_with:coparticipante.nome',
@@ -474,6 +472,7 @@ class ParticipantesController extends Controller
                 'coparticipante'         => count($participante->coparticipante) ? "Sim" : "Não",
                 'dependentes'            => count($participante->dependentes),
                 'bairro'                 => $participante->endereco->bairro,
+                'codigo'                 => $participante->codigo_inscricao,
                 'acoes'                  => $acoes,
             ]);
         }
@@ -526,10 +525,6 @@ class ParticipantesController extends Controller
 
     public function imprimeRelatorio(Request $request)
     {
-        // echo "<pre>";
-        // print_r($request->toArray());
-        // exit;
-
         // Validar
 
         $this->validate($request, [
@@ -596,7 +591,7 @@ class ParticipantesController extends Controller
         // Faixa de Inscrição
 
         if($request->ordem_relatorio == 'faixa')
-            return $this->incluirFaixaNaQuery($query)->orderByRaw("faixa, nome")->get();
+            return $this->incluirFaixaNaQuery($query)->orderByRaw("faixa, renda_familiar")->get();
 
         // Idade
 

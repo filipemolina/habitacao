@@ -292,6 +292,34 @@
                     }
                 ];
 
+            if(ordem == 'faixa')
+                cabecalhos = [
+                    {
+                        tipo : 'nome',
+                        titulo : "Nome",
+                    },
+                    {
+                        tipo : 'idade',
+                        titulo : "Idade",
+                    },
+                    { 
+                        tipo : 'sexo',
+                        titulo : "Sexo",
+                    },
+                    { 
+                        tipo: 'faixa',
+                        titulo : "Faixa",
+                    },
+                    { 
+                        tipo : 'renda_familiar',
+                        titulo : "Renda Familiar",
+                    },
+                    { 
+                        tipo :'telefone_fixo',
+                        titulo : "Telefone Fixo",
+                    }
+                ];
+
             // Colocar a ordem escolhida no formulário
 
             $("input#ordem").val(ordem);

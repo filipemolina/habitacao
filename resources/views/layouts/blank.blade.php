@@ -29,7 +29,7 @@
     </head>
 
     <body class="nav-md">
-        <div class="container body">
+        <div class="container body body_roxo">
             <div class="main_container">
 
                 @include('includes/sidebar')
