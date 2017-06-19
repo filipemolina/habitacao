@@ -63,7 +63,7 @@ $(function(){
           { data : 'idade', name : 'idade' },
           { data : 'sexo', name : 'sexo' },
           { data : 'necessidades_especiais', name : 'necessidades_especiais' },
-          { data : 'coparticipante', name : 'coparticipante' },
+          { data : 'cpf', name : 'cpf' },
           { data : 'dependentes', name : 'dependentes' },
           { data : 'bairro', name : 'bairro' },
           { data : 'codigo', name : 'codigo' },

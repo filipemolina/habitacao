@@ -206,7 +206,7 @@ class ParticipantesController extends Controller
             }
         }
 
-        return redirect('/pessoas/create')->with('sucesso', "Usuário cadastrado com sucesso. Código da inscriçao : <span style='font-weight: bold; font-size: 16px'>$participante->codigo_inscricao</span><br><a target='_blank' style=' font-weight: bold; text-transform: uppercase' href='".url("/pessoas/comprovante/$participante->id")."'>Clique aqui para imprirmir o comprovante de inscrição</a>");
+        return redirect('/pessoas')->with('sucesso', "Usuário cadastrado com sucesso. Código da inscriçao : <span style='font-weight: bold; font-size: 16px'>$participante->codigo_inscricao</span><br><a target='_blank' style=' font-weight: bold; text-transform: uppercase' href='".url("/pessoas/comprovante/$participante->id")."'>Clique aqui para imprirmir o comprovante de inscrição</a>");
     }
 
     /**
@@ -469,7 +469,7 @@ class ParticipantesController extends Controller
                 'idade'                  => date('Y') - date('Y', strtotime($participante->nascimento)),
                 'sexo'                   => $participante->sexo,
                 'necessidades_especiais' => $participante->necessidades_especiais ? "Sim" : "Não",
-                'coparticipante'         => count($participante->coparticipante) ? "Sim" : "Não",
+                'cpf'                    => $participante->cpf,
                 'dependentes'            => count($participante->dependentes),
                 'bairro'                 => $participante->endereco->bairro,
                 'codigo'                 => $participante->codigo_inscricao,
@@ -791,6 +791,22 @@ class ParticipantesController extends Controller
 
         else
             return "Sem Classificação";
+    }
+
+    /**
+     *  Função para verificar se o CPF já existe antes que o formulário sejam enviados
+     */
+
+    public function cpfExiste($cpf)
+    {
+
+        $participante = Participante::where('cpf', $cpf)->get();
+        $retorno = 0;
+
+        if(count($participante) > 0)
+            $retorno = 1;
+
+        return $retorno;
     }
 
     /**

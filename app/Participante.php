@@ -77,4 +77,9 @@ class Participante extends Model
     {
     	return $this->hasMany('App\Telefone');
     }
+
+    public function user()
+    {
+    	return $this->belongsTo('App\User');
+    }
 }

@@ -4,6 +4,8 @@ body {
     font-size: 12px !important;
 }
 
+input { text-transform: uppercase; }
+
 .btn-entrar {
 	float:none !important; 
 	margin-left: 0px !important;

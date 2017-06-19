@@ -19,6 +19,17 @@ Lista de Pessoas
 
 @section("main_container")
 
+{{-- Mostrar mensagem de sucesso --}}
+
+@if(session('sucesso'))
+
+    <div class="alert alert-dourado alert-dismissible" style="margin-top: 70px;" role="alert">
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+      <strong>Parabéns!</strong> {!! session('sucesso') !!}
+    </div>
+
+@endif
+
 <div class="x_title">
     <h2>Lista de Pessoas</h2>
     <div class="clearfix"></div>
@@ -36,7 +47,7 @@ Lista de Pessoas
                     <th>Idade</th>
                     <th>Sexo</th>
                     <th>PNE</th>
-                    <th>Co-participante</th>
+                    <th>CPF</th>
                     <th>Dependentes</th>
                     <th>Bairro</th>
                     <th>Código</th>
