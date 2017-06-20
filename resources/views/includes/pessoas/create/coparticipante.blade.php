@@ -202,7 +202,7 @@
 
         <!-- CEP-->
         <label class="col-md-1 control-label" for="coparticipante[cep]">
-          <a class="duplicar-endereco" data-toggle="tooltip" title="Copiar endereço" style="margin-right: 0; margin-bottom: 3px;"><i class="btn btn-pn-circulo btn-cor-padrao glyphicon glyphicon-repeat" style="margin-top: -10px;"></i></a>
+          <a class="duplicar-endereco" data-toggle="tooltip" title="Copiar endereço" style="margin-right: 0; margin-bottom: 3px;" href="#"><i class="btn btn-pn-circulo btn-cor-padrao glyphicon glyphicon-repeat" style="margin-top: -10px;"></i></a>
           CEP
         </label>
 

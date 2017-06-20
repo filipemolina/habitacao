@@ -123,7 +123,7 @@
           </div>
 
           {{-- Necessidades especiais --}}
-          <label class="col-md-1 control-label" for="necessidades_especiais" data-toggle="tooltip" title="Necessidades especias">Nesc.</label>
+          <label class="col-md-1 control-label" for="necessidades_especiais" data-toggle="tooltip" title="Necessidades especias">Deficiente</label>
           <div class="col-md-2">
             <select id="necessidades_especiais" name="necessidades_especiais" type="text" class="form-control input-md" > 
               <option value="" selected @if(!old('necessidades_especiais')) disabled selected @endif>Selecione...</option>
