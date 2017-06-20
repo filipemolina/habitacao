@@ -11,10 +11,6 @@
                 <a class="collapse-link" data-toggle="tooltip" title="Reduzir / Expandir"><i class="fa fa-chevron-up btn btn-pn-circulo btn-cor-padrao"></i></a>
               <li>
 
-              <li>
-                <a class="limpar1" data-toggle="tooltip" title="Limpar campos" value="limpar1"><i class="fa fa-times btn btn-pn-circulo btn-cor-perigo"></i></a>
-              </li>
-
             </ul>
 
             <div class="clearfix"></div>
@@ -257,8 +253,8 @@
           <input value="{{ old('coparticipante[email]') }}" id="coparticipante[email]" name="coparticipante[email]" type="text" placeholder="email@servidor.com.br" class="form-control input-md email">
         </div>
 
-        {{-- Celular --}}
-        <label class="col-md-1 control-label" for="coparticipante[telefones][0][numero]">Celular</label>
+        {{-- Celular ou telefone --}}
+        <label class="col-md-1 control-label" for="coparticipante[telefones][0][numero]" data-toggle="tooltip" title="Celular ou Telefone">Cel/Tel</label>
         <div class="col-md-2">
           <input value="{{ old('coparticipante[telefones][0][numero]') }}" id="coparticipante[telefones][0][numero]" name="coparticipante[telefones][0][numero]" type="text" placeholder="(99) 99999-9999" data-inputmask="'mask': '(99) 99999-9999'" class="form-control input-md celular"> <span class="obrigatorio">*</span>
           <input type="hidden" value="Celular" name="coparticipante[telefones][0][tipo_telefone]">
