@@ -32,6 +32,16 @@ Lista de Pessoas
 
 <div class="x_title">
     <h2>Lista de Pessoas</h2>
+    <ul class="nav navbar-right panel_toolbox">
+
+      <li>
+        <label class="col-md-11 control-label" for="button2id">
+          <a data-toggle="tooltip" id="button2id" title="Retonar ao cadastro de pessoas" class="btn btn btn-circulo btn-cor-padrao fa fa-plus" href="{{ url( "pessoas/create" ) }}"></a>
+        </label>
+      </li>
+
+    </ul>
+
     <div class="clearfix"></div>
 </div>
 

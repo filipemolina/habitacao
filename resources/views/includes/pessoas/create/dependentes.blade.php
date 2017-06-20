@@ -9,13 +9,7 @@
         <ul class="nav navbar-right panel_toolbox">
 
           <li>
-            <a class="collapse-link" data-toggle="tooltip" title="Reduzir / Expandir">
-              <i class="fa fa-chevron-up btn btn-pn-circulo btn-cor-padrao"></i>
-            </a>
-          </li>
-
-          <li>
-            <a name="submit" value="clonar" data-toggle="tooltip" title="Adicionar dependente" class="clonar"><i class="fa fa-plus btn btn-pn-circulo btn-cor-padrao"></i></a>
+            <a class="collapse-link" data-toggle="tooltip" title="Reduzir / Expandir"><i class="fa fa-chevron-up btn btn-pn-circulo btn-cor-padrao"></i></a>
           </li>
 
         </ul>
@@ -57,11 +51,6 @@
               
               </select><span class="obrigatorio">*</span>
             </div>
-
-            <div class="col-md-1">
-              <a class="limpar2" data-toggle="tooltip" title="Limpar campos" value="limpar2"><i class="btn btn-pn-circulo btn-cor-perigo fa fa-times" style="margin-top: 5px;margin-left: 10px;"></i></a>
-            
-            </div>
           </div>
         
           {{-- Data de Nascimento, Sexo, Necesidades Especias --}}
@@ -86,7 +75,7 @@
 
           {{-- Necessidades especias --}}
 
-          <label class="col-md-1 control-label" for="dependentes[0][necessidades_especiais]" data-toggle="tooltip" title="Necessidades especias">Nesc.</label>
+          <label class="col-md-1 control-label" for="dependentes[0][necessidades_especiais]" data-toggle="tooltip" title="Portador de necessidade especial">Deficiente</label>
             <div class="col-md-2">
               <select name="dependentes[0][necessidades_especiais]" type="text" class="form-control pne_dependentes input-md" >
                 <option value="" disabled selected @if(!old('dependentes.0.necessidades_especiais')) selected @endif>Selecione...</option>
