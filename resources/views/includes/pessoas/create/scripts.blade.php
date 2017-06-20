@@ -255,7 +255,7 @@
 
         ////////////////////////////////////// Duplicar o endereço do participante no coparticipante
 
-        $("button.duplicar-endereco").click(function(e){
+        $("a.duplicar-endereco").click(function(e){
 
             e.preventDefault();
 
