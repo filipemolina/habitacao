@@ -427,7 +427,7 @@ class ParticipantesController extends Controller
 
         }
 
-        return redirect("/pessoas/$participante->id/edit")->with('sucesso', "Participante alterado com sucesso");
+        return redirect("/pessoas")->with('sucesso', "Participante alterado com sucesso");
 
     }
 
@@ -486,10 +486,17 @@ class ParticipantesController extends Controller
             else
                 $acoes = str_replace(['{id}', '{nome}'], [$participante->id, str_replace("'", "'", $participante->nome)], $supervisor_master);
 
+            if($participante->sexo == "Masculino")
+                $sexo = "M";
+            elseif($participante->sexo == "Feminino")
+                $sexo = "F";
+            else
+                $sexo = "O";
+
             $colecao->push([
                 'nome'                   => $participante->nome,
                 'idade'                  => date('Y') - date('Y', strtotime($participante->nascimento)),
-                'sexo'                   => $participante->sexo,
+                'sexo'                   => $sexo,
                 'necessidades_especiais' => $participante->necessidades_especiais ? "Sim" : "Não",
                 'cpf'                    => $participante->cpf,
                 'dependentes'            => count($participante->dependentes),

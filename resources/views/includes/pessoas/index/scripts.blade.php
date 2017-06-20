@@ -51,6 +51,7 @@ $(function(){
     // Ativar o DataTables
 
     tabela = $('#dataTable').DataTable({
+        responsive : true,
         language : {
           'url' : '{{ asset('/js/portugues.json') }}'
         },
@@ -64,7 +65,6 @@ $(function(){
           { data : 'sexo', name : 'sexo' },
           { data : 'necessidades_especiais', name : 'necessidades_especiais' },
           { data : 'cpf', name : 'cpf' },
-          { data : 'dependentes', name : 'dependentes' },
           { data : 'bairro', name : 'bairro' },
           { data : 'codigo', name : 'codigo' },
           { data : 'acoes', name : 'acoes' },
@@ -72,8 +72,6 @@ $(function(){
         ],
         stateSave: true,
         stateDuration: -1,
-        responsive : true,
-        // paging : false,
       });
 
     // Botão de imprimir do overlay de visualização

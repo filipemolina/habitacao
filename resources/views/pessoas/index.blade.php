@@ -38,28 +38,29 @@ Lista de Pessoas
 <div class="col-md-12 col-sm-12 col-xs-12">
     <div class="x_panel modal-content">
         <div class="x_content">
-            <table class="table table-striped" id="dataTable">
+            <div class="table-responsive">
+              
+                <table class="table table-striped" id="dataTable" width="100%">
 
-              <thead>
+                      <thead>
 
-                <tr>
-                    <th>Nome</th>
-                    <th>Idade</th>
-                    <th>Sexo</th>
-                    <th>PNE</th>
-                    <th>CPF</th>
-                    <th>Dependentes</th>
-                    <th>Bairro</th>
-                    <th>Código</th>
-                    <th style="min-width: 50px;">Ações</th>
-                </tr>           
+                        <tr>
+                            <th>Nome</th>
+                            <th>Idade</th>
+                            <th>Sexo</th>
+                            <th>PNE</th>
+                            <th>CPF</th>
+                            <th>Bairro</th>
+                            <th>Código</th>
+                            <th style="min-width: 50px;">Ações</th>
+                        </tr>           
 
-            </thead>
+                    </thead>
 
-            {{-- preenchido com datatables --}}
-        </table>
+                    {{-- preenchido com datatables --}}
+                </table>
 
-
+            </div>
     </div>
 </div>
 </div>
