@@ -51,7 +51,7 @@ Lista de Pessoas
                     <th>Dependentes</th>
                     <th>Bairro</th>
                     <th>Código</th>
-                    <th>Ações</th>
+                    <th style="min-width: 50px;">Ações</th>
                 </tr>           
 
             </thead>
