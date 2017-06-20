@@ -74,13 +74,13 @@
         </div>
 
         {{-- Data de Nascimento --}}
-        <label class="col-md-1 control-label" for="coparticipante[nascimento]" data-toogle="tooltip" title="Nascimento">Nasc.</label>  
+        <label class="col-md-1 control-label" for="coparticipante[nascimento]" data-toggle="tooltip" title="Data de nascimento">Nasc.</label>  
         <div class="col-md-2">
           <input value="{{ old('coparticipante[nascimento]') }}" id="coparticipante[nascimento]" name="coparticipante[nascimento]" type="date" placeholder="01 / 01 / 2000" class="form-control input-md global_data" > <span class="obrigatorio">*</span>
         </div>
 
         {{-- Bolsa Família --}}            
-        <label class="col-md-1 control-label" for="bolsa_familia">Bolsa F.</label>  
+        <label class="col-md-1 control-label" for="bolsa_familia" data-toggle="tooltip" title="Co-participante possui bolsa família?">Bolsa F.</label>  
           <div class="col-md-2">
             <select id="bolsa_familia_coparticipante" name="bolsa_familia_coparticipante" type="text" class="form-control input-md" >
               <option value="" disabled selected>Selecione...</option>
@@ -91,7 +91,7 @@
 
         {{-- Renda bolsa família --}}
           <div class="col-md-2">
-            <input value="{{ old('bolsa_renda') }}" id="coparticipante[bolsa_renda]" name="coparticipante[bolsa_renda]" type="text" placeholder="R$ 99.999,99" data-inputmask="'mask': 'R$ 99.999,99', 'numericInput' : true" class="form-control input-md">
+            <input value="{{ old('bolsa_renda') }}" id="coparticipante[bolsa_renda]" name="coparticipante[bolsa_renda]" type="text" placeholder="R$ 99.999,99" data-inputmask="'mask': 'R$ 99.999,99', 'numericInput' : true" class="form-control input-md" data-toggle="tooltip" title="Valor do bolsa família">
           </div>
 
       </div> {{-- FIM CPF, NIS/PIS e Bolsa Família --}}
@@ -107,13 +107,13 @@
         </div>
 
         <!-- Data de Emissão do RG-->
-        <label class="col-md-1 control-label" for="coparticipante[emissao_rg]">Emissão</label>  
+        <label class="col-md-1 control-label" for="coparticipante[emissao_rg]" data-toggle="tooltip" title="Data de emissão do RG">Emissão</label>  
         <div class="col-md-2">
           <input value="{{ old('coparticipante[emissao_rg]') }}" id="coparticipante[emissao_rg]" name="coparticipante[emissao_rg]" type="date" placeholder="Data de Emissão" class="form-control input-md global_data" >
         </div>
 
         <!-- Orgão Emissor do RG-->
-        <label class="col-md-1 control-label" for="coparticipante[orgao_emissor_rg]">Orgão</label>  
+        <label class="col-md-1 control-label" for="coparticipante[orgao_emissor_rg]" data-toggle="tooltip" title="Orgão emissor do RG">Orgão</label>  
         <div class="col-md-2">
           <input value="{{ old('coparticipante[orgao_emissor_rg]') }}" id="coparticipante[orgao_emissor_rg]" name="coparticipante[orgao_emissor_rg]" type="text" placeholder="Orgão Emissor" class="form-control input-md" >
         </div>
@@ -137,7 +137,7 @@
         </div>
         
         {{-- Necessidades especias --}}
-        <label class="col-md-1 control-label" for="necessidades_especiais" data-toggle="tooltip" title="Necessidades especias">Nesc.</label>
+        <label class="col-md-1 control-label" for="necessidades_especiais" data-toggle="tooltip" title="Portador de necessidade especial">PNE</label>
 
           <div class="col-md-2">
             <select id="necessidades_especiais_coparticipante" name="coparticipante[necessidades_especiais]" type="text" class="form-control input-md" >

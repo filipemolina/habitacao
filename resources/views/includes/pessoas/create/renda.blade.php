@@ -29,7 +29,7 @@
         <div class="form-group">
 
           {{-- Renda Familiar --}}
-          <label class="col-md-1 control-label" for="renda_familiar">Renda</label>
+          <label class="col-md-1 control-label" for="renda_familiar" data-toggle="tooltip" title="Renda familiar total">Renda</label>
           <div class="col-md-2">
             <input value="{{ old('renda_familiar') }}" id="renda_familiar" name="renda_familiar" type="text" placeholder="R$ 99.999,99" data-inputmask="'mask': 'R$ 99.999,99', 'numericInput' : true" class="form-control input-md cash"><span class="obrigatorio">*</span>
           </div>
@@ -49,13 +49,13 @@
         </div> {{-- FIM Renda Familiar e Faixa --}}
         
         {{-- Tempo de residência --}}
-        <label class="col-md-1 control-label" for="inicio-residencia">Início</label>
+        <label class="col-md-1 control-label" for="inicio-residencia" data-toggle="tooltip" title="Data de moradia inicial">Início</label>
         <div class="col-md-2">
           <input value="{{ old('tempo_residencia') }}" id="inicio-residencia" name="tempo_residencia" type="date" placeholder="01 / 01 / 2000" class="form-control input-md global_data" > <span class="obrigatorio">*</span>
         </div>
 
         {{-- Período--}}
-        <label class="col-md-1 control-label" for="periodo">Período</label>
+        <label class="col-md-1 control-label" for="periodo" data-toggle="title" title="Tempo de moradia em Mesquita">Período</label>
         <div class="col-md-2">
           <input value="{{ old('periodo') }}" id="periodo" name="periodo" type="text" placeholder="Classificação" class="form-control input-md" disabled selected style>
         </div>

@@ -60,13 +60,13 @@
           </div>
 
           {{-- Data de Nascimento --}}
-          <label class="col-md-1 control-label" for="nascimento" data-toggle="tooltip" title="Nascimento">Nasc.</label>  
+          <label class="col-md-1 control-label" for="nascimento" data-toggle="tooltip" title="Data de nascimento">Nasc.</label>  
           <div class="col-md-2">
             <input value="{{ old('nascimento') }}" id="nascimento" name="nascimento" type="date" class="form-control input-md global_data" > <span class="obrigatorio">*</span>
           </div>
 
           {{-- Bolsa Família --}}            
-          <label class="col-md-1 control-label" for="bolsa_familia">Bolsa F.</label>  
+          <label class="col-md-1 control-label" for="bolsa_familia" data-toggle="tooltip" title="Participante possui bolsa família?">Bolsa F.</label>  
           <div class="col-md-2">
               <select id="bolsa_familia" name="bolsa_familia" type="text" class="form-control input-md" > 
               <option value="0" selected @if(!old('bolsa_familia')) disabled selected @endif>Selecione...</option>
@@ -77,7 +77,7 @@
 
           {{-- Renda bolsa família --}}
           <div class="col-md-2">
-            <input value="{{ old('bolsa_renda') }}" id="bolsa_renda" name="bolsa_renda" type="text" placeholder="R$ 99.999,99" data-inputmask="'mask': 'R$ 99.999,99', 'numericInput' : true" class="form-control input-md">
+            <input value="{{ old('bolsa_renda') }}" id="bolsa_renda" name="bolsa_renda" type="text" placeholder="R$ 99.999,99" data-inputmask="'mask': 'R$ 99.999,99', 'numericInput' : true" class="form-control input-md" data-toggle="tooltip" title="Valor do bolsa família">
           </div>
 
         </div> {{-- FIM CPF, NIS/PIS e Bolsa Família --}}
@@ -93,13 +93,13 @@
           </div>
 
           <!-- Data de Emissão do RG-->
-          <label class="col-md-1 control-label" for="emissao_rg">Emissão</label>  
+          <label class="col-md-1 control-label" for="emissao_rg" data-toggle="tooltip" title="Data de emissão do RG">Emissão</label>  
           <div class="col-md-2">
             <input value="{{ old('emissao_rg') }}" id="emissao_rg" name="emissao_rg" type="date" class="form-control input-md global_data" >
           </div>
 
           <!-- Orgão Emissor do RG-->
-          <label class="col-md-1 control-label" for="orgao_emissor_rg">Orgão</label>  
+          <label class="col-md-1 control-label" for="orgao_emissor_rg" data-toggle="tooltip" title="Orgão emissor do RG">Orgão</label>  
           <div class="col-md-2">
             <input value="{{ old('orgao_emissor_rg') }}" id="orgao_emissor_rg" name="orgao_emissor_rg" type="text" placeholder="Orgão Emissor" class="form-control input-md" >
           </div>
@@ -123,7 +123,7 @@
           </div>
 
           {{-- Necessidades especiais --}}
-          <label class="col-md-1 control-label" for="necessidades_especiais" data-toggle="tooltip" title="Necessidades especias">Nesc.</label>
+          <label class="col-md-1 control-label" for="necessidades_especiais" data-toggle="tooltip" title="Portador de necessidade especial">PNE</label>
           <div class="col-md-2">
             <select id="necessidades_especiais" name="necessidades_especiais" type="text" class="form-control input-md" > 
               <option value="" selected @if(!old('necessidades_especiais')) disabled selected @endif>Selecione...</option>
@@ -237,20 +237,20 @@
         <div class="form-group">
 
           {{-- Email --}}
-          <label class="col-md-1 control-label" for="email">Email</label>  
+          <label class="col-md-1 control-label" for="email">E-mail</label>  
           <div class="col-md-5">
             <input value="{{ old('email') }}" id="email" name="email" type="text" placeholder="email@servidor.com.br" class="form-control input-md email">
           </div>
 
           {{-- Celular --}}
-          <label class="col-md-1 control-label" for="telefones[0][numero]">Cel.</label>
+          <label class="col-md-1 control-label" for="telefones[0][numero]" data-toggle="tooltip" title="Celular">Cel.</label>
           <div class="col-md-2">
             <input value="{{ old('telefones[0][numero]') }}" id="telefones[0][numero]" name="telefones[0][numero]" type="text" placeholder="(99) 99999-9999" data-inputmask="'mask': '(99) 99999-9999'" class="form-control input-md celular">
             <input type="hidden" name="telefones[0][tipo_telefone]" value="Celular"><span class="obrigatorio">*</span>
           </div>
 
           {{-- Telefone --}}
-          <label class="col-md-1 control-label" for="telefones[1][numero]">Tel.</label>
+          <label class="col-md-1 control-label" for="telefones[1][numero]" data-toggle="tooltip" title="Telefone">Tel.</label>
           <div class="col-md-2">
             <input value="{{ old('telefones[1][numero]') }}" id="telefones[1][numero]"  name="telefones[1][numero]" type="text" placeholder="(99) 9999-9999" data-inputmask="'mask': '(99) 9999-9999'" class="form-control input-md telefone">
             <input type="hidden" name="telefones[1][tipo_telefone]" value="Fixo">

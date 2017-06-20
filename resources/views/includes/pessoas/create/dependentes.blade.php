@@ -86,7 +86,7 @@
 
           {{-- Necessidades especias --}}
 
-          <label class="col-md-1 control-label" for="dependentes[0][necessidades_especiais]" data-toggle="tooltip" title="Necessidades especias">Nesc.</label>
+          <label class="col-md-1 control-label" for="dependentes[0][necessidades_especiais]" data-toggle="tooltip" title="Portador de necessidade especial">PNE</label>
             <div class="col-md-2">
               <select name="dependentes[0][necessidades_especiais]" type="text" class="form-control pne_dependentes input-md" >
                 <option value="" disabled selected @if(!old('dependentes[0][necessidades_especiais]')) selected @endif>Selecione...</option>
