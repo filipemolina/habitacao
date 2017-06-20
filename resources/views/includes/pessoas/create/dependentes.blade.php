@@ -51,11 +51,6 @@
               
               </select><span class="obrigatorio">*</span>
             </div>
-
-            <div class="col-md-1">
-              <a class="limpar2" data-toggle="tooltip" title="Limpar campos" value="limpar2"><i class="btn btn-pn-circulo btn-cor-perigo fa fa-times" style="margin-top: 5px;margin-left: 10px;"></i></a>
-            
-            </div>
           </div>
         
           {{-- Data de Nascimento, Sexo, Necesidades Especias --}}
