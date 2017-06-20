@@ -13,7 +13,9 @@ class UsersController extends Controller
 
     public function __construct()
     {
-        $this->middleware(['auth', 'is_master']);
+        $this->middleware('auth');
+
+        $this->middleware('is_master')->except(['alterarSenha']);
     }
 
     /**
@@ -139,10 +141,6 @@ class UsersController extends Controller
 
     public function alterarSenha(Request $request)
     {
-        echo "<pre>";
-        print_r($request->all());
-        exit;
-
         $this->validate($request, [
             'senhaatual'             => 'required|logado|min:6',
             'novasenha'              => 'required|min:6',
