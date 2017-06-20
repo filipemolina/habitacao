@@ -139,9 +139,9 @@ class UsersController extends Controller
 
     public function alterarSenha(Request $request)
     {
-        // echo "<pre>";
-        // print_r($request->all());
-        // exit;
+        echo "<pre>";
+        print_r($request->all());
+        exit;
 
         $this->validate($request, [
             'senhaatual'             => 'required|logado|min:6',
