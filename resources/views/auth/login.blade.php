@@ -37,11 +37,11 @@
 				<h1 style="color:#3D276B">Cadastro de Habitação</h1>
 
 			<div style="color:#000">
-				{!! BootForm::email('email', 'Email', old('email'), ['placeholder' => 'Email', 'afterInput' => '<span>test</span>'] ) !!}
+				{!! BootForm::email('email', 'Email', old('email'), ['placeholder' => 'Email', 'afterInput' => '<span>test</span>', 'style' => 'text-transform: none !important'] ) !!}
 			</div>
 			
 			<div style="color:#000">
-				{!! BootForm::password('password', 'Senha', ['placeholder' => 'Senha']) !!}
+				{!! BootForm::password('password', 'Senha', ['placeholder' => 'Senha', 'style' => 'text-transform: none !important']) !!}
 			</div>
 
 				<div style="text-align: center; color:#000">

@@ -40,7 +40,7 @@
 
 		<table style=" width: 100%;">
 			
-			<tr style="background: black; color: white; text-align: center">
+			<tr style="background: #3D276B; color: white; text-align: center">
 
 				{{-- Iterar pela lista de cabeçalhos e criar um para cada item enviado --}}
 

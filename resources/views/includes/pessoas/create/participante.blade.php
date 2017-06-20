@@ -9,7 +9,7 @@
             
               <li>
                 <a class="collapse-link" data-toggle="tooltip" title="Reduzir / Expandir"><i class="fa fa-chevron-up btn btn-pn-circulo btn-cor-padrao"></i></a>
-              <li>
+              </li>
 
               <li>
                 <a class="limpar1" data-toggle="tooltip" title="Limpar campos" value="limpar1"><i class="fa fa-times btn btn-pn-circulo btn-cor-perigo"></i></a>
