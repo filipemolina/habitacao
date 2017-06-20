@@ -45,7 +45,7 @@
 
         $('body').tooltip({
             
-            selector: '[data-toggle="tooltip"]:not(#cpf)'
+            selector: '[data-toggle="tooltip"]:not(#cpf):not(#coparticipante\\[cpf\\])'
 
         });
 
@@ -77,9 +77,33 @@
             $("#tipo_necessidade_participante").prop('disabled', false);
         }
 
+        // Ligar ou desligar o valor do Bolsa Família
+
+        if($("select#bolsa_familia").val() == 1)
+        {
+            $("input#bolsa_renda").prop('disabled', false);
+        }
+        else
+        {
+            $("input#bolsa_renda").prop('disabled', true);
+        }
+
+        $("select#bolsa_familia").change(function(){
+
+            if($(this).val() == 1)
+            {
+                $("input#bolsa_renda").prop('disabled', false);
+            }
+            else
+            {
+                $("input#bolsa_renda").prop('disabled', true);   
+            }
+
+        });
+
         // Tooltip do CPF
 
-        $("input#cpf").tooltip({ trigger : "manual" });
+        $("input#cpf, input#coparticipante\\[cpf\\]").tooltip({ trigger : "manual" });
       
        // Clonar div panel_dependentes
         $(".clonar").click(function(e){
@@ -169,11 +193,13 @@
 
         // Verificar se o CPF já está cadastrado antes do formulário ser enviado
 
-        $("input#cpf").blur(function(){
+        $("input#cpf, input#coparticipante\\[cpf\\]").blur(function(){
+
+            var input = $(this);
 
             // Remover o Tooltip caso ele já tenha sido mostrado
 
-            $("input#cpf").tooltip("destroy");
+            $(input).tooltip("destroy");
 
             var cpf = $(this).val();
 
@@ -187,7 +213,7 @@
 
                     if(data == 1)
                     {
-                        $("input#cpf").tooltip("show");
+                        $(input).tooltip("show");
                     }
 
                 });

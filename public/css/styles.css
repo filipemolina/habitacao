@@ -381,3 +381,8 @@ div.x_content.dependente {
 }
 
 .panel_toolbox>li>a { padding: 0; }
+
+.dataTabe td
+{
+    text-transform: uppercase !important;
+}

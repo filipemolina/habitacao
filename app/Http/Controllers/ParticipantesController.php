@@ -136,6 +136,17 @@ class ParticipantesController extends Controller
                                             )
                                         );
 
+        // Valor do Bolsa Família
+
+        if($request->has('vr_bolsa'))
+        {
+            $participante->vr_bolsa = str_replace(["R", "$", "_", " "],  "", 
+                                            str_replace(",", ".", 
+                                                str_replace(".", "", $request->vr_bolsa)
+                                            )
+                                        );
+        }
+
         // Verificar se o participante é mulher chefe de família
 
         $participante->mulher_responsavel = $request->mulher_responsavel ? 1 : 0;
@@ -303,6 +314,17 @@ class ParticipantesController extends Controller
                                                 str_replace(".", "", $request->renda_familiar)
                                             )
                                         );
+
+        // Valor do Bolsa Família
+
+        if($request->has('vr_bolsa'))
+        {
+            $participante->vr_bolsa = str_replace(["R", "$", "_", " "],  "", 
+                                            str_replace(",", ".", 
+                                                str_replace(".", "", $request->vr_bolsa)
+                                            )
+                                        );
+        }
 
         // Verificar se o participante é mulher chefe de família
 
@@ -801,9 +823,13 @@ class ParticipantesController extends Controller
     {
 
         $participante = Participante::where('cpf', $cpf)->get();
+        $coparticipante = Coparticipante::where('cpf', $cpf)->get();
         $retorno = 0;
 
         if(count($participante) > 0)
+            $retorno = 1;
+
+        if(count($coparticipante) > 0)
             $retorno = 1;
 
         return $retorno;

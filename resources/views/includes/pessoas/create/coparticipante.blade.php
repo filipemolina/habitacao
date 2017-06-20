@@ -70,7 +70,7 @@
         {{-- CPF --}}
         <label class="col-md-1 control-label" for="coparticipante[cpf]">CPF</label>  
         <div class="col-md-2">
-          <input value="{{ old('coparticipante[cpf]') }}" id="coparticipante[cpf]" name="coparticipante[cpf]" type="text" placeholder="999.999.999-99" data-inputmask="'mask': '999.999.999-99', 'numericInput': true" class="form-control input-md cpf" > <span class="obrigatorio">*</span>
+          <input value="{{ old('coparticipante[cpf]') }}" id="coparticipante[cpf]" name="coparticipante[cpf]" type="text" placeholder="999.999.999-99" data-inputmask="'mask': '999.999.999-99', 'numericInput': true" class="form-control input-md cpf" data-toggle="tooltip" title="Este CPF já está cadastrado!"> <span class="obrigatorio">*</span>
         </div>
 
         {{-- Data de Nascimento --}}

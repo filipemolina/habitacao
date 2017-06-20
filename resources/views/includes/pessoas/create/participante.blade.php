@@ -77,7 +77,7 @@
 
           {{-- Renda bolsa família --}}
           <div class="col-md-2">
-            <input value="{{ old('bolsa_renda') }}" id="bolsa_renda" name="bolsa_renda" type="text" placeholder="R$ 99.999,99" data-inputmask="'mask': 'R$ 99.999,99', 'numericInput' : true" class="form-control input-md">
+            <input value="{{ old('bolsa_renda') }}" disabled id="bolsa_renda" name="vr_bolsa" type="text" placeholder="R$ 99.999,99" data-inputmask="'mask': 'R$ 99.999,99', 'numericInput' : true" class="form-control input-md">
           </div>
 
         </div> {{-- FIM CPF, NIS/PIS e Bolsa Família --}}

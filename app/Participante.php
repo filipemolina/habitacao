@@ -29,6 +29,7 @@ class Participante extends Model
 		'bolsa_familia',
 		'tipo_deficiencia',
 		'codigo_inscricao',
+		'vr_bolsa',
 	];
 
 	/**
