@@ -23,11 +23,33 @@
         {{-- Nome --}}
         <div class="form-group">
           <label class="col-md-1 control-label" for="coparticipante[nome]">Nome</label>
-            <div class="col-md-7">
-              <input value="{{ $pessoa->coparticipante->nome or "" }}" id="coparticipante[nome]" name="coparticipante[nome]" type="text" placeholder="Informe o nome" class="form-control input-md nome"><span class="obrigatorio">*</span>
-            </div>
+          <div class="col-md-5">
+            <input value="{{ $pessoa->coparticipante->nome or "" }}" id="coparticipante[nome]" name="coparticipante[nome]" type="text" placeholder="Informe o nome" class="form-control input-md nome"><span class="obrigatorio">*</span>
+          </div>
+        
+          {{-- Sexo   --}}
+          <label class="col-md-1 control-label" for="coparticipante[sexo]">Sexo</label>
+          <div class="col-md-2">
+            <select id="coparticipante[sexo]" name="coparticipante[sexo]" type="text" class="form-control input-md">
+              <option value="" disabled selected>Selecione...</option>
 
-          <label class="col-md-2 control-label" for="coparticipante.parentesco">Parentesco</label>
+                @if(count($pessoa->coparticipante) > 0)
+    
+                  <option value="Masculino" @if($pessoa->coparticipante->sexo == "Masculino") selected="selected" @endif>Masculino</option>
+                  <option value="Feminino" @if($pessoa->coparticipante->sexo == "Feminino") selected="selected" @endif>Feminino</option>
+                  <option value="Outros" @if($pessoa->coparticipante->sexo == "Outros") selected="selected" @endif>Outros</option>
+
+                @else
+
+                  <option value="Masculino">Masculino</option>
+                  <option value="Feminino">Feminino</option>
+                  <option value="Outros">Outros</option>
+
+                @endif
+            </select><span class="obrigatorio">*</span>
+        </div>
+
+          <label class="col-md-1 control-label" for="coparticipante.parentesco" datatoggle="tooltip" title="Parentesco">Parent.</label>
             <div class="col-md-2">
               <select name="coparticipante[parentesco]" id="coparticipante[parentesco]" type="text" placeholder="Necessidades Especiais" class="form-control input-md" >
                 <option value="" disabled @if(!old('coparticipante.parentesco')) selected @endif>Selecione...</option>
@@ -62,32 +84,10 @@
           <input value="{{ $pessoa->coparticipante->nascimento or "" }}" id="coparticipante[nascimento]" name="coparticipante[nascimento]" type="date" placeholder="01 / 01 / 2000" class="form-control input-md global_data"><span class="obrigatorio">*</span>
         </div>
 
-        {{-- Sexo   --}}
-        <label class="col-md-1 control-label" for="coparticipante[sexo]">Sexo</label>
-        <div class="col-md-2">
-          <select id="coparticipante[sexo]" name="coparticipante[sexo]" type="text" class="form-control input-md">
-            <option value="" disabled selected>Selecione...</option>
-
-              @if(count($pessoa->coparticipante) > 0)
-    
-                <option value="Masculino" @if($pessoa->coparticipante->sexo == "Masculino") selected="selected" @endif>Masculino</option>
-                <option value="Feminino" @if($pessoa->coparticipante->sexo == "Feminino") selected="selected" @endif>Feminino</option>
-                <option value="Outros" @if($pessoa->coparticipante->sexo == "Outros") selected="selected" @endif>Outros</option>
-
-              @else
-
-                <option value="Masculino">Masculino</option>
-                <option value="Feminino">Feminino</option>
-                <option value="Outros">Outros</option>
-
-              @endif
-          </select><span class="obrigatorio">*</span>
-        </div>
-
         {{-- Bolsa Família --}}            
         <label class="col-md-1 control-label" for="bolsa_familia">Bolsa F.</label>  
           <div class="col-md-2">
-            <select id="bolsa_familia_coparticipante" name="" ame="coparticipante[bolsa_familia]" type="text" class="form-control input-md" >
+            <select id="coparticipante[bolsa_familia]" name="coparticipante[bolsa_familia]" type="text" class="form-control input-md" >
               <option value="">Selecione...</option>
               
               @if(count($pessoa->coparticipante) > 0)
@@ -102,6 +102,11 @@
 
               @endif
             </select><span class="obrigatorio">*</span>
+          </div>
+          
+          {{-- Renda Familiar --}}
+          <div class="col-md-2">
+            <input value="{{ $pessoa->bolsa_renda }}" id="coparticipante[bolsa_renda]" name="coparticipante[bolsa_renda]" type="text" placeholder="R$ 99.999,99" data-inputmask="'mask': 'R$ 99.999,99', 'numericInput': true" class="form-control input-md cash">
           </div>
 
       </div> {{-- FIM CPF, Nascimento, Sexo e Bolsa Família --}}

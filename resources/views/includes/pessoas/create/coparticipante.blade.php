@@ -26,11 +26,22 @@
         {{-- Nome --}}
         <div class="form-group">
         <label class="col-md-1 control-label" for="coparticipante[nome]">Nome</label>
-          <div class="col-md-7">
+          <div class="col-md-5">
             <input value="{{ old('coparticipante[nome]') }}" id="coparticipante[nome]" name="coparticipante[nome]" type="text" placeholder="Informe o nome" class="form-control input-md nome" > <span class="obrigatorio">*</span>
           </div>
 
-          <label class="col-md-2 control-label" for="coparticipante.parentesco">Parentesco</label>
+        {{-- Sexo   --}}
+        <label class="col-md-1 control-label" for="coparticipante[sexo]">Sexo</label>
+        <div class="col-md-2">
+          <select id="coparticipante[sexo]" name="coparticipante[sexo]" type="text" class="form-control input-md" >
+            <option value="" disabled @if(!old('coparticipante[sexo]')) selected @endif>Selecione...</option>
+            <option value="Masculino" @if(old('coparticipante[sexo]') == "Masculino") selected="selected" @endif>Masculino</option>
+            <option value="Feminino" @if(old('coparticipante[sexo]') == "Feminino") selected="selected" @endif>Feminino</option>
+            <option value="Outros" @if(old('coparticipante[sexo]') == "Outros") selected="selected" @endif>Outros</option>
+          </select><span class="obrigatorio">*</span>
+        </div>
+
+          <label class="col-md-1 control-label" for="coparticipante.parentesco" data-toggle="tooltip" title="Parentesco">Parent</label>
           <div class="col-md-2">
             <select name="coparticipante[parentesco]" id="coparticipante[parentesco]" type="text" placeholder="Necessidades Especiais" class="form-control input-md" >
               <option value="" disabled @if(!old('coparticipante[parentesco]')) selected @endif>Selecione...</option>
@@ -68,25 +79,19 @@
           <input value="{{ old('coparticipante[nascimento]') }}" id="coparticipante[nascimento]" name="coparticipante[nascimento]" type="date" placeholder="01 / 01 / 2000" class="form-control input-md global_data" > <span class="obrigatorio">*</span>
         </div>
 
-        {{-- Sexo   --}}
-        <label class="col-md-1 control-label" for="coparticipante[sexo]">Sexo</label>
-        <div class="col-md-2">
-          <select id="coparticipante[sexo]" name="coparticipante[sexo]" type="text" class="form-control input-md" >
-            <option value="" disabled @if(!old('coparticipante[sexo]')) selected @endif>Selecione...</option>
-            <option value="Masculino" @if(old('coparticipante[sexo]') == "Masculino") selected="selected" @endif>Masculino</option>
-            <option value="Feminino" @if(old('coparticipante[sexo]') == "Feminino") selected="selected" @endif>Feminino</option>
-            <option value="Outros" @if(old('coparticipante[sexo]') == "Outros") selected="selected" @endif>Outros</option>
-          </select><span class="obrigatorio">*</span>
-        </div>
-
         {{-- Bolsa Família --}}            
         <label class="col-md-1 control-label" for="bolsa_familia">Bolsa F.</label>  
           <div class="col-md-2">
-            <select id="bolsa_familia_coparticipante" name="coparticipante[bolsa_familia]" type="text" class="form-control input-md" >
+            <select id="bolsa_familia_coparticipante" name="bolsa_familia_coparticipante" type="text" class="form-control input-md" >
               <option value="" disabled selected>Selecione...</option>
               <option value="1" @if(old('coparticipante[bolsa_familia]') == "1") selected="selected" @endif >Possui</option>
               <option value="0" @if(old('coparticipante[bolsa_familia]') == "0") selected="selected" @endif >Não possui</option>
             </select>
+          </div>
+
+        {{-- Renda bolsa família --}}
+          <div class="col-md-2">
+            <input value="{{ old('bolsa_renda') }}" id="coparticipante[bolsa_renda]" name="coparticipante[bolsa_renda]" type="text" placeholder="R$ 99.999,99" data-inputmask="'mask': 'R$ 99.999,99', 'numericInput' : true" class="form-control input-md">
           </div>
 
       </div> {{-- FIM CPF, NIS/PIS e Bolsa Família --}}
