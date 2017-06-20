@@ -20,34 +20,18 @@
 
         <div class="x_content">
 
+        {{-- CPF --}}
+        <label class="col-md-1 control-label" for="coparticipante[cpf]">CPF</label>  
+        <div class="col-md-2">
+          <input value="{{ $pessoa->coparticipante->cpf or "" }}" id="coparticipante[cpf]" name="coparticipante[cpf]" type="text" placeholder="999.999.999-99" data-inputmask="'mask': '999.999.999-99', 'numericInput': true" class="form-control input-md cpf"><span class="obrigatorio">*</span>
+        </div>
+
         {{-- Nome --}}
         <div class="form-group">
           <label class="col-md-1 control-label" for="coparticipante[nome]">Nome</label>
           <div class="col-md-5">
             <input value="{{ $pessoa->coparticipante->nome or "" }}" id="coparticipante[nome]" name="coparticipante[nome]" type="text" placeholder="Informe o nome" class="form-control input-md nome"><span class="obrigatorio">*</span>
           </div>
-        
-          {{-- Sexo   --}}
-          <label class="col-md-1 control-label" for="coparticipante[sexo]">Sexo</label>
-          <div class="col-md-2">
-            <select id="coparticipante[sexo]" name="coparticipante[sexo]" type="text" class="form-control input-md">
-              <option value="" disabled selected>Selecione...</option>
-
-                @if(count($pessoa->coparticipante) > 0)
-    
-                  <option value="Masculino" @if($pessoa->coparticipante->sexo == "Masculino") selected="selected" @endif>Masculino</option>
-                  <option value="Feminino" @if($pessoa->coparticipante->sexo == "Feminino") selected="selected" @endif>Feminino</option>
-                  <option value="Outros" @if($pessoa->coparticipante->sexo == "Outros") selected="selected" @endif>Outros</option>
-
-                @else
-
-                  <option value="Masculino">Masculino</option>
-                  <option value="Feminino">Feminino</option>
-                  <option value="Outros">Outros</option>
-
-                @endif
-            </select><span class="obrigatorio">*</span>
-        </div>
 
           <label class="col-md-1 control-label" for="coparticipante.parentesco" datatoggle="tooltip" title="Parentesco">Parent.</label>
             <div class="col-md-2">
@@ -72,10 +56,26 @@
         {{-- CPF, Nascimento, Sexo e Bolsa Família --}}
         <div class="form-group">
 
-        {{-- CPF --}}
-        <label class="col-md-1 control-label" for="coparticipante[cpf]">CPF</label>  
-        <div class="col-md-2">
-          <input value="{{ $pessoa->coparticipante->cpf or "" }}" id="coparticipante[cpf]" name="coparticipante[cpf]" type="text" placeholder="999.999.999-99" data-inputmask="'mask': '999.999.999-99', 'numericInput': true" class="form-control input-md cpf"><span class="obrigatorio">*</span>
+        {{-- Sexo   --}}
+          <label class="col-md-1 control-label" for="coparticipante[sexo]">Sexo</label>
+          <div class="col-md-2">
+            <select id="coparticipante[sexo]" name="coparticipante[sexo]" type="text" class="form-control input-md">
+              <option value="" disabled selected>Selecione...</option>
+
+                @if(count($pessoa->coparticipante) > 0)
+    
+                  <option value="Masculino" @if($pessoa->coparticipante->sexo == "Masculino") selected="selected" @endif>Masculino</option>
+                  <option value="Feminino" @if($pessoa->coparticipante->sexo == "Feminino") selected="selected" @endif>Feminino</option>
+                  <option value="Outros" @if($pessoa->coparticipante->sexo == "Outros") selected="selected" @endif>Outros</option>
+
+                @else
+
+                  <option value="Masculino">Masculino</option>
+                  <option value="Feminino">Feminino</option>
+                  <option value="Outros">Outros</option>
+
+                @endif
+            </select><span class="obrigatorio">*</span>
         </div>
 
         {{-- Data de Nascimento --}}

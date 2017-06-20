@@ -23,23 +23,18 @@
 
         <div class="x_content">
 
+        {{-- CPF --}}
+        <label class="col-md-1 control-label" for="coparticipante[cpf]">CPF</label>  
+        <div class="col-md-2">
+          <input value="{{ old('coparticipante[cpf]') }}" id="coparticipante[cpf]" name="coparticipante[cpf]" type="text" placeholder="999.999.999-99" data-inputmask="'mask': '999.999.999-99', 'numericInput': true" class="form-control input-md cpf" > <span class="obrigatorio">*</span>
+        </div>
+
         {{-- Nome --}}
         <div class="form-group">
         <label class="col-md-1 control-label" for="coparticipante[nome]">Nome</label>
           <div class="col-md-5">
             <input value="{{ old('coparticipante[nome]') }}" id="coparticipante[nome]" name="coparticipante[nome]" type="text" placeholder="Informe o nome" class="form-control input-md nome" > <span class="obrigatorio">*</span>
           </div>
-
-        {{-- Sexo   --}}
-        <label class="col-md-1 control-label" for="coparticipante[sexo]">Sexo</label>
-        <div class="col-md-2">
-          <select id="coparticipante[sexo]" name="coparticipante[sexo]" type="text" class="form-control input-md" >
-            <option value="" disabled @if(!old('coparticipante[sexo]')) selected @endif>Selecione...</option>
-            <option value="Masculino" @if(old('coparticipante[sexo]') == "Masculino") selected="selected" @endif>Masculino</option>
-            <option value="Feminino" @if(old('coparticipante[sexo]') == "Feminino") selected="selected" @endif>Feminino</option>
-            <option value="Outros" @if(old('coparticipante[sexo]') == "Outros") selected="selected" @endif>Outros</option>
-          </select><span class="obrigatorio">*</span>
-        </div>
 
           <label class="col-md-1 control-label" for="coparticipante.parentesco" data-toggle="tooltip" title="Parentesco">Parent</label>
           <div class="col-md-2">
@@ -64,13 +59,18 @@
 
 
         
-        {{-- CPF, NIS/PIS, Bolsa Família e Carteira de trabalho --}}
+        {{-- Sexo, NIS/PIS, Bolsa Família e Carteira de trabalho --}}
         <div class="form-group">
 
-        {{-- CPF --}}
-        <label class="col-md-1 control-label" for="coparticipante[cpf]">CPF</label>  
+        {{-- Sexo   --}}
+        <label class="col-md-1 control-label" for="coparticipante[sexo]">Sexo</label>
         <div class="col-md-2">
-          <input value="{{ old('coparticipante[cpf]') }}" id="coparticipante[cpf]" name="coparticipante[cpf]" type="text" placeholder="999.999.999-99" data-inputmask="'mask': '999.999.999-99', 'numericInput': true" class="form-control input-md cpf" > <span class="obrigatorio">*</span>
+          <select id="coparticipante[sexo]" name="coparticipante[sexo]" type="text" class="form-control input-md" >
+            <option value="" disabled @if(!old('coparticipante[sexo]')) selected @endif>Selecione...</option>
+            <option value="Masculino" @if(old('coparticipante[sexo]') == "Masculino") selected="selected" @endif>Masculino</option>
+            <option value="Feminino" @if(old('coparticipante[sexo]') == "Feminino") selected="selected" @endif>Feminino</option>
+            <option value="Outros" @if(old('coparticipante[sexo]') == "Outros") selected="selected" @endif>Outros</option>
+          </select><span class="obrigatorio">*</span>
         </div>
 
         {{-- Data de Nascimento --}}
@@ -94,7 +94,7 @@
             <input value="{{ old('bolsa_renda') }}" id="coparticipante[bolsa_renda]" name="coparticipante[bolsa_renda]" type="text" placeholder="R$ 99.999,99" data-inputmask="'mask': 'R$ 99.999,99', 'numericInput' : true" class="form-control input-md" data-toggle="tooltip" title="Valor do bolsa família">
           </div>
 
-      </div> {{-- FIM CPF, NIS/PIS e Bolsa Família --}}
+      </div> {{-- FIM Sexo, NIS/PIS e Bolsa Família --}}
 
 
       {{-- RG, Data de Emissão do RG, Orgão Emissor do RG --}}
@@ -118,10 +118,10 @@
           <input value="{{ old('coparticipante[orgao_emissor_rg]') }}" id="coparticipante[orgao_emissor_rg]" name="coparticipante[orgao_emissor_rg]" type="text" placeholder="Orgão Emissor" class="form-control input-md" >
         </div>
             
-      </div> {{-- FIM RG, Orgão Emissor do RG e Data de Emissão do RG --}}
+      </div> {{-- FIM RG, Data de Emissão do RG, Orgão Emissor do RG --}}
 
 
-      {{-- Data de Nascimento, Sexo, Necessidades especias --}}
+      {{-- NIS, Carteira, Portador deNncessidades especias --}}
       <div class="form-group">
 
         {{-- NIS/PIS --}}            
@@ -136,7 +136,7 @@
           <input value="{{ old('coparticipante[ctps]') }}" id="coparticipante[ctps]" name="coparticipante[ctps]" type="text" placeholder="Cart. de Trabalho" data-inputmask="'mask': '9999999 999-9', 'numericInput': true" class="form-control input-md carteira" >
         </div>
         
-        {{-- Necessidades especias --}}
+        {{-- Portador de necessidades especias --}}
         <label class="col-md-1 control-label" for="necessidades_especiais" data-toggle="tooltip" title="Portador de necessidade especial">PNE</label>
 
           <div class="col-md-2">
@@ -194,7 +194,7 @@
             </select>
           </div>
 
-      </div> {{-- Fim Data de Nascimento, Sexo, Necesidades especias --}}
+      </div> {{-- FIM NIS, Carteira, Portador deNncessidades especias --}}
 
 
       {{-- CEP, Município e Bairro --}}

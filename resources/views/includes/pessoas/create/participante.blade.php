@@ -23,23 +23,18 @@
 
         <div class="x_content">
 
+        {{-- CPF --}}      
+          <label class="col-md-1 control-label" for="cpf">CPF</label>
+          <div class="col-md-2">
+            <input value="{{ old('cpf') }}" id="cpf" name="cpf" type="text" placeholder="999.999.999-99" data-inputmask="'mask': '999.999.999-99', 'numericInput': true" class="form-control input-md cpf" > <span class="obrigatorio">*</span>
+          </div>
+
         {{-- Nome --}}
         <div class="form-group">
           <label class="col-md-1 control-label" for="nome">Nome</label>
           <div class="col-md-5">
             <input value="{{ old('nome') }}" id="nome" name="nome" type="text" placeholder="Informe o nome" class="form-control input-md nome" ><span class="obrigatorio">*</span>
           </div>
-
-        {{-- Sexo   --}}
-        <label class="col-md-1 control-label" for="sexo">Sexo</label>
-        <div class="col-md-2"> 
-          <select id="sexo" name="sexo" type="text" class="form-control input-md" >
-            <option value="" disabled selected>Selecione...</option>
-            <option value="Masculino" @if(old('sexo') == "Masculino") selected="selected" @endif>Masculino</option>
-            <option value="Feminino" @if(old('sexo') == "Feminino") selected="selected" @endif>Feminino</option>
-            <option value="Outros" @if(old('sexo') == "Outros") selected="selected" @endif>Outros</option>
-          </select><span class="obrigatorio">*</span>
-        </div>
           
         {{-- Responsável familiar --}}
         <div class="exibir">
@@ -50,13 +45,18 @@
           </div>
         </div>
 
-        {{-- CPF, NIS/PIS, Bolsa Família e Carteira de trabalho --}}
+        {{-- Sexo, NIS/PIS, Bolsa Família e Carteira de trabalho --}}
         <div class="form-group">
 
-          {{-- CPF --}}      
-          <label class="col-md-1 control-label" for="cpf">CPF</label>
-          <div class="col-md-2">
-            <input value="{{ old('cpf') }}" id="cpf" name="cpf" type="text" placeholder="999.999.999-99" data-inputmask="'mask': '999.999.999-99', 'numericInput': true" class="form-control input-md cpf" > <span class="obrigatorio">*</span>
+          {{-- Sexo   --}}
+          <label class="col-md-1 control-label" for="sexo">Sexo</label>
+          <div class="col-md-2"> 
+            <select id="sexo" name="sexo" type="text" class="form-control input-md" >
+              <option value="" disabled selected>Selecione...</option>
+              <option value="Masculino" @if(old('sexo') == "Masculino") selected="selected" @endif>Masculino</option>
+              <option value="Feminino" @if(old('sexo') == "Feminino") selected="selected" @endif>Feminino</option>
+              <option value="Outros" @if(old('sexo') == "Outros") selected="selected" @endif>Outros</option>
+            </select><span class="obrigatorio">*</span>
           </div>
 
           {{-- Data de Nascimento --}}
