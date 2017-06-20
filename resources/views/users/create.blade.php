@@ -49,10 +49,13 @@
 			<div class="clearfix"></div>
 		</div>
 		
-		<div class="x_panel">
+		<div class="x_panel modal-content">
 			
-			<div class="x_title"> Dados </div>
-			
+			<div class="x_title">
+				<h2> Dados </h2>
+				<div class="clearfix"></div>
+			</div>
+
 			<div class="x_content">
 
 				<form action="{{ url("/users/") }}" method="post" class="form-horizontal" id="form-cadastro-usuario">
@@ -123,12 +126,9 @@
 					</div>	
 					<div class="form-group" style="text-align: center;">
 						<button type="submit" value="submit" data-toggle="tooltip" title="Criar usuário(a)" class="btn btn-lg-circulo btn-cor-padrao fa fa-floppy-o"></button>
+					
 					</div>
-
 				</form>
-
-
-
 			</div>
 		</div>
 	</div>

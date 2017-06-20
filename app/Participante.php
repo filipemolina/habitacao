@@ -29,6 +29,7 @@ class Participante extends Model
 		'bolsa_familia',
 		'tipo_deficiencia',
 		'codigo_inscricao',
+		'vr_bolsa',
 	];
 
 	/**
@@ -76,5 +77,10 @@ class Participante extends Model
     public function telefones()
     {
     	return $this->hasMany('App\Telefone');
+    }
+
+    public function user()
+    {
+    	return $this->belongsTo('App\User');
     }
 }

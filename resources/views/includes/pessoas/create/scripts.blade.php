@@ -1,42 +1,5 @@
 <script type="text/javascript">
 
-
-    // Tooltip para elementos dinâmicos
-
-    $('body').tooltip({
-        
-        selector: '[data-toggle="tooltip"]'
-
-    });
-
-    // Switchery
-
-    var check = document.querySelector("#mulher_responsavel");
-    var init = new Switchery(check, {
-        color : "#3D276B",
-        size  : 'small',
-    });
-
-    // Ligar ou desligar o select de tipos de necessidades especiais
-
-    if($("#necessidades_especiais").val() == 0)
-    {
-        $("#tipo_necessidade").prop('disabled', true);
-    }
-    else
-    {
-        $("#tipo_necessidade").prop('disabled', false);
-    }
-
-    if($("#necessidades_especiais_coparticipante").val() == 0)
-    {
-        $("#tipo_necessidade_participante").prop('disabled', true);
-    }
-    else
-    {
-        $("#tipo_necessidade_participante").prop('disabled', false);
-    }
-
     // Contador de dependentes, 
 
     var cont = {{ $i }};
@@ -77,6 +40,70 @@
 
     {{-- Máscarasa dos campos CPF e RG --}}
     $(function(){
+
+        // Tooltip para elementos dinâmicos
+
+        $('body').tooltip({
+            
+            selector: '[data-toggle="tooltip"]:not(#cpf):not(#coparticipante\\[cpf\\])'
+
+        });
+
+        // Switchery
+
+        var check = document.querySelector("#mulher_responsavel");
+        var init = new Switchery(check, {
+            color : "#3D276B",
+            size  : 'small',
+        });
+
+        // Ligar ou desligar o select de tipos de necessidades especiais
+
+        if($("#necessidades_especiais").val() == 0)
+        {
+            $("#tipo_necessidade").prop('disabled', true);
+        }
+        else
+        {
+            $("#tipo_necessidade").prop('disabled', false);
+        }
+
+        if($("#necessidades_especiais_coparticipante").val() == 0)
+        {
+            $("#tipo_necessidade_participante").prop('disabled', true);
+        }
+        else
+        {
+            $("#tipo_necessidade_participante").prop('disabled', false);
+        }
+
+        // Ligar ou desligar o valor do Bolsa Família
+
+        if($("select#bolsa_familia").val() == 1)
+        {
+            $("input#bolsa_renda").prop('disabled', false);
+        }
+        else
+        {
+            $("input#bolsa_renda").prop('disabled', true);
+        }
+
+        $("select#bolsa_familia").change(function(){
+
+            if($(this).val() == 1)
+            {
+                $("input#bolsa_renda").prop('disabled', false);
+            }
+            else
+            {
+                $("input#bolsa_renda").prop('disabled', true);   
+            }
+
+        });
+
+        // Tooltip do CPF
+
+        $("input#cpf, input#coparticipante\\[cpf\\]").tooltip({ trigger : "manual" });
       
        // Clonar div panel_dependentes
         $(".clonar").click(function(e){
@@ -141,6 +168,56 @@
           e.preventDefault();
 
           $(this).parent().remove();
+
+        });
+
+        // Limpar campos da div
+
+        // Limpar divs de Participanete e Co-participante
+        $(document).on("click", "a.limpar1", function(e){
+
+          e.preventDefault();
+
+          $(this).parent().parent().parent().parent().find("input, select").val('');
+
+        });
+
+        // Limpar divs de Dependentes
+        $(document).on("click", "a.limpar2", function(e){
+
+          e.preventDefault();
+
+          $(this).parent().parent().parent().find("input, select").val('');
+
+        });
+
+        // Verificar se o CPF já está cadastrado antes do formulário ser enviado
+
+        $("input#cpf, input#coparticipante\\[cpf\\]").blur(function(){
+
+            var input = $(this);
+
+            // Remover o Tooltip caso ele já tenha sido mostrado
+
+            $(input).tooltip("destroy");
+
+            var cpf = $(this).val();
+
+            // Verificar se o cpf foi preenchido completamente (não existe nenhum "_" )
+
+            if(cpf.indexOf("_") == -1)
+            {
+                // Fazer a chamada para a função
+
+                $.get("{{ url('/pessoas/verificacpf') }}/"+cpf, function(data){
+
+                    if(data == 1)
+                    {
+                        $(input).tooltip("show");
+                    }
+
+                });
+            }
 
         });
 

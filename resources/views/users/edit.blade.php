@@ -49,7 +49,7 @@
 		<div class="clearfix"></div>
 	</div>
 	
-	<div class="x_panel">
+	<div class="x_panel modal-content">
 		
 		<div class="x_title"> Dados </div>
 		
@@ -110,8 +110,8 @@
 
 
 
-		</div>
-	</div>
+		</div> {{-- FIM x_content --}}
+	</div> {{-- FIM x_panel --}}
 </div>
 
 

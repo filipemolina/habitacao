@@ -28,14 +28,13 @@ $(function(){
 
         swal({
             title: "Atenção!",
-            text: "Você realmente deseja excluir o usuário "+nome+" ?",
+            text: "Você realmente deseja excluir o(a) usuário(a) "+nome+" ?",
             type: "warning",
             showCancelButton: true,
-            confirmButtonColor: "#DD6B55",
             confirmButtonText: "Sim, exclua!",
-            confirmButtonClass: 'btn-cor-perigo',
+            // confirmButtonClass: 'btn-cor-perigo',
             cancelButtonText: "Cancelar",
-            cancelButtonClass: 'btn-cor-padrao',
+            // cancelButtonClass: 'btn-cor-padrao',
             closeOnConfirm: false,
             closeOnCancel: false
         },
@@ -61,9 +60,9 @@ $(function(){
                     swal({
 
                         title : "Excluído!",
-                        text  : "O usuário " + nome + "foi excluído do sistema.",
+                        text  : "O(A) usuário(a) " + nome + " foi excluíd(a) do sistema.",
                         type  : "success",
-                        confirmButtonClass: 'btn-cor-padrao',
+                        // confirmButtonClass : 'btn btn-cor-padrao',
                     
                     });
                 });
@@ -71,9 +70,9 @@ $(function(){
 
                 swal({
                     title : "Cancelado",
-                    text : "O usuário " + nome + " permanece no sistema.",
-                    type : 'error',
-                    confirmButtonClass: 'btn-cor-padrao',
+                    text  : "O(A) usuário(a) " + nome + " permanece no sistema.",
+                    type  : 'error',
+                    // confirmButtonClass : 'btn-cor-padrao',
                 });
 
             }

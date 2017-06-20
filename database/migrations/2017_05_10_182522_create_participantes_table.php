@@ -32,12 +32,13 @@ class CreateParticipantesTable extends Migration
             $table->char('nis',20)->nullable();
             $table->char('ctps',20)->nullable();
             $table->boolean('bolsa_familia');
+            $table->float('vr_bolsa')->nullable();
             $table->integer('codigo_inscricao');
             $table->boolean('idoso')->default(false);
+            $table->integer('user_id')->nullable();
 
             $table->softDeletes();
             $table->timestamps();
-
 
         });
     }

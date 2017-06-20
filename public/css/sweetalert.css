@@ -382,7 +382,7 @@ body.stop-scrolling {
 }
 .sweet-alert .sa-icon.sa-success::before {
   border-radius: 120px 0 0 120px;
-  top: -7px;
+  top: -12px;
   left: -33px;
   transform: rotate(-45deg);
   transform-origin: 60px 60px;
