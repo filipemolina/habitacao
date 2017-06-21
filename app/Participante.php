@@ -7,6 +7,8 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Participante extends Model
 {
+	use SoftDeletes;
+
 	/**
 	 * Fillables
 	 */
@@ -30,6 +32,10 @@ class Participante extends Model
 		'tipo_deficiencia',
 		'codigo_inscricao',
 		'vr_bolsa',
+		'user_id',
+		'motivo_exclusao',
+		'exclusao_user_id',
+		'bairro_preferencial'
 	];
 
 	/**
@@ -81,6 +87,11 @@ class Participante extends Model
 
     public function user()
     {
-    	return $this->belongsTo('App\User');
+    	return $this->belongsTo('App\Models\User');
+    }
+
+    public function user_exclusao()
+    {
+    	return $this->belongsTo('App\Models\User', 'exclusao_user_id');
     }
 }

@@ -36,6 +36,9 @@ class CreateParticipantesTable extends Migration
             $table->integer('codigo_inscricao');
             $table->boolean('idoso')->default(false);
             $table->integer('user_id')->nullable();
+            $table->string('motivo_exclusao')->nullable();
+            $table->integer('exclusao_user_id')->nullable();
+            $table->string('bairro_preferencial', 50)->nullable();
 
             $table->softDeletes();
             $table->timestamps();

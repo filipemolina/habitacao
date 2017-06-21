@@ -115,31 +115,53 @@ $(function(){
         function(isConfirm){
             if (isConfirm) {
 
-                // Fazer uma chamada post enviando o id do participante e o método DELETE
+                swal({
+                  title: "Atenção",
+                  text: "Informe o motivo da exclusão:",
+                  type: "input",
+                  showCancelButton: true,
+                  closeOnConfirm: false,
+                  animation: "slide-from-top",
+                  inputPlaceholder: "Motivo da exclusão"
+                },
+                function(inputValue){
+                  if (inputValue === false) return false;
+                  
+                  if (inputValue === "") {
+                    swal.showInputError("O campo motivo da exclusão é obrigatório!");
+                    return false
+                  }
 
-                $.post("{{ url("/pessoas/") }}/"+id, {
-                  id : id,
-                  _method : method,
-                  _token : token,
-                })
+                  // Fazer uma chamada post enviando o id do participante e o método DELETE
 
-                // Caso a chamada seja bem-sucedida
+                  $.post("{{ url("/pessoas/") }}/"+id, {
+                    id : id,
+                    _method : method,
+                    _token : token,
+                    motivo : inputValue,
+                  })
 
-                .done(function(){
+                  // Caso a chamada seja bem-sucedida
 
-                    // Deletar a TR do cadastro que foi deletado
+                  .done(function(){
 
-                    $(link).parents("tr").remove();
+                      // Deletar a TR do cadastro que foi deletado
 
-                    swal({
+                      $(link).parents("tr").remove();
+                  
+                      swal({
 
-                        title : "Excluído!",
-                        text  : "O participante " + nome + "foi excluído do cadastro.",
-                        type  : "success",
-                        confirmButtonClass: "btn-cor-padrao"
-                    
-                    });
+                          title : "Excluído!",
+                          text  : "O participante " + nome + "foi excluído do cadastro.",
+                          type  : "success",
+                          confirmButtonClass: "btn-cor-padrao"
+                      
+                      });
+
+                  });
+
                 });
+
             } else {
 
                 swal({

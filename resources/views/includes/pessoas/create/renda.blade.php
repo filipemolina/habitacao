@@ -55,6 +55,12 @@
         <div class="col-md-2">
           <input value="{{ old('periodo') }}" id="periodo" name="periodo" type="text" placeholder="Classificação" class="form-control input-md" disabled selected style>
         </div>
+
+        {{-- Bairro Preferencial--}}
+        <label class="col-md-2 control-label" for="bairro_preferencial" data-toggle="title" title="Tempo de moradia em Mesquita">Bairro Preferencial</label>
+        <div class="col-md-2">
+          <input value="{{ old('bairro_preferencial') }}" id="bairro_preferencial" name="bairro_preferencial" type="text" class="form-control input-md">
+        </div>
       </div> {{-- FIM x_content --}}
 
   </div>

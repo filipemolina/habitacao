@@ -171,6 +171,10 @@ class ParticipantesController extends Controller
             $participante->codigo_inscricao = $proximo;
         }
 
+        // Usuário que cadastrou esse participante
+
+        $participante->user()->associate(Auth::user());
+
         $participante->save();
 
         // Telefones do Participante
@@ -437,11 +441,18 @@ class ParticipantesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Request $request, $id)
     {
         // Obter o participante à ser deletado
 
         $participante = Participante::find($id);
+
+        // Informar o motivo da exclusão e o usuário que o excluíu
+
+        $participante->motivo_exclusao = $request->motivo;
+        $participante->exclusao_user_id = Auth::user()->id;
+
+        $participante->save();
 
         // Excluir do banco de dados (soft-delete ativado!)
 
