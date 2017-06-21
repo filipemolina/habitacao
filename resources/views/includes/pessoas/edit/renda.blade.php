@@ -27,7 +27,7 @@
           {{-- Renda Familiar --}}
           <label class="col-md-1 control-label" for="renda_familiar">Renda</label>
           <div class="col-md-2">
-            <input value="{{ $pessoa->renda_familiar }}" id="renda_familiar" name="renda_familiar" type="text" placeholder="R$ 99.999,99" data-inputmask="'mask': 'R$ 99.999,99', 'numericInput': true" class="form-control input-md cash"><span class="obrigatorio">*</span>
+            <input value="{{ number_format($pessoa->renda_familiar, 2, ",", ".") }}" id="renda_familiar" name="renda_familiar" type="text" placeholder="R$ 99.999,99" data-inputmask="'mask': 'R$ 99.999,99', 'numericInput': true" class="form-control input-md cash"><span class="obrigatorio">*</span>
           </div>
 
           {{-- Faixa--}}

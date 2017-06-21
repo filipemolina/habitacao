@@ -75,7 +75,7 @@
 
           {{-- Renda Familiar --}}
           <div class="col-md-2">
-            <input value="{{ $pessoa->bolsa_renda }}" id="bolsa_renda" name="bolsa_renda" type="text" placeholder="R$ 99.999,99" data-inputmask="'mask': 'R$ 99.999,99', 'numericInput': true" class="form-control input-md cash">
+            <input value="{{ number_format($pessoa->vr_bolsa, 2, ",", ".") }}" id="bolsa_renda" name="vr_bolsa" type="text" placeholder="R$ 99.999,99" data-inputmask="'mask': 'R$ 99.999,99', 'numericInput': true" class="form-control input-md cash">
           </div>
 
 
@@ -122,7 +122,7 @@
             </div>
 
             {{-- Deficiente --}}
-            <label class="col-md-1 control-label" for="necessidades_especiais" data-toggle="tooltip" title="Portador de necessidade especial">PNE</label>
+            <label class="col-md-1 control-label" for="necessidades_especiais" data-toggle="tooltip" title="Portador de necessidade especial">Deficiente</label>
             <div class="col-md-2">
               <select id="necessidades_especiais" name="necessidades_especiais" type="text" class="form-control input-md" > 
                 <option value=" " disabled selected @if(!$pessoa->necessidades_especiais) selected @endif>Selecione...</option>

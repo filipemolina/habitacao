@@ -26,4 +26,18 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+    /**
+     * Relacionamentos
+     */
+
+    public function participantes()
+    {
+        return $this->hasMany('App\Participante');
+    }
+
+    public function participantes_excluidos()
+    {
+        return $this->hasMany('App\Participante', "exclusao_user_id");
+    }
 }

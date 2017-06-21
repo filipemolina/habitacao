@@ -136,6 +136,17 @@ class ParticipantesController extends Controller
                                             )
                                         );
 
+        // Valor do Bolsa Família
+
+        if($request->has('vr_bolsa'))
+        {
+            $participante->vr_bolsa = str_replace(["R", "$", "_", " "],  "", 
+                                            str_replace(",", ".", 
+                                                str_replace(".", "", $request->vr_bolsa)
+                                            )
+                                        );
+        }
+
         // Verificar se o participante é mulher chefe de família
 
         $participante->mulher_responsavel = $request->mulher_responsavel ? 1 : 0;
@@ -159,6 +170,10 @@ class ParticipantesController extends Controller
 
             $participante->codigo_inscricao = $proximo;
         }
+
+        // Usuário que cadastrou esse participante
+
+        $participante->user()->associate(Auth::user());
 
         $participante->save();
 
@@ -206,7 +221,7 @@ class ParticipantesController extends Controller
             }
         }
 
-        return redirect('/pessoas/create')->with('sucesso', "Usuário cadastrado com sucesso. Código da inscriçao : <span style='font-weight: bold; font-size: 16px'>$participante->codigo_inscricao</span><br><a target='_blank' style=' font-weight: bold; text-transform: uppercase' href='".url("/pessoas/comprovante/$participante->id")."'>Clique aqui para imprirmir o comprovante de inscrição</a>");
+        return redirect('/pessoas')->with('sucesso', "Usuário cadastrado com sucesso. Código da inscriçao : <span style='font-weight: bold; font-size: 16px'>$participante->codigo_inscricao</span><br><a target='_blank' style=' font-weight: bold; text-transform: uppercase' href='".url("/pessoas/comprovante/$participante->id")."'>Clique aqui para imprirmir o comprovante de inscrição</a>");
     }
 
     /**
@@ -303,6 +318,17 @@ class ParticipantesController extends Controller
                                                 str_replace(".", "", $request->renda_familiar)
                                             )
                                         );
+
+        // Valor do Bolsa Família
+
+        if($request->has('vr_bolsa'))
+        {
+            $participante->vr_bolsa = str_replace(["R", "$", "_", " "],  "", 
+                                            str_replace(",", ".", 
+                                                str_replace(".", "", $request->vr_bolsa)
+                                            )
+                                        );
+        }
 
         // Verificar se o participante é mulher chefe de família
 
@@ -405,7 +431,7 @@ class ParticipantesController extends Controller
 
         }
 
-        return redirect("/pessoas/$participante->id/edit")->with('sucesso', "Participante alterado com sucesso");
+        return redirect("/pessoas")->with('sucesso', "Participante alterado com sucesso");
 
     }
 
@@ -415,11 +441,18 @@ class ParticipantesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Request $request, $id)
     {
         // Obter o participante à ser deletado
 
         $participante = Participante::find($id);
+
+        // Informar o motivo da exclusão e o usuário que o excluíu
+
+        $participante->motivo_exclusao = $request->motivo;
+        $participante->exclusao_user_id = Auth::user()->id;
+
+        $participante->save();
 
         // Excluir do banco de dados (soft-delete ativado!)
 
@@ -464,12 +497,19 @@ class ParticipantesController extends Controller
             else
                 $acoes = str_replace(['{id}', '{nome}'], [$participante->id, str_replace("'", "'", $participante->nome)], $supervisor_master);
 
+            if($participante->sexo == "Masculino")
+                $sexo = "M";
+            elseif($participante->sexo == "Feminino")
+                $sexo = "F";
+            else
+                $sexo = "O";
+
             $colecao->push([
                 'nome'                   => $participante->nome,
                 'idade'                  => date('Y') - date('Y', strtotime($participante->nascimento)),
-                'sexo'                   => $participante->sexo,
+                'sexo'                   => $sexo,
                 'necessidades_especiais' => $participante->necessidades_especiais ? "Sim" : "Não",
-                'coparticipante'         => count($participante->coparticipante) ? "Sim" : "Não",
+                'cpf'                    => $participante->cpf,
                 'dependentes'            => count($participante->dependentes),
                 'bairro'                 => $participante->endereco->bairro,
                 'codigo'                 => $participante->codigo_inscricao,
@@ -791,6 +831,26 @@ class ParticipantesController extends Controller
 
         else
             return "Sem Classificação";
+    }
+
+    /**
+     *  Função para verificar se o CPF já existe antes que o formulário sejam enviados
+     */
+
+    public function cpfExiste($cpf)
+    {
+
+        $participante = Participante::where('cpf', $cpf)->get();
+        $coparticipante = Coparticipante::where('cpf', $cpf)->get();
+        $retorno = 0;
+
+        if(count($participante) > 0)
+            $retorno = 1;
+
+        if(count($coparticipante) > 0)
+            $retorno = 1;
+
+        return $retorno;
     }
 
     /**

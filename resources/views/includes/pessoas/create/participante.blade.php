@@ -9,7 +9,7 @@
             
               <li>
                 <a class="collapse-link" data-toggle="tooltip" title="Reduzir / Expandir"><i class="fa fa-chevron-up btn btn-pn-circulo btn-cor-padrao"></i></a>
-              <li>
+              </li>
 
             </ul>
 
@@ -22,7 +22,7 @@
         {{-- CPF --}}      
           <label class="col-md-1 control-label" for="cpf">CPF</label>
           <div class="col-md-2">
-            <input value="{{ old('cpf') }}" id="cpf" name="cpf" type="text" placeholder="999.999.999-99" data-inputmask="'mask': '999.999.999-99', 'numericInput': true" class="form-control input-md cpf" > <span class="obrigatorio">*</span>
+            <input value="{{ old('cpf') }}" id="cpf" name="cpf" type="text" placeholder="999.999.999-99" data-inputmask="'mask': '999.999.999-99', 'numericInput': true" class="form-control input-md cpf" data-toggle="tooltip" title="Este CPF já está cadastrado!"> <span class="obrigatorio">*</span>
           </div>
 
         {{-- Nome --}}
@@ -73,7 +73,7 @@
 
           {{-- Renda bolsa família --}}
           <div class="col-md-2">
-            <input value="{{ old('bolsa_renda') }}" id="bolsa_renda" name="bolsa_renda" type="text" placeholder="R$ 99.999,99" data-inputmask="'mask': 'R$ 99.999,99', 'numericInput' : true" class="form-control input-md" data-toggle="tooltip" title="Valor do bolsa família">
+            <input value="{{ old('vr_bolsa') }}" disabled id="bolsa_renda" name="vr_bolsa" type="text" placeholder="R$ 99.999,99" data-inputmask="'mask': 'R$ 99.999,99', 'numericInput' : true" class="form-control input-md">
           </div>
 
         </div> {{-- FIM CPF, NIS/PIS e Bolsa Família --}}
@@ -119,7 +119,8 @@
           </div>
 
           {{-- Necessidades especiais --}}
-          <label class="col-md-1 control-label" for="necessidades_especiais" data-toggle="tooltip" title="Portador de necessidade especial">PNE</label>
+
+          <label class="col-md-1 control-label" for="necessidades_especiais" data-toggle="tooltip" title="Portador de necessidade especial">Deficiente</label>
           <div class="col-md-2">
             <select id="necessidades_especiais" name="necessidades_especiais" type="text" class="form-control input-md" > 
               <option value="" selected @if(!old('necessidades_especiais')) disabled selected @endif>Selecione...</option>
@@ -189,19 +190,19 @@
           CEP
           </label>
           <div class="col-md-2">
-            <input value="{{ old('endereco[cep]') }}" id="cep" name="endereco[cep]" type="text" placeholder="99999-999" data-inputmask="'mask': '99999-999', 'numericInput': true" class="form-control input-md cep" > <span class="obrigatorio">*</span>
+            <input value="{{ old('endereco.cep') }}" id="cep" name="endereco[cep]" type="text" placeholder="99999-999" data-inputmask="'mask': '99999-999', 'numericInput': true" class="form-control input-md cep" > <span class="obrigatorio">*</span>
           </div>
 
           <!-- Município-->
           <label class="col-md-1 control-label" for="municipio">Município</label>
           <div class="col-md-2">
-            <input value="{{ old('endereco[municipio]') }}" disabled="disabled" id="municipio" name="endereco[municipio]" type="text" placeholder="Mesquita" value="Mesquita" class="form-control input-md" >
+            <input value="{{ old('endereco.municipio') }}" disabled="disabled" id="municipio" name="endereco[municipio]" type="text" placeholder="Mesquita" value="Mesquita" class="form-control input-md" >
           </div>
 
           {{-- Bairro --}}
           <label class="col-md-1 control-label" for="bairro">Bairro</label>
           <div class="col-md-2">
-            <input value="{{ old('endereco[bairro]') }}" id="bairro" name="endereco[bairro]" type="text" placeholder="Centro" class="form-control input-md"> <span class="obrigatorio">*</span>
+            <input value="{{ old('endereco.bairro') }}" id="bairro" name="endereco[bairro]" type="text" placeholder="Centro" class="form-control input-md"> <span class="obrigatorio">*</span>
           </div>
 
         </div> {{-- FIM CEP, Munícipio e Bairro--}}
@@ -212,19 +213,19 @@
           <!-- Logradouro ...Av...Rua....etc-->
           <label class="col-md-1 control-label" for="logradouro" data-toggle="tooltip" title="Logradouro">Log.</label>
           <div class="col-md-3">
-            <input value="{{ old('endereco[logradouro]') }}"  id="logradouro" name="endereco[logradouro]" type="text" placeholder="Av, Rua, Travessa..." class="form-control input-md"> <span class="obrigatorio">*</span>
+            <input value="{{ old('endereco.logradouro') }}"  id="logradouro" name="endereco[logradouro]" type="text" placeholder="Av, Rua, Travessa..." class="form-control input-md"> <span class="obrigatorio">*</span>
           </div>
 
           <!-- Número da residência-->
           <label class="col-md-1 control-label" for="numero">Número</label>
           <div class="col-md-2">
-            <input value="{{ old('endereco[numero]') }}" id="numero" name="endereco[numero]" type="text" placeholder="999" class="form-control input-md"> <span class="obrigatorio">*</span>
+            <input value="{{ old('endereco.numero') }}" id="numero" name="endereco[numero]" type="text" placeholder="999" class="form-control input-md"> <span class="obrigatorio">*</span>
           </div>
 
           {{-- Complemento --}}
           <label class="col-md-2 control-label" for="complemento">Complemento</label>
           <div class="col-md-3">
-            <input value="{{ old('endereco[complemento]') }}" id="complemento" name="endereco[complemento]" type="text" placeholder="Ap., Fundos,..." class="form-control input-md">
+            <input value="{{ old('endereco.complemento') }}" id="complemento" name="endereco[complemento]" type="text" placeholder="Ap., Fundos,..." class="form-control input-md">
           </div>
 
         </div> {{-- FIM Logradouro, Número e Complemento --}}
@@ -241,14 +242,14 @@
           {{-- Celular --}}
           <label class="col-md-1 control-label" for="telefones[0][numero]" data-toggle="tooltip" title="Celular">Cel.</label>
           <div class="col-md-2">
-            <input value="{{ old('telefones[0][numero]') }}" id="telefones[0][numero]" name="telefones[0][numero]" type="text" placeholder="(99) 99999-9999" data-inputmask="'mask': '(99) 99999-9999'" class="form-control input-md celular">
+            <input value="{{ old('telefones.0.numero') }}" id="telefones[0][numero]" name="telefones[0][numero]" type="text" placeholder="(99) 99999-9999" data-inputmask="'mask': '(99) 99999-9999'" class="form-control input-md celular">
             <input type="hidden" name="telefones[0][tipo_telefone]" value="Celular"><span class="obrigatorio">*</span>
           </div>
 
           {{-- Telefone --}}
           <label class="col-md-1 control-label" for="telefones[1][numero]" data-toggle="tooltip" title="Telefone">Tel.</label>
           <div class="col-md-2">
-            <input value="{{ old('telefones[1][numero]') }}" id="telefones[1][numero]"  name="telefones[1][numero]" type="text" placeholder="(99) 9999-9999" data-inputmask="'mask': '(99) 9999-9999'" class="form-control input-md telefone">
+            <input value="{{ old('telefones.1.numero') }}" id="telefones[1][numero]"  name="telefones[1][numero]" type="text" placeholder="(99) 9999-9999" data-inputmask="'mask': '(99) 9999-9999'" class="form-control input-md telefone">
             <input type="hidden" name="telefones[1][tipo_telefone]" value="Fixo">
           </div>
 

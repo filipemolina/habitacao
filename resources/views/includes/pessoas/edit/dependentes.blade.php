@@ -80,7 +80,7 @@
               </div>
 
               {{-- Deficiente --}}
-              <label class="col-md-1 control-label" for="dependentes[{{ $i }}][necessidades_especiais]" data-toggle="tooltip" title="Portador de necessidade especial">PNE</label>
+              <label class="col-md-1 control-label" for="dependentes[{{ $i }}][necessidades_especiais]" data-toggle="tooltip" title="Portador de necessidade especial">Deficiente</label>
               <div class="col-md-2">
                 <select name="dependentes[{{ $i }}][necessidades_especiais]" id="dependentes[{{ $i }}][necessidades_especiais]" type="text" placeholder="Necessidades Especiais" class="form-control pne_dependentes input-md" >
                   <option value=" " selected @if(!$dependente->necessidades_especiais) selected @endif>Selecione...</option>

@@ -40,7 +40,7 @@
 
 		<table style=" width: 100%;">
 			
-			<tr style="background: black; color: white; text-align: center">
+			<tr style="background: #3D276B; color: white; text-align: center">
 
 				{{-- Iterar pela lista de cabeçalhos e criar um para cada item enviado --}}
 
@@ -61,7 +61,7 @@
 					
 					@foreach($cabecalhos as $indice => $valor)
 						
-						<td style="border: 1px solid black; text-align: center">{{ $pessoa[$indice] }}</td>
+						<td style="border: 1px solid black; text-align: center; text-transform: uppercase;">{{ $pessoa[$indice] }}</td>
 
 					@endforeach
 

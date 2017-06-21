@@ -44,6 +44,7 @@ Route::get("mudarsenha", "HomeController@mudarsenha");
 Route::post("/users/alterarsenha", "UsersController@alterarSenha");
 
 Route::get('/pessoas/api/{id}', 'ParticipantesController@info_ajax');
+Route::get('/pessoas/verificacpf/{cpf}', 'ParticipantesController@cpfExiste');
 
 // Rotas dos Resourceful Controllers
 

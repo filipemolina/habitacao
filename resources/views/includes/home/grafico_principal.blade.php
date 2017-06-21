@@ -8,7 +8,7 @@
                 <h3>Inscrições <small> Separadas por gênero</small>
                     @if(Auth::user()->admin == "Master")
                     
-                        <a href="#" class="dropdown-toggle relatorio" data-ordem="sexo" role="button" aria-expanded="false" data-toggle="tooltip" title="Relatório"><i class="fa fa-file btn btn-pn-circulo btn-cor-padrao" style="color: #3D276B"></i></a>
+                        <a href="#" class="dropdown-toggle relatorio" data-ordem="sexo" role="button" aria-expanded="false" data-toggle="tooltip" title="Relatório por gênero"><i class="fa fa-file btn btn-pn-circulo btn-cor-padrao" style="color: #3D276B"></i></a>
                     
                     @endif
                 </h3>
@@ -25,7 +25,7 @@
 
                     @if(Auth::user()->admin == "Master")
                     
-                        <a href="#" class="dropdown-toggle relatorio" data-ordem="faixa" role="button" aria-expanded="false" data-toggle="tooltip" title="Relatório"><i class="fa fa-file btn btn-pn-circulo btn-cor-padrao" style="color: #3D276B"></i></a>
+                        <a href="#" class="dropdown-toggle relatorio" data-ordem="faixa" role="button" aria-expanded="false" data-toggle="tooltip" title="Relatório por Faixas de Inscrição"><i class="fa fa-file btn btn-pn-circulo btn-cor-padrao" style="color: #3D276B"></i></a>
                     
                     @endif
 
