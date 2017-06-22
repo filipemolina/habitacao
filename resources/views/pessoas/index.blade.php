@@ -58,8 +58,8 @@ Lista de Pessoas
                             <th>Nome</th>
                             <th>Idade</th>
                             <th>Sexo</th>
-                            <th>PNE</th>
                             <th>CPF</th>
+                            <th>CPF do Coparticipante</th>
                             <th>Bairro</th>
                             <th>Código</th>
                             <th style="min-width: 50px;">Ações</th>
