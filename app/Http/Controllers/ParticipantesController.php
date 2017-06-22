@@ -171,6 +171,10 @@ class ParticipantesController extends Controller
             $participante->codigo_inscricao = $proximo;
         }
 
+        // Usuário que cadastrou esse participante
+
+        $participante->user()->associate(Auth::user());
+
         $participante->save();
 
         // Telefones do Participante
@@ -427,7 +431,7 @@ class ParticipantesController extends Controller
 
         }
 
-        return redirect("/pessoas/$participante->id/edit")->with('sucesso', "Participante alterado com sucesso");
+        return redirect("/pessoas")->with('sucesso', "Participante alterado com sucesso");
 
     }
 
@@ -437,11 +441,18 @@ class ParticipantesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Request $request, $id)
     {
         // Obter o participante à ser deletado
 
         $participante = Participante::find($id);
+
+        // Informar o motivo da exclusão e o usuário que o excluíu
+
+        $participante->motivo_exclusao = $request->motivo;
+        $participante->exclusao_user_id = Auth::user()->id;
+
+        $participante->save();
 
         // Excluir do banco de dados (soft-delete ativado!)
 
@@ -486,12 +497,19 @@ class ParticipantesController extends Controller
             else
                 $acoes = str_replace(['{id}', '{nome}'], [$participante->id, str_replace("'", "'", $participante->nome)], $supervisor_master);
 
+            if($participante->sexo == "Masculino")
+                $sexo = "M";
+            elseif($participante->sexo == "Feminino")
+                $sexo = "F";
+            else
+                $sexo = "O";
+
             $colecao->push([
                 'nome'                   => $participante->nome,
                 'idade'                  => date('Y') - date('Y', strtotime($participante->nascimento)),
-                'sexo'                   => $participante->sexo,
-                'necessidades_especiais' => $participante->necessidades_especiais ? "Sim" : "Não",
+                'sexo'                   => $sexo,
                 'cpf'                    => $participante->cpf,
+                'cpf_coparticipante'     => isset($participante->coparticipante->cpf) ?$participante->coparticipante->cpf: "",
                 'dependentes'            => count($participante->dependentes),
                 'bairro'                 => $participante->endereco->bairro,
                 'codigo'                 => $participante->codigo_inscricao,

@@ -20,34 +20,18 @@
 
         <div class="x_content">
 
+        {{-- CPF --}}
+        <label class="col-md-1 control-label" for="coparticipante[cpf]">CPF</label>  
+        <div class="col-md-2">
+          <input value="{{ $pessoa->coparticipante->cpf or "" }}" id="coparticipante[cpf]" name="coparticipante[cpf]" type="text" placeholder="999.999.999-99" data-inputmask="'mask': '999.999.999-99', 'numericInput': true" class="form-control input-md cpf"><span class="obrigatorio">*</span>
+        </div>
+
         {{-- Nome --}}
         <div class="form-group">
           <label class="col-md-1 control-label" for="coparticipante[nome]">Nome</label>
           <div class="col-md-5">
             <input value="{{ $pessoa->coparticipante->nome or "" }}" id="coparticipante[nome]" name="coparticipante[nome]" type="text" placeholder="Informe o nome" class="form-control input-md nome"><span class="obrigatorio">*</span>
           </div>
-        
-          {{-- Sexo   --}}
-          <label class="col-md-1 control-label" for="coparticipante[sexo]">Sexo</label>
-          <div class="col-md-2">
-            <select id="coparticipante[sexo]" name="coparticipante[sexo]" type="text" class="form-control input-md">
-              <option value="" disabled selected>Selecione...</option>
-
-                @if(count($pessoa->coparticipante) > 0)
-    
-                  <option value="Masculino" @if($pessoa->coparticipante->sexo == "Masculino") selected="selected" @endif>Masculino</option>
-                  <option value="Feminino" @if($pessoa->coparticipante->sexo == "Feminino") selected="selected" @endif>Feminino</option>
-                  <option value="Outros" @if($pessoa->coparticipante->sexo == "Outros") selected="selected" @endif>Outros</option>
-
-                @else
-
-                  <option value="Masculino">Masculino</option>
-                  <option value="Feminino">Feminino</option>
-                  <option value="Outros">Outros</option>
-
-                @endif
-            </select><span class="obrigatorio">*</span>
-        </div>
 
           <label class="col-md-1 control-label" for="coparticipante.parentesco" datatoggle="tooltip" title="Parentesco">Parent.</label>
             <div class="col-md-2">
@@ -69,13 +53,29 @@
             </div>
           </div>
         
-        {{-- CPF, Nascimento, Sexo e Bolsa Família --}}
+        {{-- Sexo, Nascimento, Bolsa familia e Renda bolsa Família --}}
         <div class="form-group">
 
-        {{-- CPF --}}
-        <label class="col-md-1 control-label" for="coparticipante[cpf]">CPF</label>  
-        <div class="col-md-2">
-          <input value="{{ $pessoa->coparticipante->cpf or "" }}" id="coparticipante[cpf]" name="coparticipante[cpf]" type="text" placeholder="999.999.999-99" data-inputmask="'mask': '999.999.999-99', 'numericInput': true" class="form-control input-md cpf"><span class="obrigatorio">*</span>
+        {{-- Sexo   --}}
+          <label class="col-md-1 control-label" for="coparticipante[sexo]">Sexo</label>
+          <div class="col-md-2">
+            <select id="coparticipante[sexo]" name="coparticipante[sexo]" type="text" class="form-control input-md">
+              <option value="" disabled selected>Selecione...</option>
+
+                @if(count($pessoa->coparticipante) > 0)
+    
+                  <option value="Masculino" @if($pessoa->coparticipante->sexo == "Masculino") selected="selected" @endif>Masculino</option>
+                  <option value="Feminino" @if($pessoa->coparticipante->sexo == "Feminino") selected="selected" @endif>Feminino</option>
+                  <option value="Outros" @if($pessoa->coparticipante->sexo == "Outros") selected="selected" @endif>Outros</option>
+
+                @else
+
+                  <option value="Masculino">Masculino</option>
+                  <option value="Feminino">Feminino</option>
+                  <option value="Outros">Outros</option>
+
+                @endif
+            </select><span class="obrigatorio">*</span>
         </div>
 
         {{-- Data de Nascimento --}}
@@ -85,7 +85,7 @@
         </div>
 
         {{-- Bolsa Família --}}            
-        <label class="col-md-1 control-label" for="bolsa_familia">Bolsa F.</label>  
+        <label class="col-md-1 control-label" for="bolsa_familia" data-toggle="tooltip" title="Co-participante possui bolsa família?">Bolsa F.</label>  
           <div class="col-md-2">
             <select id="coparticipante[bolsa_familia]" name="coparticipante[bolsa_familia]" type="text" class="form-control input-md" >
               <option value="">Selecione...</option>
@@ -104,12 +104,12 @@
             </select><span class="obrigatorio">*</span>
           </div>
           
-          {{-- Renda Familiar --}}
+          {{-- Renda bolsa familia --}}
           <div class="col-md-2">
-            <input value="{{ $pessoa->bolsa_renda }}" id="coparticipante[bolsa_renda]" name="coparticipante[bolsa_renda]" type="text" placeholder="R$ 99.999,99" data-inputmask="'mask': 'R$ 99.999,99', 'numericInput': true" class="form-control input-md cash">
+            <input value="{{ $pessoa->bolsa_renda }}" id="coparticipante[bolsa_renda]" name="coparticipante[bolsa_renda]" type="text" placeholder="R$ 99.999,99" data-inputmask="'mask': 'R$ 99.999,99', 'numericInput': true" class="form-control input-md cash" data-toggle="tooltip" title="Valor do bolsa família">
           </div>
 
-      </div> {{-- FIM CPF, Nascimento, Sexo e Bolsa Família --}}
+      </div> {{-- FIM Sexo, Nascimento, Bolsa familia e Renda bolsa Família --}}
 
 
       {{-- RG, Data de Emissão do RG, Orgão Emissor do RG --}}
@@ -122,13 +122,13 @@
         </div>
 
         <!-- Data de Emissão do RG-->
-        <label class="col-md-1 control-label" for="coparticipante[emissao_rg]">Emissão</label>  
+        <label class="col-md-1 control-label" for="coparticipante[emissao_rg]" data-toggle="tooltip" title="Data de emissão do RG">Emissão</label>  
         <div class="col-md-2">
-          <input value="{{ $pessoa->coparticipante->emissao_rg or "" }}" id="coparticipante[emissao_rg]" name="coparticipante[emissao_rg]" type="date" placeholder="Data de Emissão" class="form-control input-md global_data" >
+          <input value="{{ $pessoa->coparticipante->emissao_rg or "" }}" id="coparticipante[emissao_rg]" name="coparticipante[emissao_rg]" type="date" placeholder="Data de Emissão" class="form-control input-md global_data">
         </div>
 
         <!-- Orgão Emissor do RG-->
-        <label class="col-md-1 control-label" for="coparticipante[orgao_emissor_rg]">Orgão</label>  
+        <label class="col-md-1 control-label" for="coparticipante[orgao_emissor_rg]" data-toggle="tooltip" title="Orgão emissor do RG">Orgão</label>  
         <div class="col-md-2">
           <input value="{{ $pessoa->coparticipante->orgao_emissor_rg or "" }}" id="coparticipante[orgao_emissor_rg]" name="coparticipante[orgao_emissor_rg]" type="text" placeholder="Orgão Emissor" class="form-control input-md" >
         </div>
@@ -152,7 +152,7 @@
         </div>
         
         {{-- Deficiente --}}
-        <label class="col-md-1 control-label" for="necessidades_especiais" data-toggle="tooltip" title="Necessidades especias">Nesc.</label>
+        <label class="col-md-1 control-label" for="necessidades_especiais" data-toggle="tooltip" title="Portador de necessidade especial">Deficiente</label>
 
           <div class="col-md-2">
             <select id="necessidades_especiais_coparticipante" name="coparticipante[necessidades_especiais]" type="text" class="form-control input-md" >
@@ -298,14 +298,14 @@
         </div>
 
         {{-- Celular --}}
-        <label class="col-md-1 control-label" for="coparticipante[telefones][0][numero]">Celular</label>
+        <label class="col-md-1 control-label" for="coparticipante[telefones][0][numero]" data-toggle="tooltip" title="Celular ou Telefone">Cel/Tel</label>
         <div class="col-md-2">
           <input value="{{ $pessoa->coparticipante->telefones[0]->numero or ""}}" id="coparticipante[telefones][0][numero]" data-inputmask="'mask' : '(99) 99999-9999'" name="coparticipante[telefones][0][numero]" type="text" placeholder="(99) 9 9999-9999" class="form-control input-md celular"><span class="obrigatorio">*</span>
           <input type="hidden" value="Celular" name="coparticipante[telefones][0][tipo_telefone]">
         </div>
 
         {{-- Telefone --}}
-        <label class="col-md-1 control-label" for="coparticipante[telefones][1][numero]">Tel.</label>
+        <label class="col-md-1 control-label" for="coparticipante[telefones][1][numero]" data-toggle="tooltip" title="Telefone">Tel.</label>
         <div class="col-md-2">
           <input value="{{ $pessoa->coparticipante->telefones[1]->numero or "" }}" id="coparticipante[telefones][1][numero]" name="coparticipante[telefones][1][numero]" type="text" placeholder="(99) 9999-9999" data-inputmask="'mask': '(99) 9999-9999'" class="form-control input-md telefone">
           <input type="hidden" value="Fixo" name="coparticipante[telefones][1][tipo_telefone]">

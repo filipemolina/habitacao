@@ -20,22 +20,20 @@
 
         <div class="x_content">
         
+          {{-- CPF --}}    
+          <label class="col-md-1 control-label" for="cpf">CPF</label>  
+          <div class="col-md-2">
+            <input value="{{ $pessoa->cpf }}" id="cpf" name="cpf" type="text" placeholder="999.999.999-99" data-inputmask="'mask': '999.999.999-99', 'numericInput': true" class="form-control input-md cpf"><span class="obrigatorio">*</span>
+          </div>
+
           {{-- Nome --}}
           <div class="form-group">
             <label class="col-md-1 control-label" for="nome">Nome</label>
             <div class="col-md-5">
               <input value="{{ $pessoa->nome }}" id="nome" name="nome" type="text" placeholder="Informe o nome" class="form-control input-md nome">
             </div>
-          {{-- Sexo   --}}
-          <label class="col-md-1 control-label" for="sexo">Sexo</label>
-          <div class="col-md-2">
-            <select id="sexo" name="sexo" type="text" class="form-control input-md" >
-              <option value="" disabled selected>Selecione...</option>
-              <option value="Masculino" @if($pessoa->sexo == "Masculino") selected="selected" @endif>Masculino</option>
-              <option value="Feminino" @if($pessoa->sexo == "Feminino") selected="selected" @endif>Feminino</option>
-              <option value="Outros" @if($pessoa->sexo == "Outros") selected="selected" @endif>Outros</option>
-            </select><span class="obrigatorio">*</span>
-          </div>
+
+
 
             <div class="exibir">
               <label class="col-md-2 control-label" for="mulher_responsavel">Responsável familiar</label>
@@ -48,11 +46,16 @@
           {{-- CPF, Nascimento, Sexo e Bolsa Família --}}
           <div class="form-group">
 
-            {{-- CPF --}}      
-            <label class="col-md-1 control-label" for="cpf">CPF</label>  
-              <div class="col-md-2">
-                <input value="{{ $pessoa->cpf }}" id="cpf" name="cpf" type="text" placeholder="999.999.999-99" data-inputmask="'mask': '999.999.999-99', 'numericInput': true" class="form-control input-md cpf"><span class="obrigatorio">*</span>
-              </div>
+            {{-- Sexo   --}}
+          <label class="col-md-1 control-label" for="sexo">Sexo</label>
+          <div class="col-md-2">
+            <select id="sexo" name="sexo" type="text" class="form-control input-md" >
+              <option value="" disabled selected>Selecione...</option>
+              <option value="Masculino" @if($pessoa->sexo == "Masculino") selected="selected" @endif>Masculino</option>
+              <option value="Feminino" @if($pessoa->sexo == "Feminino") selected="selected" @endif>Feminino</option>
+              <option value="Outros" @if($pessoa->sexo == "Outros") selected="selected" @endif>Outros</option>
+            </select><span class="obrigatorio">*</span>
+          </div>
 
             {{-- Data de Nascimento --}}
             <label class="col-md-1 control-label" for="nascimento" data-toggle="tooltip" title="Data de nascimento">Nasc.</label>  
@@ -119,7 +122,7 @@
             </div>
 
             {{-- Deficiente --}}
-            <label class="col-md-1 control-label" for="necessidades_especiais" data-toggle="tooltip" title="Necessidades especias">Nesc.</label>
+            <label class="col-md-1 control-label" for="necessidades_especiais" data-toggle="tooltip" title="Portador de necessidade especial">Deficiente</label>
             <div class="col-md-2">
               <select id="necessidades_especiais" name="necessidades_especiais" type="text" class="form-control input-md" > 
                 <option value=" " disabled selected @if(!$pessoa->necessidades_especiais) selected @endif>Selecione...</option>

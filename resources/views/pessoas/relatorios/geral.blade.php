@@ -61,7 +61,7 @@
 					
 					@foreach($cabecalhos as $indice => $valor)
 						
-						<td style="border: 1px solid black; text-align: center">{{ $pessoa[$indice] }}</td>
+						<td style="border: 1px solid black; text-align: center; text-transform: uppercase;">{{ $pessoa[$indice] }}</td>
 
 					@endforeach
 

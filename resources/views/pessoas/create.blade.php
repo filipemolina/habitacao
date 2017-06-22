@@ -81,7 +81,7 @@
 
         <li>
           <label class="col-md-11 control-label" for="button2id">
-            <button id="button2id" type="reset" value="reset" name="button2id" data-toggle="tooltip" title="Limpar formulário" class="btn btn btn-lg-circulo btn-cor-perigo fa fa-times"></button>
+            <a data-toggle="tooltip" id="button2id" title="Retonar a lista de pessoas" class="btn btn btn-lg-circulo btn-cor-perigo fa fa-arrow-left" href="{{ url( "pessoas" ) }}"></a>
           </label>
         </li>
 
