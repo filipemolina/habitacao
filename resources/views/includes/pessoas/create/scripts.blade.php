@@ -197,10 +197,6 @@
 
             var input = $(this);
 
-            // Remover o Tooltip caso ele já tenha sido mostrado
-
-            $(input).tooltip("destroy");
-
             var cpf = $(this).val();
 
             // Verificar se o cpf foi preenchido completamente (não existe nenhum "_" )
@@ -214,6 +210,10 @@
                     if(data == 1)
                     {
                         $(input).tooltip("show");
+                    }
+                    else
+                    {
+                        $(input).tooltip("hide");
                     }
 
                 });
