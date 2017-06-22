@@ -139,7 +139,7 @@
 
                 <label>
                 
-                    <input value="PNE" name="cabecalhos[pne]" type="checkbox"> Necessidades Especiais
+                    <input value="Deficiência" name="cabecalhos[pne]" type="checkbox"> Deficiência
 
                 </label> <br>
 
