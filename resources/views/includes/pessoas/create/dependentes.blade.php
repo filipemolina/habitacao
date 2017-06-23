@@ -12,6 +12,12 @@
             <a class="collapse-link" data-toggle="tooltip" title="Reduzir / Expandir"><i class="fa fa-chevron-up btn btn-pn-circulo btn-cor-padrao"></i></a>
           </li>
 
+          <li>
+            <a name="submit" value="clonar" data-toggle="tooltip" title="Adicionar dependente" class="clonar">
+              <i class="fa fa-plus btn btn-pn-circulo btn-cor-padrao"></i>
+            </a>
+          </li>
+
         </ul>
 
         <div class="clearfix"></div>
