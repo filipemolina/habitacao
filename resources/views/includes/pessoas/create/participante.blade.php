@@ -8,6 +8,10 @@
             <ul class="nav navbar-right panel_toolbox">
             
               <li>
+                <a class="dropdown-toggle" data-toggle="tooltip" title="Adicionar coparticipante ou dependente"><i class="fa fa-user btn btn-pn-circulo btn-cor-padrao"></i></a>
+              </li>
+              
+              <li>
                 <a class="collapse-link" data-toggle="tooltip" title="Reduzir / Expandir"><i class="fa fa-chevron-up btn btn-pn-circulo btn-cor-padrao"></i></a>
               </li>
 

@@ -8,6 +8,10 @@
             <ul class="nav navbar-right panel_toolbox">
             
               <li>
+                <a class="remover" data-toggle="tooltip" title="Remover coparticipante"><i class="fa fa-times btn btn-pn-circulo btn-cor-perigo"></i></a>
+              <li>
+
+              <li>
                 <a class="collapse-link" data-toggle="tooltip" title="Reduzir / Expandir"><i class="fa fa-chevron-up btn btn-pn-circulo btn-cor-padrao"></i></a>
               <li>
 

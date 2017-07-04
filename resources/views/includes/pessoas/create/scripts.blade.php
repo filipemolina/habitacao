@@ -161,9 +161,18 @@
 
             cont++;
         });
+
+        // Remover Coparticipante, Dependentes
+        $('#co-participante, #dependentes').on('click', '.remover', function(e){
+
+            e.preventDefault();
+
+            $(this).parent().parent().parent().parent().remove();
+
+        })
         
         // Remover div clonada  
-        $("#dependentes").on("click", "button.excluir", function(e){
+        $("#dependentes").on("click", ".excluir", function(e){
 
           e.preventDefault();
 
