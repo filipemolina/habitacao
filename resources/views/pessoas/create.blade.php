@@ -99,6 +99,7 @@
   {{-- Switchery --}}
 
   <script src="{{ asset("vendors/switchery/dist/switchery.min.js") }}"></script>
+  <script src="../build/js/custom.min.js"></script>
   
   @include('includes.pessoas.create.scripts')
 

@@ -45,7 +45,7 @@ input, select { text-transform: uppercase; }
 
 .btn-cor-padrao {
     background-image: linear-gradient(to bottom, #8241f9, #4e277b);
-    border-color: #150a27 ;
+    border: none;
     color: #fff !important;
 }
 
@@ -384,4 +384,10 @@ div.x_content.dependente {
 
 .dataTable td {
     text-transform: uppercase !important;
+}
+
+.dropdown-menu {
+    background-color: transparent;
+    border: none !important;
+    
 }

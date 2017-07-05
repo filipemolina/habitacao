@@ -7,8 +7,14 @@
 
             <ul class="nav navbar-right panel_toolbox">
             
-              <li>
-                <a class="dropdown-toggle" data-toggle="tooltip" title="Adicionar coparticipante ou dependente"><i class="fa fa-user btn btn-pn-circulo btn-cor-padrao"></i></a>
+              <li class='dropdown'>
+                <a class="dropdown-toggle" data-toggle="dropdown" title="Adicionar coparticipante ou dependente"><i class="fa fa-user btn btn-pn-circulo btn-cor-padrao"></i></a>
+                <ul class="dropdown-menu" role="menu">
+                          <li><a href="#" class="btn btn-cor-padrao modal-content" style='text-align: left;'><i class='fa fa-user-plus'></i> Co-participante</a>
+                          </li>
+                          <li><a href="#" class="btn btn-cor-padrao modal-content" style='text-align: left;'><i class='fa fa-user-plus'></i> Dependentes</a>
+                          </li>
+                        </ul>
               </li>
               
               <li>
