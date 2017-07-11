@@ -115,7 +115,7 @@
             // Adicionar a classe clone e remover a classe panel_dependentes
 
             .addClass("clone_dependentes")
-            .removeClass("panel_dependentes")
+            .removeClass("panel_dependentes hide")
 
             // Mostrar o botão excluir
 
@@ -162,13 +162,112 @@
             cont++;
         });
 
-        // Remover Coparticipante, Dependentes
-        $('#co-participante, #dependentes').on('click', '.remover', function(e){
-
+        //Adicionar Coparticipante
+        $('#participante .addcoparticipante').click(function(e){
+            
             e.preventDefault();
 
-            $(this).parent().parent().parent().parent().remove();
+            $('#co-participante').removeClass('hide');
 
+
+        })
+
+        //Adicionar Dependente
+        $('#participante .adddependentes').click(function(e){
+            
+            e.preventDefault();
+
+            $('#dependentes').removeClass('hide');
+
+
+        })
+
+        // Remover Coparticipante c/ Sweet alert
+
+        $('#co-participante .remover').click(function(e){
+        swal({
+            title: "Atenção!",
+            text: "Você realmente deseja excluir o(a) co-participante ?",
+            type: "warning",
+            showCancelButton: true,
+            confirmButtonClass: "btn-cor-perigo modal-content",
+            confirmButtonText: "Sim, exclua!",
+            cancelButtonClass: "btn-cor-padrao modal-content",
+            cancelButtonText: "Cancelar",
+            confirmButtonClass: 'btn-cor-perigo modal-content',
+            closeOnConfirm: false,
+            closeOnCancel: false,
+        },
+        function(isConfirm){
+            if (isConfirm) {
+
+                e.preventDefault();
+
+                $('#co-participante').addClass('hide').find("input, select").val('');
+
+                swal({
+
+                          title : "Excluído!",
+                          text  : "O(a) co-participante foi excluído(a) do cadastro.",
+                          type  : "success",
+                          confirmButtonClass: "btn-cor-padrao modal-content"
+                      
+                      });
+            } else {
+
+                swal({
+                  title : "Cancelado",
+                  text: "O(a) co-participante  permanece no cadastro.",
+                  type : 'error',
+                  confirmButtonClass : "btn-cor-padrao modal-content",
+                });
+
+            }
+        })
+        })
+
+        // Remover Dependentes c/ Sweet alert
+
+        $('#dependentes .remover').click(function(e){
+        swal({
+            title: "Atenção!",
+            text: "Você realmente deseja excluir todos os dependentes ?",
+            type: "warning",
+            showCancelButton: true,
+            confirmButtonClass: "btn-cor-perigo modal-content",
+            confirmButtonText: "Sim, exclua!",
+            cancelButtonClass: "btn-cor-padrao modal-content",
+            cancelButtonText: "Cancelar",
+            confirmButtonClass: 'btn-cor-perigo modal-content',
+            closeOnConfirm: false,
+            closeOnCancel: false,
+        },
+        function(isConfirm){
+            if (isConfirm) {
+
+                e.preventDefault();
+
+                $('#dependentes').addClass('hide').find("input, select").val('');
+
+                swal({
+
+                          title : "Excluído!",
+                          text  : "Os dependentes foram excluídos do cadastro.",
+                          type  : "success",
+                          confirmButtonClass: "btn-cor-padrao modal-content"
+                      
+                      });
+            } else {
+
+                swal({
+                  title : "Cancelado",
+                  text: "Os dependentes  permanecem no cadastro.",
+                  type : 'error',
+                  confirmButtonClass : "btn-cor-padrao modal-content",
+                });
+
+            }
+        })
         })
         
         // Remover div clonada  
@@ -180,16 +279,6 @@
 
         });
 
-        // Limpar campos da div
-
-        // Limpar divs de Participanete e Co-participante
-        $(document).on("click", "a.limpar1", function(e){
-
-          e.preventDefault();
-
-          $(this).parent().parent().parent().parent().find("input, select").val('');
-
-        });
 
         // Limpar divs de Dependentes
         $(document).on("click", "a.limpar2", function(e){

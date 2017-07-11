@@ -93,6 +93,9 @@
   {{-- Switchery --}}
 
   <script src="{{ asset("vendors/switchery/dist/switchery.min.js") }}"></script>
+
+  {{-- Sweet Alert --}}
+  <script src="{{ asset("js/sweetalert.min.js") }}"></script>
   
   @include('includes.pessoas.create.scripts')
 

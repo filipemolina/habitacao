@@ -9,6 +9,10 @@
         <ul class="nav navbar-right panel_toolbox">
 
           <li>
+                <a class="remover" data-toggle="tooltip" title="Remover todos os dependentes"><i class="fa fa-times btn btn-pn-circulo btn-cor-perigo"></i></a>
+          </li>
+          
+          <li>
             <a name="submit" value="clonar" data-toggle="tooltip" title="Adicionar dependente" class="clonar">
               <i class="fa fa-plus btn btn-pn-circulo btn-cor-padrao"></i>
             </a>
@@ -154,7 +158,7 @@
 
         @empty
 
-            <div class="x_panel panel_dependentes">
+            <div class="x_panel panel_dependentes ">
         
               {{-- Nome --}}
               <div class="form-group">
@@ -231,7 +235,7 @@
             </div>  {{-- FIM Data de Nascimento, Sexo, Deficiente --}}
               
             <div class="col-md-11"></div>
-            <button name="submit" value="excluir" class="btn btn-xs btn-danger glyphicon glyphicon-trash excluir" selected style="display:none;"></button>
+            <button name="submit" value="excluir" data-toggle="tooltip" title="Remover dependente" class="btn btn-pn-circulo btn-cor-perigo excluir" selected style="display:none;"><i class="fa fa-times"></i></button>
 
           </div> {{-- FIM panel_dependentes --}}
 

@@ -9,10 +9,6 @@
         <ul class="nav navbar-right panel_toolbox">
 
           <li>
-                <a class="remover" data-toggle="tooltip" title="Remover todos os dependentes"><i class="fa fa-times btn btn-pn-circulo btn-cor-perigo"></i></a>
-          <li>
-
-          <li>
             <a name="submit" value="clonar" data-toggle="tooltip" title="Adicionar dependente" class="clonar">
               <i class="fa fa-plus btn btn-pn-circulo btn-cor-padrao"></i>
             </a>
@@ -30,7 +26,7 @@
       
       <div class="x_content">
         
-        <div class="x_panel panel_dependentes">
+        <div class="x_panel panel_dependentes hide">
       
           {{-- Nome --}}
           <div class="form-group">
