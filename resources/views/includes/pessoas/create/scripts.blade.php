@@ -167,7 +167,7 @@
             
             e.preventDefault();
 
-            $('#co-participante').removeClass('hide');
+            $('#co-participante').show().removeClass('animated zoomOutDown').addClass('animated zoomInDown');
 
 
         })
@@ -177,12 +177,12 @@
             
             e.preventDefault();
 
-            $('#dependentes').removeClass('hide');
+            $('#dependentes').show().removeClass('animated zoomOutDown').addClass('animated zoomInDown');
 
 
         })
 
-        // Remover Coparticipante c/ Sweet alert
+        // Ocultar div co-participante e limpar campos c/ Sweet alert
 
         $('#co-participante .remover').click(function(e){
         swal({
@@ -195,24 +195,24 @@
             cancelButtonClass: "btn-cor-padrao modal-content",
             cancelButtonText: "Cancelar",
             confirmButtonClass: 'btn-cor-perigo modal-content',
-            closeOnConfirm: false,
+            closeOnConfirm: true,
             closeOnCancel: false,
         },
         function(isConfirm){
             if (isConfirm) {
 
-                e.preventDefault();
+                // swal({
 
-                $('#co-participante').addClass('hide').find("input, select").val('');
-
-                swal({
-
-                          title : "Excluído!",
-                          text  : "O(a) co-participante foi excluído(a) do cadastro.",
-                          type  : "success",
-                          confirmButtonClass: "btn-cor-padrao modal-content"
+                //           title : "Excluído!",
+                //           text  : "O(a) co-participante foi excluído(a) do cadastro.",
+                //           type  : "success",
+                //           confirmButtonClass: "btn-cor-padrao modal-content"
                       
-                      });
+                //       });
+
+                e.preventDefault()
+
+                $('#co-participante').addClass('animated zoomOutDown').fadeOut(1000).find("input, select").val('')
             } else {
 
                 swal({
@@ -226,7 +226,7 @@
         })
         })
 
-        // Remover Dependentes c/ Sweet alert
+        // Ocultar div Dependentes e limpar campos c/ Sweet alert
 
         $('#dependentes .remover').click(function(e){
         swal({
@@ -247,7 +247,9 @@
 
                 e.preventDefault();
 
-                $('#dependentes').addClass('hide').find("input, select").val('');
+                $('#dependentes').addClass('animated zoomOutDown').fadeOut(1000).find("input, select").val('');
+                $('#dependentes .panel_dependentes').addClass('hide');
+                $('#dependentes .clone_dependentes').remove();
 
                 swal({
 
@@ -270,12 +272,20 @@
         })
         })
         
-        // Remover div clonada  
+        // Remover div clonada c/ Sweet Alert
         $("#dependentes").on("click", ".excluir", function(e){
 
           e.preventDefault();
 
-          $(this).parent().remove();
+          if {
+
+
+
+          } else {
+
+            $(this).parent().remove();
+            
+          }
 
         });
 
