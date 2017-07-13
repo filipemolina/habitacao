@@ -12,6 +12,10 @@
 
   <link rel="stylesheet" href="{{ asset("vendors/switchery/dist/switchery.css") }}">
 
+  {{-- Animate CSS --}}
+  
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/animate.css') }}">
+
 @endpush
 
 @section('main_container')

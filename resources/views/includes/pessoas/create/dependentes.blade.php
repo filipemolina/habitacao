@@ -93,11 +93,7 @@
             <div class="col-md-2">
 
               <select name="dependentes[0][tipo_deficiencia]" type="text" class="form-control tipo_deficiencia input-md" ><span class="obrigatorio">*</span>
-                <option value="" 
-                    @if(!old('dependentes.0.tipo_deficiencia')) 
-                        disabled selected 
-                    @endif>Tipos...
-                </option>
+                <option value="" disabled selected >Tipos...</option>
 
                 <option value="Microcefalia" 
                     @if(old('dependentes.0.tipo_deficiencia') == "Microcefalia") 
