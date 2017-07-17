@@ -130,7 +130,7 @@
           </div>
 
           <div class="col-md-2">
-            <select id="tipo_necessidade" name="tipo_deficiencia" type="text" class="form-control input-md" >
+            <select id="tipo_necessidade" name="tipo_deficiencia" type="text" class="form-control input-md" disabled>
               <option value="" 
                   @if(!old('tipo_deficiencia')) 
                       disabled selected 

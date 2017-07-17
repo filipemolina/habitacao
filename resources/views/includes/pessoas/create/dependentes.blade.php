@@ -15,7 +15,7 @@
           </li>
           
           <li>
-            <a class="collapse-link" data-toggle="tooltip" title="Reduzir / Expandir"><i class="fa fa-chevron-up btn btn-pn-circulo btn-cor-padrao"></i></a>
+            <a class="collapse-link removezoom" data-toggle="tooltip" title="Reduzir / Expandir"><i class="fa fa-chevron-up btn btn-pn-circulo btn-cor-padrao"></i></a>
           </li>
 
         </ul>
@@ -92,7 +92,7 @@
 
             <div class="col-md-2">
 
-              <select name="dependentes[0][tipo_deficiencia]" type="text" class="form-control tipo_deficiencia input-md" ><span class="obrigatorio">*</span>
+              <select name="dependentes[0][tipo_deficiencia]" type="text" class="form-control tipo_deficiencia input-md" disabled><span class="obrigatorio">*</span>
                 <option value="" disabled selected >Tipos...</option>
 
                 <option value="Microcefalia" 

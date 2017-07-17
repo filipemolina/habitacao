@@ -142,8 +142,8 @@
             </div>
 
             <div class="col-md-2">
-              <select id="tipo_necessidade" name="tipo_deficiencia" type="text" class="form-control input-md" >
-                <option value=" " disabled selected
+              <select id="tipo_necessidade" name="tipo_deficiencia" type="text" class="form-control input-md" disabled>
+                <option value="" disabled selected
                     @if(!is_null($pessoa->tipo_deficiencia)) 
                         selected 
                     @endif>Tipos...

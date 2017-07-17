@@ -110,7 +110,7 @@
             
             e.preventDefault();
 
-            $('#co-participante').show().removeClass('animated zoomOutDown').addClass('animated zoomInDown');
+            $('#co-participante').show().removeClass('animated fadeOut').addClass('animated fadeIn');
 
 
         })
@@ -145,7 +145,7 @@
 
                 e.preventDefault()
 
-                $('#co-participante').addClass('animated zoomOutDown').fadeOut(1000).find("input, select").val('')
+                $('#co-participante').addClass('animated fadeOut').fadeOut(1000).find("input, select").val('')
             } else {
 
                 // swal({
@@ -164,7 +164,7 @@
             
             e.preventDefault();
 
-            $('#dependentes').show().removeClass('animated zoomOutDown').addClass('animated zoomInDown');
+            $('#dependentes').show().removeClass('animated fadeOut').addClass('animated fadeIn');
 
 
         })
@@ -190,7 +190,7 @@
 
                 e.preventDefault();
 
-                $('#dependentes').addClass('animated zoomOutDown').fadeOut(1000).find("input, select").val('');
+                $('#dependentes').addClass('animated fadeOut').fadeOut(1000).find("input, select").val('');
                 $('#dependentes .clone_dependentes').remove();
 
                 // swal({
@@ -219,7 +219,8 @@
 
           e.preventDefault();
 
-          $(".panel_dependentes").clone().removeClass('animated zoomOutDown').fadeIn().addClass('animated zoomInDown').delay(500)
+          $(".panel_dependentes").clone().removeClass('animated fadeOut').fadeIn().addClass('animated fadeIn')
+
 
             // Adicionar a classe clone e remover a classe panel_dependentes
 
@@ -269,6 +270,11 @@
             // Incrementar o contador de dependentes
             cont++;
         });
+
+        //Remove animação de criação para funcionar apenas uma vez
+        $("#dependentes").on("click", ".removezoom", function(e){
+            $(".clone_dependentes").removeClass('animated fadeIn');
+        });
         
         // Remover div clonada c/ Sweet Alert
         $("#dependentes").on("click", ".excluir", function(e){
@@ -297,13 +303,13 @@
 
                 if ($(self).parent().hasClass('panel_dependentes')){
 
-                    $(self).parent().addClass('animated zoomOutDown').fadeOut(985).find('input, select').val('')
+                    $(self).parent().addClass('animated fadeOut').fadeOut(985).find('input, select').val('')
 
                     console.log('teste teste 1')
 
                 } else {
 
-                    $(self).parent().addClass('animated zoomOutDown').fadeOut(985).queue(function() { $(self).parent().remove(); })
+                    $(self).parent().addClass('animated fadeOut').fadeOut(985).queue(function() { $(self).parent().remove(); })
                 
                     console.log('teste teste 2',self)
                 }
@@ -462,12 +468,20 @@
 
         // Dependentes
 
-        if($("select.pne_dependentes").val() == 1)
-        {
-            $('select.pne_dependentes').parent().parent().find(".tipo_deficiencia").prop('disabled', false);
-        }
+        // $('.pne_dependentes').each(function(){
+        // if ($("select.pne_dependentes").val() == 1)
+        // {
+        //     $(this).parent().parent().find(".tipo_deficiencia").prop('disabled', false);
+        //     console.log('funciona1')
+        // }
+        // else
+        //     {
+        //         $(this).parent().parent().find(".tipo_deficiencia").prop('disabled', true);
+        //         console.log('funciona2')
+        //     }
+        // })
 
-        $("body").on("change", "select.pne_dependentes", function(){
+        $("#dependentes").on("change", "select.pne_dependentes", function(){
 
             if($(this).val() == 1)
             {

@@ -19,7 +19,7 @@
           </li>
           
           <li>
-            <a class="collapse-link" data-toggle="tooltip" title="Reduzir / Expandir">
+            <a class="collapse-link removezoom" data-toggle="tooltip" title="Reduzir / Expandir">
               <i class="fa fa-chevron-up btn btn-pn-circulo btn-cor-padrao"></i>
             </a>
           </li>
@@ -101,7 +101,7 @@
 
               <div class="col-md-2">
 
-              <select name="dependentes[{{ $i }}][tipo_deficiencia]" type="text" class="form-control tipo_deficiencia input-md" disabled = true ><span class="obrigatorio">*</span>
+              <select name="dependentes[{{ $i }}][tipo_deficiencia]" type="text" class="form-control tipo_deficiencia input-md" disabled><span class="obrigatorio">*</span>
                 <option value="" 
                     @if(is_null($dependente->tipo_deficiencia))
                        disabled selected 

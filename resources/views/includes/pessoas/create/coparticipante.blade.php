@@ -144,7 +144,7 @@
           </div>
 
         <div class="col-md-2">
-            <select id="tipo_necessidade_coparticipante" name="coparticipante[tipo_deficiencia]" type="text" class="form-control input-md" >
+            <select id="tipo_necessidade_coparticipante" name="coparticipante[tipo_deficiencia]" type="text" class="form-control input-md" disabled>
               <option value="" 
                   @if(!old('coparticipante.tipo_deficiencia')) 
                       disabled selected
