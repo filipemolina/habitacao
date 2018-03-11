@@ -1,5 +1,15 @@
-# Balcão de Empregos
+# Programa Habitacional
 
-Sistema de cadastro de munícipes atualmente desempregados. Coleta todas as informações de trabalho dos usuários, formação, currículo, bem como informações socialmente relevantes para gerar um cadastro que pode ser acessado por empresas parceiras da Prefeitura Municipal de Mesquita no momento em que necessitem de mão de obra.
+Cadastro municipal de pessoas que ainda não possuem suas casas próprias.
 
-Desenvolvido utilizando [Laravel](https://laravel.com/) e o tema gratuito para Bootstrap [Gentellela](https://github.com/puikinsh/gentelella)
+## Objetivo 
+
+Criar um cadastro que leve em consideração fatores sociais como renda, se a pessoa é portadora de necessidades especiais, se é mulher chefe de família, idoso, etc., para que essas populações sejam atendidas por programas habitacionais do Governo Federal e mapear as áreas da cidade mais carentes de novas casas para que empresas do ramo de construção sejam devidamente direcionadas.
+
+## Equipe
+
+Esse projeto foi desenvolvido pela Equipe de Desenvolvimento da Subsecretaria de Tecnologia da Informação da Prefeitura Municipal de Mesquita
+
+## Ferramentas
+
+Esse projeto utiliza [Laravel](https://laravel.com/) e o tema [Gentellela](https://github.com/puikinsh/gentelella)
