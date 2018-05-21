@@ -89,7 +89,7 @@ class ParticipantesController extends Controller
 
             'nome'                                  => 'required',
             'cpf'                                   => 'required|unique:participantes',
-            'nascimento'                            => 'date',
+            'nascimento'                            => 'date|required',
             'sexo'                                  => 'required',
             'necessidades_especiais'                => 'required',
             'endereco.cep'                          => 'required',
