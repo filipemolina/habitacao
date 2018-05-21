@@ -104,18 +104,128 @@
         // Tooltip do CPF
 
         $("input#cpf, input#coparticipante\\[cpf\\]").tooltip({ trigger : "manual" });
-      
-       // Clonar div panel_dependentes
+
+        //Adicionar DIV Co-participante
+        $('#participante .addcoparticipante').click(function(e){
+            
+            e.preventDefault();
+
+            $('#co-participante').show().removeClass('animated fadeOut').addClass('animated fadeIn');
+
+
+        })
+
+        // Ocultar div co-participante e limpar campos c/ Sweet alert
+
+        $('#co-participante .remover').click(function(e){
+        swal({
+            title: "Atenção!",
+            text: "Você realmente deseja excluir o(a) co-participante ?",
+            type: "warning",
+            showCancelButton: true,
+            confirmButtonClass: "btn-cor-perigo modal-content",
+            confirmButtonText: "Sim, exclua!",
+            cancelButtonClass: "btn-cor-padrao modal-content",
+            cancelButtonText: "Cancelar",
+            confirmButtonClass: 'btn-cor-perigo modal-content',
+            closeOnConfirm: true,
+            closeOnCancel: true,
+        },
+        function(isConfirm){
+            if (isConfirm) {
+
+                // swal({
+
+                //           title : "Excluído!",
+                //           text  : "O(a) co-participante foi excluído(a) do cadastro.",
+                //           type  : "success",
+                //           confirmButtonClass: "btn-cor-padrao modal-content"
+                      
+                //       });
+
+                e.preventDefault()
+
+                $('#co-participante').addClass('animated fadeOut').fadeOut(1000).find("input, select").val('')
+            } else {
+
+                // swal({
+                //   title : "Cancelado",
+                //   text: "O(a) co-participante  permanece no cadastro.",
+                //   type : 'error',
+                //   confirmButtonClass : "btn-cor-padrao modal-content",
+                // });
+
+            }
+        })
+        })
+
+        //Adicionar DIV Dependentes
+        $('#participante .adddependentes').click(function(e){
+            
+            e.preventDefault();
+
+            $('#dependentes').show().removeClass('animated fadeOut').addClass('animated fadeIn');
+
+
+        })
+
+        // Ocultar div Dependentes e limpar campos c/ Sweet alert
+
+        $('#dependentes .remover').click(function(e){
+        swal({
+            title: "Atenção!",
+            text: "Você realmente deseja excluir todos os dependentes ?",
+            type: "warning",
+            showCancelButton: true,
+            confirmButtonClass: "btn-cor-perigo modal-content",
+            confirmButtonText: "Sim, exclua!",
+            cancelButtonClass: "btn-cor-padrao modal-content",
+            cancelButtonText: "Cancelar",
+            confirmButtonClass: 'btn-cor-perigo modal-content',
+            closeOnConfirm: true,
+            closeOnCancel: true,
+        },
+        function(isConfirm){
+            if (isConfirm) {
+
+                e.preventDefault();
+
+                $('#dependentes').addClass('animated fadeOut').fadeOut(1000).find("input, select").val('');
+                $('#dependentes .clone_dependentes').remove();
+
+                // swal({
+
+                //           title : "Excluído!",
+                //           text  : "Os dependentes foram excluídos do cadastro.",
+                //           type  : "success",
+                //           confirmButtonClass: "btn-cor-padrao modal-content"
+                      
+                //       });
+            } else {
+
+                // swal({
+                //   title : "Cancelado",
+                //   text: "Os dependentes  permanecem no cadastro.",
+                //   type : 'error',
+                //   confirmButtonClass : "btn-cor-padrao modal-content",
+                // });
+
+            }
+        })
+        })
+
+        // Clonar div panel_dependentes
         $(".clonar").click(function(e){
 
           e.preventDefault();
 
-          $(".panel_dependentes").clone()
+          $(".panel_dependentes").clone().removeClass('animated fadeOut').fadeIn().addClass('animated fadeIn')
+
 
             // Adicionar a classe clone e remover a classe panel_dependentes
 
             .addClass("clone_dependentes")
-            .removeClass("panel_dependentes")
+            .removeClass("panel_dependentes hide")
 
             // Mostrar o botão excluir
 
@@ -158,29 +268,74 @@
                 .find("option:first-child").attr('selected', true);
 
             // Incrementar o contador de dependentes
-
             cont++;
         });
+
+        //Remove animação de criação para funcionar apenas uma vez
+        $("#dependentes").on("click", ".removezoom", function(e){
+            $(".clone_dependentes").removeClass('animated fadeIn');
+        });
         
-        // Remover div clonada  
-        $("#dependentes").on("click", "button.excluir", function(e){
+        // Remover div clonada c/ Sweet Alert
+        $("#dependentes").on("click", ".excluir", function(e){
 
-          e.preventDefault();
+            var self = this;
 
-          $(this).parent().remove();
+            e.preventDefault();
 
-        });
+            swal({
+            title: "Atenção!",
+            text: "Você realmente deseja excluir o(a) dependente ?",
+            type: "warning",
+            showCancelButton: true,
+            confirmButtonClass: "btn-cor-perigo modal-content",
+            confirmButtonText: "Sim, exclua!",
+            cancelButtonClass: "btn-cor-padrao modal-content",
+            cancelButtonText: "Cancelar",
+            confirmButtonClass: 'btn-cor-perigo modal-content',
+            closeOnConfirm: true,
+            closeOnCancel: true,
+        },
+        function(isConfirm){
+            if (isConfirm) {
 
-        // Limpar campos da div
+                $(self).tooltip( "destroy" )
 
-        // Limpar divs de Participanete e Co-participante
-        $(document).on("click", "a.limpar1", function(e){
+                if ($(self).parent().hasClass('panel_dependentes')){
 
-          e.preventDefault();
+                    $(self).parent().addClass('animated fadeOut').fadeOut(985).find('input, select').val('')
 
-          $(this).parent().parent().parent().parent().find("input, select").val('');
+                    console.log('teste teste 1')
 
-        });
+                } else {
+
+                    $(self).parent().addClass('animated fadeOut').fadeOut(985).queue(function() { $(self).parent().remove(); })
+                
+                    console.log('teste teste 2',self)
+                }
+
+                // swal({
+                //           title : "Excluído!",
+                //           text  : "Os dependentes foram excluídos do cadastro.",
+                //           type  : "success",
+                //           confirmButtonClass: "btn-cor-padrao modal-content"
+                      
+                //       });
+            } else {
+
+                $(self).tooltip( "destroy" )
+
+                // swal({
+                //   title : "Cancelado",
+                //   text: "Os dependentes  permanecem no cadastro.",
+                //   type : 'error',
+                //   confirmButtonClass : "btn-cor-padrao modal-content",
+                // });
+
+            }
+        })
+        })
+
 
         // Limpar divs de Dependentes
         $(document).on("click", "a.limpar2", function(e){
@@ -284,6 +439,8 @@
 
         //////////////////////////////////// Ativar ou desativar o campo "tipo de deficiência"
 
+        
+        // Participante
         $("select#necessidades_especiais").change(function(){ 
 
             if($(this).val() == 1)
@@ -295,6 +452,7 @@
                 $("#tipo_necessidade").prop("disabled", true); 
         });
 
+        // Co-participante
         $("select#necessidades_especiais_coparticipante").change(function(){
 
             if($(this).val() == 1)
@@ -308,15 +466,32 @@
 
         });
 
-        $("body").on("change", "select.pne_dependentes", function(){
+        // Dependentes
+
+        // $('.pne_dependentes').each(function(){
+        // if ($("select.pne_dependentes").val() == 1)
+        // {
+        //     $(this).parent().parent().find(".tipo_deficiencia").prop('disabled', false);
+        //     console.log('funciona1')
+        // }
+        // else
+        //     {
+        //         $(this).parent().parent().find(".tipo_deficiencia").prop('disabled', true);
+        //         console.log('funciona2')
+        //     }
+        // })
+
+        $("#dependentes").on("change", "select.pne_dependentes", function(){
 
             if($(this).val() == 1)
             {
                 $(this).parent().parent().find(".tipo_deficiencia").prop('disabled', false);
+                console.log('funciona1')
             }
             else
             {
                 $(this).parent().parent().find(".tipo_deficiencia").prop('disabled', true);
+                console.log('funciona2')
             }
 
         });

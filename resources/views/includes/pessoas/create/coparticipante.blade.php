@@ -9,7 +9,7 @@
             
               <li>
                 <a class="collapse-link" data-toggle="tooltip" title="Reduzir / Expandir"><i class="fa fa-chevron-up btn btn-pn-circulo btn-cor-padrao"></i></a>
-              <li>
+              </li>
 
             </ul>
 
@@ -144,7 +144,7 @@
           </div>
 
         <div class="col-md-2">
-            <select id="tipo_necessidade_coparticipante" name="coparticipante[tipo_deficiencia]" type="text" class="form-control input-md" >
+            <select id="tipo_necessidade_coparticipante" name="coparticipante[tipo_deficiencia]" type="text" class="form-control input-md" disabled>
               <option value="" 
                   @if(!old('coparticipante.tipo_deficiencia')) 
                        selected

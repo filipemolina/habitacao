@@ -12,6 +12,10 @@
 
   <link rel="stylesheet" href="{{ asset("vendors/switchery/dist/switchery.css") }}">
 
+  {{-- Animate CSS --}}
+  
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/animate.css') }}">
+
 @endpush
 
 @section('main_container')
@@ -93,6 +97,9 @@
   {{-- Switchery --}}
 
   <script src="{{ asset("vendors/switchery/dist/switchery.min.js") }}"></script>
+
+  {{-- Sweet Alert --}}
+  <script src="{{ asset("js/sweetalert.min.js") }}"></script>
   
   @include('includes.pessoas.create.scripts')
 

@@ -6,11 +6,16 @@
           
           <h2> Co-Participante </h2>
 
+          
           <ul class="nav navbar-right panel_toolbox">
             
               <li>
-                <a class="collapse-link" data-toggle="tooltip" title="Reduzir / Expandir"><i class="fa fa-chevron-up btn btn-pn-circulo btn-cor-padrao"></i></a>
+                <a class="remover" data-toggle="tooltip" title="Remover coparticipante"><i class="fa fa-times btn btn-pn-circulo btn-cor-perigo"></i></a>
+              </li>
+
               <li>
+                <a class="collapse-link" data-toggle="tooltip" title="Reduzir / Expandir"><i class="fa fa-chevron-up btn btn-pn-circulo btn-cor-padrao"></i></a>
+              </li>
 
           </ul>
 
@@ -156,6 +161,7 @@
 
           <div class="col-md-2">
             <select id="necessidades_especiais_coparticipante" name="coparticipante[necessidades_especiais]" type="text" class="form-control input-md" >
+
               <option value=" " selected="">Selecione...</option>
 
               @if(count($pessoa->coparticipante) > 0)

@@ -9,13 +9,13 @@
         <ul class="nav navbar-right panel_toolbox">
 
           <li>
-            <a class="collapse-link" data-toggle="tooltip" title="Reduzir / Expandir"><i class="fa fa-chevron-up btn btn-pn-circulo btn-cor-padrao"></i></a>
-          </li>
-
-          <li>
             <a name="submit" value="clonar" data-toggle="tooltip" title="Adicionar dependente" class="clonar">
               <i class="fa fa-plus btn btn-pn-circulo btn-cor-padrao"></i>
             </a>
+          </li>
+          
+          <li>
+            <a class="collapse-link removezoom" data-toggle="tooltip" title="Reduzir / Expandir"><i class="fa fa-chevron-up btn btn-pn-circulo btn-cor-padrao"></i></a>
           </li>
 
         </ul>
@@ -26,7 +26,7 @@
       
       <div class="x_content">
         
-        <div class="x_panel panel_dependentes">
+        <div class="x_panel panel_dependentes hide">
       
           {{-- Nome --}}
           <div class="form-group">
@@ -140,7 +140,7 @@
         </div> {{-- FIM Data de Nascimento, Sexo, Necessidades especias --}}
           
         <div class="col-md-11"></div>
-        <button name="submit" value="excluir" data-toggle="tooltip" title="Remover dependente" class="btn btn-circulo btn-cor-perigo glyphicon glyphicon-trash excluir" selected style="display:none;"></button>
+        <button name="submit" value="excluir" data-toggle="tooltip" title="Remover dependente" class="btn btn-pn-circulo btn-cor-perigo excluir" selected style="display:none;"><i class="fa fa-times"></i></button>
 
         </div> {{-- FIM panel_dependentes --}}
 

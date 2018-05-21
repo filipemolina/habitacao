@@ -8,11 +8,21 @@
 
           <ul class="nav navbar-right panel_toolbox">
             
+              <li class='dropdown'>
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" title="Adicionar coparticipante ou dependente"><i class="fa fa-user btn btn-pn-circulo btn-cor-padrao"></i></a>
+                <ul class="dropdown-menu" role="menu">
+                          <li><a href="#" class="addcoparticipante btn btn-cor-padrao modal-content" style='text-align: left;'><i class='fa fa-user-plus'></i> Co-participante</a>
+                          </li>
+                          <li><a href="#" class="adddependentes btn btn-cor-padrao modal-content" style='text-align: left;'><i class='fa fa-user-plus'></i> Dependentes</a>
+                          </li>
+                </ul>
+              </li>
+              
               <li>
                 <a class="collapse-link" data-toggle="tooltip" title="Reduzir / Expandir"><i class="fa fa-chevron-up btn btn-pn-circulo btn-cor-padrao"></i></a>
-              <li>
+              </li>
 
-          </ul>
+            </ul>
 
             <div class="clearfix"></div>
 
@@ -132,8 +142,8 @@
             </div>
 
             <div class="col-md-2">
-              <select id="tipo_necessidade" name="tipo_deficiencia" type="text" class="form-control input-md" >
-                <option value=" " disabled selected
+              <select id="tipo_necessidade" name="tipo_deficiencia" type="text" class="form-control input-md" disabled>
+                <option value="" disabled selected
                     @if(!is_null($pessoa->tipo_deficiencia)) 
                         selected 
                     @endif>Tipos...

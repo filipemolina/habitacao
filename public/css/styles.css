@@ -20,6 +20,7 @@ input, select { text-transform: uppercase; }
     line-height: 1.428571428;
     border-radius: 15px;
     border-width: 0;
+    box-shadow: 0 5px 15px rgba(0,0,0,.5);
 }
 
 .btn-pn-circulo {
@@ -31,6 +32,7 @@ input, select { text-transform: uppercase; }
     line-height: 1,3;
     border-radius: 11px;
     border-width: 0;
+    box-shadow: 0 3px 9px rgba(0,0,0,.5);
 }
 
 .btn-lg-circulo {
@@ -41,11 +43,12 @@ input, select { text-transform: uppercase; }
     line-height: 1.06;
     border-radius: 20px;
     border-width: 0;
+    box-shadow: 2px 7px 15px rgba(0,0,0,.5);
 }
 
 .btn-cor-padrao {
     background-image: linear-gradient(to bottom, #8241f9, #4e277b);
-    border-color: #150a27 ;
+    border: none;
     color: #fff !important;
 }
 
@@ -65,7 +68,7 @@ input, select { text-transform: uppercase; }
 
 .btn-cor-perigo {
     background-image: linear-gradient(to bottom, #f54a44, #a3190f);
-    border-color: #9e1000;
+    border: none;
     color: #fff !important;
 }
 
@@ -384,4 +387,10 @@ div.x_content.dependente {
 
 .dataTable td {
     text-transform: uppercase !important;
+}
+
+.dropdown-menu {
+    background-color: transparent;
+    border: none !important;
+    
 }
