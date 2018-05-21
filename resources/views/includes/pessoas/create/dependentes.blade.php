@@ -41,7 +41,7 @@
 
             <div class="col-md-2">
               <select name="dependentes[0][parentesco]" id="dependentes[0][parentesco]" type="text" placeholder="Necessidades Especiais" class="form-control input-md" > <span class="obrigatorio">*</span>
-                <option value="" disabled @if(!old('dependentes.0.parentesco')) selected @endif>Selecione...</option>
+                <option value=""  @if(!old('dependentes.0.parentesco')) selected @endif>Selecione...</option>
                 <option value="1" @if(old('dependentes.0.parentesco') == "1") selected="selected" @endif>Avô(ó)</option>
                 <option value="2" @if(old('dependentes.0.parentesco') == "2") selected="selected" @endif>Bisavô(ó)</option>
                 <option value="3" @if(old('dependentes.0.parentesco') == "3") selected="selected" @endif>Bisneto(a)</option>
@@ -72,7 +72,7 @@
           <label class="col-md-1 control-label" for="dependentes[0][sexo]">Sexo</label>
           <div class="col-md-2">
             <select name="dependentes[0][sexo]" id="dependentes[0][sexo]" type="text" placeholder="Sexo" class="form-control input-md">
-              <option value="" disabled @if(!old('dependentes.0.sexo')) selected @endif>Selecione...</option>
+              <option value=""  @if(!old('dependentes.0.sexo')) selected @endif>Selecione...</option>
               <option value="Masculino" @if(old('dependentes.0.sexo') == "Masculino") selected="selected" @endif>Masculino</option>
               <option value="Feminino" @if(old('dependentes.0.sexo') == "Feminino") selected="selected" @endif>Feminino</option>
               <option value="Outros" @if(old('dependentes.0.sexo') == "Outros") selected="selected" @endif>Outros</option>
@@ -84,7 +84,7 @@
           <label class="col-md-1 control-label" for="dependentes[0][necessidades_especiais]" data-toggle="tooltip" title="Portador de necessidade especial">Deficiente</label>
             <div class="col-md-2">
               <select name="dependentes[0][necessidades_especiais]" type="text" class="form-control pne_dependentes input-md" >
-                <option value="" disabled selected @if(!old('dependentes.0.necessidades_especiais')) selected @endif>Selecione...</option>
+                <option value=""  selected @if(!old('dependentes.0.necessidades_especiais')) selected @endif>Selecione...</option>
                 <option value="1" @if(old('dependentes.0.necessidades_especiais') == "1") selected="selected" @endif>Sim</option>
                 <option value="0" @if(old('dependentes.0.necessidades_especiais') == "0") selected="selected" @endif>Não</option>
               </select><span class="obrigatorio">*</span>
@@ -95,7 +95,7 @@
               <select name="dependentes[0][tipo_deficiencia]" type="text" class="form-control tipo_deficiencia input-md" ><span class="obrigatorio">*</span>
                 <option value="" 
                     @if(!old('dependentes.0.tipo_deficiencia')) 
-                        disabled selected 
+                         selected 
                     @endif>Tipos...
                 </option>
 

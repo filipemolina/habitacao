@@ -35,7 +35,7 @@
           <label class="col-md-1 control-label" for="coparticipante.parentesco" data-toggle="tooltip" title="Parentesco">Parent</label>
           <div class="col-md-2">
             <select name="coparticipante[parentesco]" id="coparticipante[parentesco]" type="text" placeholder="Necessidades Especiais" class="form-control input-md" >
-              <option value="" disabled @if(!old('coparticipante.parentesco')) selected @endif>Selecione...</option>
+              <option value="" @if(!old('coparticipante.parentesco')) selected @endif>Selecione...</option>
               <option value="1" @if(old('coparticipante.parentesco') == "1") selected="selected" @endif>Avô(ó)</option>
               <option value="2" @if(old('coparticipante.parentesco') == "2") selected="selected" @endif>Bisavô(ó)</option>
               <option value="3" @if(old('coparticipante.parentesco') == "3") selected="selected" @endif>Bisneto(a)</option>
@@ -62,7 +62,7 @@
         <label class="col-md-1 control-label" for="coparticipante[sexo]">Sexo</label>
         <div class="col-md-2">
           <select id="coparticipante[sexo]" name="coparticipante[sexo]" type="text" class="form-control input-md" >
-            <option value="" disabled @if(!old('coparticipante.sexo')) selected @endif>Selecione...</option>
+            <option value=""  @if(!old('coparticipante.sexo')) selected @endif>Selecione...</option>
             <option value="Masculino" @if(old('coparticipante.sexo') == "Masculino") selected="selected" @endif>Masculino</option>
             <option value="Feminino" @if(old('coparticipante.sexo') == "Feminino") selected="selected" @endif>Feminino</option>
             <option value="Outros" @if(old('coparticipante.sexo') == "Outros") selected="selected" @endif>Outros</option>
@@ -79,7 +79,7 @@
         <label class="col-md-1 control-label" for="bolsa_familia" data-toggle="tooltip" title="Co-participante possui bolsa família?">Bolsa F.</label>  
           <div class="col-md-2">
             <select id="bolsa_familia_coparticipante" name="coparticipante[bolsa_familia]" type="text" class="form-control input-md" >
-              <option value="" disabled selected>Selecione...</option>
+              <option value="" selected>Selecione...</option>
               <option value="1" @if(old('coparticipante.bolsa_familia') == "1") selected="selected" @endif >Possui</option>
               <option value="0" @if(old('coparticipante.bolsa_familia') == "0") selected="selected" @endif >Não possui</option>
             </select>
@@ -99,7 +99,7 @@
         <!-- RG-->            
         <label class="col-md-1 control-label" for="coparticipante[rg]">RG</label>
         <div class="col-md-2">
-          <input value="{{ old('coparticipante.rg') }}" id="coparticipante[rg]" name="coparticipante[rg]" type="text" placeholder="99.999.999-9" data-inputmask="'mask': '99.999.999-9', 'numericInput': true" class="form-control input-md rg" >
+          <input value="{{ old('coparticipante.rg') }}" id="coparticipante[rg]" name="coparticipante[rg]" type="text" placeholder="99.999.999-9" maxlength="20" class="form-control input-md rg" >
         </div>
 
         <!-- Data de Emissão do RG-->
@@ -123,7 +123,7 @@
         {{-- NIS/PIS --}}            
         <label class="col-md-1 control-label" for="coparticipante[nis]">NIS/PIS</label>  
         <div class="col-md-2">
-          <input value="{{ old('coparticipante.nis') }}" id="coparticipante[nis]" name="coparticipante[nis]" type="text" placeholder="999.999999.99-99" data-inputmask="'mask': '999.99999.99-9', 'numericInput': true" class="form-control input-md nis" >
+          <input value="{{ old('coparticipante.nis') }}" id="coparticipante[nis]" name="coparticipante[nis]" type="text" placeholder="999.999999.99-99" maxlength="20" class="form-control input-md nis" >
         </div>
 
         {{-- Carteira de Trabalho --}}            
@@ -137,7 +137,7 @@
 
           <div class="col-md-2">
             <select id="necessidades_especiais_coparticipante" name="coparticipante[necessidades_especiais]" type="text" class="form-control input-md" >
-              <option value="" disabled selected @if(!old('coparticipante.necessidades_especiais')) selected @endif>Selecione...</option>
+              <option value=""  selected @if(!old('coparticipante.necessidades_especiais')) selected @endif>Selecione...</option>
               <option value="1" @if(old('coparticipante.necessidades_especiais') == "1") selected="selected" @endif>Sim</option>
               <option value="0" @if(old('coparticipante.necessidades_especiais') == "0") selected="selected" @endif>Não</option>
             </select><span class="obrigatorio">*</span>
@@ -147,7 +147,7 @@
             <select id="tipo_necessidade_coparticipante" name="coparticipante[tipo_deficiencia]" type="text" class="form-control input-md" >
               <option value="" 
                   @if(!old('coparticipante.tipo_deficiencia')) 
-                      disabled selected
+                       selected
                   @endif>Tipos...
               </option>
 
@@ -209,7 +209,7 @@
         <!-- Município-->
         <label class="col-md-1 control-label" for="coparticipante[municipio]">Município</label>
         <div class="col-md-2">
-          <input value="{{ old('coparticipante.endereco.municipio') }}" disabled="disabled" id="coparticipante[endereco][municipio]" value="Mesquita" name="coparticipante[endereco][municipio]" type="text" placeholder="Mesquita" class="form-control input-md" >
+          <input value="{{ old('coparticipante.endereco.municipio') }}" ="" id="coparticipante[endereco][municipio]" value="Mesquita" name="coparticipante[endereco][municipio]" type="text" placeholder="Mesquita" class="form-control input-md" >
         </div>
 
         {{-- Bairro --}}
