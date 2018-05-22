@@ -48,7 +48,7 @@
           <label class="col-md-1 control-label" for="sexo">Sexo</label>
           <div class="col-md-2"> 
             <select id="sexo" name="sexo" type="text" class="form-control input-md" >
-              <option value="" disabled selected>Selecione...</option>
+              <option value=""  selected>Selecione...</option>
               <option value="Masculino" @if(old('sexo') == "Masculino") selected="selected" @endif>Masculino</option>
               <option value="Feminino" @if(old('sexo') == "Feminino") selected="selected" @endif>Feminino</option>
               <option value="Outros" @if(old('sexo') == "Outros") selected="selected" @endif>Outros</option>
@@ -65,7 +65,7 @@
           <label class="col-md-1 control-label" for="bolsa_familia" data-toggle="tooltip" title="Participante possui bolsa família?">Bolsa F.</label>  
           <div class="col-md-2">
               <select id="bolsa_familia" name="bolsa_familia" type="text" class="form-control input-md" > 
-              <option value="0" selected @if(!old('bolsa_familia')) disabled selected @endif>Selecione...</option>
+              <option value="0" selected @if(!old('bolsa_familia'))  selected @endif>Selecione...</option>
               <option value="1" @if(old('bolsa_familia') == "1") selected="selected" @endif>Sim</option>
               <option value="0" @if(old('bolsa_familia') == "0") selected="selected" @endif>Não</option>
             </select><span class="obrigatorio">*</span>
@@ -73,7 +73,7 @@
 
           {{-- Renda bolsa família --}}
           <div class="col-md-2">
-            <input value="{{ old('vr_bolsa') }}" disabled id="bolsa_renda" name="vr_bolsa" type="text" placeholder="R$ 99.999,99" data-inputmask="'mask': 'R$ 99.999,99', 'numericInput' : true" class="form-control input-md">
+            <input value="{{ old('vr_bolsa') }}"  id="bolsa_renda" name="vr_bolsa" type="text" placeholder="R$ 99.999,99" data-inputmask="'mask': 'R$ 99.999,99', 'numericInput' : true" class="form-control input-md">
           </div>
 
         </div> {{-- FIM CPF, NIS/PIS e Bolsa Família --}}
@@ -85,7 +85,7 @@
           <!-- RG-->            
           <label class="col-md-1 control-label" for="rg">RG</label>
           <div class="col-md-2">
-            <input value="{{ old('rg') }}" id="rg" name="rg" placeholder="99.999.999-9" data-inputmask="'mask': '99.999.999-9', 'numericInput': true" class="form-control input-md rg" >
+            <input value="{{ old('rg') }}" id="rg" name="rg" placeholder="99.999.999-9" maxlength="20" class="form-control input-md rg" >
           </div>
 
           <!-- Data de Emissão do RG-->
@@ -109,7 +109,7 @@
           {{-- NIS/PIS --}}            
           <label class="col-md-1 control-label" for="nis">NIS/PIS</label>  
           <div class="col-md-2">
-            <input value="{{ old('nis') }}" id="nis" name="nis" type="text" placeholder="999.999999.99-99" data-inputmask="'mask': '999.99999.99-9', 'numericInput': true" class="form-control input-md nis" >
+            <input value="{{ old('nis') }}" id="nis" name="nis" type="text" maxlength="20" placeholder="999.999999.99-99" class="form-control input-md nis" >
           </div>
 
           {{-- Carteira de Trabalho --}}            
@@ -123,7 +123,7 @@
           <label class="col-md-1 control-label" for="necessidades_especiais" data-toggle="tooltip" title="Portador de necessidade especial">Deficiente</label>
           <div class="col-md-2">
             <select id="necessidades_especiais" name="necessidades_especiais" type="text" class="form-control input-md" > 
-              <option value="" selected @if(!old('necessidades_especiais')) disabled selected @endif>Selecione...</option>
+              <option value="" selected @if(!old('necessidades_especiais'))  selected @endif>Selecione...</option>
               <option value="1" @if(old('necessidades_especiais') == "1") selected="selected" @endif>Sim</option>
               <option value="0" @if(old('necessidades_especiais') == "0") selected="selected" @endif>Não</option>
             </select><span class="obrigatorio">*</span>
@@ -133,7 +133,7 @@
             <select id="tipo_necessidade" name="tipo_deficiencia" type="text" class="form-control input-md" disabled>
               <option value="" 
                   @if(!old('tipo_deficiencia')) 
-                      disabled selected 
+                       selected 
                   @endif>Tipos...
               </option>
 
@@ -196,7 +196,7 @@
           <!-- Município-->
           <label class="col-md-1 control-label" for="municipio">Município</label>
           <div class="col-md-2">
-            <input value="{{ old('endereco.municipio') }}" disabled="disabled" id="municipio" name="endereco[municipio]" type="text" placeholder="Mesquita" value="Mesquita" class="form-control input-md" >
+            <input value="{{ old('endereco.municipio') }}" ="" id="municipio" name="endereco[municipio]" type="text" placeholder="Mesquita" value="Mesquita" class="form-control input-md" >
           </div>
 
           {{-- Bairro --}}

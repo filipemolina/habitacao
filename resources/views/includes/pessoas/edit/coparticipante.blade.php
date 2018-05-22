@@ -65,7 +65,7 @@
           <label class="col-md-1 control-label" for="coparticipante[sexo]">Sexo</label>
           <div class="col-md-2">
             <select id="coparticipante[sexo]" name="coparticipante[sexo]" type="text" class="form-control input-md">
-              <option value="" disabled selected>Selecione...</option>
+              <option value="" selected>Selecione...</option>
 
                 @if(count($pessoa->coparticipante) > 0)
     
@@ -161,7 +161,8 @@
 
           <div class="col-md-2">
             <select id="necessidades_especiais_coparticipante" name="coparticipante[necessidades_especiais]" type="text" class="form-control input-md" >
-              <option value="" disabled selected="">Selecione...</option>
+
+              <option value=" " selected="">Selecione...</option>
 
               @if(count($pessoa->coparticipante) > 0)
 
@@ -178,8 +179,8 @@
           </div>
 
         <div class="col-md-2">
-            <select id="tipo_necessidade_coparticipante" name="coparticipante[tipo_deficiencia]" type="text" class="form-control input-md" disabled>
-            <option value="" disabled selected="">Tipos...</option>
+            <select id="tipo_necessidade_coparticipante" name="coparticipante[tipo_deficiencia]" type="text" class="form-control input-md">
+            <option value="" selected="">Tipos...</option>
 
             @if(count($pessoa->coparticipante) > 0)
 

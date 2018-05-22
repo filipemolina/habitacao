@@ -178,7 +178,7 @@
 						</td>
 
 						<td>
-							<span class="bold">Necessidades Especiais: </span> {{ $participante->necessidades_especiais ? "Sim" : "Não" }}
+							<span class="bold">Necessidades Especiais: </span> {{ $participante->coparticipante->necessidades_especiais ? "Sim" : "Não" }}
 						</td>
 
 					</tr>

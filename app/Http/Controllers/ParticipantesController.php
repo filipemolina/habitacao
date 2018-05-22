@@ -89,7 +89,7 @@ class ParticipantesController extends Controller
 
             'nome'                                  => 'required',
             'cpf'                                   => 'required|unique:participantes',
-            'nascimento'                            => 'date',
+            'nascimento'                            => 'date|required',
             'sexo'                                  => 'required',
             'necessidades_especiais'                => 'required',
             'endereco.cep'                          => 'required',
@@ -607,11 +607,13 @@ class ParticipantesController extends Controller
 
         // Gerar o PDF        
 
-        $pdf = PDF::loadView('pessoas.relatorios.geral', compact(['pessoas', 'cabecalhos', 'nome_relatorio']));
+        //$pdf = PDF::loadView('pessoas.relatorios.geral', compact(['pessoas', 'cabecalhos', 'nome_relatorio']));
 
         // Enviar para o navegador
 
-        return $pdf->stream();
+        //return $pdf->stream();
+
+        return view('pessoas.relatorios.geral', compact(['pessoas', 'cabecalhos', 'nome_relatorio']));
     }
 
     /**
