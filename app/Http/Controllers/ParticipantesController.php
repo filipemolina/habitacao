@@ -68,8 +68,6 @@ class ParticipantesController extends Controller
      */
     public function create()
     {
-        // Mostrar tela de cadastro de Pessoas
-
         return view('pessoas.create');
     }
 
@@ -96,6 +94,7 @@ class ParticipantesController extends Controller
             'endereco.logradouro'                   => 'required',
             'endereco.numero'                       => 'required',
             'endereco.bairro'                       => 'required',
+            'endereco.municipio'                    => 'required',
             'renda_familiar'                        => 'required',
             'tempo_residencia'                      => 'date',
 
@@ -103,7 +102,7 @@ class ParticipantesController extends Controller
             // O campo nome é totalmente opcional. Entretanto, caso este seja preenchido
             // todos os campos abaixo se tornam obrigatórios
 
-            'coparticipante.nome'                   => 'required_with:coparticipante.cpf,coparticipante.bolsa_familia,coparticipante.rg,coparticipante.orgao_emissor_rg,coparticipante.emissao_rg,coparticipante.nascimento,coparticipante.sexo,coparticipante.necessidades_especiais,coparticipante.cep,coparticipante.logradouro,coparticipante.numero,coparticipante.bairro',
+            'coparticipante.nome'                   => 'required_with:coparticipante.cpf,coparticipante.bolsa_familia,coparticipante.rg,coparticipante.orgao_emissor_rg,coparticipante.emissao_rg,coparticipante.nascimento,coparticipante.sexo,coparticipante.necessidades_especiais,coparticipante.cep,coparticipante.logradouro,coparticipante.numero,coparticipante.bairro,coparticipante.municipio',
             'coparticipante.cpf'                    => 'required_with:coparticipante.nome|unique:coparticipantes,cpf',
             'coparticipante.nascimento'             => 'required_with:coparticipante.nome|date',
             'coparticipante.sexo'                   => 'required_with:coparticipante.nome',
@@ -112,6 +111,7 @@ class ParticipantesController extends Controller
             'coparticipante.endereco.logradouro'    => 'required_with:coparticipante.nome',
             'coparticipante.endereco.numero'        => 'required_with:coparticipante.nome',
             'coparticipante.endereco.bairro'        => 'required_with:coparticipante.nome',
+            'coparticipante.endereco.municipio'     => 'required_with:coparticipante.nome',
 
             // Dependentes
             'dependentes.*.nome'                    => 'required_with:dependentes.*.parentesco,dependentes.*.nascimento,dependentes.*.nascimento,dependentes.*.sexo,dependentes.*.necessidades_especiais',

@@ -20,7 +20,10 @@ class CreateEnderecosTable extends Migration
             $table->unsignedMediumInteger('numero');
             $table->string('complemento',10)->nullable();
             $table->char('cep',10);
-            $table->string('bairro',20);
+            $table->string('bairro',30);
+            $table->string('municipio',30);
+           /*  
+            $table->enum('bairro',['ALTO URUGUAI','BANCO DE AREIA','BNH','CENTRO','CHATUBA','COREIA','COSMORAMA','CRUZEIRO DO SUL','EDSON PASSOS','ERRO','JACUTINGA','PRES. JUSCELINO','ROCHA SOBRINHO','SANTO ELIAS','VILA EMIL','VILA NORMA']); */
             
             $table->integer('participante_id')->unsigned()->nullable();
             $table->integer('coparticipante_id')->unsigned()->nullable();

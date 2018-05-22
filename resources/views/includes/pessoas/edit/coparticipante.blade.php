@@ -262,10 +262,13 @@
           <input value="{{ $pessoa->coparticipante->endereco->municipio or "" }}" disabled="disabled" id="coparticipante[endereco][municipio]" value="Mesquita" name="coparticipante[municipio]" type="text" placeholder="Mesquita" class="form-control input-md" >
         </div>
 
+
         {{-- Bairro --}}
         <label class="col-md-1 control-label" for="coparticipante[bairro]">Bairro</label>
         <div class="col-md-2">
-          <input value="{{ $pessoa->coparticipante->endereco->bairro or ""}}" id="coparticipante[bairro]" name="coparticipante[endereco][bairro]" type="text" placeholder="Centro" class="form-control input-md"><span class="obrigatorio">*</span>
+          <input value="{{ $pessoa->coparticipante->endereco->bairro or ""}}" id="coparticipante[bairro]" type="text" placeholder="Centro" class="form-control input-md bairro-coparticipante" disabled> <span class="obrigatorio">*</span>
+
+          <input value="{{ $pessoa->coparticipante->endereco->bairro or ""}}" name="coparticipante[endereco][bairro]" type="hidden"  class="bairro-coparticipante">
         </div>
 
       </div> {{-- FIM CEP, Município e Bairro --}}            

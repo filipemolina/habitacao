@@ -205,17 +205,23 @@
               <input value="{{ $pessoa->endereco->cep }}" id="cep" name="endereco[cep]" type="text" placeholder="99999-999" data-inputmask="'mask': '99999-999', 'numericInput': true" class="form-control input-md cep"><span class="obrigatorio">*</span>
             </div>
 
-            <!-- Município-->
+            {{--  Município  --}}
             <label class="col-md-1 control-label" for="municipio">Município</label>
             <div class="col-md-2">
-              <input value="{{ $pessoa->endereco->municipio }}" disabled="disabled" id="municipio" name="endereco[municipio]" type="text" placeholder="Mesquita" value="Mesquita" class="form-control input-md" >
+              <input value="{{ $pessoa->endereco->municipio }}" id="municipio" name="" type="text" placeholder="Mesquita"  class="form-control input-md input-municipio" disabled>
+              
+              <input value="{{ $pessoa->endereco->municipio }}" name="endereco[municipio]" type="hidden" class="input-municipio">
             </div>
 
             {{-- Bairro --}}
             <label class="col-md-1 control-label" for="bairro">Bairro</label>
             <div class="col-md-2">
-              <input value="{{ $pessoa->endereco->bairro }}" id="bairro" name="endereco[bairro]" type="text" placeholder="Centro" class="form-control input-md"> <span class="obrigatorio">*</span>
+              <input value="{{ $pessoa->endereco->bairro }}" id="bairro" name="" type="text" placeholder="Centro" class="form-control input-md input-bairro" disabled> <span class="obrigatorio">*</span>
+
+              <input value="{{ $pessoa->endereco->bairro }}" name="endereco[bairro]" type="hidden" class="input-bairro"> 
             </div>
+
+
 
           </div> {{-- FIM CEP, Munícipio e Bairro--}}
 

@@ -393,15 +393,15 @@
 
                 if(id)
                 {
-                    $("input#logradouro").val(data.logradouro);
-                    $("input#bairro").val(data.bairro);
-                    $("input#municipio").val(data.localidade);
+                    $("input#logradouro").val(data.logradouro.toUpperCase());
+                    $("input.input-bairro").val(data.bairro.toUpperCase());
+                    $("input.input-municipio").val(data.localidade.toUpperCase());
                 }
                 else
                 {
-                    $("input#coparticipante\\[logradouro\\]").val(data.logradouro);
-                    $("input#coparticipante\\[bairro\\]").val(data.bairro);
-                    $("input#coparticipante\\[municipio\\]").val(data.localidade);
+                    $("input#coparticipante\\[logradouro\\]").val(data.logradouro.toUpperCase());
+                    $("input.bairro-coparticipante").val(data.bairro.toUpperCase());
+                    $("input.municipio-coparticipante").val(data.localidade.toUpperCase());
                 }
 
             });

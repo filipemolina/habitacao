@@ -206,16 +206,20 @@
           <input value="{{ old('coparticipante.endereco.cep') }}" id="coparticipante[cep]" name="coparticipante[endereco][cep]" type="text" placeholder="99999-999" data-inputmask="'mask': '99.999-999', 'numericInput': true" class="form-control input-md cep" > <span class="obrigatorio">*</span>
         </div>
 
-        <!-- Município-->
+        {{-- Município --}}
         <label class="col-md-1 control-label" for="coparticipante[municipio]">Município</label>
         <div class="col-md-2">
-          <input value="{{ old('coparticipante.endereco.municipio') }}" ="" id="coparticipante[endereco][municipio]" value="Mesquita" name="coparticipante[endereco][municipio]" type="text" placeholder="Mesquita" class="form-control input-md" >
+          <input value="{{ old('coparticipante.endereco.municipio') }}" id="coparticipante[endereco][municipio]" value="Mesquita" name="" type="text" placeholder="Mesquita" class="form-control input-md municipio-coparticipante" disabled>
+
+          <input value="{{ old('coparticipante.endereco.municipio') }}" name="coparticipante[endereco][municipio]" type="hidden"  class="municipio-coparticipante" >
         </div>
 
         {{-- Bairro --}}
         <label class="col-md-1 control-label" for="coparticipante[bairro]">Bairro</label>
         <div class="col-md-2">
-          <input value="{{ old('coparticipante.endereco.bairro') }}" id="coparticipante[bairro]" name="coparticipante[endereco][bairro]" type="text" placeholder="Centro" class="form-control input-md"> <span class="obrigatorio">*</span>
+          <input value="{{ old('coparticipante.endereco.bairro') }}" id="coparticipante[bairro]" type="text" placeholder="Centro" class="form-control input-md bairro-coparticipante" disabled> <span class="obrigatorio">*</span>
+
+          <input value="{{ old('coparticipante.endereco.bairro') }}" name="coparticipante[endereco][bairro]" type="hidden"  class="bairro-coparticipante">
         </div>
 
       </div> {{-- FIM CEP, Município e Bairro --}}            

@@ -1,7 +1,10 @@
 <div class="col-md-3 left_col color_special1">
     <div class="left_col scroll-view color_special1">
         <div class="navbar nav_title" style="border: 0;">
-           <a href="{{ url('/') }}" class="site_title"><i class="fa fa-home"></i> <span>Habitação</span></a>
+            <a href="{{ url('/') }}" class="site_title"><i class="fa fa-home"></i> 
+                <span>Habitação</span>
+                <span style="font-size: 10px">v1.1</span>
+            </a>
         </div>
         
         <div class="clearfix"></div>
