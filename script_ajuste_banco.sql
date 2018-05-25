@@ -90,3 +90,16 @@ update enderecos set municipio = "MESQUITA" where bairro = "SANTO ELIAS";
 update enderecos set municipio = "MESQUITA" where bairro = "VILA NORMA";
 update enderecos set municipio = "MESQUITA" where bairro = "COSMORAMA";
 COMMIT
+
+
+update participantes set nome                = upper(nome);
+update participantes set orgao_emissor_rg    = upper(orgao_emissor_rg);
+update participantes set bairro_preferencial = upper(bairro_preferencial);
+
+update coparticipantes set nome              = upper(nome);
+update coparticipantes set orgao_emissor_rg  = upper(orgao_emissor_rg);
+
+update enderecos set logradouro              = upper(logradouro);
+update enderecos set complemento             = upper(complemento);
+
+update dependentes set nome                  = upper(nome);

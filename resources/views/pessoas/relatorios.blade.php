@@ -74,6 +74,7 @@
                   <option value="sexo">Por Sexo</option>
                   <option value="dependentes">Por Dependentes</option>
                   <option value="bairro">Por Bairro</option>
+                  <option value="bairro_preferencial">Por Bairro Preferencial</option>
                   <option value="tipo_deficiencia">Por Tipo de Deficiência</option>
                   <option value="idosos">Por Participantes Idosos</option>
                   <option value="mulher_responsavel">Por Mulheres Chefes de Família</option>
@@ -176,6 +177,12 @@
                 <label>
                 
                     <input value="Bairro" name="cabecalhos[bairro]" type="checkbox"> Bairro
+
+                </label> <br>
+
+                <label>
+                
+                    <input value="Bairro Preferencial" name="cabecalhos[bairro_preferencial]" type="checkbox"> Bairro Preferencial
 
                 </label> <br>
 

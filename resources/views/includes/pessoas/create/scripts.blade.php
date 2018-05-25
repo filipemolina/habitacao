@@ -496,6 +496,13 @@
 
         });
 
+        // Colocar todos os campos em maiúscula
+        $("form#cadastro_pessoa").submit(function(){
+            $('input[type=text]').val (function () {
+                return this.value.toUpperCase();
+            });
+        });
+
     });
 
   </script>

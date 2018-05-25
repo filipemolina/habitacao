@@ -52,7 +52,7 @@
                 <label class="col-md-1 control-label" for="dependentes.0.parentesco" data-toggle='tooltip' title="Parentesco">Parent.</label>
                 <div class="col-md-2">
                   <select name="dependentes[{{ $i }}][parentesco]" id="dependentes[{{ $i }}][parentesco]" type="text" placeholder="Necessidades Especiais" class="form-control input-md" >
-                    <option value="" disabled>Selecione...</option>
+                    <option value="" >Selecione...</option>
                     <option value="1"  @if($dependente->parentesco == "Avós")  selected="selected" @endif>Avô(ó)</option>
                     <option value="2"  @if($dependente->parentesco == "Bisavós")  selected="selected" @endif>Bisavô(ó)</option>
                     <option value="3"  @if($dependente->parentesco == "Bisneto(a)")  selected="selected" @endif>Bisneto(a)</option>
@@ -93,7 +93,7 @@
               <label class="col-md-1 control-label" for="dependentes[{{ $i }}][necessidades_especiais]" data-toggle="tooltip" title="Portador de necessidade especial">Deficiente</label>
               <div class="col-md-2">
                 <select name="dependentes[{{ $i }}][necessidades_especiais]" id="dependentes[{{ $i }}][necessidades_especiais]" type="text" placeholder="Necessidades Especiais" class="form-control pne_dependentes input-md" >
-                  <option value="" disabled @if(!$dependente->necessidades_especiais) selected @endif>Selecione...</option>
+                  <option value=""  @if(!$dependente->necessidades_especiais) selected @endif>Selecione...</option>
                   <option value="1" @if($dependente->necessidades_especiais == "1") selected="selected" @endif>Sim</option>
                   <option value="0" @if($dependente->necessidades_especiais == "0") selected="selected" @endif>Não</option>
                 </select><span class="obrigatorio">*</span>

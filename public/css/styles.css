@@ -6,6 +6,8 @@ body {
 
 input, select { text-transform: uppercase; }
 
+#id{text-transform: uppercase;}
+
 .btn-entrar {
 	float:none !important; 
 	margin-left: 0px !important;
@@ -393,4 +395,12 @@ div.x_content.dependente {
     background-color: transparent;
     border: none !important;
     
+}
+
+.my-group .form-control{
+    width: 50%;
+}
+
+.my-group .form-control.select-tipo-telefone{
+    width: 45%;
 }

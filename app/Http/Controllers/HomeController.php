@@ -407,7 +407,9 @@ class HomeController extends Controller
 
         foreach($participantes as $participante)
         {
-            $inscricoes[$participante->endereco->bairro][] = $participante->id;
+            // Apenas participantes do municipio de Mesquita
+            if($participante->endereco->municipio == "MESQUITA")
+                $inscricoes[$participante->endereco->bairro][] = $participante->id;
         }
 
         // Iterar pelo vetor criado e somar o número de participantes por bairro

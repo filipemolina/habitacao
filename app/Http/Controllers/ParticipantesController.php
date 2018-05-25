@@ -195,7 +195,6 @@ class ParticipantesController extends Controller
             // Dependentes vazios entram na conta. Para evitar problemas com isso
             // o cadastro é feito apenas caso o dependente tenha um nome (o que por
             // sua vez ativa a obrigatoriedade das outras propriedades)
-
             if(isset($dependente['nome']) && $dependente['nome'] != '')
                 $participante->dependentes()->save(new Dependente($dependente));
         }
@@ -384,7 +383,7 @@ class ParticipantesController extends Controller
             );
 
             // Atualizar telefones
-
+            //dd($request->all());
             $participante->coparticipante->telefones()->delete();
 
             foreach($request->coparticipante['telefones'] as $telefone)
@@ -424,12 +423,17 @@ class ParticipantesController extends Controller
 
         foreach($dependentes_novos as $dependente)
         {
-            $participante->dependentes()->updateOrCreate(
-                ['participante_id' => $participante->id, 'nome' => $dependente['nome']],
-                $dependente
-            );
+            if($dependente['nome'] != '')
+            {
+                $participante->dependentes()->updateOrCreate(
+                    ['participante_id' => $participante->id, 'nome' => $dependente['nome']],
+                    $dependente
+                );
+            }
+
 
         }
+
 
         return redirect("/pessoas")->with('sucesso', "Participante alterado com sucesso");
 
@@ -587,16 +591,16 @@ class ParticipantesController extends Controller
 
         $titulo = [
 
-            'geral'              => "EM ORDEM ALFABÉTICA",
-            'faixa'              => "POR FAIXA DE INSCRIÇÃO",
-            'idade'              => "POR IDADE",
-            'sexo'               => "Por Sexo",
-            'dependentes'        => "Por Número de Dependentes",
-            'bairro'             => "Por Bairro",
-            'tipo_deficiencia'   => "Por Tipo de Deficiência",
-            'idosos'             => "de participantes idosos",
-            'mulher_responsavel' => "de Mulheres Chefes de Família",
-
+            'geral'               => "EM ORDEM ALFABÉTICA",
+            'faixa'               => "POR FAIXA DE INSCRIÇÃO",
+            'idade'               => "POR IDADE",
+            'sexo'                => "Por Sexo",
+            'dependentes'         => "Por Número de Dependentes",
+            'bairro'              => "Por Bairro",
+            'tipo_deficiencia'    => "Por Tipo de Deficiência",
+            'idosos'              => "de participantes idosos",
+            'mulher_responsavel'  => "de Mulheres Chefes de Família",
+            'bairro_preferencial' => "por Bairro Preferencial"
         ];
 
         $nome_relatorio = $titulo[$request->ordem_relatorio];
@@ -656,6 +660,9 @@ class ParticipantesController extends Controller
             return $this->incluirFaixaNaQuery($query)->get()->sortBy(function($participante){
                 return $participante->endereco->bairro;
             });
+
+        if($request->ordem_relatorio == 'bairro_preferencial')
+            return $this->incluirFaixaNaQuery($query)->orderByRaw('bairro_preferencial ASC, nome ASC')->get();
 
         // Relatório por tipo de deficiência
 
@@ -761,6 +768,10 @@ class ParticipantesController extends Controller
         // Bairro
         if(array_key_exists('bairro', $cabecalhos) !== false)
             $pessoa['bairro'] = $participante->endereco->bairro;
+
+        // Bairro Preferencial
+        if(array_key_exists('bairro_preferencial', $cabecalhos) !== false)
+            $pessoa['bairro_preferencial'] = $participante->bairro_preferencial;
 
         // Telefone Fixo
         if(array_key_exists('telefone_fixo', $cabecalhos) !== false)

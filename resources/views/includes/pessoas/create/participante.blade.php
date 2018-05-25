@@ -29,7 +29,7 @@
 				<div class="form-group">
 					<label class="col-md-1 control-label" for="nome">Nome</label>
 					<div class="col-md-5">
-						<input value="{{ old('nome') }}" id="nome" name="nome" type="text" placeholder="Informe o nome" class="form-control input-md nome" ><span class="obrigatorio">*</span>
+						<input value="{{ old('nome') }}" id="nome" name="nome" type="text" placeholder="Informe o nome" class="form-control input-md nome" onkeyup="javascript:this.value=this.value.toUpperCase()" ><span class="obrigatorio">*</span>
 					</div>
 					
 				{{-- Responsável familiar --}}
@@ -213,48 +213,80 @@
 
 					<!-- Logradouro ...Av...Rua....etc-->
 					<label class="col-md-1 control-label" for="logradouro" data-toggle="tooltip" title="Logradouro">Log.</label>
-					<div class="col-md-3">
+					<div class="col-md-5">
 						<input value="{{ old('endereco.logradouro') }}"  id="logradouro" name="endereco[logradouro]" type="text" placeholder="Av, Rua, Travessa..." class="form-control input-md"> <span class="obrigatorio">*</span>
 					</div>
 
 					<!-- Número da residência-->
 					<label class="col-md-1 control-label" for="numero">Número</label>
-					<div class="col-md-2">
+					<div class="col-md-1">
 						<input value="{{ old('endereco.numero') }}" id="numero" name="endereco[numero]" type="text" placeholder="999" class="form-control input-md"> <span class="obrigatorio">*</span>
 					</div>
 
 					{{-- Complemento --}}
-					<label class="col-md-2 control-label" for="complemento">Complemento</label>
-					<div class="col-md-3">
+					<label class="col-md-1 control-label" for="complemento">Complemento</label>
+					<div class="col-md-2">
 						<input value="{{ old('endereco.complemento') }}" id="complemento" name="endereco[complemento]" type="text" placeholder="Ap., Fundos,..." class="form-control input-md">
 					</div>
 
 				</div> {{-- FIM Logradouro, Número e Complemento --}}
 
-				{{-- Email , Celular e Telefone --}}
+				{{--Celular e Telefone --}}
 				<div class="form-group">
+					{{-- TELEFONE 1 --}}
+					<label class="col-md-1 control-label" for="telefones[0][numero]" data-toggle="tooltip" title="Celular">
+						Telefone 1 
+					</label>
+					<div class="col-md-3">
+						<div class="input-group my-group"> 
+							<select name="telefones[0][tipo_telefone]" class="form-control input-md select-tipo-telefone">
+								<option value="">---</option>
+								<option value="FIXO">Fixo</option>
+								<option value="CELULAR">Celular</option>
+							</select>
+							<input value="{{ old('telefones.0.numero') }}" id="telefones[0][numero]" name="telefones[0][numero]" type="text" placeholder="(99) 99999-9999" data-inputmask="'mask': '(99) 99999-9999'" class="form-control input-md celular">
+						</div>
+					</div>
 
-					{{-- Email --}}
+					{{-- TELEFONE 2 --}}
+					<label class="col-md-1 control-label" for="telefones[1][numero]" data-toggle="tooltip" title="Telefone">
+						Telefone 2
+					</label>
+					<div class="col-md-3">
+						<div class="input-group my-group"> 
+							<select name="telefones[1][tipo_telefone]" class="form-control input-md select-tipo-telefone">
+								<option value="">---</option>
+								<option value="FIXO">Fixo</option>
+								<option value="CELULAR">Celular</option>
+							</select>
+							<input value="{{ old('telefones.1.numero') }}" id="telefones[1][numero]"  name="telefones[1][numero]" type="text" placeholder="(99) 9999-9999" data-inputmask="'mask': '(99) 9999-9999'" class="form-control input-md celular">
+						</div>
+					</div>
+
+					{{-- TELEFONE 3 --}}
+					<label class="col-md-1 control-label" for="telefones[1][numero]" data-toggle="tooltip" title="Telefone">
+						Telefone 3
+					</label>
+					<div class="col-md-3">
+						<div class="input-group my-group"> 
+							<select name="telefones[2][tipo_telefone]" class="form-control input-md select-tipo-telefone">
+								<option value="">---</option>
+								<option value="FIXO">Fixo</option>
+								<option value="CELULAR">Celular</option>
+							</select>
+							<input value="{{ old('telefones.2.numero') }}" id="telefones[2][numero]"  name="telefones[2][numero]" type="text" placeholder="(99) 9999-9999" data-inputmask="'mask': '(99) 9999-9999'" class="form-control input-md celular">
+						</div>
+					</div>
+
+				</div> {{-- FIM  Celular e Telefone --}}
+
+				{{-- Email --}}
+				<div class="form-group">
 					<label class="col-md-1 control-label" for="email">E-mail</label>  
-					<div class="col-md-5">
+					<div class="col-md-6">
 						<input value="{{ old('email') }}" id="email" name="email" type="text" placeholder="email@servidor.com.br" class="form-control input-md email">
 					</div>
-
-					{{-- Celular --}}
-					<label class="col-md-1 control-label" for="telefones[0][numero]" data-toggle="tooltip" title="Celular">Cel.</label>
-					<div class="col-md-2">
-						<input value="{{ old('telefones.0.numero') }}" id="telefones[0][numero]" name="telefones[0][numero]" type="text" placeholder="(99) 99999-9999" data-inputmask="'mask': '(99) 99999-9999'" class="form-control input-md celular">
-						<input type="hidden" name="telefones[0][tipo_telefone]" value="Celular"><span class="obrigatorio">*</span>
-					</div>
-
-					{{-- Telefone --}}
-					<label class="col-md-1 control-label" for="telefones[1][numero]" data-toggle="tooltip" title="Telefone">Tel.</label>
-					<div class="col-md-2">
-						<input value="{{ old('telefones.1.numero') }}" id="telefones[1][numero]"  name="telefones[1][numero]" type="text" placeholder="(99) 9999-9999" data-inputmask="'mask': '(99) 9999-9999'" class="form-control input-md telefone">
-						<input type="hidden" name="telefones[1][tipo_telefone]" value="Fixo">
-					</div>
-
-				</div> {{-- FIM Email, Celular e Telefone --}}
+				</div>{{-- FIM Email --}}
 
 				</div> {{-- FIM x_content --}}
 

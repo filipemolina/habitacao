@@ -1,7 +1,7 @@
 <div class="col-md-6 col-sm-6 col-xs-12">
     <div class="x_panel tile fixed_height_320 overflow_hidden modal-content">
         <div class="x_title">
-            <h2>Inscrições por Bairro</h2>
+            <h2>Inscrições por Bairros de Mesquita</h2>
             <ul class="nav navbar-right panel_toolbox">
                 
                 <li>
@@ -25,7 +25,7 @@
             <table class="" style="width:100%">
                 <tr>
                     <th style="width:37%;">
-                        <p>Top 5</p>
+                       {{--   <p>Top 5</p>  --}}
                     </th>
                     <th>
                         <div class="col-lg-7 col-md-7 col-sm-7 col-xs-7">
