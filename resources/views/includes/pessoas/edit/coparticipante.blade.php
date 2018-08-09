@@ -67,7 +67,7 @@
 						<select id="coparticipante[sexo]" name="coparticipante[sexo]" type="text" class="form-control input-md">
 							<option value="" selected>Selecione...</option>
 
-								@if(count($pessoa->coparticipante) > 0)
+								@if($qtd_coparticipante) > 0)
 		
 									<option value="Masculino" @if($pessoa->coparticipante->sexo == "Masculino") selected="selected" @endif>Masculino</option>
 									<option value="Feminino" @if($pessoa->coparticipante->sexo == "Feminino") selected="selected" @endif>Feminino</option>
@@ -95,7 +95,7 @@
 						<select id="coparticipante[bolsa_familia]" name="coparticipante[bolsa_familia]" type="text" class="form-control input-md" >
 							<option value="">Selecione...</option>
 							
-							@if(count($pessoa->coparticipante) > 0)
+							@if($qtd_coparticipante) > 0)
 
 								<option value="1" @if($pessoa->coparticipante->bolsa_familia == "1") selected="selected" @endif >Possui</option>
 								<option value="0" @if($pessoa->coparticipante->bolsa_familia == "0") selected="selected" @endif >Não possui</option>
@@ -164,7 +164,7 @@
 
 							<option value=" " selected="">Selecione...</option>
 
-							@if(count($pessoa->coparticipante) > 0)
+							@if($qtd_coparticipante) > 0)
 
 								<option value="1" @if($pessoa->coparticipante->necessidades_especiais == "1") selected="selected" @endif>Sim</option>
 								<option value="0" @if($pessoa->coparticipante->necessidades_especiais == "0") selected="selected" @endif>Não</option>
@@ -182,7 +182,7 @@
 						<select id="tipo_necessidade_coparticipante" name="coparticipante[tipo_deficiencia]" type="text" class="form-control input-md">
 						<option value="" selected="">Tipos...</option>
 
-						@if(count($pessoa->coparticipante) > 0)
+						@if($qtd_coparticipante) > 0)
 
 							<option value=" " 
 									@if(is_null($pessoa->coparticipante->tipo_deficiencia)) 

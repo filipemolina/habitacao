@@ -249,7 +249,11 @@ class ParticipantesController extends Controller
     {
         $pessoa = Participante::with('endereco', 'telefones', 'coparticipante', 'coparticipante.endereco', 'coparticipante.telefones', 'dependentes')->where('id', $id)->first();
 
-        return view('pessoas.edit', compact('pessoa'));   
+        $qtd_coparticipante = count($pessoa->coparticipante);
+
+        //dd($qtd_coparticipante);
+        
+        return view('pessoas.edit', compact('pessoa','qtd_coparticipante'));   
     }
 
     /**
