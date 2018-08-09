@@ -249,8 +249,8 @@ class ParticipantesController extends Controller
     {
         $pessoa = Participante::with('endereco', 'telefones', 'coparticipante', 'coparticipante.endereco', 'coparticipante.telefones', 'dependentes')->where('id', $id)->first();
 
-        $qtd_coparticipante = count($pessoa->coparticipante);
-
+        $qtd_coparticipante = (is_array($pessoa->coparticipante) ? count($pessoa->coparticipante) : 0);
+        
         //dd($qtd_coparticipante);
         
         return view('pessoas.edit', compact('pessoa','qtd_coparticipante'));   
