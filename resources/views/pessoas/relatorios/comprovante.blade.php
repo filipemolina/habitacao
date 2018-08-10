@@ -121,7 +121,7 @@
 
 		{{-----------------------------------Informações do Coparticipante ------------------------------------}}
 
-		@if(count($participante->coparticipante) > 0)
+		@if($qtd_coparticipante) > 0)
 
 			<table style=" width: 100%; margin-top: 15px;">
 

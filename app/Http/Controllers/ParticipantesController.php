@@ -561,7 +561,9 @@ class ParticipantesController extends Controller
 
         $participante = Participante::with('coparticipante', 'telefones', 'endereco', 'dependentes', 'coparticipante.telefones', 'coparticipante.endereco')->where("id", $id)->first();
 
-        $pdf = PDF::loadView('pessoas.relatorios.comprovante', compact('participante'));
+        $qtd_coparticipante = (is_array($pessoa->coparticipante) ? count($pessoa->coparticipante) : 0);
+
+        $pdf = PDF::loadView('pessoas.relatorios.comprovante', compact('participante','$qtd_coparticipante'));
 
         return $pdf->stream();
 
