@@ -3,7 +3,7 @@
         <div class="navbar nav_title" style="border: 0;">
             <a href="{{ url('/') }}" class="site_title"><i class="fa fa-home"></i> 
                 <span>Habitação</span>
-                <span style="font-size: 10px">v1.1</span>
+                <span style="font-size: 10px">v1.2</span>
             </a>
         </div>
         

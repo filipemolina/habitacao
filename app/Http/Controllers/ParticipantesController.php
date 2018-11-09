@@ -402,10 +402,19 @@ class ParticipantesController extends Controller
 
             // Testar se o participante possui coparticipante, nesse caso, excluí-lo
 
+            //=======================================================================================================            
+            /* CORREÇÃO DO BUG DO PHP 7.2 -> count(): Parameter must be an array or an object that implements Countable
             if(count($participante->coparticipante))
             {
                 $participante->coparticipante->delete();
+            }*/        
+
+            $qtd_coparticipante = (is_array($participante->coparticipante) ? count($participante->coparticipante) : 0);
+            if($qtd_coparticipante > 0)
+            {
+                $participante->coparticipante->delete();
             }
+            //=======================================================================================================
         }
 
         $dependentes_novos = $request->dependentes ?: [];
